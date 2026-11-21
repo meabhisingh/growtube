@@ -1,0 +1,3 @@
+{
+  "extends": "@open-vidiq/config/tsconfig.base.json"
+}
