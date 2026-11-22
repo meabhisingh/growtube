@@ -1,0 +1,143 @@
+/*
+ * Styles for the extension's own pages (side panel, popup, options).
+ * Import this instead of assets/tailwind.css from those pages: it pulls in the
+ * Tailwind + shadcn theme and layers the open-vidiq brand on top.
+ */
+@import "../../assets/tailwind.css";
+
+@source "./";
+
+@theme inline {
+	--color-brand: var(--ovq-brand);
+	--color-brand-foreground: var(--ovq-brand-foreground);
+	--color-brand-soft: var(--ovq-brand-soft);
+	--color-surface: var(--ovq-surface);
+	--color-surface-2: var(--ovq-surface-2);
+}
+
+:root {
+	--ovq-brand: oklch(0.6 0.12 178);
+	--ovq-brand-foreground: oklch(0.99 0 0);
+	--ovq-brand-soft: oklch(0.6 0.12 178 / 12%);
+	--ovq-surface: oklch(0.985 0.002 250);
+	--ovq-surface-2: oklch(0.965 0.003 250);
+	--primary: oklch(0.52 0.11 178);
+	--primary-foreground: oklch(0.99 0 0);
+	--ring: oklch(0.6 0.12 178);
+
+	/* components/common (charts, markdown, copy button) */
+	--ovq-chart-color: oklch(0.6 0.12 178);
+	--ovq-chart-grid: oklch(0.5 0 0 / 12%);
+	--ovq-chart-axis: oklch(0.5 0 0);
+	--ovq-chart-tooltip-bg: oklch(0.2 0 0);
+	--ovq-chart-tooltip-fg: oklch(0.98 0 0);
+	--ovq-md-link: oklch(0.5 0.12 200);
+	--ovq-md-code-bg: oklch(0.5 0 0 / 10%);
+	--ovq-md-border: oklch(0.5 0 0 / 20%);
+	--ovq-md-muted: oklch(0.5 0 0);
+	--ovq-border: oklch(0.5 0 0 / 25%);
+}
+
+.dark {
+	--background: oklch(0.16 0.006 250);
+	--card: oklch(0.2 0.007 250);
+	--popover: oklch(0.21 0.007 250);
+	--muted: oklch(0.25 0.007 250);
+	--secondary: oklch(0.26 0.007 250);
+	--accent: oklch(0.3 0.008 250);
+	--border: oklch(1 0 0 / 9%);
+	--input: oklch(1 0 0 / 14%);
+	--primary: oklch(0.72 0.12 178);
+	--primary-foreground: oklch(0.18 0.02 180);
+	--ring: oklch(0.72 0.12 178);
+
+	--ovq-brand: oklch(0.72 0.12 178);
+	--ovq-brand-foreground: oklch(0.18 0.02 180);
+	--ovq-brand-soft: oklch(0.72 0.12 178 / 14%);
+	--ovq-surface: oklch(0.185 0.006 250);
+	--ovq-surface-2: oklch(0.22 0.007 250);
+
+	--ovq-chart-color: oklch(0.75 0.12 178);
+	--ovq-chart-grid: oklch(1 0 0 / 8%);
+	--ovq-chart-axis: oklch(0.7 0 0);
+	--ovq-chart-tooltip-bg: oklch(0.95 0 0);
+	--ovq-chart-tooltip-fg: oklch(0.15 0 0);
+	--ovq-md-link: oklch(0.78 0.11 200);
+	--ovq-md-code-bg: oklch(1 0 0 / 8%);
+	--ovq-md-border: oklch(1 0 0 / 14%);
+	--ovq-md-muted: oklch(0.72 0 0);
+	--ovq-border: oklch(1 0 0 / 16%);
+}
+
+html,
+body {
+	font-family:
+		"Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system,
+		"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Thin, theme-aware scrollbars (in a layer so utilities can override) */
+@layer base {
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: oklch(0.5 0 0 / 35%) transparent;
+	}
+}
+
+/* Number columns line up */
+.ovq-num {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Two-line clamp for video titles */
+.ovq-clamp-2 {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.ovq-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* Blinking caret while the coach streams */
+@keyframes ovq-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+.ovq-caret::after {
+	content: "";
+	display: inline-block;
+	width: 0.5em;
+	height: 1em;
+	margin-left: 2px;
+	vertical-align: -0.15em;
+	background: currentColor;
+	animation: ovq-blink 1s steps(1) infinite;
+}
+
+/* Markdown lists: Tailwind's preflight strips list markers */
+.ovq-md ol {
+	list-style: decimal;
+}
+.ovq-md ul {
+	list-style: disc;
+}
+.ovq-md li::marker {
+	color: var(--muted-foreground);
+}
+
+/* Range input accent */
+input[type="range"] {
+	accent-color: var(--ovq-brand);
+}

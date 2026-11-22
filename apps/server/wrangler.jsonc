@@ -1,0 +1,18 @@
+// Local development only (`pnpm dev:server`) — runs the Worker in workerd on
+// your machine, no Cloudflare account needed. Secrets/vars come from `.env`.
+// Production deploys go through Alchemy: packages/infra/alchemy.run.ts.
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "open-vidiq-server-dev",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"dev": {
+		"port": 3000
+	},
+	// Hourly stats refresh + snapshot pruning (see src/cron/refresh.ts).
+	// Trigger locally: curl "http://localhost:3000/__scheduled?cron=0+*+*+*+*"
+	"triggers": {
+		"crons": ["0 * * * *"]
+	}
+}

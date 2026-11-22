@@ -1,0 +1,1902 @@
+{
+	"estimatedResults": "3569960",
+	"contents": {
+		"twoColumnSearchResultsRenderer": {
+			"primaryContents": {
+				"sectionListRenderer": {
+					"contents": [
+						{
+							"itemSectionRenderer": {
+								"contents": [
+									{
+										"videoRenderer": {
+											"videoId": "rFZHOHl-L8A",
+											"thumbnail": {
+												"thumbnails": [
+													{
+														"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hq720.jpg?v=6ad62bed&sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLAvQ4rf_sYMdux1p1ObxxVXesAy0w",
+														"width": 360,
+														"height": 202
+													},
+													{
+														"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hq720.jpg?v=6ad62bed&sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLAWuRauLyqoHfmvuMYDmbjmeCREpw",
+														"width": 720,
+														"height": 404
+													}
+												]
+											},
+											"title": {
+												"runs": [
+													{
+														"text": "lofi hip hop radio 📚 beats to relax/study to"
+													}
+												],
+												"accessibility": {}
+											},
+											"longBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"viewCountText": {
+												"runs": [
+													{
+														"text": "14,348"
+													},
+													{
+														"text": " watching"
+													}
+												]
+											},
+											"navigationEndpoint": {
+												"commandMetadata": {
+													"webCommandMetadata": {
+														"url": "/watch?v=rFZHOHl-L8A&pp=ygUMbG9maSBoaXAgaG9w",
+														"webPageType": "WEB_PAGE_TYPE_WATCH",
+														"rootVe": 3832
+													}
+												},
+												"watchEndpoint": {
+													"videoId": "rFZHOHl-L8A",
+													"params": "qgMMbG9maSBoaXAgaG9wugMLCJ6v2ZCF15ialQG6AwsI7ZHsqcSF1dafAboDGBIWUkRBVGZtYkc5bWFTQm9hWEFnYUc5d7oDCgj2_I3SiIbpnyS6AwoImuiPkIi55tsIugMKCM3mquOAiobfQ7oDCwi5v4eczP-yr-sBugMLCLTIjoPQ7ui18wG6AwsIgu7eppqy-8aLAboDCwjtksKmvoTNr7ABugMLCLjwocPu8-jimwG6AwsIhNzWscmUnLfNAboDCgiTrsfTjZGNryO6AwkI-bXmt-akxWO6AwoIpoLulf_fzs1QugMKCIKTrOqbkfCoHroDCwi3tauI1fXAnNQBugMKCP-qkae8p5n_fboDCgjCuOH-4vLS8xnqAwIQAfIDBQ379-s-",
+													"playerParams": "ygUMbG9maSBoaXAgaG9w"
+												}
+											},
+											"badges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "LIVE"
+														},
+														"style": "BADGE_STYLE_TYPE_LIVE_NOW",
+														"label": "LIVE"
+													}
+												},
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "OUTLINE_BAG"
+														},
+														"style": "BADGE_STYLE_TYPE_SIMPLE",
+														"label": "21 products"
+													}
+												}
+											],
+											"ownerBadges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "AUDIO_BADGE"
+														},
+														"style": "BADGE_STYLE_TYPE_VERIFIED_ARTIST",
+														"tooltip": "Official Artist Channel"
+													}
+												}
+											],
+											"ownerText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"shortBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"showActionMenu": false,
+											"shortViewCountText": {
+												"runs": [
+													{
+														"text": "14K"
+													},
+													{
+														"text": " watching"
+													}
+												],
+												"accessibility": {}
+											},
+											"thumbnailOverlays": [
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"isToggled": false,
+														"untoggledIcon": {
+															"iconType": "WATCH_LATER"
+														},
+														"toggledIcon": {
+															"iconType": "CHECK"
+														},
+														"untoggledTooltip": "Watch later",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"addedVideoId": "rFZHOHl-L8A",
+																		"action": "ACTION_ADD_VIDEO"
+																	}
+																]
+															}
+														},
+														"toggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																		"removedVideoId": "rFZHOHl-L8A"
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"untoggledIcon": {
+															"iconType": "ADD_TO_QUEUE_TAIL"
+														},
+														"toggledIcon": {
+															"iconType": "PLAYLIST_ADD_CHECK"
+														},
+														"untoggledTooltip": "Add to queue",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true
+																}
+															},
+															"signalServiceEndpoint": {
+																"signal": "CLIENT_SIGNAL",
+																"actions": [
+																	{
+																		"addToPlaylistCommand": {
+																			"openMiniplayer": true,
+																			"videoId": "rFZHOHl-L8A",
+																			"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																			"onCreateListCommand": {
+																				"commandMetadata": {
+																					"webCommandMetadata": {
+																						"sendPost": true,
+																						"apiUrl": "/youtubei/v1/playlist/create"
+																					}
+																				},
+																				"createPlaylistServiceEndpoint": {
+																					"videoIds": ["rFZHOHl-L8A"],
+																					"params": "CAQ%3D"
+																				}
+																			},
+																			"videoIds": ["rFZHOHl-L8A"]
+																		}
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayNowPlayingRenderer": {
+														"text": {
+															"runs": [
+																{
+																	"text": "Now playing"
+																}
+															]
+														}
+													}
+												},
+												{
+													"thumbnailOverlayLoadingPreviewRenderer": {
+														"text": {
+															"runs": [
+																{
+																	"text": "Keep hovering to play"
+																}
+															]
+														}
+													}
+												}
+											],
+											"detailedMetadataSnippets": [
+												{
+													"snippetText": {
+														"runs": [
+															{
+																"text": "Holiday season is approaching 2026 Christmas playlist available now: https://lnk.to/Christmas_lofi02 | Listen on Spotify, ..."
+															}
+														]
+													},
+													"snippetHoverText": {
+														"runs": [
+															{
+																"text": "From the video description"
+															}
+														]
+													},
+													"maxOneLine": false
+												}
+											],
+											"avatar": {
+												"decoratedAvatarViewModel": {
+													"avatar": {
+														"avatarViewModel": {
+															"image": {
+																"sources": [
+																	{
+																		"url": "https://yt3.ggpht.com/REcZL_LGu0DaDaC-G7VIbN0uE_5l-i_dw6ZvOETRnY3pRhUmfkOq6C1MLephPZkV4VSzQAhEi_4=s88-c-k-c0x00ffffff-no-rj",
+																		"width": 68,
+																		"height": 68
+																	}
+																]
+															},
+															"avatarImageSize": "AVATAR_SIZE_M"
+														}
+													},
+													"a11yLabel": "Go to channel Lofi Girl",
+													"rendererContext": {
+														"commandContext": {
+															"onTap": {
+																"innertubeCommand": {
+																	"commandMetadata": {
+																		"webCommandMetadata": {
+																			"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																			"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																			"rootVe": 3611,
+																			"apiUrl": "/youtubei/v1/browse"
+																		}
+																	},
+																	"browseEndpoint": {
+																		"browseId": "UCSJ4gkVC6NrvII8umztf0Ow"
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									{
+										"videoRenderer": {
+											"videoId": "lTRiuFIWV54",
+											"thumbnail": {
+												"thumbnails": [
+													{
+														"url": "https://i.ytimg.com/vi/lTRiuFIWV54/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLCuxgfKd3IBiW7Ue2fmpm1ZjgOptQ",
+														"width": 360,
+														"height": 202
+													},
+													{
+														"url": "https://i.ytimg.com/vi/lTRiuFIWV54/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLD9yvhK9cDm0VW1y0upuGfT6XRuvQ",
+														"width": 720,
+														"height": 404
+													}
+												]
+											},
+											"title": {
+												"runs": [
+													{
+														"text": "1 A.M Study Session 📚 [lofi hip hop]"
+													}
+												],
+												"accessibility": {}
+											},
+											"longBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"publishedTimeText": {
+												"simpleText": "6y ago"
+											},
+											"lengthText": {
+												"accessibility": {},
+												"simpleText": "1:01:14"
+											},
+											"viewCountText": {
+												"simpleText": "138,406,680 views"
+											},
+											"navigationEndpoint": {
+												"commandMetadata": {
+													"webCommandMetadata": {
+														"url": "/watch?v=lTRiuFIWV54&list=RDlTRiuFIWV54&start_radio=1&pp=ygUMbG9maSBoaXAgaG9woAcB",
+														"webPageType": "WEB_PAGE_TYPE_WATCH",
+														"rootVe": 3832
+													}
+												},
+												"watchEndpoint": {
+													"videoId": "lTRiuFIWV54",
+													"playlistId": "RDlTRiuFIWV54",
+													"params": "wAEBqgMMbG9maSBoaXAgaG9wugMLCMDf-MuH55GrrAG6AwsI7ZHsqcSF1dafAboDGBIWUkRBVGZtYkc5bWFTQm9hWEFnYUc5d7oDCgj2_I3SiIbpnyS6AwoImuiPkIi55tsIugMKCM3mquOAiobfQ7oDCwi5v4eczP-yr-sBugMLCLTIjoPQ7ui18wG6AwsIgu7eppqy-8aLAboDCwjtksKmvoTNr7ABugMLCLjwocPu8-jimwG6AwsIhNzWscmUnLfNAboDCgiTrsfTjZGNryO6AwkI-bXmt-akxWO6AwoIpoLulf_fzs1QugMKCIKTrOqbkfCoHroDCwi3tauI1fXAnNQBugMKCP-qkae8p5n_fboDCgjCuOH-4vLS8xnqAwIQAfIDBQ379-s-uAUB",
+													"playerParams": "ygUMbG9maSBoaXAgaG9woAcB",
+													"loggingContext": {
+														"vssLoggingContext": {
+															"serializedContextData": "Gg1SRGxUUml1RklXVjU0"
+														}
+													}
+												}
+											},
+											"badges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "OUTLINE_BAG"
+														},
+														"style": "BADGE_STYLE_TYPE_SIMPLE",
+														"label": "3 products"
+													}
+												}
+											],
+											"ownerBadges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "AUDIO_BADGE"
+														},
+														"style": "BADGE_STYLE_TYPE_VERIFIED_ARTIST",
+														"tooltip": "Official Artist Channel"
+													}
+												}
+											],
+											"ownerText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"shortBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"showActionMenu": false,
+											"shortViewCountText": {
+												"accessibility": {},
+												"simpleText": "138M"
+											},
+											"thumbnailOverlays": [
+												{
+													"thumbnailOverlayResumePlaybackRenderer": {
+														"percentDurationWatched": 0,
+														"videoPlaybackPositionToggleEntityKey": "EgtsVFJpdUZJV1Y1NCDpAigB"
+													}
+												},
+												{
+													"thumbnailOverlayTimeStatusRenderer": {
+														"text": {
+															"accessibility": {},
+															"simpleText": "1:01:14"
+														},
+														"style": "DEFAULT",
+														"icon": {
+															"iconType": "MUSIC"
+														}
+													}
+												},
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"isToggled": false,
+														"untoggledIcon": {
+															"iconType": "WATCH_LATER"
+														},
+														"toggledIcon": {
+															"iconType": "CHECK"
+														},
+														"untoggledTooltip": "Watch later",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"addedVideoId": "lTRiuFIWV54",
+																		"action": "ACTION_ADD_VIDEO"
+																	}
+																]
+															}
+														},
+														"toggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																		"removedVideoId": "lTRiuFIWV54"
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"untoggledIcon": {
+															"iconType": "ADD_TO_QUEUE_TAIL"
+														},
+														"toggledIcon": {
+															"iconType": "PLAYLIST_ADD_CHECK"
+														},
+														"untoggledTooltip": "Add to queue",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true
+																}
+															},
+															"signalServiceEndpoint": {
+																"signal": "CLIENT_SIGNAL",
+																"actions": [
+																	{
+																		"addToPlaylistCommand": {
+																			"openMiniplayer": true,
+																			"videoId": "lTRiuFIWV54",
+																			"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																			"onCreateListCommand": {
+																				"commandMetadata": {
+																					"webCommandMetadata": {
+																						"sendPost": true,
+																						"apiUrl": "/youtubei/v1/playlist/create"
+																					}
+																				},
+																				"createPlaylistServiceEndpoint": {
+																					"videoIds": ["lTRiuFIWV54"],
+																					"params": "CAQ%3D"
+																				}
+																			},
+																			"videoIds": ["lTRiuFIWV54"]
+																		}
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayLoadingPreviewRenderer": {
+														"text": {
+															"runs": [
+																{
+																	"text": "Keep hovering to play"
+																}
+															]
+														}
+													}
+												}
+											],
+											"detailedMetadataSnippets": [
+												{
+													"snippetText": {
+														"runs": [
+															{
+																"text": "Listen on Spotify, Apple music and more → https://fanlink.tv/lofigirl-music | Create your "
+															},
+															{
+																"text": "lofi",
+																"bold": true
+															},
+															{
+																"text": " avatar now ..."
+															}
+														]
+													},
+													"snippetHoverText": {
+														"runs": [
+															{
+																"text": "From the video description"
+															}
+														]
+													},
+													"maxOneLine": true
+												}
+											],
+											"avatar": {
+												"decoratedAvatarViewModel": {
+													"avatar": {
+														"avatarViewModel": {
+															"image": {
+																"sources": [
+																	{
+																		"url": "https://yt3.ggpht.com/REcZL_LGu0DaDaC-G7VIbN0uE_5l-i_dw6ZvOETRnY3pRhUmfkOq6C1MLephPZkV4VSzQAhEi_4=s88-c-k-c0x00ffffff-no-rj",
+																		"width": 68,
+																		"height": 68
+																	}
+																]
+															},
+															"avatarImageSize": "AVATAR_SIZE_M"
+														}
+													},
+													"a11yLabel": "Go to channel Lofi Girl",
+													"rendererContext": {
+														"commandContext": {
+															"onTap": {
+																"innertubeCommand": {
+																	"commandMetadata": {
+																		"webCommandMetadata": {
+																			"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																			"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																			"rootVe": 3611,
+																			"apiUrl": "/youtubei/v1/browse"
+																		}
+																	},
+																	"browseEndpoint": {
+																		"browseId": "UCSJ4gkVC6NrvII8umztf0Ow"
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									{
+										"videoRenderer": {
+											"videoId": "n61ULEU7CO0",
+											"thumbnail": {
+												"thumbnails": [
+													{
+														"url": "https://i.ytimg.com/vi/n61ULEU7CO0/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDadamMGRBIJ4Rbu8bwFrkrFFWESw",
+														"width": 360,
+														"height": 202
+													},
+													{
+														"url": "https://i.ytimg.com/vi/n61ULEU7CO0/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLB-V2q4quJwSeQAhcBUYLfJ_G6aQw",
+														"width": 720,
+														"height": 404
+													}
+												]
+											},
+											"title": {
+												"runs": [
+													{
+														"text": "Best of lofi hip hop 2021 ✨ [beats to relax/study to]"
+													}
+												],
+												"accessibility": {}
+											},
+											"longBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"publishedTimeText": {
+												"simpleText": "4y ago"
+											},
+											"lengthText": {
+												"accessibility": {},
+												"simpleText": "6:10:58"
+											},
+											"viewCountText": {
+												"simpleText": "58,875,292 views"
+											},
+											"navigationEndpoint": {
+												"commandMetadata": {
+													"webCommandMetadata": {
+														"url": "/watch?v=n61ULEU7CO0&list=RDn61ULEU7CO0&start_radio=1&pp=ygUMbG9maSBoaXAgaG9woAcB",
+														"webPageType": "WEB_PAGE_TYPE_WATCH",
+														"rootVe": 3832
+													}
+												},
+												"watchEndpoint": {
+													"videoId": "n61ULEU7CO0",
+													"playlistId": "RDn61ULEU7CO0",
+													"params": "wAEBqgMMbG9maSBoaXAgaG9wugMLCMDf-MuH55GrrAG6AwsInq_ZkIXXmJqVAboDGBIWUkRBVGZtYkc5bWFTQm9hWEFnYUc5d7oDCgj2_I3SiIbpnyS6AwoImuiPkIi55tsIugMKCM3mquOAiobfQ7oDCwi5v4eczP-yr-sBugMLCLTIjoPQ7ui18wG6AwsIgu7eppqy-8aLAboDCwjtksKmvoTNr7ABugMLCLjwocPu8-jimwG6AwsIhNzWscmUnLfNAboDCgiTrsfTjZGNryO6AwkI-bXmt-akxWO6AwoIpoLulf_fzs1QugMKCIKTrOqbkfCoHroDCwi3tauI1fXAnNQBugMKCP-qkae8p5n_fboDCgjCuOH-4vLS8xnqAwIQAfIDBQ379-s-uAUB",
+													"playerParams": "ygUMbG9maSBoaXAgaG9woAcB",
+													"loggingContext": {
+														"vssLoggingContext": {
+															"serializedContextData": "Gg1SRG42MVVMRVU3Q08w"
+														}
+													}
+												}
+											},
+											"badges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "OUTLINE_BAG"
+														},
+														"style": "BADGE_STYLE_TYPE_SIMPLE",
+														"label": "1 product"
+													}
+												}
+											],
+											"ownerBadges": [
+												{
+													"metadataBadgeRenderer": {
+														"icon": {
+															"iconType": "AUDIO_BADGE"
+														},
+														"style": "BADGE_STYLE_TYPE_VERIFIED_ARTIST",
+														"tooltip": "Official Artist Channel"
+													}
+												}
+											],
+											"ownerText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"shortBylineText": {
+												"runs": [
+													{
+														"text": "Lofi Girl",
+														"navigationEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																	"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																	"rootVe": 3611,
+																	"apiUrl": "/youtubei/v1/browse"
+																}
+															},
+															"browseEndpoint": {
+																"browseId": "UCSJ4gkVC6NrvII8umztf0Ow",
+																"canonicalBaseUrl": "/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+															}
+														}
+													}
+												]
+											},
+											"showActionMenu": false,
+											"shortViewCountText": {
+												"accessibility": {},
+												"simpleText": "58M"
+											},
+											"thumbnailOverlays": [
+												{
+													"thumbnailOverlayResumePlaybackRenderer": {
+														"percentDurationWatched": 0,
+														"videoPlaybackPositionToggleEntityKey": "EgtuNjFVTEVVN0NPMCDpAigB"
+													}
+												},
+												{
+													"thumbnailOverlayTimeStatusRenderer": {
+														"text": {
+															"accessibility": {},
+															"simpleText": "6:10:58"
+														},
+														"style": "DEFAULT",
+														"icon": {
+															"iconType": "MUSIC"
+														}
+													}
+												},
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"isToggled": false,
+														"untoggledIcon": {
+															"iconType": "WATCH_LATER"
+														},
+														"toggledIcon": {
+															"iconType": "CHECK"
+														},
+														"untoggledTooltip": "Watch later",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"addedVideoId": "n61ULEU7CO0",
+																		"action": "ACTION_ADD_VIDEO"
+																	}
+																]
+															}
+														},
+														"toggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true,
+																	"apiUrl": "/youtubei/v1/browse/edit_playlist"
+																}
+															},
+															"playlistEditEndpoint": {
+																"playlistId": "WL",
+																"actions": [
+																	{
+																		"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																		"removedVideoId": "n61ULEU7CO0"
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayToggleButtonRenderer": {
+														"untoggledIcon": {
+															"iconType": "ADD_TO_QUEUE_TAIL"
+														},
+														"toggledIcon": {
+															"iconType": "PLAYLIST_ADD_CHECK"
+														},
+														"untoggledTooltip": "Add to queue",
+														"toggledTooltip": "Added",
+														"untoggledServiceEndpoint": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"sendPost": true
+																}
+															},
+															"signalServiceEndpoint": {
+																"signal": "CLIENT_SIGNAL",
+																"actions": [
+																	{
+																		"addToPlaylistCommand": {
+																			"openMiniplayer": true,
+																			"videoId": "n61ULEU7CO0",
+																			"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																			"onCreateListCommand": {
+																				"commandMetadata": {
+																					"webCommandMetadata": {
+																						"sendPost": true,
+																						"apiUrl": "/youtubei/v1/playlist/create"
+																					}
+																				},
+																				"createPlaylistServiceEndpoint": {
+																					"videoIds": ["n61ULEU7CO0"],
+																					"params": "CAQ%3D"
+																				}
+																			},
+																			"videoIds": ["n61ULEU7CO0"]
+																		}
+																	}
+																]
+															}
+														},
+														"untoggledAccessibility": {},
+														"toggledAccessibility": {}
+													}
+												},
+												{
+													"thumbnailOverlayLoadingPreviewRenderer": {
+														"text": {
+															"runs": [
+																{
+																	"text": "Keep hovering to play"
+																}
+															]
+														}
+													}
+												}
+											],
+											"detailedMetadataSnippets": [
+												{
+													"snippetText": {
+														"runs": [
+															{
+																"text": "Listen on Spotify, Apple music and more → https://fanlink.tv/BestofLofi2021 The new "
+															},
+															{
+																"text": "Lofi",
+																"bold": true
+															},
+															{
+																"text": " Girl compilation “Best of 2021” is out now ..."
+															}
+														]
+													},
+													"snippetHoverText": {
+														"runs": [
+															{
+																"text": "From the video description"
+															}
+														]
+													},
+													"maxOneLine": false
+												}
+											],
+											"avatar": {
+												"decoratedAvatarViewModel": {
+													"avatar": {
+														"avatarViewModel": {
+															"image": {
+																"sources": [
+																	{
+																		"url": "https://yt3.ggpht.com/REcZL_LGu0DaDaC-G7VIbN0uE_5l-i_dw6ZvOETRnY3pRhUmfkOq6C1MLephPZkV4VSzQAhEi_4=s88-c-k-c0x00ffffff-no-rj",
+																		"width": 68,
+																		"height": 68
+																	}
+																]
+															},
+															"avatarImageSize": "AVATAR_SIZE_M"
+														}
+													},
+													"a11yLabel": "Go to channel Lofi Girl",
+													"rendererContext": {
+														"commandContext": {
+															"onTap": {
+																"innertubeCommand": {
+																	"commandMetadata": {
+																		"webCommandMetadata": {
+																			"url": "/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+																			"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																			"rootVe": 3611,
+																			"apiUrl": "/youtubei/v1/browse"
+																		}
+																	},
+																	"browseEndpoint": {
+																		"browseId": "UCSJ4gkVC6NrvII8umztf0Ow"
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									{
+										"lockupViewModel": {
+											"contentImage": {
+												"collectionThumbnailViewModel": {
+													"primaryThumbnail": {
+														"thumbnailViewModel": {
+															"image": {
+																"sources": [
+																	{
+																		"url": "https://i.ytimg.com/vi/R8om0QifqII/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBN0ePqpHQrvDXXKRJL_9Fgj53naQ",
+																		"width": 480,
+																		"height": 270
+																	}
+																]
+															},
+															"overlays": [
+																{
+																	"thumbnailOverlayBadgeViewModel": {
+																		"thumbnailBadges": [
+																			{
+																				"thumbnailBadgeViewModel": {
+																					"icon": {
+																						"sources": [
+																							{
+																								"clientResource": {
+																									"imageName": "MIX"
+																								}
+																							}
+																						]
+																					},
+																					"text": "Mix",
+																					"badgeStyle": "THUMBNAIL_OVERLAY_BADGE_STYLE_DEFAULT",
+																					"backgroundColor": {
+																						"lightTheme": 3355443,
+																						"darkTheme": 3355443
+																					}
+																				}
+																			}
+																		],
+																		"position": "THUMBNAIL_OVERLAY_BADGE_POSITION_BOTTOM_END"
+																	}
+																},
+																{
+																	"thumbnailHoverOverlayViewModel": {
+																		"icon": {
+																			"sources": [
+																				{
+																					"clientResource": {
+																						"imageName": "PLAY_ALL"
+																					}
+																				}
+																			]
+																		},
+																		"text": {
+																			"content": "Play all",
+																			"styleRuns": [
+																				{
+																					"startIndex": 0,
+																					"length": 8
+																				}
+																			]
+																		},
+																		"style": "THUMBNAIL_HOVER_OVERLAY_STYLE_COVER"
+																	}
+																}
+															],
+															"backgroundColor": {
+																"lightTheme": 4144959,
+																"darkTheme": 4144959
+															}
+														}
+													},
+													"stackColor": {
+														"lightTheme": 10066329,
+														"darkTheme": 9211020
+													}
+												}
+											},
+											"metadata": {
+												"lockupMetadataViewModel": {
+													"title": {
+														"content": "Mix • Lofi hip hop"
+													},
+													"metadata": {
+														"contentMetadataViewModel": {
+															"metadataRows": [
+																{
+																	"metadataParts": [
+																		{
+																			"text": {
+																				"content": "Академия глубокой релаксации, Kudasaibeats, RŮDE, and more"
+																			}
+																		},
+																		{
+																			"text": {
+																				"content": "Playlist"
+																			}
+																		}
+																	],
+																	"lockupContentMetadataRowExtension": {
+																		"contentType": "METADATA_ROW_CONTENT_TYPE_BYLINE"
+																	}
+																},
+																{
+																	"isSpacerRow": true
+																},
+																{
+																	"metadataParts": [
+																		{
+																			"text": {
+																				"content": "kudasai - when i see you · 3:30",
+																				"commandRuns": [
+																					{
+																						"startIndex": 0,
+																						"length": 32,
+																						"onTap": {
+																							"innertubeCommand": {
+																								"commandMetadata": {
+																									"webCommandMetadata": {
+																										"url": "/watch?v=R8om0QifqII&list=RDATfmbG9maSBoaXAgaG9w&start_radio=1",
+																										"webPageType": "WEB_PAGE_TYPE_WATCH",
+																										"rootVe": 3832
+																									}
+																								},
+																								"watchEndpoint": {
+																									"videoId": "R8om0QifqII",
+																									"playlistId": "RDATfmbG9maSBoaXAgaG9w",
+																									"params": "wAEB",
+																									"loggingContext": {
+																										"vssLoggingContext": {
+																											"serializedContextData": "GhZSREFUZm1iRzltYVNCb2FYQWdhRzl3"
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																},
+																{
+																	"metadataParts": [
+																		{
+																			"text": {
+																				"content": "RŮDE - Eternal Youth · 3:26",
+																				"commandRuns": [
+																					{
+																						"startIndex": 0,
+																						"length": 29,
+																						"onTap": {
+																							"innertubeCommand": {
+																								"commandMetadata": {
+																									"webCommandMetadata": {
+																										"url": "/watch?v=W6hasdx4a1I&list=RDATfmbG9maSBoaXAgaG9w&start_radio=1",
+																										"webPageType": "WEB_PAGE_TYPE_WATCH",
+																										"rootVe": 3832
+																									}
+																								},
+																								"watchEndpoint": {
+																									"videoId": "W6hasdx4a1I",
+																									"playlistId": "RDATfmbG9maSBoaXAgaG9w",
+																									"params": "wAEB",
+																									"loggingContext": {
+																										"vssLoggingContext": {
+																											"serializedContextData": "GhZSREFUZm1iRzltYVNCb2FYQWdhRzl3"
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																},
+																{
+																	"metadataParts": [
+																		{
+																			"text": {
+																				"content": "Академия глубокой релаксации, Kudasaibeats, RŮDE, and more"
+																			},
+																			"maxLines": 2
+																		}
+																	],
+																	"lockupContentMetadataRowExtension": {
+																		"contentType": "METADATA_ROW_CONTENT_TYPE_DESCRIPTION"
+																	}
+																}
+															],
+															"delimiter": " "
+														}
+													}
+												}
+											},
+											"contentId": "RDATfmbG9maSBoaXAgaG9w",
+											"contentType": "LOCKUP_CONTENT_TYPE_PLAYLIST",
+											"itemPlayback": {},
+											"rendererContext": {
+												"loggingContext": {},
+												"commandContext": {
+													"onTap": {
+														"innertubeCommand": {
+															"commandMetadata": {
+																"webCommandMetadata": {
+																	"url": "/watch?v=R8om0QifqII&list=RDATfmbG9maSBoaXAgaG9w&start_radio=1",
+																	"webPageType": "WEB_PAGE_TYPE_WATCH",
+																	"rootVe": 3832
+																}
+															},
+															"watchEndpoint": {
+																"videoId": "R8om0QifqII",
+																"playlistId": "RDATfmbG9maSBoaXAgaG9w",
+																"params": "OALAAQE%3D",
+																"continuePlayback": true,
+																"loggingContext": {
+																	"vssLoggingContext": {
+																		"serializedContextData": "GhZSREFUZm1iRzltYVNCb2FYQWdhRzl3"
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									{
+										"gridShelfViewModel": {
+											"contents": [
+												{
+													"shortsLockupViewModel": {
+														"entityId": "shorts-shelf-item-ezBRFwEzre4",
+														"accessibilityText": "Students Nowadays 🥶🔥 | Unplugged version | Students X lofihits | #chill #vibe #explore, 12 million views - play Short",
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/shorts/ezBRFwEzre4",
+																		"webPageType": "WEB_PAGE_TYPE_SHORTS",
+																		"rootVe": 37414
+																	}
+																},
+																"reelWatchEndpoint": {
+																	"videoId": "ezBRFwEzre4",
+																	"playerParams": "8AEBoAMIyAMyuAQUogYVAQMpuovRn5RXhGcbGTO_NvhhpwJhkAcC",
+																	"thumbnail": {
+																		"thumbnails": [
+																			{
+																				"url": "https://i.ytimg.com/vi/ezBRFwEzre4/frame0.jpg",
+																				"width": 1080,
+																				"height": 1920
+																			}
+																		],
+																		"isOriginalAspectRatio": true
+																	},
+																	"overlay": {
+																		"reelPlayerOverlayRenderer": {
+																			"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS",
+																			"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+																		}
+																	},
+																	"params": "CBQwAkoeCg4iDGxvZmkgaGlwIGhvcBIMbG9maSBoaXAgaG9wugEYVUNfVm0yN05PZktmLUtzV1JBN0hFdHhn",
+																	"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC",
+																	"loggingContext": {
+																		"vssLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		},
+																		"qoeLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		}
+																	}
+																}
+															}
+														},
+														"indexInCollection": 0,
+														"menuOnTapA11yLabel": "More actions",
+														"overlayMetadata": {
+															"primaryText": {
+																"content": "Students Nowadays 🥶🔥 | Unplugged version | Students X lofihits | #chill #vibe #explore"
+															},
+															"secondaryText": {
+																"content": "12M views"
+															}
+														},
+														"thumbnailViewModel": {
+															"thumbnailViewModel": {
+																"image": {
+																	"sources": [
+																		{
+																			"url": "https://i.ytimg.com/vi/ezBRFwEzre4/oar2.jpg?sqp=-oaymwEhCJUDENAFSFWQAgHyq4qpAxAIARUAAIhCcAHAAQa4AvcY&rs=AOn4CLDdPmNQP70SJF06FwOWOq-jwjKM7A",
+																			"width": 405,
+																			"height": 720
+																		},
+																		{
+																			"url": "https://i.ytimg.com/vi/ezBRFwEzre4/oar2.jpg?sqp=-oaymwEkCJUDEOAESFWQAgHyq4qpAxMIARUAAIhCcAHAAQbIAQG4AvcY&rs=AOn4CLBvbg_Nd2DhyB1f8_5iyOHi8hQ-yg",
+																			"width": 405,
+																			"height": 608
+																		}
+																	]
+																}
+															}
+														},
+														"stackedFrameData": {},
+														"titleTruncationStyle": "SHORTS_LOCKUP_TITLE_TRUNCATION_STYLE_UNKNOWN"
+													}
+												},
+												{
+													"shortsLockupViewModel": {
+														"entityId": "shorts-shelf-item-E713GeqDWYw",
+														"accessibilityText": "lofi hip hop radio Beats to sleep/chill, 1 million views - play Short",
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/shorts/E713GeqDWYw",
+																		"webPageType": "WEB_PAGE_TYPE_SHORTS",
+																		"rootVe": 37414
+																	}
+																},
+																"reelWatchEndpoint": {
+																	"videoId": "E713GeqDWYw",
+																	"playerParams": "8AEBoAMIyAMyuAQUogYVAQMpuouLJpbA-FiyFNaAVEVgaI0RkAcC",
+																	"thumbnail": {
+																		"thumbnails": [
+																			{
+																				"url": "https://i.ytimg.com/vi/E713GeqDWYw/frame0.jpg",
+																				"width": 406,
+																				"height": 720
+																			}
+																		],
+																		"isOriginalAspectRatio": true
+																	},
+																	"overlay": {
+																		"reelPlayerOverlayRenderer": {
+																			"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS",
+																			"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+																		}
+																	},
+																	"params": "CBQwAkoeCg4iDGxvZmkgaGlwIGhvcBIMbG9maSBoaXAgaG9wugEYVUM1LW5xcTJybEw2NE9aRklSeFliQWhB",
+																	"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC",
+																	"loggingContext": {
+																		"vssLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		},
+																		"qoeLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		}
+																	}
+																}
+															}
+														},
+														"indexInCollection": 0,
+														"menuOnTapA11yLabel": "More actions",
+														"overlayMetadata": {
+															"primaryText": {
+																"content": "lofi hip hop radio Beats to sleep/chill"
+															},
+															"secondaryText": {
+																"content": "1M views"
+															}
+														},
+														"thumbnailViewModel": {
+															"thumbnailViewModel": {
+																"image": {
+																	"sources": [
+																		{
+																			"url": "https://i.ytimg.com/vi/E713GeqDWYw/hq720_2.jpg?sqp=-oaymwEhCJYDENAFSFXyq4qpAxMIARUAAIhCcAHAAQbQAQG4AvcY&rs=AOn4CLAXzSv3EceuI-rLvhdKtfZpVL_jDw",
+																			"width": 406,
+																			"height": 720
+																		}
+																	]
+																}
+															}
+														},
+														"stackedFrameData": {},
+														"titleTruncationStyle": "SHORTS_LOCKUP_TITLE_TRUNCATION_STYLE_UNKNOWN"
+													}
+												},
+												{
+													"shortsLockupViewModel": {
+														"entityId": "shorts-shelf-item-Y4paCY19niE",
+														"accessibilityText": "UR OK 😌✨ Lofi Hip Hop Boom bap from KING OF CHOP (Album), 4.1 thousand views - play Short",
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/shorts/Y4paCY19niE",
+																		"webPageType": "WEB_PAGE_TYPE_SHORTS",
+																		"rootVe": 37414
+																	}
+																},
+																"reelWatchEndpoint": {
+																	"videoId": "Y4paCY19niE",
+																	"playerParams": "8AEBoAMIyAMyuAQUogYVAQMpuoudP7x6sN_j8XBb4ByWqONpkAcC",
+																	"thumbnail": {
+																		"thumbnails": [
+																			{
+																				"url": "https://i.ytimg.com/vi/Y4paCY19niE/frame0.jpg",
+																				"width": 720,
+																				"height": 1280
+																			}
+																		],
+																		"isOriginalAspectRatio": true
+																	},
+																	"overlay": {
+																		"reelPlayerOverlayRenderer": {
+																			"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS",
+																			"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+																		}
+																	},
+																	"params": "CBQwAkoeCg4iDGxvZmkgaGlwIGhvcBIMbG9maSBoaXAgaG9wugEYVUNTd2dwVGtnS1FsRXVJWlJqNDFsNUtR",
+																	"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC",
+																	"loggingContext": {
+																		"vssLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		},
+																		"qoeLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		}
+																	}
+																}
+															}
+														},
+														"indexInCollection": 0,
+														"menuOnTapA11yLabel": "More actions",
+														"overlayMetadata": {
+															"primaryText": {
+																"content": "UR OK 😌✨ Lofi Hip Hop Boom bap from KING OF CHOP (Album)"
+															},
+															"secondaryText": {
+																"content": "4.1K views"
+															}
+														},
+														"thumbnailViewModel": {
+															"thumbnailViewModel": {
+																"image": {
+																	"sources": [
+																		{
+																			"url": "https://i.ytimg.com/vi/Y4paCY19niE/oardefault.jpg?sqp=-oaymwEhCJUDENAFSFWQAgHyq4qpAxAIARUAAIhCcAHAAQa4AvcY&rs=AOn4CLDCLjzBDB_ZhmeTIGpSLwk3Npe3ug",
+																			"width": 405,
+																			"height": 720
+																		},
+																		{
+																			"url": "https://i.ytimg.com/vi/Y4paCY19niE/oardefault.jpg?sqp=-oaymwEkCJUDEOAESFWQAgHyq4qpAxMIARUAAIhCcAHAAQbIAQG4AvcY&rs=AOn4CLCM-_HuNSWH8rquCK4ha4yhi69Ahw",
+																			"width": 405,
+																			"height": 608
+																		}
+																	]
+																}
+															}
+														},
+														"stackedFrameData": {},
+														"titleTruncationStyle": "SHORTS_LOCKUP_TITLE_TRUNCATION_STYLE_UNKNOWN"
+													}
+												},
+												{
+													"shortsLockupViewModel": {
+														"entityId": "shorts-shelf-item-4UiG_oP0BJM",
+														"accessibilityText": "New York 🌃 Jazzy Lofi Hip-Hop Beat for Late Nights, 47 views - play Short",
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/shorts/4UiG_oP0BJM",
+																		"webPageType": "WEB_PAGE_TYPE_SHORTS",
+																		"rootVe": 37414
+																	}
+																},
+																"reelWatchEndpoint": {
+																	"videoId": "4UiG_oP0BJM",
+																	"playerParams": "8AEBoAMIyAMyuAQUogYVAQMpuothwCEMyQACwrHiaUP0_nPEkAcC",
+																	"thumbnail": {
+																		"thumbnails": [
+																			{
+																				"url": "https://i.ytimg.com/vi/4UiG_oP0BJM/frame0.jpg",
+																				"width": 1080,
+																				"height": 1920
+																			}
+																		],
+																		"isOriginalAspectRatio": true
+																	},
+																	"overlay": {
+																		"reelPlayerOverlayRenderer": {
+																			"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS",
+																			"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+																		}
+																	},
+																	"params": "CBQwAkoeCg4iDGxvZmkgaGlwIGhvcBIMbG9maSBoaXAgaG9wugEYVUM4QUczaWh5Sjc1U2wwNmNtc1poY05R",
+																	"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC",
+																	"loggingContext": {
+																		"vssLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		},
+																		"qoeLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		}
+																	}
+																}
+															}
+														},
+														"badge": {
+															"badgeViewModel": {
+																"badgeText": "New",
+																"badgeStyle": "BADGE_OVERLAY_WHITE",
+																"accessibilityLabel": "New"
+															}
+														},
+														"indexInCollection": 0,
+														"menuOnTapA11yLabel": "More actions",
+														"overlayMetadata": {
+															"primaryText": {
+																"content": "New York 🌃 Jazzy Lofi Hip-Hop Beat for Late Nights"
+															},
+															"secondaryText": {
+																"content": "47 views"
+															}
+														},
+														"thumbnailViewModel": {
+															"thumbnailViewModel": {
+																"image": {
+																	"sources": [
+																		{
+																			"url": "https://i.ytimg.com/vi/4UiG_oP0BJM/oar2.jpg?sqp=-oaymwEhCJUDENAFSFWQAgHyq4qpAxAIARUAAIhCcAHAAQa4AvcY&rs=AOn4CLBJ7AW1IP-LL4zoo1Ckby-meVfPfw",
+																			"width": 405,
+																			"height": 720
+																		},
+																		{
+																			"url": "https://i.ytimg.com/vi/4UiG_oP0BJM/oar2.jpg?sqp=-oaymwEkCJUDEOAESFWQAgHyq4qpAxMIARUAAIhCcAHAAQbIAQG4AvcY&rs=AOn4CLCgjFjq_5Rrl7hztpu5120ngvmK4Q",
+																			"width": 405,
+																			"height": 608
+																		}
+																	]
+																}
+															}
+														},
+														"stackedFrameData": {},
+														"titleTruncationStyle": "SHORTS_LOCKUP_TITLE_TRUNCATION_STYLE_UNKNOWN"
+													}
+												},
+												{
+													"shortsLockupViewModel": {
+														"entityId": "shorts-shelf-item-v-uSFoB48lc",
+														"accessibilityText": "1 A.M Study Session - [🎧 1 Hour Lofi Hip Hop | Chill & Study 🎧], 2.7 thousand views - play Short",
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/shorts/v-uSFoB48lc",
+																		"webPageType": "WEB_PAGE_TYPE_SHORTS",
+																		"rootVe": 37414
+																	}
+																},
+																"reelWatchEndpoint": {
+																	"videoId": "v-uSFoB48lc",
+																	"playerParams": "8AEBoAMIyAMyuAQUogYVAQMpuosEW4-6fDXAuhvTtpnpS2GCkAcC",
+																	"thumbnail": {
+																		"thumbnails": [
+																			{
+																				"url": "https://i.ytimg.com/vi/v-uSFoB48lc/frame0.jpg",
+																				"width": 720,
+																				"height": 1280
+																			}
+																		],
+																		"isOriginalAspectRatio": true
+																	},
+																	"overlay": {
+																		"reelPlayerOverlayRenderer": {
+																			"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS",
+																			"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+																		}
+																	},
+																	"params": "CBQwAkoeCg4iDGxvZmkgaGlwIGhvcBIMbG9maSBoaXAgaG9wugEYVUNfR3B3WWFRdGg1THlpMVVhbHhKN1l3",
+																	"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC",
+																	"loggingContext": {
+																		"vssLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		},
+																		"qoeLoggingContext": {
+																			"serializedContextData": "CgIIDA%3D%3D"
+																		}
+																	}
+																}
+															}
+														},
+														"indexInCollection": 0,
+														"menuOnTapA11yLabel": "More actions",
+														"overlayMetadata": {
+															"primaryText": {
+																"content": "1 A.M Study Session - [🎧 1 Hour Lofi Hip Hop | Chill & Study 🎧]"
+															},
+															"secondaryText": {
+																"content": "2.7K views"
+															}
+														},
+														"thumbnailViewModel": {
+															"thumbnailViewModel": {
+																"image": {
+																	"sources": [
+																		{
+																			"url": "https://i.ytimg.com/vi/v-uSFoB48lc/oar2.jpg?sqp=-oaymwEhCJUDENAFSFWQAgHyq4qpAxAIARUAAIhCcAHAAQa4AvcY&rs=AOn4CLA-hoN6i4X8KMYnxRJoKnR4Y_0fhQ",
+																			"width": 405,
+																			"height": 720
+																		},
+																		{
+																			"url": "https://i.ytimg.com/vi/v-uSFoB48lc/oar2.jpg?sqp=-oaymwEkCJUDEOAESFWQAgHyq4qpAxMIARUAAIhCcAHAAQbIAQG4AvcY&rs=AOn4CLAlg5RD16Sc-sJMGjuXycVUcZ0ptQ",
+																			"width": 405,
+																			"height": 608
+																		}
+																	]
+																}
+															}
+														},
+														"stackedFrameData": {},
+														"titleTruncationStyle": "SHORTS_LOCKUP_TITLE_TRUNCATION_STYLE_UNKNOWN"
+													}
+												}
+											],
+											"header": {
+												"sectionHeaderViewModel": {
+													"headline": {
+														"content": "Shorts"
+													},
+													"leadingAccessory": {
+														"image": {
+															"sources": [
+																{
+																	"clientResource": {
+																		"imageName": "YOUTUBE_SHORTS_BRAND_24"
+																	}
+																}
+															]
+														}
+													}
+												}
+											},
+											"contentAspectRatio": "GRID_SHELF_CONTENT_ASPECT_RATIO_TWO_BY_THREE",
+											"enableVerticalExpansion": true,
+											"showMoreButton": {
+												"buttonViewModel": {
+													"iconName": "EXPAND",
+													"title": "Show more",
+													"style": "BUTTON_VIEW_MODEL_STYLE_MONO",
+													"type": "BUTTON_VIEW_MODEL_TYPE_OUTLINE",
+													"buttonSize": "BUTTON_VIEW_MODEL_SIZE_DEFAULT",
+													"state": "BUTTON_VIEW_MODEL_STATE_ACTIVE",
+													"iconPosition": "BUTTON_VIEW_MODEL_ICON_POSITION_TRAILING"
+												}
+											},
+											"showLessButton": {
+												"buttonViewModel": {
+													"iconName": "COLLAPSE",
+													"title": "Show less",
+													"style": "BUTTON_VIEW_MODEL_STYLE_MONO",
+													"type": "BUTTON_VIEW_MODEL_TYPE_OUTLINE",
+													"buttonSize": "BUTTON_VIEW_MODEL_SIZE_DEFAULT",
+													"state": "BUTTON_VIEW_MODEL_STATE_ACTIVE",
+													"iconPosition": "BUTTON_VIEW_MODEL_ICON_POSITION_TRAILING"
+												}
+											},
+											"minCollapsedItemCount": 10
+										}
+									}
+								]
+							}
+						},
+						{
+							"continuationItemRenderer": {
+								"trigger": "CONTINUATION_TRIGGER_ON_ITEM_SHOWN",
+								"continuationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "Eq0DEgxsb2ZpIGhpcCBob3AanANTQlNDQVF0eVJscElUMGhzTFV3NFFZSUJDMnhVVW1sMVJrbFhWalUwZ2dFTGJqWXhWVXhGVlRkRFR6Q0NBUlpTUkVGVVptMWlSemx0WVZOQ2IyRllRV2RoUnpsM2dnRUxTa1F0YTAxSmNFUm1ibG1DQVF0RFRHVmFlVWxKUkRsQ2I0SUJDMUUzTkZsVlFYaHhjekF3Z2dFTE5qRTNURjlOVDBJek4ydUNBUXM0TW5WcVpGRkNhbkJFVVlJQkMyazBNM1JyWVZSWWRIZEpnZ0VMYzBZNE1Fa3RWRkZwVnpDQ0FRdHRPRmRxYm5Wb2IyVkVaNElCQzNwWE5YZHdTbGt4Y21kUmdnRUxTVEUwTUdsT2NIZ3hlRTJDQVF0QlRXTldTbTFpTlcxMmE0SUJDMVZLY3paZlgwczNaMU5aZ2dFTFNHeElRV2xpTVV4RFdVbUNBUXN4Ukd0RWNsWkZTekp5WTRJQkMyWm1OV3hQT0ZSclZsZzRnZ0VMUjJWa1RHeHBYMWxZUlVteUFRWUtCQWdXRUFMcUFRUUlBaEFaGIHg6BgiC3NlYXJjaC1mZWVk",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH"
+									}
+								}
+							}
+						}
+					],
+					"subMenu": {
+						"searchSubMenuRenderer": {}
+					},
+					"hideBottomSeparator": true,
+					"targetId": "search-feed"
+				}
+			}
+		}
+	},
+	"header": {
+		"searchHeaderRenderer": {
+			"chipBar": {
+				"chipCloudRenderer": {
+					"chips": [
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "All"
+								},
+								"isSelected": true,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Shorts"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EuQFEgxsb2ZpIGhpcCBob3Aa0AVFcElFa2dHT0JEcVhBUktRQVNoaElIbHZkWFIxWW1WZmMyaHZjblJ6WDJSbFptbHVhWFJwYjI0Z09uUjVjR1U2Y2lBb2JpQjViM1YwZFdKbFgyWnNZV2RmYUdGelgzQnlaVzFwWlhKbFgzWnBaR1Z2WDIxbGRHRmtZWFJoUFRFZ09uUjVjR1U2Y2lrZ0tHNGdlVzkxZEhWaVpWOW1iR0ZuWDJoaGMxOXNhWFpsWDNOMGNtVmhiVjl0WlhSaFpHRjBZVDB4SURwMGVYQmxPbklwS1RnQllCcEs4UUlLSEFvTWJHOW1hU0JvYVhBZ2FHOXc4Z0VGQ2dOQmJHellBZ0c0QTJFS3BRSHlBUWdLQmxOb2IzSjBjOElDa0FFb1lTQjViM1YwZFdKbFgzTm9iM0owYzE5a1pXWnBibWwwYVc5dUlEcDBlWEJsT25JZ0tHNGdlVzkxZEhWaVpWOW1iR0ZuWDJoaGMxOXdjbVZ0YVdWeVpWOTJhV1JsYjE5dFpYUmhaR0YwWVQweElEcDBlWEJsT25JcElDaHVJSGx2ZFhSMVltVmZabXhoWjE5b1lYTmZiR2wyWlY5emRISmxZVzFmYldWMFlXUmhkR0U5TVNBNmRIbHdaVHB5S1NuNEFnRzRBeG9LRnZJQkN3b0pWVzUzWVhSamFHVmt5Z0lDR0FHNEF4d0tPdklCQ0FvR1ZtbGtaVzl6d2dJYWVXOTFkSFZpWlY5MmFXUmxiMTl3WVdkbElEcDBlWEJsT25Mb0FnR29Bd0c0QTBqQUF3SElBd0hRQXdFS0cyQUg4Z0VUQ2hGU1pXTmxiblJzZVNCMWNHeHZZV1JsWkxnREJ3bzI4Z0VHQ2dSTWFYWmx3Z0luZVc5MWRIVmlaVjlzYVhabFgySnliMkZrWTJGemRGOXpkR0YwZFhNOU1DQTZkSGx3WlRweXVBTUVHQXQ0QUElM0QlM0SQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Unwatched"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "Ep4EEgxsb2ZpIGhpcCBob3AaigRFb0FEa2dIOEFqb0dHZ0lZQVdBY1N2RUNDaHdLREd4dlpta2dhR2x3SUdodmNQSUJCUW9EUVd4czJBSUJ1QU5oQ3FVQjhnRUlDZ1pUYUc5eWRIUENBcEFCS0dFZ2VXOTFkSFZpWlY5emFHOXlkSE5mWkdWbWFXNXBkR2x2YmlBNmRIbHdaVHB5SUNodUlIbHZkWFIxWW1WZlpteGhaMTlvWVhOZmNISmxiV2xsY21WZmRtbGtaVzlmYldWMFlXUmhkR0U5TVNBNmRIbHdaVHB5S1NBb2JpQjViM1YwZFdKbFgyWnNZV2RmYUdGelgyeHBkbVZmYzNSeVpXRnRYMjFsZEdGa1lYUmhQVEVnT25SNWNHVTZjaWtwLUFJQnVBTWFDaGJ5QVFzS0NWVnVkMkYwWTJobFpNb0NBaGdCdUFNY0NqcnlBUWdLQmxacFpHVnZjOElDR25sdmRYUjFZbVZmZG1sa1pXOWZjR0ZuWlNBNmRIbHdaVHB5NkFJQnFBTUJ1QU5Jd0FNQnlBTUIwQU1CQ2h0Z0JfSUJFd29SVW1WalpXNTBiSGtnZFhCc2IyRmtaV1M0QXdjS052SUJCZ29FVEdsMlpjSUNKM2x2ZFhSMVltVmZiR2wyWlY5aWNtOWhaR05oYzNSZmMzUmhkSFZ6UFRBZ09uUjVjR1U2Y3JnREJCZ0xlQUElM0SQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Videos"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EsgEEgxsb2ZpIGhpcCBob3AatARFcUlEa2dHZUF6b29FaHA1YjNWMGRXSmxYM1pwWkdWdlgzQmhaMlVnT25SNWNHVTZjaWdCVUFGZ1NHZ0JjQUY0QVVyeEFnb2NDZ3hzYjJacElHaHBjQ0JvYjNEeUFRVUtBMEZzYk5nQ0FiZ0RZUXFsQWZJQkNBb0dVMmh2Y25SendnS1FBU2hoSUhsdmRYUjFZbVZmYzJodmNuUnpYMlJsWm1sdWFYUnBiMjRnT25SNWNHVTZjaUFvYmlCNWIzVjBkV0psWDJac1lXZGZhR0Z6WDNCeVpXMXBaWEpsWDNacFpHVnZYMjFsZEdGa1lYUmhQVEVnT25SNWNHVTZjaWtnS0c0Z2VXOTFkSFZpWlY5bWJHRm5YMmhoYzE5c2FYWmxYM04wY21WaGJWOXRaWFJoWkdGMFlUMHhJRHAwZVhCbE9uSXBLZmdDQWJnREdnb1c4Z0VMQ2dsVmJuZGhkR05vWldUS0FnSVlBYmdESEFvNjhnRUlDZ1pXYVdSbGIzUENBaHA1YjNWMGRXSmxYM1pwWkdWdlgzQmhaMlVnT25SNWNHVTZjdWdDQWFnREFiZ0RTTUFEQWNnREFkQURBUW9iWUFmeUFSTUtFVkpsWTJWdWRHeDVJSFZ3Ykc5aFpHVmt1QU1IQ2pieUFRWUtCRXhwZG1YQ0FpZDViM1YwZFdKbFgyeHBkbVZmWW5KdllXUmpZWE4wWDNOMFlYUjFjejB3SURwMGVYQmxPbks0QXdRWUMzZ0GQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Live"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EswEEgxsb2ZpIGhpcCBob3AauARFcVVEa2dHaEF6b3JFaWQ1YjNWMGRXSmxYMnhwZG1WZlluSnZZV1JqWVhOMFgzTjBZWFIxY3owd0lEcDBlWEJsT25KZ0JFcnhBZ29jQ2d4c2IyWnBJR2hwY0NCb2IzRHlBUVVLQTBGc2JOZ0NBYmdEWVFxbEFmSUJDQW9HVTJodmNuUnp3Z0tRQVNoaElIbHZkWFIxWW1WZmMyaHZjblJ6WDJSbFptbHVhWFJwYjI0Z09uUjVjR1U2Y2lBb2JpQjViM1YwZFdKbFgyWnNZV2RmYUdGelgzQnlaVzFwWlhKbFgzWnBaR1Z2WDIxbGRHRmtZWFJoUFRFZ09uUjVjR1U2Y2lrZ0tHNGdlVzkxZEhWaVpWOW1iR0ZuWDJoaGMxOXNhWFpsWDNOMGNtVmhiVjl0WlhSaFpHRjBZVDB4SURwMGVYQmxPbklwS2ZnQ0FiZ0RHZ29XOGdFTENnbFZibmRoZEdOb1pXVEtBZ0lZQWJnREhBbzY4Z0VJQ2daV2FXUmxiM1BDQWhwNWIzVjBkV0psWDNacFpHVnZYM0JoWjJVZ09uUjVjR1U2Y3VnQ0FhZ0RBYmdEU01BREFjZ0RBZEFEQVFvYllBZnlBUk1LRVZKbFkyVnVkR3g1SUhWd2JHOWhaR1ZrdUFNSENqYnlBUVlLQkV4cGRtWENBaWQ1YjNWMGRXSmxYMnhwZG1WZlluSnZZV1JqWVhOMFgzTjBZWFIxY3owd0lEcDBlWEJsT25LNEF3UVlDM2dBkAEBGIHg6BgiC3NlYXJjaC1wYWdl",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						}
+					],
+					"nextButton": {
+						"buttonRenderer": {
+							"style": "STYLE_DEFAULT",
+							"size": "SIZE_DEFAULT",
+							"isDisabled": false,
+							"icon": {
+								"iconType": "CHEVRON_RIGHT"
+							},
+							"accessibility": {
+								"label": "Next"
+							}
+						}
+					},
+					"previousButton": {
+						"buttonRenderer": {
+							"style": "STYLE_DEFAULT",
+							"size": "SIZE_DEFAULT",
+							"isDisabled": false,
+							"icon": {
+								"iconType": "CHEVRON_LEFT"
+							},
+							"accessibility": {
+								"label": "Previous"
+							}
+						}
+					}
+				}
+			},
+			"searchFilterButton": {
+				"buttonRenderer": {
+					"style": "STYLE_TEXT",
+					"size": "SIZE_DEFAULT",
+					"isDisabled": false,
+					"text": {
+						"runs": [
+							{
+								"text": "Filters"
+							}
+						]
+					},
+					"icon": {
+						"iconType": "TUNE"
+					},
+					"tooltip": "Search filters",
+					"command": {
+						"openPopupAction": {
+							"popupType": "DIALOG"
+						}
+					},
+					"iconPosition": "BUTTON_ICON_POSITION_TYPE_RIGHT_OF_TEXT"
+				}
+			}
+		}
+	},
+	"targetId": "search-page"
+}

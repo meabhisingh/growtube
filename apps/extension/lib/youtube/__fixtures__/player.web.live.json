@@ -1,0 +1,190 @@
+{
+	"playabilityStatus": {
+		"status": "UNPLAYABLE",
+		"reason": "The page needs to be reloaded.",
+		"errorScreen": {
+			"playerErrorMessageRenderer": {
+				"reason": {
+					"runs": [
+						{
+							"text": "The page needs to be reloaded."
+						}
+					]
+				},
+				"proceedButton": {
+					"buttonRenderer": {
+						"style": "STYLE_PRIMARY",
+						"size": "SIZE_DEFAULT",
+						"isDisabled": false,
+						"text": {
+							"runs": [
+								{
+									"text": "Reload"
+								}
+							]
+						},
+						"command": {
+							"signalAction": {
+								"signal": "RELOAD_PAGE"
+							}
+						}
+					}
+				},
+				"thumbnail": {
+					"thumbnails": [
+						{
+							"url": "//s.ytimg.com/yts/img/meh7-vflGevej7.png",
+							"width": 140,
+							"height": 100
+						}
+					]
+				},
+				"icon": {
+					"iconType": "ERROR_OUTLINE"
+				}
+			}
+		},
+		"skip": {
+			"playabilityErrorSkipConfig": {
+				"skipOnPlayabilityError": false
+			}
+		},
+		"contextParams": "Q0FFU0FnZ0M="
+	},
+	"heartbeatParams": {
+		"intervalMilliseconds": "15000",
+		"softFailOnError": true,
+		"heartbeatServerData": "GAIgAbIBogxBQ2loNlpPdjc4NzhjNzAxVVFNRGVlQUZqWkRRVjk1Q2kxUFZyUzRFYV83Z2E1OXBWRmR1SE12d2ZxRGpNVVB2NmNIdEVtT0lkTmFDM3JCcG1HbW52YU1WUDA3cE1ydjFTRGw0Mm8zVnVmMUhHZUwxbzJaMnZtUDFJUUR0TUtDZDRFY1BnQ3RieWx2QmRCSU1HWWd5YUZLVUk1LXJGV01Ka3dTZnBTWHdRTFpzZnJWNDNJbURrNFNEdExob0tuVVkwZzdpdTB2N2tVcjZ6eFduTEEwSXhHeExUWDJrODF6ek9XQW9hU3pCN1pBVVVLOFdCMlVtMXlnVmVCcVZSMUl0enJQTmxtUmMybVAtUW1Lenk4T0NxQ29CMERRX0kzaUlVT09W…"
+	},
+	"videoDetails": {
+		"videoId": "rFZHOHl-L8A",
+		"title": "lofi hip hop radio 📚 beats to relax/study to",
+		"lengthSeconds": "0",
+		"isLive": true,
+		"keywords": [
+			"lo-fi",
+			"lo fi",
+			"lofi",
+			"lofi hiphop",
+			"lo-fi hiphop",
+			"lo fi hiphop",
+			"hiphop",
+			"hip hop",
+			"lofi hip hop",
+			"lo-fi hip hop",
+			"lo fi hip hop",
+			"lofi radio",
+			"lo-fi radio",
+			"lo fi radio",
+			"lofi hip hop radio",
+			"lo-fi hip hop radio",
+			"lo fi hip hop radio",
+			"chilledcow",
+			"chilled cow",
+			"chilled cow radio",
+			"chillhop",
+			"study music",
+			"beats to relax",
+			"music to study",
+			"radio",
+			"relaxing music",
+			"playlist",
+			"music",
+			"lofi girl",
+			"sleep music",
+			"lofi chill",
+			"relax music",
+			"study lofi",
+			"lofi girl radio",
+			"music to relax",
+			"focus music",
+			"lofi study"
+		],
+		"channelId": "UCSJ4gkVC6NrvII8umztf0Ow",
+		"isOwnerViewing": false,
+		"shortDescription": "Holiday season is approaching 🎄 2026 Christmas playlist available now: https://lnk.to/Christmas_lofi02\n\n🎼 | Listen on Spotify, Apple music and more\n→  https://lnk.to/lofi-hiphop-beats-to-r...\n\n🌎 | Lofi Girl on all social media\n→  https://link.lofigirl.com/m/Community\n\n🌐| Our Websites\n→  https://link.lofigirl.com/m/website\n\n👕 | Lofi Girl merch\n→  https://link.lofigirlshop.com/shop\n\n🎮 | Our vi…",
+		"isCrawlable": true,
+		"isLiveDvrEnabled": true,
+		"thumbnail": {
+			"thumbnails": [
+				{
+					"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hqdefault.jpg?v=6ad62bed&sqp=CJj1h9gG-oaymwEfCKgBEF5IVfKriqkDEggBFQAAiEIYAXABwAEGuAL3GA==&rs=AOn4CLDwBQWC3-FNC6ye5glcKY97Hw5mAA",
+					"width": 168,
+					"height": 94
+				},
+				{
+					"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hqdefault.jpg?v=6ad62bed&sqp=CJj1h9gG-oaymwEfCMQBEG5IVfKriqkDEggBFQAAiEIYAXABwAEGuAL3GA==&rs=AOn4CLCYUX0KgFo5swg2brv_KP4uw2W6uw",
+					"width": 196,
+					"height": 110
+				},
+				{
+					"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hqdefault.jpg?v=6ad62bed&sqp=CJj1h9gG-oaymwEgCPYBEIoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLBIuJh5lzj-eCuyV0nVyOPfHoMvnQ",
+					"width": 246,
+					"height": 138
+				},
+				{
+					"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/hqdefault.jpg?v=6ad62bed&sqp=CJj1h9gG-oaymwEgCNACELwBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLArPpOqq0Q9d7vubqu-Vj8osEu5Qw",
+					"width": 336,
+					"height": 188
+				},
+				{
+					"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/maxresdefault.jpg?v=6ad62bed",
+					"width": 1920,
+					"height": 1080
+				}
+			]
+		},
+		"liveChunkReadahead": 3,
+		"allowRatings": true,
+		"viewCount": "25755925",
+		"author": "Lofi Girl",
+		"isLowLatencyLiveStream": false,
+		"isPrivate": false,
+		"isUnpluggedCorpus": false,
+		"latencyClass": "MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_NORMAL",
+		"isLiveContent": true,
+		"isTvfilmVideo": false
+	},
+	"microformat": {
+		"playerMicroformatRenderer": {
+			"thumbnail": {
+				"thumbnails": [
+					{
+						"url": "https://i.ytimg.com/vi/rFZHOHl-L8A/maxresdefault.jpg?v=6ad62bed",
+						"width": 1280,
+						"height": 720
+					}
+				]
+			},
+			"embed": {
+				"iframeUrl": "https://www.youtube.com/embed/rFZHOHl-L8A",
+				"width": 480,
+				"height": 360
+			},
+			"title": {
+				"simpleText": "lofi hip hop radio 📚 beats to relax/study to"
+			},
+			"description": {
+				"simpleText": "Holiday season is approaching 🎄 2026 Christmas playlist available now: https://lnk.to/Christmas_lofi02\n\n🎼 | Listen on Spotify, Apple music and more\n→  https://lnk.to/lofi-hiphop-beats-to-r...\n\n🌎 | Lofi Girl on all social media\n→  https://link.lofigirl.com/m/Community\n\n🌐| Our Websites\n→  https://link.lofigirl.com/m/website\n\n👕 | Lofi Girl merch\n→  https://link.lofigirlshop.com/shop\n\n🎮 | Our vi…"
+			},
+			"ownerProfileUrl": "http://www.youtube.com/@LofiGirl",
+			"externalChannelId": "UCSJ4gkVC6NrvII8umztf0Ow",
+			"isFamilySafe": true,
+			"isUnlisted": false,
+			"hasYpcMetadata": false,
+			"viewCount": "25755925",
+			"category": "Music",
+			"publishDate": "2026-08-19T00:31:51-07:00",
+			"ownerChannelName": "Lofi Girl",
+			"liveBroadcastDetails": {
+				"isLiveNow": true,
+				"startTimestamp": "2026-08-19T07:43:43+00:00"
+			},
+			"uploadDate": "2026-08-19T00:31:51-07:00",
+			"isShortsEligible": false,
+			"externalVideoId": "rFZHOHl-L8A",
+			"likeCount": "63217",
+			"canonicalUrl": "https://www.youtube.com/watch?v=rFZHOHl-L8A"
+		}
+	}
+}

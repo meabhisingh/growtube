@@ -1,0 +1,135 @@
+{
+	"playabilityStatus": {
+		"status": "UNPLAYABLE",
+		"reason": "The page needs to be reloaded.",
+		"errorScreen": {
+			"playerErrorMessageRenderer": {
+				"reason": {
+					"runs": [
+						{
+							"text": "The page needs to be reloaded."
+						}
+					]
+				},
+				"proceedButton": {
+					"buttonRenderer": {
+						"style": "STYLE_PRIMARY",
+						"size": "SIZE_DEFAULT",
+						"isDisabled": false,
+						"text": {
+							"runs": [
+								{
+									"text": "Reload"
+								}
+							]
+						},
+						"command": {
+							"signalAction": {
+								"signal": "RELOAD_PAGE"
+							}
+						}
+					}
+				},
+				"thumbnail": {
+					"thumbnails": [
+						{
+							"url": "//s.ytimg.com/yts/img/meh7-vflGevej7.png",
+							"width": 140,
+							"height": 100
+						}
+					]
+				},
+				"icon": {
+					"iconType": "ERROR_OUTLINE"
+				}
+			}
+		},
+		"skip": {
+			"playabilityErrorSkipConfig": {
+				"skipOnPlayabilityError": false
+			}
+		},
+		"contextParams": "Q0FFU0FnZ0M="
+	},
+	"videoDetails": {
+		"videoId": "acEW1jig230",
+		"title": "⛽️ FUEL system in GTA VI • #gta6 #gtavi #vicecity #gaming",
+		"lengthSeconds": "72",
+		"channelId": "UCGRIgtqal_cC7V_cD-Zylkg",
+		"isOwnerViewing": false,
+		"shortDescription": "",
+		"isCrawlable": true,
+		"thumbnail": {
+			"thumbnails": [
+				{
+					"url": "https://i.ytimg.com/vi/acEW1jig230/hqdefault.jpg?sqp=-oaymwE5CKgBEF5IVfKriqkDLAgBFQAAiEIYAXABwAEG8AEB-AG2CIACgA-KAgwIABABGEkgTShlMA-4AvcY&rs=AOn4CLCQjzcWSm5lAf4jx9sBFf8NXFTzaw",
+					"width": 168,
+					"height": 94
+				},
+				{
+					"url": "https://i.ytimg.com/vi/acEW1jig230/hqdefault.jpg?sqp=-oaymwE5CMQBEG5IVfKriqkDLAgBFQAAiEIYAXABwAEG8AEB-AG2CIACgA-KAgwIABABGEkgTShlMA-4AvcY&rs=AOn4CLA7bMR18XB6bkJtMJ8vU-xx_gUJCw",
+					"width": 196,
+					"height": 110
+				},
+				{
+					"url": "https://i.ytimg.com/vi/acEW1jig230/hqdefault.jpg?sqp=-oaymwE6CPYBEIoBSFXyq4qpAywIARUAAIhCGAFwAcABBvABAfgBtgiAAoAPigIMCAAQARhJIE0oZTAPuAL3GA==&rs=AOn4CLDub7KOQCmhaXiQBBGh_T0BIsFazQ",
+					"width": 246,
+					"height": 138
+				},
+				{
+					"url": "https://i.ytimg.com/vi/acEW1jig230/hqdefault.jpg?sqp=-oaymwE6CNACELwBSFXyq4qpAywIARUAAIhCGAFwAcABBvABAfgBtgiAAoAPigIMCAAQARhJIE0oZTAPuAL3GA==&rs=AOn4CLARc2tIGRBONeaylEwCt3XHETUV8g",
+					"width": 336,
+					"height": 188
+				},
+				{
+					"url": "https://i.ytimg.com/vi/acEW1jig230/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEkgTShlMA8=&rs=AOn4CLD6kmakaMctAugz7rs-dLIp8Mnlxg",
+					"width": 1920,
+					"height": 1080
+				}
+			]
+		},
+		"allowRatings": true,
+		"viewCount": "7482",
+		"author": "carandbike",
+		"isPrivate": false,
+		"isUnpluggedCorpus": false,
+		"isLiveContent": false,
+		"isTvfilmVideo": false
+	},
+	"microformat": {
+		"playerMicroformatRenderer": {
+			"thumbnail": {
+				"thumbnails": [
+					{
+						"url": "https://i.ytimg.com/vi/acEW1jig230/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEkgTShlMA8=&rs=AOn4CLD6kmakaMctAugz7rs-dLIp8Mnlxg",
+						"width": 1280,
+						"height": 720
+					}
+				]
+			},
+			"embed": {
+				"iframeUrl": "https://www.youtube.com/embed/acEW1jig230",
+				"width": 405,
+				"height": 720
+			},
+			"title": {
+				"simpleText": "⛽️ FUEL system in GTA VI • #gta6 #gtavi #vicecity #gaming"
+			},
+			"lengthSeconds": "72",
+			"ownerProfileUrl": "http://www.youtube.com/@carandbike",
+			"externalChannelId": "UCGRIgtqal_cC7V_cD-Zylkg",
+			"isFamilySafe": true,
+			"isUnlisted": false,
+			"hasYpcMetadata": false,
+			"viewCount": "7482",
+			"category": "Autos & Vehicles",
+			"publishDate": "2026-11-19T23:48:37-08:00",
+			"ownerChannelName": "carandbike",
+			"uploadDate": "2026-11-19T23:48:37-08:00",
+			"isShortsEligible": true,
+			"externalVideoId": "acEW1jig230",
+			"likeCount": "196",
+			"canonicalUrl": "https://www.youtube.com/shorts/acEW1jig230"
+		}
+	}
+}

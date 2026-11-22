@@ -12,10 +12,10 @@
   "createdAt": "2026-11-21T19:41:32.293Z",
   "reproducibleCommand": "pnpm create better-t-stack@latest open-vidiq --frontend tanstack-router --backend hono --runtime workers --database postgres --orm drizzle --api none --auth better-auth --payments none --addons biome lefthook turborepo wxt --examples none --db-setup neon --manual-db --web-deploy none --server-deploy cloudflare --git --package-manager pnpm --install",
   "addonOptions": {
-    "wxt": {
-      "template": "react",
-    },
-  },
+		"wxt": {
+			"template": "react"
+		}
+	},
   "dbSetupOptions": {
     "mode": "manual",
   },
@@ -24,7 +24,12 @@
   "backend": "hono",
   "runtime": "workers",
   "frontend": ["tanstack-router"],
-  "addons": ["biome", "lefthook", "turborepo", "wxt"],
+  "addons": [
+		"biome",
+		"lefthook",
+		"turborepo",
+		"wxt"
+	],
   "examples": [],
   "auth": "better-auth",
   "payments": "none",

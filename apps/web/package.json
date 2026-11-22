@@ -1,42 +1,44 @@
 {
-  "name": "web",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "serve": "vite preview",
-    "start": "vite",
-    "check-types": "vite build && tsc --noEmit",
-    "env:generate": "varlock codegen"
-  },
-  "dependencies": {
-    "@open-vidiq/ui": "workspace:*",
-    "@tailwindcss/vite": "^4.3.5",
-    "@tanstack/react-form": "^1.33.5",
-    "@tanstack/react-router": "^1.170.46",
-    "@varlock/vite-integration": "1.5.6",
-    "better-auth": "catalog:",
-    "lucide-react": "catalog:",
-    "next-themes": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "sonner": "catalog:",
-    "varlock": "catalog:",
-    "zod": "catalog:"
-  },
-  "devDependencies": {
-    "@open-vidiq/config": "workspace:*",
-    "@tanstack/react-router-devtools": "^1.167.3",
-    "@tanstack/router-plugin": "^1.169.0",
-    "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "^6.3.0",
-    "postcss": "^8.5.32",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:",
-    "vite": "^8.3.8"
-  }
+	"name": "web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"serve": "vite preview",
+		"start": "vite",
+		"check-types": "vite build && tsc --noEmit",
+		"env:generate": "varlock codegen"
+	},
+	"dependencies": {
+		"@better-auth/api-key": "1.7.22",
+		"@open-vidiq/shared": "workspace:*",
+		"@open-vidiq/ui": "workspace:*",
+		"@tailwindcss/vite": "^4.3.5",
+		"@tanstack/react-form": "^1.33.5",
+		"@tanstack/react-router": "^1.170.46",
+		"@varlock/vite-integration": "1.5.6",
+		"better-auth": "catalog:",
+		"lucide-react": "catalog:",
+		"next-themes": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"sonner": "catalog:",
+		"varlock": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@open-vidiq/config": "workspace:*",
+		"@tanstack/react-router-devtools": "^1.167.3",
+		"@tanstack/router-plugin": "^1.169.0",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"@vitejs/plugin-react": "^6.3.0",
+		"postcss": "^8.5.32",
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:",
+		"vite": "^8.3.8"
+	}
 }

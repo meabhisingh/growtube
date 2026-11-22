@@ -1,24 +1,24 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "base-lyra",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "src/styles/globals.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "iconLibrary": "lucide",
-  "aliases": {
-    "components": "@open-vidiq/ui/components",
-    "utils": "@open-vidiq/ui/lib/utils",
-    "hooks": "@open-vidiq/ui/hooks",
-    "lib": "@open-vidiq/ui/lib",
-    "ui": "@open-vidiq/ui/components"
-  },
-  "menuColor": "default",
-  "menuAccent": "subtle",
-  "registries": {}
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "base-lyra",
+	"rsc": false,
+	"tsx": true,
+	"tailwind": {
+		"config": "",
+		"css": "src/styles/globals.css",
+		"baseColor": "neutral",
+		"cssVariables": true,
+		"prefix": ""
+	},
+	"iconLibrary": "lucide",
+	"aliases": {
+		"components": "@open-vidiq/ui/components",
+		"utils": "@open-vidiq/ui/lib/utils",
+		"hooks": "@open-vidiq/ui/hooks",
+		"lib": "@open-vidiq/ui/lib",
+		"ui": "@open-vidiq/ui/components"
+	},
+	"menuColor": "default",
+	"menuAccent": "subtle",
+	"registries": {}
 }

@@ -1,137 +1,322 @@
 # open-vidiq
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines React, TanStack Router, Hono, and more.
+**A free, open-source YouTube creator toolkit.** A Chrome extension plus a small
+server that give you the creator-growth features usually locked behind a
+subscription: views per hour, outlier scores, keyword research, SEO scoring,
+controversial-keyword checks, a Studio optimizer and an AI coach.
+
+- **Free and unlimited.** No plans, no credits, no usage limits. You need a free
+  account (email and password) to use it, and then every feature is on, including the
+  ones other tools paywall (controversial keywords, unlimited AI coach chats, unlimited
+  research).
+- **Bring your own AI.** Use any OpenAI-compatible provider (OpenAI, OpenRouter, Groq,
+  Together AI, DeepSeek, Mistral, Google Gemini, a custom endpoint) or a free local model
+  through Ollama or LM Studio. Your API key stays in your browser and requests go
+  straight from the extension to your provider.
+- **Crowdsourced history.** The extension can share the public numbers you already see
+  on YouTube (views, likes, comments, subscribers) with the open-vidiq server. That
+  builds view-history charts and a trending board for everyone. It's a switch in the
+  popup and in Settings, nothing personal is ever sent, and the server stores the
+  numbers without any link to your account.
+
+open-vidiq is an independent project. It is not affiliated with YouTube, Google or
+vidIQ.
 
 ## Features
 
-- **TypeScript** - For type safety and improved developer experience
-- **TanStack Router** - File-based routing with full type safety
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **Shared UI package** - shadcn/ui primitives live in `packages/ui`
-- **Hono** - Lightweight, performant server framework
-- **workers** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Authentication** - Better-Auth
-- **Biome** - Linting and formatting
-- **Turborepo** - Optimized monorepo build system
+### On youtube.com
 
-## Getting Started
+- **Feed badges** on home, search, subscriptions, channel pages, related videos and
+  Shorts shelves: views per hour (VPH), an outlier score against the channel's typical
+  views, and the channel's subscriber count.
+- **Watch page panel**
+  - **Views:** engagement rate, outlier score, VPH, and a views-over-time chart (first
+    24 hours, first 7 days, first 28 days, all time) from crowdsourced snapshots.
+  - **Overview:** channel card with a subscriber and total-views history chart, the
+    controversial-keyword scan (title, description, tags and transcript), SEO score with
+    a checklist, channel and video tags with each tag's search rank (copy or download),
+    average and median views, uploads per week, and best posting times in your local
+    time.
+  - **AI Coach:** chat about the video with its stats, channel, recent uploads and
+    transcript as context. Presets include "Analyze the hook" and "Why did this video do
+    well?"; you can continue any conversation in the side panel.
+- **Shorts controls:** playback speed (0.25x–3x), seek ±5 s or ±10 s, a seek bar,
+  auto-scroll to the next Short, keyboard shortcuts, and mini stats (VPH, outlier,
+  engagement).
 
-First, install the dependencies:
+### In YouTube Studio
+
+- **Live SEO score** while you edit or upload, with a target keyword and keyword
+  suggestions from YouTube autocomplete.
+- **Controversial keywords** in the title, description and tags.
+- **AI tools** with Apply and Undo: 10 title ideas, a description draft (it keeps your
+  links and adds chapters from the captions), a tag set that fits YouTube's 500-character
+  limit, and thumbnail concepts with optional image generation. Nothing is saved until
+  you click Studio's Save.
+- **Tag rank checker** (your video's position in search for each tag) and length
+  counters for the title, description and tags.
+
+### Side panel toolkit
+
+- **AI Coach:** unlimited chats about any video or channel, with saved conversations.
+- **Keyword Research:** expands a seed keyword through autocomplete and estimates
+  volume, competition and an overall score (formulas are shown in the UI); AI insights
+  per keyword and CSV export.
+- **Trends:** the crowdsourced trending board (24 h / 7 days, long-form / Shorts) plus
+  outlier videos from your competitors.
+- **Competitors:** track channels in your niche.
+- **Daily Ideas:** AI video ideas based on your channel and what's trending.
+- **Thumbnails:** find similar thumbnails, generate concepts and images, and preview
+  them in a YouTube-style card.
+- **Optimize:** titles, description, tags and SEO score for any video or topic.
+- **Clip Finder:** finds the best short-form clips in a video's transcript.
+- **Channel Audit:** a scored audit with strengths, weaknesses and next actions.
+
+### Website (`apps/web`)
+
+- Landing page, sign-in, a **trending board**, **video** and **channel** stat pages
+  with history charts, and a **lookup** box (video and channel links, ids, `@handles`).
+- An **MCP** page explaining how to connect Claude, ChatGPT, Claude Code or Cursor to
+  the server's MCP endpoint, where you create and revoke your MCP API keys.
+
+### Server (`apps/server`)
+
+- Accounts (Better Auth, email and password): a session cookie for the website, a
+  bearer token for the extension.
+- A REST API, for signed-in users only, for ingesting crowdsourced stats (stored
+  without the uploader) and reading history, trending and batch stats; rate limits
+  against abuse; Redis caching.
+- An hourly cron that refreshes tracked videos and channels through the YouTube Data
+  API (optional key), prunes old snapshots and cleans up expired sessions and keys.
+- An **MCP server** (`POST /mcp`, with a personal API key) with `get_video_stats`,
+  `get_video_history`, `get_channel_history` and `get_trending`.
+
+Details: [`apps/server/README.md`](apps/server/README.md) and
+[`apps/extension/lib/README.md`](apps/extension/lib/README.md).
+
+## Monorepo layout
+
+pnpm workspaces + Turborepo, TypeScript everywhere, Biome for linting and formatting.
+
+```
+open-vidiq/
+├── apps/
+│   ├── extension/   # Chrome MV3 extension (WXT + React 19)
+│   │   ├── entrypoints/   # background, youtube + studio content scripts, bridge, popup, side panel, options
+│   │   ├── components/    # injected/ (youtube.com UI), studio/, pages/ (popup, side panel, options), common/
+│   │   └── lib/           # messaging, settings, YouTube (InnerTube) client and parsers, AI layer, server client
+│   ├── server/      # Hono on Cloudflare Workers: REST API, cron, MCP
+│   └── web/         # Public site: TanStack Router + Vite + Tailwind v4
+├── packages/
+│   ├── shared/      # HTTP contract (zod), metrics (VPH, outliers), SEO score, formatting, YouTube ids
+│   ├── db/          # Drizzle schema (auth + youtube tables) for Postgres
+│   ├── auth/        # Better Auth config (accounts, extension bearer tokens, MCP API keys)
+│   ├── ui/          # shadcn/ui components and global styles
+│   ├── infra/       # Alchemy deployment (Cloudflare)
+│   └── config/      # shared tsconfig
+```
+
+## Local development
+
+Requirements: Node 22+, pnpm 11, Docker (or any local Postgres and Redis), and Chrome
+or Edge 116+.
+
+### 1. Install
 
 ```bash
 pnpm install
 ```
 
-## Database Setup
+### 2. Start Postgres and Redis
 
-This project uses PostgreSQL with Drizzle ORM.
-
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/server/.env` file with your PostgreSQL connection details.
-
-3. Apply the schema to your database:
+Any Postgres 15+ and Redis 6+ work. With Docker:
 
 ```bash
-pnpm run db:push
+docker run -d --name open-vidiq-postgres -p 5432:5432 \
+  -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=open_vidiq postgres:17
+docker run -d --name open-vidiq-redis -p 6379:6379 redis:7
 ```
 
-Then, run the development server:
+Every Redis key the server writes starts with `ovq:`, so a Redis instance shared with
+other projects is fine.
+
+### 3. Configure
+
+Each app declares its variables in a `.env.schema` file
+([Varlock](https://varlock.dev)); put your values in a git-ignored `.env` next to it.
+
+`apps/server/.env`:
 
 ```bash
-pnpm run dev
+NODE_ENV=development
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/open_vidiq
+REDIS_URL=redis://localhost:6379
+BETTER_AUTH_SECRET=change-me-to-a-random-string-of-32-chars-or-more
+BETTER_AUTH_URL=http://localhost:3000
+CORS_ORIGIN=http://localhost:3001
+# Optional: enables the hourly refresh cron (YouTube Data API v3 key)
+# YOUTUBE_API_KEY=
+# Optional: pin extension sign-in to your extension id(s), comma-separated
+# EXTENSION_ORIGINS=chrome-extension://abcdefghijklmnopabcdefghijklmnop
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-The API is running at [http://localhost:3000](http://localhost:3000).
-
-## UI Customization
-
-React web apps in this stack share shadcn/ui primitives through `packages/ui`.
-
-- Change design tokens and global styles in `packages/ui/src/styles/globals.css`
-- Update shared primitives in `packages/ui/src/components/*`
-- Adjust shadcn aliases or style config in `packages/ui/components.json` and `apps/web/components.json`
-
-### Add more shared components
-
-Run this from the project root to add more primitives to the shared UI package:
+`apps/web/.env`:
 
 ```bash
-npx shadcn@latest add accordion dialog popover sheet table -c packages/ui
+VITE_SERVER_URL=http://localhost:3000
 ```
 
-Import shared components like this:
+`apps/extension/.env` (optional; copy `.env.example`): `WXT_SERVER_URL` is the default
+server URL and is added to the manifest's host permissions at build time. It defaults to
+`http://localhost:3000`.
 
-```tsx
-import { Button } from "@open-vidiq/ui/components/button";
-```
+After changing a `.env.schema`, run `pnpm env:generate`.
 
-### Add app-specific blocks
-
-If you want to add app-specific blocks instead of shared primitives, run the shadcn CLI from `apps/web`.
-
-## Environment Configuration
-
-Each app owns its environment schema in `.env.schema`. Varlock generates `src/env.ts` during installation; run `pnpm run env:generate` after changing a schema. Commit schemas, and keep secrets in ignored env files or your deployment platform.
-
-Import the generated `ENV` accessor in application code. Shared database and auth packages receive configuration or initialized clients from the application. See [Varlock's monorepo guide](https://varlock.dev/guides/monorepos/).
-
-For Cloudflare, Alchemy loads and validates deployment inputs with `varlock/auto-load` in its Node/Bun deployment process. Worker code reads native bindings; web clients use the framework's public env API through `src/env.public.ts` where needed. Alchemy supplies resource URLs and managed database credentials. In-Worker Varlock protections are deferred until an official Alchemy integration is available; see [the non-Wrangler deployment guidance](https://varlock.dev/integrations/cloudflare/#non-wrangler-deploy-tools-alchemy-sst-pulumi).
-
-Bun's automatic env loading is disabled in `bunfig.toml`; the framework integration or server bootstrap loads Varlock. Node deployments must include Varlock and its dependencies alongside the app schema.
-
-Run standalone Node/Bun tools that use Varlock from the owning app directory so they load that app's schema and env files. `env:generate` only generates TypeScript files; it does not initialize environment values in a subsequent command.
-
-## Deployment
-
-### Alchemy
-
-- Target: server on Cloudflare
-- Configure provider accounts: `cd packages/infra && pnpm exec alchemy profile edit`
-- Dev: pnpm run dev
-- Deploy: pnpm run deploy
-- Destroy: pnpm run destroy
-
-`alchemy profile edit` stores the selected Axiom, Cloudflare, Neon, PlanetScale, and/or Prisma provider profiles under `~/.alchemy`; no provider-specific setup command is required by this scaffold.
-
-Deploys are staged and default to a personal `dev_<username>` stage. For production, run the deploy with an explicit stage from `packages/infra`:
+### 4. Create the tables
 
 ```bash
-cd packages/infra && pnpm exec alchemy deploy --stage production
+pnpm db:push
 ```
 
-### Production origins
+### 5. Run
 
-- Required after the first deploy: set `CORS_ORIGIN` in `apps/server/.env` to the exact deployed web origin, such as `https://app.example.com`, then deploy the server again.
-
-## Git Hooks and Formatting
-
-- Run checks: `pnpm run check`
-
-## Project Structure
-
-```
-open-vidiq/
-├── apps/
-│   ├── web/         # Frontend application (React + TanStack Router)
-│   └── server/      # Backend API (Hono)
-├── packages/
-│   ├── ui/          # Shared shadcn/ui components and styles
-│   ├── auth/        # Authentication configuration & logic
-│   └── db/          # Database schema & queries
+```bash
+pnpm dev:server      # API on http://localhost:3000 (wrangler dev, local workerd)
+pnpm dev:web         # website on http://localhost:3001
+pnpm dev:extension   # extension dev mode: opens a browser with it loaded, hot reload
 ```
 
-## Available Scripts
+`pnpm dev` starts all three. To trigger the cron locally:
+`curl "http://localhost:3000/__scheduled?cron=0+*+*+*+*"`.
 
-- `pnpm run dev`: Start all applications in development mode
-- `pnpm run build`: Build all applications
-- `pnpm run dev:web`: Start only the web application
-- `pnpm run dev:server`: Start only the server
-- `pnpm run check-types`: Check TypeScript types across all apps
-- `pnpm run db:push`: Push schema changes to database
-- `pnpm run db:generate`: Generate database client/types
-- `pnpm run db:migrate`: Run database migrations
-- `pnpm run db:studio`: Open database studio UI
-- `pnpm run check`: Run Biome formatting and linting
+To use the extension in your own Chrome instead of the dev browser:
+
+```bash
+pnpm --filter extension build
+```
+
+Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and
+pick `apps/extension/.output/chrome-mv3`. The settings page opens on first install. Add
+your AI provider there (the extension asks for permission to reach that provider's
+origin), or skip it: everything except the AI features works without one.
+
+### Checks
+
+```bash
+pnpm check-types                    # TypeScript across the monorepo
+pnpm build                          # server, web and extension builds
+pnpm check                          # Biome lint + format (writes fixes)
+pnpm --filter extension live-check  # YouTube parsers against saved fixtures and live YouTube
+```
+
+## Deploy
+
+The server deploys to Cloudflare Workers with [Alchemy](https://alchemy.run)
+(`packages/infra/alchemy.run.ts`), with the hourly cron trigger included.
+
+1. **Connect Cloudflare** once:
+
+   ```bash
+   cd packages/infra
+   pnpm exec alchemy profile edit --profile default --add Cloudflare
+   ```
+
+2. **Provision the data stores.** Any Postgres reachable from Workers works; a
+   [Neon](https://neon.tech) database is the easiest. For Redis, use any Redis
+   reachable over TCP (Upstash, Redis Cloud, Aiven…); use a `rediss://` URL for TLS.
+   Then create the tables against the production database:
+
+   ```bash
+   DATABASE_URL="postgres://…" pnpm db:push
+   ```
+
+3. **Set the production values** for `DATABASE_URL`, `REDIS_URL`,
+   `BETTER_AUTH_SECRET` (32+ random characters), `CORS_ORIGIN` (the exact origin of your
+   deployed website, e.g. `https://open-vidiq.example.com`) and, optionally,
+   `YOUTUBE_API_KEY` and `EXTENSION_ORIGINS` (your published extension's
+   `chrome-extension://<id>`; without it any extension origin may call sign-in and
+   sign-up, cookie-less requests only). Either export them in your shell (process variables always win) or
+   put them in `apps/server/.env.production.local` (git-ignored) and deploy with
+   `NODE_ENV=production`. `BETTER_AUTH_URL` is set by Alchemy to the Worker's URL.
+   Optionally set `ALCHEMY_PASSWORD` to encrypt secrets in Alchemy's state.
+
+4. **Deploy:**
+
+   ```bash
+   pnpm run deploy
+   ```
+
+   Use `pnpm run deploy`, not `pnpm deploy`: the latter is a built-in pnpm command.
+   Deploys go to a personal `dev_<username>` stage by default; for production run
+   `cd packages/infra && pnpm exec alchemy deploy --stage production`. The output prints
+   the Worker URL. `pnpm run destroy` tears the stage down.
+
+5. **Website:** build it with the server URL and host `apps/web/dist` on any static host
+   (Cloudflare Pages, Netlify, an S3 bucket…), with a fallback to `index.html` for
+   client-side routes:
+
+   ```bash
+   VITE_SERVER_URL=https://<your-worker>.workers.dev pnpm --filter web build
+   ```
+
+   If its origin differs from the `CORS_ORIGIN` you deployed with, update it and deploy
+   the server again.
+
+6. **Extension:** set `WXT_SERVER_URL=https://<your-worker>.workers.dev` in
+   `apps/extension/.env`, then `pnpm --filter extension zip` for a store-ready zip in
+   `apps/extension/.output/`. Users of an existing build can instead point
+   **Settings → Server & privacy** at any server.
+
+## Accounts & privacy
+
+open-vidiq only works signed in: the extension, the website's tools, the REST API and
+MCP all need a (free) account. This is exactly what the server stores:
+
+- **Account:** your name, your email address and a hash of your password (scrypt,
+  via Better Auth). No email is ever sent, so the address is not verified.
+- **Sessions:** one row per sign-in with a random token, its expiry (7 days, extended
+  while you use it), created/updated times and your user id. **No IP address and no
+  user agent** are stored. Expired sessions are deleted daily.
+- **MCP API keys:** only a SHA-256 hash of each key, plus its first 8 characters (so
+  you can tell keys apart), the name you gave it, and its created, last-used and
+  optional expiry times. The full key is shown once, when you create it.
+- **Crowdsourced uploads are not linked to accounts.** Uploads need a signed-in
+  extension, but the server never stores who sent what: video and channel rows and
+  snapshots have no user column. With crowdsourcing on, the extension sends only
+  public numbers and metadata: video id, title, channel id and name, publish date,
+  duration, Short or not, views, likes and comments, and for channels their handle,
+  name, avatar (only a YouTube image URL is kept), subscribers, total views, video
+  count, join date, country and keywords. The API rounds every time that comes from
+  a browser's report (a video's "first seen" and "last snapshot", and view-history
+  points) down to the hour. Unlisted and private videos are never uploaded, opening
+  one uploads nothing about its channel, and nothing from YouTube Studio is uploaded.
+  With a YouTube Data API key the server also re-checks the visibility of the videos
+  it refreshes every hour, and deletes one that became unlisted or private together
+  with its history.
+- **Rate limits** count requests in Redis under an HMAC of your user id (or, for
+  sign-in, sign-up and account deletion, of your IP address or its IPv6 /64, and for
+  sign-in also of the email address), never the id, IP or email itself; the counters
+  expire after two windows (two minutes, or 30 minutes for the per-account sign-in
+  and deletion limits). Trending searches are cached for 5 minutes under an HMAC of
+  the search text, never the text itself.
+- **Logs** contain the request method, the route pattern (like
+  `/v1/videos/:id/history`, without the actual id), the status and the duration. No
+  query strings, headers, IP addresses, request bodies or SQL values. Cloudflare's
+  platform itself still sees IP addresses (request metadata and, if you enable them,
+  Workers Logs or Logpush), outside this code.
+- **Deleting your account** (with your password) removes the user, the password hash,
+  all sessions and all API keys (the database deletes the keys with the account, so
+  not even a key created at that moment survives). Your past uploads stay, because
+  they were never linked to you.
+
+In the extension and browser:
+
+- The extension talks to YouTube anonymously (no cookies) and caches results locally.
+  It keeps your open-vidiq session token in extension storage.
+- AI requests go from your browser to the provider you configure, with your own key.
+  The open-vidiq server never sees them.
+
+## License
+
+No license file has been chosen yet. Add one (for example MIT or AGPL-3.0) before
+publishing the repository.

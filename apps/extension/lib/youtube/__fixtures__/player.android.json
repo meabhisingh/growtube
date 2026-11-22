@@ -1,0 +1,255 @@
+{
+	"playabilityStatus": {
+		"status": "OK",
+		"playableInEmbed": true,
+		"offlineability": {
+			"offlineabilityRenderer": {
+				"offlineable": true,
+				"formats": [
+					{
+						"name": {
+							"runs": [
+								{
+									"text": "Full HD (1080p)"
+								}
+							]
+						},
+						"formatType": "HD_1080",
+						"availabilityType": "OFFLINEABILITY_AVAILABILITY_TYPE_PREMIUM_LOCKED",
+						"savedSettingShouldExpire": false
+					},
+					{
+						"name": {
+							"runs": [
+								{
+									"text": "High (720p)"
+								}
+							]
+						},
+						"formatType": "HD",
+						"availabilityType": "OFFLINEABILITY_AVAILABILITY_TYPE_PREMIUM_LOCKED",
+						"savedSettingShouldExpire": false
+					},
+					{
+						"name": {
+							"runs": [
+								{
+									"text": "Medium (360p)"
+								}
+							]
+						},
+						"formatType": "SD",
+						"availabilityType": "OFFLINEABILITY_AVAILABILITY_TYPE_FREE",
+						"savedSettingShouldExpire": true
+					},
+					{
+						"name": {
+							"runs": [
+								{
+									"text": "Low (144p)"
+								}
+							]
+						},
+						"formatType": "LD",
+						"availabilityType": "OFFLINEABILITY_AVAILABILITY_TYPE_FREE",
+						"savedSettingShouldExpire": true
+					}
+				],
+				"impressionEndpoints": [
+					{
+						"loggingUrls": [
+							{
+								"baseUrl": "https://ad.doubleclick.net/ddm/activity/src=2542116;type=youtu444;cat=ytmob00;dc_rdid=[DEVICE_ADVERTISER_ID_FOR_CONVERSION_TRACKING];tag_for_child_directed_treatment=;ord=46874",
+								"macros": [
+									{
+										"macroType": "DEVICE_ADVERTISER_ID_FOR_CONVERSION_TRACKING"
+									}
+								]
+							}
+						],
+						"pingingEndpoint": {
+							"hack": true
+						}
+					}
+				],
+				"offlineabilityRendererSupportedConfigs": {
+					"offlineStreamSelectionConfig": {
+						"enablePrefetchPlayerResponse": true
+					}
+				}
+			}
+		},
+		"pictureInPicture": {
+			"pictureInPictureRenderer": {
+				"playableInPip": true,
+				"pictureInPictureStyleConfig": {
+					"enableScrubbing": true,
+					"enableNavigationControls": true
+				},
+				"pictureInPicturePlayability": "PICTURE_IN_PICTURE_PLAYABILITY_ALL"
+			}
+		},
+		"miniplayer": {
+			"miniplayerRenderer": {
+				"playbackMode": "PLAYBACK_MODE_ALLOW"
+			}
+		},
+		"contextParams": "Q0FFU0FnZ0M="
+	},
+	"captions": {
+		"playerCaptionsTracklistRenderer": {
+			"captionTracks": [
+				{
+					"baseUrl": "https://www.youtube.com/api/timedtext?v=4mcWzkHrlYI&ei=9PoBa_zYBeuNg8UPspjFoQ8&caps=asr&opi=112496729&xoaf=5&xowf=1&xospf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1795317092&sparams=ip,ipbits,expire,v,ei,caps,opi,xoaf&signature=8197B19FB8BA0ED6DA9CCD12DD8D1FFE9C706F1A.6C61231D7B7E6829135FA2A26C07305E4B8C60A8&key=yt8&kind=asr&lang=en&variant=gemini&fmt=srv3",
+					"name": {
+						"runs": [
+							{
+								"text": "English (auto-generated)"
+							}
+						]
+					},
+					"vssId": "a.en",
+					"languageCode": "en",
+					"kind": "asr",
+					"isTranslatable": true,
+					"trackName": ""
+				},
+				{
+					"baseUrl": "https://www.youtube.com/api/timedtext?v=4mcWzkHrlYI&ei=9PoBa_zYBeuNg8UPspjFoQ8&caps=asr&opi=112496729&xoaf=5&xowf=1&xospf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1795317092&sparams=ip,ipbits,expire,v,ei,caps,opi,xoaf&signature=8197B19FB8BA0ED6DA9CCD12DD8D1FFE9C706F1A.6C61231D7B7E6829135FA2A26C07305E4B8C60A8&key=yt8&lang=en-IN&fmt=srv3",
+					"name": {
+						"runs": [
+							{
+								"text": "English (India)"
+							}
+						]
+					},
+					"vssId": ".en-IN",
+					"languageCode": "en-IN",
+					"isTranslatable": true,
+					"trackName": ""
+				}
+			],
+			"audioTracks": [
+				{
+					"captionTrackIndices": [1, 0]
+				}
+			],
+			"translationLanguages": [
+				{
+					"languageCode": "ar",
+					"languageName": {
+						"runs": [
+							{
+								"text": "Arabic"
+							}
+						]
+					}
+				},
+				{
+					"languageCode": "zh-Hant",
+					"languageName": {
+						"runs": [
+							{
+								"text": "Chinese (Traditional)"
+							}
+						]
+					}
+				},
+				{
+					"languageCode": "nl",
+					"languageName": {
+						"runs": [
+							{
+								"text": "Dutch"
+							}
+						]
+					}
+				},
+				{
+					"languageCode": "fr",
+					"languageName": {
+						"runs": [
+							{
+								"text": "French"
+							}
+						]
+					}
+				},
+				{
+					"languageCode": "vi",
+					"languageName": {
+						"runs": [
+							{
+								"text": "Vietnamese"
+							}
+						]
+					}
+				}
+			],
+			"defaultAudioTrackIndex": 0,
+			"defaultTranslationSourceTrackIndices": [1]
+		}
+	},
+	"videoDetails": {
+		"videoId": "4mcWzkHrlYI",
+		"title": "Royal Enfield Classic 650 Long-Term Review | Living With 243 kg | carandbike",
+		"lengthSeconds": "566",
+		"keywords": [
+			"carandbike",
+			"car and bike",
+			"car bike",
+			"car",
+			"bike",
+			"re classic 650",
+			"re classic 650 chrome",
+			"re classic 650 review",
+			"re classic 650 long ride",
+			"re classic 650 long term review",
+			"re classic 650 exhaust sound",
+			"royal enfield classic 650",
+			"royal enfield classic 650 review",
+			"royal enfield classic 650 long ride",
+			"royal enfield classic 650 long term review",
+			"classic 650",
+			"classic 650 royal enfield",
+			"classic 650 long ride",
+			"classic 650 review",
+			"classic 650 long term review"
+		],
+		"channelId": "UCGRIgtqal_cC7V_cD-Zylkg",
+		"isOwnerViewing": false,
+		"shortDescription": "The Royal Enfield Classic 650 has been Janak’s long termer for almost six months, and he has been using it for daily commutes, leisure rides, highway runs and day-long trips. And while it's certainly a motorcycle that turns heads, living with it over an extended period has revealed a few things that you should know before buying one.\n\nIn this long-term review, we talk about what makes the Classic …",
+		"isCrawlable": true,
+		"thumbnail": {
+			"thumbnails": [
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/default.jpg",
+					"width": 120,
+					"height": 90
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/mqdefault.jpg",
+					"width": 320,
+					"height": 180
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/hqdefault.jpg",
+					"width": 480,
+					"height": 360
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/sddefault.jpg",
+					"width": 640,
+					"height": 480
+				}
+			]
+		},
+		"allowRatings": true,
+		"viewCount": "6387",
+		"author": "carandbike",
+		"isPrivate": false,
+		"isUnpluggedCorpus": false,
+		"isLiveContent": false,
+		"isTvfilmVideo": false
+	}
+}

@@ -1,0 +1,474 @@
+{
+	"onResponseReceivedEndpoints": [
+		{
+			"reloadContinuationItemsCommand": {
+				"targetId": "comments-section",
+				"continuationItems": [
+					{
+						"commentsHeaderRenderer": {
+							"countText": {
+								"runs": [
+									{
+										"text": "2"
+									},
+									{
+										"text": " Comments"
+									}
+								]
+							},
+							"createRenderer": {
+								"commentSimpleboxRenderer": {
+									"authorThumbnail": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/a/default-user=s48-c-k-c0x00ffffff-no-rj",
+												"width": 48,
+												"height": 48
+											},
+											{
+												"url": "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj",
+												"width": 88,
+												"height": 88
+											},
+											{
+												"url": "https://yt3.ggpht.com/a/default-user=s176-c-k-c0x00ffffff-no-rj",
+												"width": 176,
+												"height": 176
+											}
+										],
+										"accessibility": {}
+									},
+									"placeholderText": {
+										"runs": [
+											{
+												"text": "Add a comment..."
+											}
+										]
+									},
+									"prepareAccountEndpoint": {
+										"commandMetadata": {
+											"webCommandMetadata": {
+												"ignoreNavigation": true
+											}
+										},
+										"modalEndpoint": {
+											"modal": {
+												"modalWithTitleAndButtonRenderer": {
+													"title": {
+														"runs": [
+															{
+																"text": "Want to join the conversation?"
+															}
+														]
+													},
+													"content": {
+														"runs": [
+															{
+																"text": "Sign in to continue"
+															}
+														]
+													},
+													"button": {
+														"buttonRenderer": {
+															"style": "STYLE_MONO_FILLED",
+															"size": "SIZE_DEFAULT",
+															"isDisabled": false,
+															"text": {
+																"simpleText": "Sign in"
+															},
+															"navigationEndpoint": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fyoutubei%252Fv1%252Fnext%253FprettyPrint%253Dfalse&hl=en",
+																		"webPageType": "WEB_PAGE_TYPE_UNKNOWN",
+																		"rootVe": 83769
+																	}
+																},
+																"signInEndpoint": {
+																	"hack": true
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"avatarSize": "SIMPLEBOX_AVATAR_SIZE_TYPE_DEFAULT",
+									"emojiButton": {
+										"buttonRenderer": {
+											"size": "SIZE_SMALL",
+											"icon": {
+												"iconType": "EMOJI"
+											}
+										}
+									},
+									"emojiPicker": {
+										"emojiPickerRenderer": {
+											"id": "emoji",
+											"categories": [
+												{
+													"emojiPickerCategoryRenderer": {
+														"categoryId": "UCkszU2WH9gy1mb0dV-11UJg",
+														"title": {
+															"simpleText": "YouTube"
+														},
+														"emojiIds": [
+															"UCkszU2WH9gy1mb0dV-11UJg/G8AfY6yWGuKuhL0PlbiA2AE",
+															"UCkszU2WH9gy1mb0dV-11UJg/KsIfY6LzFoLM6AKanYDQAg",
+															"UCkszU2WH9gy1mb0dV-11UJg/W8IfY_bwAfiPq7IPvNCA2AU",
+															"UCkszU2WH9gy1mb0dV-11UJg/b8IfY7zOK9iVkNAP_I2A-AY",
+															"UCkszU2WH9gy1mb0dV-11UJg/egJ1XufTKYfegwOo57ewAg"
+														],
+														"categoryType": "CATEGORY_TYPE_GLOBAL"
+													}
+												},
+												{
+													"emojiPickerCategoryRenderer": {
+														"categoryId": "people",
+														"title": {
+															"simpleText": "People"
+														},
+														"emojiIds": ["😀", "😃", "😄", "😁", "👣"],
+														"imageLoadingLazy": true,
+														"categoryType": "CATEGORY_TYPE_UNICODE"
+													}
+												},
+												{
+													"emojiPickerCategoryRenderer": {
+														"categoryId": "nature",
+														"title": {
+															"simpleText": "Nature"
+														},
+														"emojiIds": ["🐵", "🐒", "🦍", "🦧", "🍃"],
+														"imageLoadingLazy": true,
+														"categoryType": "CATEGORY_TYPE_UNICODE"
+													}
+												},
+												{
+													"emojiPickerCategoryRenderer": {
+														"categoryId": "food",
+														"title": {
+															"simpleText": "Food"
+														},
+														"emojiIds": ["🍇", "🍈", "🍉", "🍊", "🏺"],
+														"imageLoadingLazy": true,
+														"categoryType": "CATEGORY_TYPE_UNICODE"
+													}
+												},
+												{
+													"emojiPickerCategoryRenderer": {
+														"categoryId": "symbols",
+														"title": {
+															"simpleText": "Symbols"
+														},
+														"emojiIds": ["🏧", "🚮", "🚰", "♿", "🏴‍☠"],
+														"imageLoadingLazy": true,
+														"categoryType": "CATEGORY_TYPE_UNICODE"
+													}
+												}
+											],
+											"categoryButtons": [
+												{
+													"emojiPickerCategoryButtonRenderer": {
+														"categoryId": "UCkszU2WH9gy1mb0dV-11UJg",
+														"icon": {
+															"iconType": "VIDEO_YOUTUBE"
+														},
+														"tooltip": "YouTube",
+														"accessibility": {}
+													}
+												},
+												{
+													"emojiPickerCategoryButtonRenderer": {
+														"categoryId": "people",
+														"icon": {
+															"iconType": "EMOJI_PEOPLE"
+														},
+														"tooltip": "People",
+														"accessibility": {},
+														"targetId": "emoji-picker-category-button-people"
+													}
+												},
+												{
+													"emojiPickerCategoryButtonRenderer": {
+														"categoryId": "nature",
+														"icon": {
+															"iconType": "EMOJI_NATURE"
+														},
+														"tooltip": "Nature",
+														"accessibility": {}
+													}
+												},
+												{
+													"emojiPickerCategoryButtonRenderer": {
+														"categoryId": "food",
+														"icon": {
+															"iconType": "EMOJI_FOOD"
+														},
+														"tooltip": "Food",
+														"accessibility": {}
+													}
+												},
+												{
+													"emojiPickerCategoryButtonRenderer": {
+														"categoryId": "symbols",
+														"icon": {
+															"iconType": "EMOJI_SYMBOLS"
+														},
+														"tooltip": "Symbols",
+														"accessibility": {}
+													}
+												}
+											],
+											"searchPlaceholderText": {
+												"runs": [
+													{
+														"text": "Search emoji"
+													}
+												]
+											},
+											"searchNoResultsText": {
+												"runs": [
+													{
+														"text": "No emoji found"
+													}
+												]
+											},
+											"pickSkinToneText": {
+												"runs": [
+													{
+														"text": "Pick emoji skin tone"
+													}
+												]
+											},
+											"clearSearchLabel": "Clear search",
+											"skinToneGenericLabel": "Generic skin tone",
+											"skinToneLightLabel": "Light skin tone",
+											"skinToneMediumLightLabel": "Medium light skin tone",
+											"skinToneMediumLabel": "Medium skin tone",
+											"skinToneMediumDarkLabel": "Medium dark skin tone",
+											"skinToneDarkLabel": "Dark skin tone"
+										}
+									},
+									"disabledText": "Comments are turned off.",
+									"disabledTextUrl": "https://support.google.com/youtube/answer/9706180"
+								}
+							},
+							"sortMenu": {
+								"sortFilterSubMenuRenderer": {
+									"subMenuItems": [
+										{
+											"title": "Top",
+											"selected": true,
+											"subtitle": "Show featured comments",
+											"rendererContext": {
+												"loggingContext": {}
+											}
+										},
+										{
+											"title": "Newest",
+											"selected": false,
+											"subtitle": "Show recent comments, including potential spam",
+											"rendererContext": {
+												"loggingContext": {}
+											}
+										}
+									],
+									"title": "Sort by",
+									"icon": {
+										"iconType": "SORT"
+									},
+									"accessibility": {},
+									"tooltip": "Sort comments"
+								}
+							},
+							"titleText": {
+								"runs": [
+									{
+										"text": "Comments"
+									}
+								]
+							},
+							"commentsCount": {
+								"runs": [
+									{
+										"text": "2"
+									}
+								]
+							},
+							"showSeparator": true,
+							"customEmojis": [
+								{
+									"emojiId": "UCkszU2WH9gy1mb0dV-11UJg/hands-yellow-heart-red",
+									"shortcuts": [":hands-yellow-heart-red:"],
+									"searchTerms": ["hands-yellow-heart-red"],
+									"image": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/qWSu2zrgOKLKgt_E-XUP9e30aydT5aF3TnNjvfBL55cTu1clP8Eoh5exN3NDPEVPYmasmoA=w24-h24-c-k-nd",
+												"width": 24,
+												"height": 24
+											},
+											{
+												"url": "https://yt3.ggpht.com/qWSu2zrgOKLKgt_E-XUP9e30aydT5aF3TnNjvfBL55cTu1clP8Eoh5exN3NDPEVPYmasmoA=w48-h48-c-k-nd",
+												"width": 48,
+												"height": 48
+											}
+										],
+										"accessibility": {}
+									},
+									"isCustomEmoji": true
+								},
+								{
+									"emojiId": "UCkszU2WH9gy1mb0dV-11UJg/1v50XorRJ8GQ8gTz_prwAg",
+									"shortcuts": [":stayhome:"],
+									"searchTerms": ["stayhome"],
+									"image": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/_1FGHypiub51kuTiNBX1a0H3NyFih3TnHX7bHU06j_ajTzT0OQfMLl9RI1SiQoxtgA2Grg=w24-h24-c-k-nd",
+												"width": 24,
+												"height": 24
+											},
+											{
+												"url": "https://yt3.ggpht.com/_1FGHypiub51kuTiNBX1a0H3NyFih3TnHX7bHU06j_ajTzT0OQfMLl9RI1SiQoxtgA2Grg=w48-h48-c-k-nd",
+												"width": 48,
+												"height": 48
+											}
+										],
+										"accessibility": {}
+									},
+									"isCustomEmoji": true
+								},
+								{
+									"emojiId": "UCkszU2WH9gy1mb0dV-11UJg/v25IY7KcJIGOr8oPz4OA-As",
+									"shortcuts": [":planet-orange-purple-ring:"],
+									"searchTerms": ["planet-orange-purple-ring"],
+									"image": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/xkaLigm3P4_1g4X1JOtkymcC7snuJu_C5YwIFAyQlAXK093X0IUjaSTinMTLKeRZ6280jXg=w24-h24-c-k-nd",
+												"width": 24,
+												"height": 24
+											},
+											{
+												"url": "https://yt3.ggpht.com/xkaLigm3P4_1g4X1JOtkymcC7snuJu_C5YwIFAyQlAXK093X0IUjaSTinMTLKeRZ6280jXg=w48-h48-c-k-nd",
+												"width": 48,
+												"height": 48
+											}
+										],
+										"accessibility": {}
+									},
+									"isCustomEmoji": true
+								},
+								{
+									"emojiId": "UCkszU2WH9gy1mb0dV-11UJg/oPgfY_DoKfSXkNAPq8-AgAo",
+									"shortcuts": [":face-turquoise-covering-eyes:"],
+									"searchTerms": ["face-turquoise-covering-eyes"],
+									"image": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/H2HNPRO8f4SjMmPNh5fl10okSETW7dLTZtuE4jh9D6pSmaUiLfoZJ2oiY-qWU3Owfm1IsXg=w24-h24-c-k-nd",
+												"width": 24,
+												"height": 24
+											},
+											{
+												"url": "https://yt3.ggpht.com/H2HNPRO8f4SjMmPNh5fl10okSETW7dLTZtuE4jh9D6pSmaUiLfoZJ2oiY-qWU3Owfm1IsXg=w48-h48-c-k-nd",
+												"width": 48,
+												"height": 48
+											}
+										],
+										"accessibility": {}
+									},
+									"isCustomEmoji": true
+								},
+								{
+									"emojiId": "UCkszU2WH9gy1mb0dV-11UJg/RPkfY8TPGsCakNAP-JWAoAQ",
+									"shortcuts": [":face-blue-covering-eyes:"],
+									"searchTerms": ["face-blue-covering-eyes"],
+									"image": {
+										"thumbnails": [
+											{
+												"url": "https://yt3.ggpht.com/kj3IgbbR6u-mifDkBNWVcdOXC-ut-tiFbDpBMGVeW79c2c54n5vI-HNYCOC6XZ9Bzgupc10=w24-h24-c-k-nd",
+												"width": 24,
+												"height": 24
+											},
+											{
+												"url": "https://yt3.ggpht.com/kj3IgbbR6u-mifDkBNWVcdOXC-ut-tiFbDpBMGVeW79c2c54n5vI-HNYCOC6XZ9Bzgupc10=w48-h48-c-k-nd",
+												"width": 48,
+												"height": 48
+											}
+										],
+										"accessibility": {}
+									},
+									"isCustomEmoji": true
+								}
+							],
+							"unicodeEmojisUrl": "https://www.gstatic.com/youtube/img/emojis/emojis-png-7.json"
+						}
+					}
+				],
+				"slot": "RELOAD_CONTINUATION_SLOT_HEADER"
+			}
+		},
+		{
+			"reloadContinuationItemsCommand": {
+				"targetId": "comments-section",
+				"continuationItems": [
+					{
+						"commentThreadRenderer": {
+							"renderingPriority": "RENDERING_PRIORITY_UNKNOWN",
+							"isModeratedElqComment": false,
+							"commentViewModel": {
+								"commentViewModel": {
+									"commentKey": "EhpVZ3lYMWNrdkJzWEdncnNpTGFoNEFhQUJBZyAoKAE%3D",
+									"sharedKey": "EgAgKygB",
+									"toolbarStateKey": "EhpVZ3lYMWNrdkJzWEdncnNpTGFoNEFhQUJBZyAsKAE%3D",
+									"toolbarSurfaceKey": "Eh1VZ3lYMWNrdkJzWEdncnNpTGFoNEFhQUJBZy8xMiBGKAE%3D",
+									"commentId": "UgyX1ckvBsXGgrsiLah4AaABAg",
+									"commentSurfaceKey": "Eh1VZ3lYMWNrdkJzWEdncnNpTGFoNEFhQUJBZy8xMiBPKAE%3D",
+									"sharedSurfaceKey": "EhVWSUVXSU5HX0NPTlRFWFRfV0FUQ0gg9AIoAQ%3D%3D",
+									"inlineRepliesKey": "empty_inline_replies",
+									"rendererContext": {
+										"loggingContext": {}
+									}
+								}
+							}
+						}
+					},
+					{
+						"commentThreadRenderer": {
+							"renderingPriority": "RENDERING_PRIORITY_UNKNOWN",
+							"isModeratedElqComment": false,
+							"commentViewModel": {
+								"commentViewModel": {
+									"commentKey": "EhpVZ3hwdmwyTG1oRFBTVGxHRFNsNEFhQUJBZyAoKAE%3D",
+									"sharedKey": "EgAgKygB",
+									"toolbarStateKey": "EhpVZ3hwdmwyTG1oRFBTVGxHRFNsNEFhQUJBZyAsKAE%3D",
+									"toolbarSurfaceKey": "Eh1VZ3hwdmwyTG1oRFBTVGxHRFNsNEFhQUJBZy8xMiBGKAE%3D",
+									"commentId": "Ugxpvl2LmhDPSTlGDSl4AaABAg",
+									"commentSurfaceKey": "Eh1VZ3hwdmwyTG1oRFBTVGxHRFNsNEFhQUJBZy8xMiBPKAE%3D",
+									"sharedSurfaceKey": "EhVWSUVXSU5HX0NPTlRFWFRfV0FUQ0gg9AIoAQ%3D%3D",
+									"inlineRepliesKey": "empty_inline_replies",
+									"rendererContext": {
+										"loggingContext": {}
+									}
+								}
+							}
+						}
+					},
+					{
+						"commentFilterContextViewModel": {
+							"text": {
+								"content": "Top is selected, so you'll see featured comments"
+							},
+							"accessibility": {}
+						}
+					}
+				],
+				"slot": "RELOAD_CONTINUATION_SLOT_BODY"
+			}
+		}
+	]
+}

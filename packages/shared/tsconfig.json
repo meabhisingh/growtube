@@ -1,0 +1,9 @@
+{
+	"extends": "@open-vidiq/config/tsconfig.base.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"lib": ["ESNext", "DOM"],
+		"types": []
+	},
+	"include": ["src"]
+}

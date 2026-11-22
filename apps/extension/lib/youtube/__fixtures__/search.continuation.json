@@ -1,0 +1,1874 @@
+{
+	"estimatedResults": "2393934",
+	"header": {
+		"searchHeaderRenderer": {
+			"chipBar": {
+				"chipCloudRenderer": {
+					"chips": [
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "All"
+								},
+								"isSelected": true,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Shorts"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EpQGEiByb3lhbCBlbmZpZWxkIGNsYXNzaWMgNjUwIHJldmlldxrsBUVxY0VrZ0dqQkRxWUFSS1FBU2hoSUhsdmRYUjFZbVZmYzJodmNuUnpYMlJsWm1sdWFYUnBiMjRnT25SNWNHVTZjaUFvYmlCNWIzVjBkV0psWDJac1lXZGZhR0Z6WDNCeVpXMXBaWEpsWDNacFpHVnZYMjFsZEdGa1lYUmhQVEVnT25SNWNHVTZjaWtnS0c0Z2VXOTFkSFZpWlY5bWJHRm5YMmhoYzE5c2FYWmxYM04wY21WaGJWOXRaWFJoWkdGMFlUMHhJRHAwZVhCbE9uSXBLVGdCWUpnQlNvVURDakFLSUhKdmVXRnNJR1Z1Wm1sbGJHUWdZMnhoYzNOcFl5QTJOVEFnY21WMmFXVjM4Z0VGQ2dOQmJHellBZ0c0QTJFS3BRSHlBUWdLQmxOb2IzSjBjOElDa0FFb1lTQjViM1YwZFdKbFgzTm9iM0owYzE5a1pXWnBibWwwYVc5dUlEcDBlWEJsT25JZ0tHNGdlVzkxZEhWaVpWOW1iR0ZuWDJoaGMxOXdjbVZ0YVdWeVpWOTJhV1JsYjE5dFpYUmhaR0YwWVQweElEcDBlWEJsT25JcElDaHVJSGx2ZFhSMVltVmZabXhoWjE5b1lYTmZiR2wyWlY5emRISmxZVzFmYldWMFlXUmhkR0U5TVNBNmRIbHdaVHB5S1NuNEFnRzRBeG9LRnZJQkN3b0pWVzUzWVhSamFHVmt5Z0lDR0FHNEF4d0tPdklCQ0FvR1ZtbGtaVzl6d2dJYWVXOTFkSFZpWlY5MmFXUmxiMTl3WVdkbElEcDBlWEJsT25Mb0FnR29Bd0c0QTBqQUF3SElBd0hRQXdFS0cyQUg4Z0VUQ2hGU1pXTmxiblJzZVNCMWNHeHZZV1JsWkxnREJ3bzI4Z0VHQ2dSTWFYWmx3Z0luZVc5MWRIVmlaVjlzYVhabFgySnliMkZrWTJGemRGOXpkR0YwZFhNOU1DQTZkSGx3WlRweXVBTUVHQXQ0QUElM0QlM0SQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Unwatched"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "Es4EEiByb3lhbCBlbmZpZWxkIGNsYXNzaWMgNjUwIHJldmlldxqmBEVwVURrZ0dSQXpvSEdnSVlBV0NZQVVxRkF3b3dDaUJ5YjNsaGJDQmxibVpwWld4a0lHTnNZWE56YVdNZ05qVXdJSEpsZG1sbGRfSUJCUW9EUVd4czJBSUJ1QU5oQ3FVQjhnRUlDZ1pUYUc5eWRIUENBcEFCS0dFZ2VXOTFkSFZpWlY5emFHOXlkSE5mWkdWbWFXNXBkR2x2YmlBNmRIbHdaVHB5SUNodUlIbHZkWFIxWW1WZlpteGhaMTlvWVhOZmNISmxiV2xsY21WZmRtbGtaVzlmYldWMFlXUmhkR0U5TVNBNmRIbHdaVHB5S1NBb2JpQjViM1YwZFdKbFgyWnNZV2RmYUdGelgyeHBkbVZmYzNSeVpXRnRYMjFsZEdGa1lYUmhQVEVnT25SNWNHVTZjaWtwLUFJQnVBTWFDaGJ5QVFzS0NWVnVkMkYwWTJobFpNb0NBaGdCdUFNY0NqcnlBUWdLQmxacFpHVnZjOElDR25sdmRYUjFZbVZmZG1sa1pXOWZjR0ZuWlNBNmRIbHdaVHB5NkFJQnFBTUJ1QU5Jd0FNQnlBTUIwQU1CQ2h0Z0JfSUJFd29SVW1WalpXNTBiSGtnZFhCc2IyRmtaV1M0QXdjS052SUJCZ29FVEdsMlpjSUNKM2x2ZFhSMVltVmZiR2wyWlY5aWNtOWhaR05oYzNSZmMzUmhkSFZ6UFRBZ09uUjVjR1U2Y3JnREJCZ0xlQUElM0SQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Videos"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EvgEEiByb3lhbCBlbmZpZWxkIGNsYXNzaWMgNjUwIHJldmlldxrQBEVyY0RrZ0d6QXpvcEVocDViM1YwZFdKbFgzWnBaR1Z2WDNCaFoyVWdPblI1Y0dVNmNpZ0JVQUZnbUFGb0FYQUJlQUZLaFFNS01Bb2djbTk1WVd3Z1pXNW1hV1ZzWkNCamJHRnpjMmxqSURZMU1DQnlaWFpwWlhmeUFRVUtBMEZzYk5nQ0FiZ0RZUXFsQWZJQkNBb0dVMmh2Y25SendnS1FBU2hoSUhsdmRYUjFZbVZmYzJodmNuUnpYMlJsWm1sdWFYUnBiMjRnT25SNWNHVTZjaUFvYmlCNWIzVjBkV0psWDJac1lXZGZhR0Z6WDNCeVpXMXBaWEpsWDNacFpHVnZYMjFsZEdGa1lYUmhQVEVnT25SNWNHVTZjaWtnS0c0Z2VXOTFkSFZpWlY5bWJHRm5YMmhoYzE5c2FYWmxYM04wY21WaGJWOXRaWFJoWkdGMFlUMHhJRHAwZVhCbE9uSXBLZmdDQWJnREdnb1c4Z0VMQ2dsVmJuZGhkR05vWldUS0FnSVlBYmdESEFvNjhnRUlDZ1pXYVdSbGIzUENBaHA1YjNWMGRXSmxYM1pwWkdWdlgzQmhaMlVnT25SNWNHVTZjdWdDQWFnREFiZ0RTTUFEQWNnREFkQURBUW9iWUFmeUFSTUtFVkpsWTJWdWRHeDVJSFZ3Ykc5aFpHVmt1QU1IQ2pieUFRWUtCRXhwZG1YQ0FpZDViM1YwZFdKbFgyeHBkbVZmWW5KdllXUmpZWE4wWDNOMFlYUjFjejB3SURwMGVYQmxPbks0QXdRWUMzZ0GQAQEYgeDoGCILc2VhcmNoLXBhZ2U%3D",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						},
+						{
+							"chipCloudChipRenderer": {
+								"style": {
+									"styleType": "STYLE_HOME_FILTER"
+								},
+								"text": {
+									"simpleText": "Live"
+								},
+								"navigationEndpoint": {
+									"commandMetadata": {
+										"webCommandMetadata": {
+											"sendPost": true,
+											"apiUrl": "/youtubei/v1/search"
+										}
+									},
+									"continuationCommand": {
+										"token": "EvwEEiByb3lhbCBlbmZpZWxkIGNsYXNzaWMgNjUwIHJldmlldxrUBEVyb0RrZ0cyQXpvc0VpZDViM1YwZFdKbFgyeHBkbVZmWW5KdllXUmpZWE4wWDNOMFlYUjFjejB3SURwMGVYQmxPbkpnbUFGS2hRTUtNQW9nY205NVlXd2daVzVtYVdWc1pDQmpiR0Z6YzJsaklEWTFNQ0J5WlhacFpYZnlBUVVLQTBGc2JOZ0NBYmdEWVFxbEFmSUJDQW9HVTJodmNuUnp3Z0tRQVNoaElIbHZkWFIxWW1WZmMyaHZjblJ6WDJSbFptbHVhWFJwYjI0Z09uUjVjR1U2Y2lBb2JpQjViM1YwZFdKbFgyWnNZV2RmYUdGelgzQnlaVzFwWlhKbFgzWnBaR1Z2WDIxbGRHRmtZWFJoUFRFZ09uUjVjR1U2Y2lrZ0tHNGdlVzkxZEhWaVpWOW1iR0ZuWDJoaGMxOXNhWFpsWDNOMGNtVmhiVjl0WlhSaFpHRjBZVDB4SURwMGVYQmxPbklwS2ZnQ0FiZ0RHZ29XOGdFTENnbFZibmRoZEdOb1pXVEtBZ0lZQWJnREhBbzY4Z0VJQ2daV2FXUmxiM1BDQWhwNWIzVjBkV0psWDNacFpHVnZYM0JoWjJVZ09uUjVjR1U2Y3VnQ0FhZ0RBYmdEU01BREFjZ0RBZEFEQVFvYllBZnlBUk1LRVZKbFkyVnVkR3g1SUhWd2JHOWhaR1ZrdUFNSENqYnlBUVlLQkV4cGRtWENBaWQ1YjNWMGRXSmxYMnhwZG1WZlluSnZZV1JqWVhOMFgzTjBZWFIxY3owd0lEcDBlWEJsT25LNEF3UVlDM2dBkAEBGIHg6BgiC3NlYXJjaC1wYWdl",
+										"request": "CONTINUATION_REQUEST_TYPE_SEARCH",
+										"command": {
+											"showReloadUiCommand": {
+												"targetId": "search-page"
+											}
+										}
+									}
+								},
+								"isSelected": false,
+								"location": "CHIP_LOCATION_SEARCH_RESULTS"
+							}
+						}
+					],
+					"nextButton": {
+						"buttonRenderer": {
+							"style": "STYLE_DEFAULT",
+							"size": "SIZE_DEFAULT",
+							"isDisabled": false,
+							"icon": {
+								"iconType": "CHEVRON_RIGHT"
+							},
+							"accessibility": {
+								"label": "Next"
+							}
+						}
+					},
+					"previousButton": {
+						"buttonRenderer": {
+							"style": "STYLE_DEFAULT",
+							"size": "SIZE_DEFAULT",
+							"isDisabled": false,
+							"icon": {
+								"iconType": "CHEVRON_LEFT"
+							},
+							"accessibility": {
+								"label": "Previous"
+							}
+						}
+					}
+				}
+			},
+			"searchFilterButton": {
+				"buttonRenderer": {
+					"style": "STYLE_TEXT",
+					"size": "SIZE_DEFAULT",
+					"isDisabled": false,
+					"text": {
+						"runs": [
+							{
+								"text": "Filters"
+							}
+						]
+					},
+					"icon": {
+						"iconType": "TUNE"
+					},
+					"tooltip": "Search filters",
+					"command": {
+						"openPopupAction": {
+							"popupType": "DIALOG"
+						}
+					},
+					"iconPosition": "BUTTON_ICON_POSITION_TYPE_RIGHT_OF_TEXT"
+				}
+			}
+		}
+	},
+	"onResponseReceivedCommands": [
+		{
+			"appendContinuationItemsAction": {
+				"continuationItems": [
+					{
+						"itemSectionRenderer": {
+							"contents": [
+								{
+									"videoRenderer": {
+										"videoId": "3TJEmFHCg-w",
+										"thumbnail": {
+											"thumbnails": [
+												{
+													"url": "https://i.ytimg.com/vi/3TJEmFHCg-w/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDMs-bnMNLOZCLW0z7i6b6dvoOSXw",
+													"width": 360,
+													"height": 202
+												},
+												{
+													"url": "https://i.ytimg.com/vi/3TJEmFHCg-w/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDbv33etuvE0ylCjl8PFtjVMTC_Gw",
+													"width": 720,
+													"height": 404
+												}
+											]
+										},
+										"title": {
+											"runs": [
+												{
+													"text": "2026 Royal Enfield Classic 650 : Ride Review🔥| Must Watch | YWB Vlogs"
+												}
+											],
+											"accessibility": {}
+										},
+										"longBylineText": {
+											"runs": [
+												{
+													"text": "YWB vlogs",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@YWBvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC0z2Ad7DC6NELeKn0KIqFiw",
+															"canonicalBaseUrl": "/@YWBvlogs"
+														}
+													}
+												}
+											]
+										},
+										"publishedTimeText": {
+											"simpleText": "9mo ago"
+										},
+										"lengthText": {
+											"accessibility": {},
+											"simpleText": "9:47"
+										},
+										"viewCountText": {
+											"simpleText": "2,101 views"
+										},
+										"navigationEndpoint": {
+											"commandMetadata": {
+												"webCommandMetadata": {
+													"url": "/watch?v=3TJEmFHCg-w&pp=ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D",
+													"webPageType": "WEB_PAGE_TYPE_WATCH",
+													"rootVe": 3832
+												}
+											},
+											"watchEndpoint": {
+												"videoId": "3TJEmFHCg-w",
+												"params": "qgMgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXe6AwsIivC3stXUu72pAboDCwj3hLK-5Kyg-LYBugMLCMGn5JnK76q9tgG6AwsIlau9o42hsuqSAboDCwiYrtOc5NyzpOwBugMKCI7D5MyDvrCLL7oDCwjlxPav-uTrqtIBugMLCKTc8-XmnujizQG6AwoI94CV6cary9R0ugMKCJeTs-TDmufaMLoDCwiF7d_rnbe-5ZwBugMLCKzmlevagL2YsQG6AwoI87nDt9i5zqwuugMLCJDzo42PttyS-AG6AwsImpCu4Jyj7uuzAboDCwjj7Z-TyMfa-88BugMKCKnqkO7HmJiFYboDCwiY577Lme7ZnvQBugMLCIX58Z7j6I7l4QHqAwIQAfIDBQ1O0Wg-",
+												"playerParams": "ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D"
+											}
+										},
+										"badges": [
+											{
+												"metadataBadgeRenderer": {
+													"icon": {
+														"iconType": "OUTLINE_BAG"
+													},
+													"style": "BADGE_STYLE_TYPE_SIMPLE",
+													"label": "3 products"
+												}
+											},
+											{
+												"metadataBadgeRenderer": {
+													"style": "BADGE_STYLE_TYPE_SIMPLE",
+													"label": "Earns commission"
+												}
+											}
+										],
+										"ownerText": {
+											"runs": [
+												{
+													"text": "YWB vlogs",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@YWBvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC0z2Ad7DC6NELeKn0KIqFiw",
+															"canonicalBaseUrl": "/@YWBvlogs"
+														}
+													}
+												}
+											]
+										},
+										"shortBylineText": {
+											"runs": [
+												{
+													"text": "YWB vlogs",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@YWBvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC0z2Ad7DC6NELeKn0KIqFiw",
+															"canonicalBaseUrl": "/@YWBvlogs"
+														}
+													}
+												}
+											]
+										},
+										"showActionMenu": false,
+										"shortViewCountText": {
+											"accessibility": {},
+											"simpleText": "2.1K"
+										},
+										"thumbnailOverlays": [
+											{
+												"thumbnailOverlayTimeStatusRenderer": {
+													"text": {
+														"accessibility": {},
+														"simpleText": "9:47"
+													},
+													"style": "DEFAULT"
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"isToggled": false,
+													"untoggledIcon": {
+														"iconType": "WATCH_LATER"
+													},
+													"toggledIcon": {
+														"iconType": "CHECK"
+													},
+													"untoggledTooltip": "Watch later",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"addedVideoId": "3TJEmFHCg-w",
+																	"action": "ACTION_ADD_VIDEO"
+																}
+															]
+														}
+													},
+													"toggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																	"removedVideoId": "3TJEmFHCg-w"
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"untoggledIcon": {
+														"iconType": "ADD_TO_QUEUE_TAIL"
+													},
+													"toggledIcon": {
+														"iconType": "PLAYLIST_ADD_CHECK"
+													},
+													"untoggledTooltip": "Add to queue",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true
+															}
+														},
+														"signalServiceEndpoint": {
+															"signal": "CLIENT_SIGNAL",
+															"actions": [
+																{
+																	"addToPlaylistCommand": {
+																		"openMiniplayer": true,
+																		"videoId": "3TJEmFHCg-w",
+																		"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																		"onCreateListCommand": {
+																			"commandMetadata": {
+																				"webCommandMetadata": {
+																					"sendPost": true,
+																					"apiUrl": "/youtubei/v1/playlist/create"
+																				}
+																			},
+																			"createPlaylistServiceEndpoint": {
+																				"videoIds": ["3TJEmFHCg-w"],
+																				"params": "CAQ%3D"
+																			}
+																		},
+																		"videoIds": ["3TJEmFHCg-w"]
+																	}
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayNowPlayingRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Now playing"
+															}
+														]
+													}
+												}
+											},
+											{
+												"thumbnailOverlayLoadingPreviewRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Keep hovering to play"
+															}
+														]
+													}
+												}
+											}
+										],
+										"detailedMetadataSnippets": [
+											{
+												"snippetText": {
+													"runs": [
+														{
+															"text": "2026 Royal Enfield Classic 650 : Ride Review🔥| Must Watch | YWB Vlogs\n\nHope you will like this video 🥰\n\nDo Subscribe my ..."
+														}
+													]
+												},
+												"snippetHoverText": {
+													"runs": [
+														{
+															"text": "From the video description"
+														}
+													]
+												},
+												"maxOneLine": false
+											}
+										],
+										"avatar": {
+											"decoratedAvatarViewModel": {
+												"avatar": {
+													"avatarViewModel": {
+														"image": {
+															"sources": [
+																{
+																	"url": "https://yt3.ggpht.com/p1m5h0ZuvdrseHf8lS3bWiNrCaTgMmoiNOKdRgWO25PA45GcZ42X14KK9xCRY8gKeiHoCDk70A=s68-c-k-c0x00ffffff-no-rj",
+																	"width": 68,
+																	"height": 68
+																}
+															]
+														},
+														"avatarImageSize": "AVATAR_SIZE_M"
+													}
+												},
+												"a11yLabel": "Go to channel YWB vlogs",
+												"rendererContext": {
+													"commandContext": {
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/@YWBvlogs",
+																		"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																		"rootVe": 3611,
+																		"apiUrl": "/youtubei/v1/browse"
+																	}
+																},
+																"browseEndpoint": {
+																	"browseId": "UC0z2Ad7DC6NELeKn0KIqFiw",
+																	"canonicalBaseUrl": "/@YWBvlogs"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								{
+									"videoRenderer": {
+										"videoId": "qXrupVZN-Ao",
+										"thumbnail": {
+											"thumbnails": [
+												{
+													"url": "https://i.ytimg.com/vi/qXrupVZN-Ao/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLCIpbU9xtNZwZ0zRYeijlRltJod8A",
+													"width": 360,
+													"height": 202
+												},
+												{
+													"url": "https://i.ytimg.com/vi/qXrupVZN-Ao/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLCz6DVjSeoEwZjgqekcafksIVEEEg",
+													"width": 720,
+													"height": 404
+												}
+											]
+										},
+										"title": {
+											"runs": [
+												{
+													"text": "The Classic 650 Chrome Review | Top Variant | Price Update | Motorxone"
+												}
+											],
+											"accessibility": {}
+										},
+										"longBylineText": {
+											"runs": [
+												{
+													"text": "Motorxone",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@motorxone",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC9GEnAtaPG4Qhjck2FynZ4Q",
+															"canonicalBaseUrl": "/@motorxone"
+														}
+													}
+												}
+											]
+										},
+										"publishedTimeText": {
+											"simpleText": "1y ago"
+										},
+										"lengthText": {
+											"accessibility": {},
+											"simpleText": "12:15"
+										},
+										"viewCountText": {
+											"simpleText": "38,564 views"
+										},
+										"navigationEndpoint": {
+											"commandMetadata": {
+												"webCommandMetadata": {
+													"url": "/watch?v=qXrupVZN-Ao&pp=ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D",
+													"webPageType": "WEB_PAGE_TYPE_WATCH",
+													"rootVe": 3832
+												}
+											},
+											"watchEndpoint": {
+												"videoId": "qXrupVZN-Ao",
+												"params": "qgMgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXe6AwsI7IeKjoWTkZndAboDCwj3hLK-5Kyg-LYBugMLCMGn5JnK76q9tgG6AwsIlau9o42hsuqSAboDCwiYrtOc5NyzpOwBugMKCI7D5MyDvrCLL7oDCwjlxPav-uTrqtIBugMLCKTc8-XmnujizQG6AwoI94CV6cary9R0ugMKCJeTs-TDmufaMLoDCwiF7d_rnbe-5ZwBugMLCKzmlevagL2YsQG6AwoI87nDt9i5zqwuugMLCJDzo42PttyS-AG6AwsImpCu4Jyj7uuzAboDCwjj7Z-TyMfa-88BugMKCKnqkO7HmJiFYboDCwiY577Lme7ZnvQBugMLCIX58Z7j6I7l4QHqAwIQAfIDBQ1O0Wg-",
+												"playerParams": "ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D"
+											}
+										},
+										"badges": [
+											{
+												"metadataBadgeRenderer": {
+													"icon": {
+														"iconType": "OUTLINE_BAG"
+													},
+													"style": "BADGE_STYLE_TYPE_SIMPLE",
+													"label": "1 product"
+												}
+											},
+											{
+												"metadataBadgeRenderer": {
+													"style": "BADGE_STYLE_TYPE_SIMPLE",
+													"label": "Earns commission"
+												}
+											}
+										],
+										"ownerBadges": [
+											{
+												"metadataBadgeRenderer": {
+													"icon": {
+														"iconType": "CHECK_CIRCLE_THICK"
+													},
+													"style": "BADGE_STYLE_TYPE_VERIFIED",
+													"tooltip": "Verified"
+												}
+											}
+										],
+										"ownerText": {
+											"runs": [
+												{
+													"text": "Motorxone",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@motorxone",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC9GEnAtaPG4Qhjck2FynZ4Q",
+															"canonicalBaseUrl": "/@motorxone"
+														}
+													}
+												}
+											]
+										},
+										"shortBylineText": {
+											"runs": [
+												{
+													"text": "Motorxone",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@motorxone",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UC9GEnAtaPG4Qhjck2FynZ4Q",
+															"canonicalBaseUrl": "/@motorxone"
+														}
+													}
+												}
+											]
+										},
+										"showActionMenu": false,
+										"shortViewCountText": {
+											"accessibility": {},
+											"simpleText": "38K"
+										},
+										"thumbnailOverlays": [
+											{
+												"thumbnailOverlayTimeStatusRenderer": {
+													"text": {
+														"accessibility": {},
+														"simpleText": "12:15"
+													},
+													"style": "DEFAULT"
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"isToggled": false,
+													"untoggledIcon": {
+														"iconType": "WATCH_LATER"
+													},
+													"toggledIcon": {
+														"iconType": "CHECK"
+													},
+													"untoggledTooltip": "Watch later",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"addedVideoId": "qXrupVZN-Ao",
+																	"action": "ACTION_ADD_VIDEO"
+																}
+															]
+														}
+													},
+													"toggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																	"removedVideoId": "qXrupVZN-Ao"
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"untoggledIcon": {
+														"iconType": "ADD_TO_QUEUE_TAIL"
+													},
+													"toggledIcon": {
+														"iconType": "PLAYLIST_ADD_CHECK"
+													},
+													"untoggledTooltip": "Add to queue",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true
+															}
+														},
+														"signalServiceEndpoint": {
+															"signal": "CLIENT_SIGNAL",
+															"actions": [
+																{
+																	"addToPlaylistCommand": {
+																		"openMiniplayer": true,
+																		"videoId": "qXrupVZN-Ao",
+																		"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																		"onCreateListCommand": {
+																			"commandMetadata": {
+																				"webCommandMetadata": {
+																					"sendPost": true,
+																					"apiUrl": "/youtubei/v1/playlist/create"
+																				}
+																			},
+																			"createPlaylistServiceEndpoint": {
+																				"videoIds": ["qXrupVZN-Ao"],
+																				"params": "CAQ%3D"
+																			}
+																		},
+																		"videoIds": ["qXrupVZN-Ao"]
+																	}
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayNowPlayingRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Now playing"
+															}
+														]
+													}
+												}
+											},
+											{
+												"thumbnailOverlayLoadingPreviewRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Keep hovering to play"
+															}
+														]
+													}
+												}
+											}
+										],
+										"detailedMetadataSnippets": [
+											{
+												"snippetText": {
+													"runs": [
+														{
+															"text": "Watch our detailed "
+														},
+														{
+															"text": "review",
+															"bold": true
+														},
+														{
+															"text": " video with updated pricing to know everything. #"
+														},
+														{
+															"text": "royalenfieldclassic650",
+															"bold": true
+														},
+														{
+															"text": " #"
+														},
+														{
+															"text": "classic650",
+															"bold": true
+														},
+														{
+															"text": " #motorxone Tags- ..."
+														}
+													]
+												},
+												"snippetHoverText": {
+													"runs": [
+														{
+															"text": "From the video description"
+														}
+													]
+												},
+												"maxOneLine": false
+											}
+										],
+										"avatar": {
+											"decoratedAvatarViewModel": {
+												"avatar": {
+													"avatarViewModel": {
+														"image": {
+															"sources": [
+																{
+																	"url": "https://yt3.ggpht.com/DGJzC0BFqw-ciQseRscor0SkuWgIkBFungC1A6vWPqwX6SVZvFKnJ1rVdyd3cTbICBxj1yEUtw=s68-c-k-c0x00ffffff-no-rj",
+																	"width": 68,
+																	"height": 68
+																}
+															]
+														},
+														"avatarImageSize": "AVATAR_SIZE_M"
+													}
+												},
+												"a11yLabel": "Go to channel Motorxone",
+												"rendererContext": {
+													"commandContext": {
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/@motorxone",
+																		"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																		"rootVe": 3611,
+																		"apiUrl": "/youtubei/v1/browse"
+																	}
+																},
+																"browseEndpoint": {
+																	"browseId": "UC9GEnAtaPG4Qhjck2FynZ4Q",
+																	"canonicalBaseUrl": "/@motorxone"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								{
+									"videoRenderer": {
+										"videoId": "tvCBZkfMgnc",
+										"thumbnail": {
+											"thumbnails": [
+												{
+													"url": "https://i.ytimg.com/vi/tvCBZkfMgnc/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLAVkB4aSIY3QtwqvourPPhsZltLxw",
+													"width": 360,
+													"height": 202
+												},
+												{
+													"url": "https://i.ytimg.com/vi/tvCBZkfMgnc/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLD4AzZx5wYJBV9Lq5PFPhGk-GmQJA",
+													"width": 720,
+													"height": 404
+												}
+											]
+										},
+										"title": {
+											"runs": [
+												{
+													"text": "250kg is not a joke | Royal Enfield Classic 650 Review"
+												}
+											],
+											"accessibility": {}
+										},
+										"longBylineText": {
+											"runs": [
+												{
+													"text": "Vivek Panchal",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@vivekpanchalvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCEu47cIWxvyIRXo8qjbgTcQ",
+															"canonicalBaseUrl": "/@vivekpanchalvlogs"
+														}
+													}
+												}
+											]
+										},
+										"publishedTimeText": {
+											"simpleText": "1y ago"
+										},
+										"lengthText": {
+											"accessibility": {},
+											"simpleText": "18:42"
+										},
+										"viewCountText": {
+											"simpleText": "8,046 views"
+										},
+										"navigationEndpoint": {
+											"commandMetadata": {
+												"webCommandMetadata": {
+													"url": "/watch?v=tvCBZkfMgnc&pp=ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D",
+													"webPageType": "WEB_PAGE_TYPE_WATCH",
+													"rootVe": 3832
+												}
+											},
+											"watchEndpoint": {
+												"videoId": "tvCBZkfMgnc",
+												"params": "qgMgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXe6AwsI7IeKjoWTkZndAboDCwiK8Ley1dS7vakBugMLCMGn5JnK76q9tgG6AwsIlau9o42hsuqSAboDCwiYrtOc5NyzpOwBugMKCI7D5MyDvrCLL7oDCwjlxPav-uTrqtIBugMLCKTc8-XmnujizQG6AwoI94CV6cary9R0ugMKCJeTs-TDmufaMLoDCwiF7d_rnbe-5ZwBugMLCKzmlevagL2YsQG6AwoI87nDt9i5zqwuugMLCJDzo42PttyS-AG6AwsImpCu4Jyj7uuzAboDCwjj7Z-TyMfa-88BugMKCKnqkO7HmJiFYboDCwiY577Lme7ZnvQBugMLCIX58Z7j6I7l4QHyAwUNTtFoPg%3D%3D",
+												"playerParams": "ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D"
+											}
+										},
+										"ownerText": {
+											"runs": [
+												{
+													"text": "Vivek Panchal",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@vivekpanchalvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCEu47cIWxvyIRXo8qjbgTcQ",
+															"canonicalBaseUrl": "/@vivekpanchalvlogs"
+														}
+													}
+												}
+											]
+										},
+										"shortBylineText": {
+											"runs": [
+												{
+													"text": "Vivek Panchal",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@vivekpanchalvlogs",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCEu47cIWxvyIRXo8qjbgTcQ",
+															"canonicalBaseUrl": "/@vivekpanchalvlogs"
+														}
+													}
+												}
+											]
+										},
+										"showActionMenu": false,
+										"shortViewCountText": {
+											"accessibility": {},
+											"simpleText": "8K"
+										},
+										"thumbnailOverlays": [
+											{
+												"thumbnailOverlayTimeStatusRenderer": {
+													"text": {
+														"accessibility": {},
+														"simpleText": "18:42"
+													},
+													"style": "DEFAULT"
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"isToggled": false,
+													"untoggledIcon": {
+														"iconType": "WATCH_LATER"
+													},
+													"toggledIcon": {
+														"iconType": "CHECK"
+													},
+													"untoggledTooltip": "Watch later",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"addedVideoId": "tvCBZkfMgnc",
+																	"action": "ACTION_ADD_VIDEO"
+																}
+															]
+														}
+													},
+													"toggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																	"removedVideoId": "tvCBZkfMgnc"
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"untoggledIcon": {
+														"iconType": "ADD_TO_QUEUE_TAIL"
+													},
+													"toggledIcon": {
+														"iconType": "PLAYLIST_ADD_CHECK"
+													},
+													"untoggledTooltip": "Add to queue",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true
+															}
+														},
+														"signalServiceEndpoint": {
+															"signal": "CLIENT_SIGNAL",
+															"actions": [
+																{
+																	"addToPlaylistCommand": {
+																		"openMiniplayer": true,
+																		"videoId": "tvCBZkfMgnc",
+																		"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																		"onCreateListCommand": {
+																			"commandMetadata": {
+																				"webCommandMetadata": {
+																					"sendPost": true,
+																					"apiUrl": "/youtubei/v1/playlist/create"
+																				}
+																			},
+																			"createPlaylistServiceEndpoint": {
+																				"videoIds": ["tvCBZkfMgnc"],
+																				"params": "CAQ%3D"
+																			}
+																		},
+																		"videoIds": ["tvCBZkfMgnc"]
+																	}
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayNowPlayingRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Now playing"
+															}
+														]
+													}
+												}
+											},
+											{
+												"thumbnailOverlayLoadingPreviewRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Keep hovering to play"
+															}
+														]
+													}
+												}
+											}
+										],
+										"detailedMetadataSnippets": [
+											{
+												"snippetText": {
+													"runs": [
+														{
+															"text": "Royal Enfield Classic 650",
+															"bold": true
+														},
+														{
+															"text": " finally revealed! In this video, I bring you a full walkaround of the all-new RE "
+														},
+														{
+															"text": "Classic 650",
+															"bold": true
+														},
+														{
+															"text": " along with a ..."
+														}
+													]
+												},
+												"snippetHoverText": {
+													"runs": [
+														{
+															"text": "From the video description"
+														}
+													]
+												},
+												"maxOneLine": false
+											}
+										],
+										"avatar": {
+											"decoratedAvatarViewModel": {
+												"avatar": {
+													"avatarViewModel": {
+														"image": {
+															"sources": [
+																{
+																	"url": "https://yt3.ggpht.com/c3xlOIgj6ytnq1LuaNNsH2ak8xY1DsA7r1y2pYq5OlccRjfmSXguxyG-nvBYJRt4SMROs-t0=s68-c-k-c0x00ffffff-no-rj",
+																	"width": 68,
+																	"height": 68
+																}
+															]
+														},
+														"avatarImageSize": "AVATAR_SIZE_M"
+													}
+												},
+												"a11yLabel": "Go to channel Vivek Panchal",
+												"rendererContext": {
+													"commandContext": {
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/@vivekpanchalvlogs",
+																		"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																		"rootVe": 3611,
+																		"apiUrl": "/youtubei/v1/browse"
+																	}
+																},
+																"browseEndpoint": {
+																	"browseId": "UCEu47cIWxvyIRXo8qjbgTcQ",
+																	"canonicalBaseUrl": "/@vivekpanchalvlogs"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								{
+									"videoRenderer": {
+										"videoId": "tnqrfKM5E8E",
+										"thumbnail": {
+											"thumbnails": [
+												{
+													"url": "https://i.ytimg.com/vi/tnqrfKM5E8E/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLA8PeVGji89lpIJAlKt2-TLUHZuiA",
+													"width": 360,
+													"height": 202
+												},
+												{
+													"url": "https://i.ytimg.com/vi/tnqrfKM5E8E/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDJ7PwEZrkCfxQWVWsJJy0a829WCQ",
+													"width": 720,
+													"height": 404
+												}
+											]
+										},
+										"title": {
+											"runs": [
+												{
+													"text": "Classic 650 Review: Is It Worth the Upgrade?"
+												}
+											],
+											"accessibility": {}
+										},
+										"longBylineText": {
+											"runs": [
+												{
+													"text": "Strell",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@iamstrell",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCUMmfOox0ktKS_eizQGfATQ",
+															"canonicalBaseUrl": "/@iamstrell"
+														}
+													}
+												}
+											]
+										},
+										"publishedTimeText": {
+											"simpleText": "1y ago"
+										},
+										"lengthText": {
+											"accessibility": {},
+											"simpleText": "17:22"
+										},
+										"viewCountText": {
+											"simpleText": "73,505 views"
+										},
+										"navigationEndpoint": {
+											"commandMetadata": {
+												"webCommandMetadata": {
+													"url": "/watch?v=tnqrfKM5E8E&pp=ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D",
+													"webPageType": "WEB_PAGE_TYPE_WATCH",
+													"rootVe": 3832
+												}
+											},
+											"watchEndpoint": {
+												"videoId": "tnqrfKM5E8E",
+												"params": "qgMgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXe6AwsI7IeKjoWTkZndAboDCwiK8Ley1dS7vakBugMLCPeEsr7krKD4tgG6AwsIlau9o42hsuqSAboDCwiYrtOc5NyzpOwBugMKCI7D5MyDvrCLL7oDCwjlxPav-uTrqtIBugMLCKTc8-XmnujizQG6AwoI94CV6cary9R0ugMKCJeTs-TDmufaMLoDCwiF7d_rnbe-5ZwBugMLCKzmlevagL2YsQG6AwoI87nDt9i5zqwuugMLCJDzo42PttyS-AG6AwsImpCu4Jyj7uuzAboDCwjj7Z-TyMfa-88BugMKCKnqkO7HmJiFYboDCwiY577Lme7ZnvQBugMLCIX58Z7j6I7l4QHyAwUNTtFoPg%3D%3D",
+												"playerParams": "ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D"
+											}
+										},
+										"ownerBadges": [
+											{
+												"metadataBadgeRenderer": {
+													"icon": {
+														"iconType": "CHECK_CIRCLE_THICK"
+													},
+													"style": "BADGE_STYLE_TYPE_VERIFIED",
+													"tooltip": "Verified"
+												}
+											}
+										],
+										"ownerText": {
+											"runs": [
+												{
+													"text": "Strell",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@iamstrell",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCUMmfOox0ktKS_eizQGfATQ",
+															"canonicalBaseUrl": "/@iamstrell"
+														}
+													}
+												}
+											]
+										},
+										"shortBylineText": {
+											"runs": [
+												{
+													"text": "Strell",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@iamstrell",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCUMmfOox0ktKS_eizQGfATQ",
+															"canonicalBaseUrl": "/@iamstrell"
+														}
+													}
+												}
+											]
+										},
+										"showActionMenu": false,
+										"shortViewCountText": {
+											"accessibility": {},
+											"simpleText": "73K"
+										},
+										"thumbnailOverlays": [
+											{
+												"thumbnailOverlayTimeStatusRenderer": {
+													"text": {
+														"accessibility": {},
+														"simpleText": "17:22"
+													},
+													"style": "DEFAULT"
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"isToggled": false,
+													"untoggledIcon": {
+														"iconType": "WATCH_LATER"
+													},
+													"toggledIcon": {
+														"iconType": "CHECK"
+													},
+													"untoggledTooltip": "Watch later",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"addedVideoId": "tnqrfKM5E8E",
+																	"action": "ACTION_ADD_VIDEO"
+																}
+															]
+														}
+													},
+													"toggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																	"removedVideoId": "tnqrfKM5E8E"
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"untoggledIcon": {
+														"iconType": "ADD_TO_QUEUE_TAIL"
+													},
+													"toggledIcon": {
+														"iconType": "PLAYLIST_ADD_CHECK"
+													},
+													"untoggledTooltip": "Add to queue",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true
+															}
+														},
+														"signalServiceEndpoint": {
+															"signal": "CLIENT_SIGNAL",
+															"actions": [
+																{
+																	"addToPlaylistCommand": {
+																		"openMiniplayer": true,
+																		"videoId": "tnqrfKM5E8E",
+																		"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																		"onCreateListCommand": {
+																			"commandMetadata": {
+																				"webCommandMetadata": {
+																					"sendPost": true,
+																					"apiUrl": "/youtubei/v1/playlist/create"
+																				}
+																			},
+																			"createPlaylistServiceEndpoint": {
+																				"videoIds": ["tnqrfKM5E8E"],
+																				"params": "CAQ%3D"
+																			}
+																		},
+																		"videoIds": ["tnqrfKM5E8E"]
+																	}
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayNowPlayingRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Now playing"
+															}
+														]
+													}
+												}
+											},
+											{
+												"thumbnailOverlayLoadingPreviewRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Keep hovering to play"
+															}
+														]
+													}
+												}
+											}
+										],
+										"detailedMetadataSnippets": [
+											{
+												"snippetText": {
+													"runs": [
+														{
+															"text": "Classic 650 Review",
+															"bold": true
+														},
+														{
+															"text": ": Is It Worth the Upgrade? Get in touch with me via my Other social media handles Facebook: ..."
+														}
+													]
+												},
+												"snippetHoverText": {
+													"runs": [
+														{
+															"text": "From the video description"
+														}
+													]
+												},
+												"maxOneLine": false
+											}
+										],
+										"avatar": {
+											"decoratedAvatarViewModel": {
+												"avatar": {
+													"avatarViewModel": {
+														"image": {
+															"sources": [
+																{
+																	"url": "https://yt3.ggpht.com/ytc/AIdro_nvrdUJbW1aMhwqEgmQGo5j9HFoy1CCyk0Ig51m1m-Smw4=s68-c-k-c0x00ffffff-no-rj",
+																	"width": 68,
+																	"height": 68
+																}
+															]
+														},
+														"avatarImageSize": "AVATAR_SIZE_M"
+													}
+												},
+												"a11yLabel": "Go to channel Strell",
+												"rendererContext": {
+													"commandContext": {
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/@iamstrell",
+																		"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																		"rootVe": 3611,
+																		"apiUrl": "/youtubei/v1/browse"
+																	}
+																},
+																"browseEndpoint": {
+																	"browseId": "UCUMmfOox0ktKS_eizQGfATQ",
+																	"canonicalBaseUrl": "/@iamstrell"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								{
+									"videoRenderer": {
+										"videoId": "4co7RjPcfIU",
+										"thumbnail": {
+											"thumbnails": [
+												{
+													"url": "https://i.ytimg.com/vi/4co7RjPcfIU/hq720.jpg?sqp=-oaymwEgCOgCEMoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLAlsuU5tstXIJt3bLPW_k96imwBWg",
+													"width": 360,
+													"height": 202
+												},
+												{
+													"url": "https://i.ytimg.com/vi/4co7RjPcfIU/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLBkrX-wbFICB-lrj4B6asmq6f_ktw",
+													"width": 720,
+													"height": 404
+												}
+											]
+										},
+										"title": {
+											"runs": [
+												{
+													"text": "🚨 New 2025 Royal Enfield classic 650. Should You get one? Brutally Honest Review!"
+												}
+											],
+											"accessibility": {}
+										},
+										"longBylineText": {
+											"runs": [
+												{
+													"text": "stuart fillingham",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@stuartfillingham",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCGzIyZDzucpdn3xWwuLXsmA",
+															"canonicalBaseUrl": "/@stuartfillingham"
+														}
+													}
+												}
+											]
+										},
+										"publishedTimeText": {
+											"simpleText": "1y ago"
+										},
+										"lengthText": {
+											"accessibility": {},
+											"simpleText": "17:47"
+										},
+										"viewCountText": {
+											"simpleText": "157,356 views"
+										},
+										"navigationEndpoint": {
+											"commandMetadata": {
+												"webCommandMetadata": {
+													"url": "/watch?v=4co7RjPcfIU&pp=ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D",
+													"webPageType": "WEB_PAGE_TYPE_WATCH",
+													"rootVe": 3832
+												}
+											},
+											"watchEndpoint": {
+												"videoId": "4co7RjPcfIU",
+												"params": "qgMgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXe6AwsI7IeKjoWTkZndAboDCwiK8Ley1dS7vakBugMLCPeEsr7krKD4tgG6AwsIwafkmcrvqr22AboDCwiVq72jjaGy6pIBugMLCJiu05zk3LOk7AG6AwoIjsPkzIO-sIsvugMLCOXE9q_65Ouq0gG6AwsIpNzz5eae6OLNAboDCgj3gJXpxqvL1HS6AwoIl5Oz5MOa59owugMLCIXt3-udt77lnAG6AwsIrOaV69qAvZixAboDCgjzucO32LnOrC66AwsIkPOjjY-23JL4AboDCwiakK7gnKPu67MBugMLCOPtn5PIx9r7zwG6AwoIqeqQ7seYmIVhugMLCJjnvsuZ7tme9AHyAwUNTtFoPg%3D%3D",
+												"playerParams": "ygUgcm95YWwgZW5maWVsZCBjbGFzc2ljIDY1MCByZXZpZXc%3D"
+											}
+										},
+										"badges": [
+											{
+												"metadataBadgeRenderer": {
+													"style": "BADGE_STYLE_TYPE_MEDIA",
+													"label": "4K"
+												}
+											}
+										],
+										"ownerBadges": [
+											{
+												"metadataBadgeRenderer": {
+													"icon": {
+														"iconType": "CHECK_CIRCLE_THICK"
+													},
+													"style": "BADGE_STYLE_TYPE_VERIFIED",
+													"tooltip": "Verified"
+												}
+											}
+										],
+										"ownerText": {
+											"runs": [
+												{
+													"text": "stuart fillingham",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@stuartfillingham",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCGzIyZDzucpdn3xWwuLXsmA",
+															"canonicalBaseUrl": "/@stuartfillingham"
+														}
+													}
+												}
+											]
+										},
+										"shortBylineText": {
+											"runs": [
+												{
+													"text": "stuart fillingham",
+													"navigationEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"url": "/@stuartfillingham",
+																"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																"rootVe": 3611,
+																"apiUrl": "/youtubei/v1/browse"
+															}
+														},
+														"browseEndpoint": {
+															"browseId": "UCGzIyZDzucpdn3xWwuLXsmA",
+															"canonicalBaseUrl": "/@stuartfillingham"
+														}
+													}
+												}
+											]
+										},
+										"showActionMenu": false,
+										"shortViewCountText": {
+											"accessibility": {},
+											"simpleText": "157K"
+										},
+										"thumbnailOverlays": [
+											{
+												"thumbnailOverlayTimeStatusRenderer": {
+													"text": {
+														"accessibility": {},
+														"simpleText": "17:47"
+													},
+													"style": "DEFAULT"
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"isToggled": false,
+													"untoggledIcon": {
+														"iconType": "WATCH_LATER"
+													},
+													"toggledIcon": {
+														"iconType": "CHECK"
+													},
+													"untoggledTooltip": "Watch later",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"addedVideoId": "4co7RjPcfIU",
+																	"action": "ACTION_ADD_VIDEO"
+																}
+															]
+														}
+													},
+													"toggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true,
+																"apiUrl": "/youtubei/v1/browse/edit_playlist"
+															}
+														},
+														"playlistEditEndpoint": {
+															"playlistId": "WL",
+															"actions": [
+																{
+																	"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+																	"removedVideoId": "4co7RjPcfIU"
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayToggleButtonRenderer": {
+													"untoggledIcon": {
+														"iconType": "ADD_TO_QUEUE_TAIL"
+													},
+													"toggledIcon": {
+														"iconType": "PLAYLIST_ADD_CHECK"
+													},
+													"untoggledTooltip": "Add to queue",
+													"toggledTooltip": "Added",
+													"untoggledServiceEndpoint": {
+														"commandMetadata": {
+															"webCommandMetadata": {
+																"sendPost": true
+															}
+														},
+														"signalServiceEndpoint": {
+															"signal": "CLIENT_SIGNAL",
+															"actions": [
+																{
+																	"addToPlaylistCommand": {
+																		"openMiniplayer": true,
+																		"videoId": "4co7RjPcfIU",
+																		"listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
+																		"onCreateListCommand": {
+																			"commandMetadata": {
+																				"webCommandMetadata": {
+																					"sendPost": true,
+																					"apiUrl": "/youtubei/v1/playlist/create"
+																				}
+																			},
+																			"createPlaylistServiceEndpoint": {
+																				"videoIds": ["4co7RjPcfIU"],
+																				"params": "CAQ%3D"
+																			}
+																		},
+																		"videoIds": ["4co7RjPcfIU"]
+																	}
+																}
+															]
+														}
+													},
+													"untoggledAccessibility": {},
+													"toggledAccessibility": {}
+												}
+											},
+											{
+												"thumbnailOverlayNowPlayingRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Now playing"
+															}
+														]
+													}
+												}
+											},
+											{
+												"thumbnailOverlayLoadingPreviewRenderer": {
+													"text": {
+														"runs": [
+															{
+																"text": "Keep hovering to play"
+															}
+														]
+													}
+												}
+											}
+										],
+										"detailedMetadataSnippets": [
+											{
+												"snippetText": {
+													"runs": [
+														{
+															"text": "Here is my "
+														},
+														{
+															"text": "review",
+															"bold": true
+														},
+														{
+															"text": " and my thoughts on the two week riding experience of the New 2025 "
+														},
+														{
+															"text": "Royal Enfield 650 classic",
+															"bold": true
+														},
+														{
+															"text": ". As a commuter ..."
+														}
+													]
+												},
+												"snippetHoverText": {
+													"runs": [
+														{
+															"text": "From the video description"
+														}
+													]
+												},
+												"maxOneLine": true
+											}
+										],
+										"avatar": {
+											"decoratedAvatarViewModel": {
+												"avatar": {
+													"avatarViewModel": {
+														"image": {
+															"sources": [
+																{
+																	"url": "https://yt3.ggpht.com/ytc/AIdro_kif3SVBYY4B2hujG6Ob0P23pexqWJXekfqk5QiIpRkEtI=s68-c-k-c0x00ffffff-no-rj",
+																	"width": 68,
+																	"height": 68
+																}
+															]
+														},
+														"avatarImageSize": "AVATAR_SIZE_M"
+													}
+												},
+												"a11yLabel": "Go to channel stuart fillingham",
+												"rendererContext": {
+													"commandContext": {
+														"onTap": {
+															"innertubeCommand": {
+																"commandMetadata": {
+																	"webCommandMetadata": {
+																		"url": "/@stuartfillingham",
+																		"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+																		"rootVe": 3611,
+																		"apiUrl": "/youtubei/v1/browse"
+																	}
+																},
+																"browseEndpoint": {
+																	"browseId": "UCGzIyZDzucpdn3xWwuLXsmA",
+																	"canonicalBaseUrl": "/@stuartfillingham"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"continuationItemRenderer": {
+							"trigger": "CONTINUATION_TRIGGER_ON_ITEM_SHOWN",
+							"continuationEndpoint": {
+								"commandMetadata": {
+									"webCommandMetadata": {
+										"sendPost": true,
+										"apiUrl": "/youtubei/v1/search"
+									}
+								},
+								"continuationCommand": {
+									"token": "ErUDEiByb3lhbCBlbmZpZWxkIGNsYXNzaWMgNjUwIHJldmlldxqQA0VnSVFBVWdvZ2dFTE0xUktSVzFHU0VObkxYZUNBUXR4V0hKMWNGWmFUaTFCYjRJQkMzUjJRMEphYTJaTloyNWpnZ0VMZEc1eGNtWkxUVFZGT0VXQ0FRdHJkRlJLUTA1U2RsWmFWWUlCQ3pkRmFrODFhMDlWTVhobmdnRUxUSGhpUWpoRWJWcEpXVFNDQVFzd2JGZDJTalpZT1c5dFZZSUJDM3BqVjJjNWJYazROMmxSZ2dFTFpFdHJkRmhITUd4UlNHT0NBUXROVEZkak1VUjVUWGxhWTRJQkMyNU5jalYxWkRFek9XOVZnZ0VMYzFSRU1FSmhNV3hqZVhlQ0FRdE1iR3MxZWxsaWR6TlFUWUlCQ3kxRFZuaHpVRWR2TFZwQmdnRUxjemxsTlVkamQweHBRbS1DQVF0NlgyUnhVRWxLYmpsMVRZSUJDMWxSY0dkNFNETkZUbE5yZ2dFTE9VUXhibU5hYkhaek5XZUNBUXMwWTI4M1VtcFFZMlpKVmJJQkJnb0VDQ2dRQXclM0QlM0QYgeDoGCILc2VhcmNoLWZlZWQ%3D",
+									"request": "CONTINUATION_REQUEST_TYPE_SEARCH"
+								}
+							}
+						}
+					}
+				],
+				"targetId": "search-feed"
+			}
+		}
+	],
+	"isSafeSearchTriggered": true
+}

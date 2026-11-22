@@ -1,0 +1,563 @@
+{
+	"wireMagic": "pb3",
+	"pens": [{}],
+	"wsWinStyles": [
+		{},
+		{
+			"mhModeHint": 2,
+			"juJustifCode": 0,
+			"sdScrollDir": 3
+		}
+	],
+	"wpWinPositions": [
+		{},
+		{
+			"apPoint": 6,
+			"ahHorPos": 20,
+			"avVerPos": 100,
+			"rcRows": 2,
+			"ccCols": 40
+		}
+	],
+	"events": [
+		{
+			"tStartMs": 0,
+			"dDurationMs": 560097,
+			"id": 1,
+			"wpWinPosId": 1,
+			"wsWinStyleId": 1
+		},
+		{
+			"tStartMs": 6000,
+			"dDurationMs": 5600,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "The Royal"
+				},
+				{
+					"utf8": " Enfield",
+					"tOffsetMs": 400
+				},
+				{
+					"utf8": " Classic",
+					"tOffsetMs": 1100
+				},
+				{
+					"utf8": " 650",
+					"tOffsetMs": 1500
+				},
+				{
+					"utf8": " has",
+					"tOffsetMs": 2300
+				},
+				{
+					"utf8": " been",
+					"tOffsetMs": 2500
+				}
+			]
+		},
+		{
+			"tStartMs": 8790,
+			"dDurationMs": 2810,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 8800,
+			"dDurationMs": 4900,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "my"
+				},
+				{
+					"utf8": " long-term",
+					"tOffsetMs": 200
+				},
+				{
+					"utf8": " motorcycle",
+					"tOffsetMs": 1000
+				},
+				{
+					"utf8": " for",
+					"tOffsetMs": 1800
+				},
+				{
+					"utf8": " almost",
+					"tOffsetMs": 1900
+				},
+				{
+					"utf8": " six",
+					"tOffsetMs": 2400
+				}
+			]
+		},
+		{
+			"tStartMs": 11590,
+			"dDurationMs": 2110,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 11600,
+			"dDurationMs": 4300,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "months"
+				},
+				{
+					"utf8": " now,",
+					"tOffsetMs": 400
+				},
+				{
+					"utf8": " and",
+					"tOffsetMs": 800
+				},
+				{
+					"utf8": " during",
+					"tOffsetMs": 1000
+				},
+				{
+					"utf8": " this",
+					"tOffsetMs": 1300
+				},
+				{
+					"utf8": " time",
+					"tOffsetMs": 1500
+				},
+				{
+					"utf8": " I've",
+					"tOffsetMs": 1900
+				}
+			]
+		},
+		{
+			"tStartMs": 13690,
+			"dDurationMs": 2210,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 13700,
+			"dDurationMs": 4400,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "used"
+				},
+				{
+					"utf8": " it",
+					"tOffsetMs": 200
+				},
+				{
+					"utf8": " for",
+					"tOffsetMs": 400
+				},
+				{
+					"utf8": " pretty",
+					"tOffsetMs": 500
+				},
+				{
+					"utf8": " much",
+					"tOffsetMs": 1000
+				},
+				{
+					"utf8": " everything",
+					"tOffsetMs": 1400
+				},
+				{
+					"utf8": " from",
+					"tOffsetMs": 2000
+				}
+			]
+		},
+		{
+			"tStartMs": 15890,
+			"dDurationMs": 2210,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 15900,
+			"dDurationMs": 5200,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "daily"
+				},
+				{
+					"utf8": " commutes",
+					"tOffsetMs": 300
+				},
+				{
+					"utf8": " to",
+					"tOffsetMs": 800
+				},
+				{
+					"utf8": " office",
+					"tOffsetMs": 900
+				},
+				{
+					"utf8": " to",
+					"tOffsetMs": 1600
+				},
+				{
+					"utf8": " leisure",
+					"tOffsetMs": 1700
+				}
+			]
+		},
+		{
+			"tStartMs": 18090,
+			"dDurationMs": 3010,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 18100,
+			"dDurationMs": 5300,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "rides"
+				},
+				{
+					"utf8": " to",
+					"tOffsetMs": 600
+				},
+				{
+					"utf8": " intercity",
+					"tOffsetMs": 700
+				},
+				{
+					"utf8": " trips",
+					"tOffsetMs": 1200
+				},
+				{
+					"utf8": " and",
+					"tOffsetMs": 1900
+				},
+				{
+					"utf8": " even",
+					"tOffsetMs": 2100
+				},
+				{
+					"utf8": " a",
+					"tOffsetMs": 2500
+				},
+				{
+					"utf8": " few",
+					"tOffsetMs": 2700
+				}
+			]
+		},
+		{
+			"tStartMs": 21090,
+			"dDurationMs": 2310,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 21100,
+			"dDurationMs": 4600,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "day-long"
+				},
+				{
+					"utf8": " rides",
+					"tOffsetMs": 500
+				},
+				{
+					"utf8": " to",
+					"tOffsetMs": 1100
+				},
+				{
+					"utf8": " destinations",
+					"tOffsetMs": 1200
+				},
+				{
+					"utf8": " outside",
+					"tOffsetMs": 1900
+				}
+			]
+		},
+		{
+			"tStartMs": 23390,
+			"dDurationMs": 2310,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 23400,
+			"dDurationMs": 4600,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "the"
+				},
+				{
+					"utf8": " city.",
+					"tOffsetMs": 100
+				},
+				{
+					"utf8": " Now,",
+					"tOffsetMs": 800
+				},
+				{
+					"utf8": " I'll",
+					"tOffsetMs": 1000
+				},
+				{
+					"utf8": " be",
+					"tOffsetMs": 1200
+				},
+				{
+					"utf8": " honest,",
+					"tOffsetMs": 1400
+				},
+				{
+					"utf8": " when",
+					"tOffsetMs": 2100
+				},
+				{
+					"utf8": " I",
+					"tOffsetMs": 2300
+				}
+			]
+		},
+		{
+			"tStartMs": 25690,
+			"dDurationMs": 2310,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 25700,
+			"dDurationMs": 4500,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "first"
+				},
+				{
+					"utf8": " got",
+					"tOffsetMs": 400
+				},
+				{
+					"utf8": " this",
+					"tOffsetMs": 700
+				},
+				{
+					"utf8": " motorcycle,",
+					"tOffsetMs": 900
+				},
+				{
+					"utf8": " I",
+					"tOffsetMs": 1700
+				},
+				{
+					"utf8": " was",
+					"tOffsetMs": 1800
+				},
+				{
+					"utf8": " a",
+					"tOffsetMs": 2300
+				}
+			]
+		},
+		{
+			"tStartMs": 27990,
+			"dDurationMs": 2210,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 28000,
+			"dDurationMs": 5200,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "little"
+				},
+				{
+					"utf8": " unsure",
+					"tOffsetMs": 400
+				},
+				{
+					"utf8": " about",
+					"tOffsetMs": 800
+				},
+				{
+					"utf8": " whether",
+					"tOffsetMs": 1200
+				},
+				{
+					"utf8": " I'll",
+					"tOffsetMs": 1700
+				},
+				{
+					"utf8": " be",
+					"tOffsetMs": 1900
+				},
+				{
+					"utf8": " able",
+					"tOffsetMs": 2000
+				}
+			]
+		},
+		{
+			"tStartMs": 30190,
+			"dDurationMs": 3010,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 30200,
+			"dDurationMs": 5300,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "to"
+				},
+				{
+					"utf8": " manage",
+					"tOffsetMs": 200
+				},
+				{
+					"utf8": " its",
+					"tOffsetMs": 500
+				},
+				{
+					"utf8": " weight",
+					"tOffsetMs": 800
+				},
+				{
+					"utf8": " on",
+					"tOffsetMs": 1500
+				},
+				{
+					"utf8": " a",
+					"tOffsetMs": 1700
+				},
+				{
+					"utf8": " daily",
+					"tOffsetMs": 1800
+				},
+				{
+					"utf8": " basis,",
+					"tOffsetMs": 2200
+				}
+			]
+		},
+		{
+			"tStartMs": 33190,
+			"dDurationMs": 2310,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		},
+		{
+			"tStartMs": 33200,
+			"dDurationMs": 4900,
+			"wWinId": 1,
+			"segs": [
+				{
+					"utf8": "but"
+				},
+				{
+					"utf8": " almost",
+					"tOffsetMs": 200
+				},
+				{
+					"utf8": " six",
+					"tOffsetMs": 700
+				},
+				{
+					"utf8": " months",
+					"tOffsetMs": 1000
+				},
+				{
+					"utf8": " later,",
+					"tOffsetMs": 1200
+				},
+				{
+					"utf8": " I've",
+					"tOffsetMs": 1800
+				},
+				{
+					"utf8": " become",
+					"tOffsetMs": 1900
+				}
+			]
+		},
+		{
+			"tStartMs": 35490,
+			"dDurationMs": 2610,
+			"wWinId": 1,
+			"aAppend": 1,
+			"segs": [
+				{
+					"utf8": "\n"
+				}
+			]
+		}
+	]
+}

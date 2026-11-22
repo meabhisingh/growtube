@@ -1,0 +1,160 @@
+{
+	"playabilityStatus": {
+		"status": "UNPLAYABLE",
+		"reason": "The page needs to be reloaded.",
+		"errorScreen": {
+			"playerErrorMessageRenderer": {
+				"reason": {
+					"runs": [
+						{
+							"text": "The page needs to be reloaded."
+						}
+					]
+				},
+				"proceedButton": {
+					"buttonRenderer": {
+						"style": "STYLE_PRIMARY",
+						"size": "SIZE_DEFAULT",
+						"isDisabled": false,
+						"text": {
+							"runs": [
+								{
+									"text": "Reload"
+								}
+							]
+						},
+						"command": {
+							"signalAction": {
+								"signal": "RELOAD_PAGE"
+							}
+						}
+					}
+				},
+				"thumbnail": {
+					"thumbnails": [
+						{
+							"url": "//s.ytimg.com/yts/img/meh7-vflGevej7.png",
+							"width": 140,
+							"height": 100
+						}
+					]
+				},
+				"icon": {
+					"iconType": "ERROR_OUTLINE"
+				}
+			}
+		},
+		"skip": {
+			"playabilityErrorSkipConfig": {
+				"skipOnPlayabilityError": false
+			}
+		},
+		"contextParams": "Q0FFU0FnZ0M="
+	},
+	"videoDetails": {
+		"videoId": "4mcWzkHrlYI",
+		"title": "Royal Enfield Classic 650 Long-Term Review | Living With 243 kg | carandbike",
+		"lengthSeconds": "566",
+		"keywords": [
+			"carandbike",
+			"car and bike",
+			"car bike",
+			"car",
+			"bike",
+			"re classic 650",
+			"re classic 650 chrome",
+			"re classic 650 review",
+			"re classic 650 long ride",
+			"re classic 650 long term review",
+			"re classic 650 exhaust sound",
+			"royal enfield classic 650",
+			"royal enfield classic 650 review",
+			"royal enfield classic 650 long ride",
+			"royal enfield classic 650 long term review",
+			"classic 650",
+			"classic 650 royal enfield",
+			"classic 650 long ride",
+			"classic 650 review",
+			"classic 650 long term review"
+		],
+		"channelId": "UCGRIgtqal_cC7V_cD-Zylkg",
+		"isOwnerViewing": false,
+		"shortDescription": "The Royal Enfield Classic 650 has been Janak’s long termer for almost six months, and he has been using it for daily commutes, leisure rides, highway runs and day-long trips. And while it's certainly a motorcycle that turns heads, living with it over an extended period has revealed a few things that you should know before buying one.\n\nIn this long-term review, we talk about what makes the Classic …",
+		"isCrawlable": true,
+		"thumbnail": {
+			"thumbnails": [
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/hqdefault.jpg?sqp=-oaymwEfCKgBEF5IVfKriqkDEggBFQAAiEIYAXABwAEGuAL3GA==&rs=AOn4CLDyIgCLWDgKjGqqmyBvccnDSsgEFQ",
+					"width": 168,
+					"height": 94
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/hqdefault.jpg?sqp=-oaymwEfCMQBEG5IVfKriqkDEggBFQAAiEIYAXABwAEGuAL3GA==&rs=AOn4CLDr1VMKmVhm1k0hV2Bg4RthWBU_HQ",
+					"width": 196,
+					"height": 110
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/hqdefault.jpg?sqp=-oaymwEgCPYBEIoBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDz2CiboFRwPpxFlaTxCpeuos4fzA",
+					"width": 246,
+					"height": 138
+				},
+				{
+					"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/hqdefault.jpg?sqp=-oaymwEgCNACELwBSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDvJCwaVwH_TCpjXuu4FU0pcxGz-g",
+					"width": 336,
+					"height": 188
+				},
+				{
+					"url": "https://i.ytimg.com/vi_webp/4mcWzkHrlYI/maxresdefault.webp",
+					"width": 1920,
+					"height": 1080
+				}
+			]
+		},
+		"allowRatings": true,
+		"viewCount": "6387",
+		"author": "carandbike",
+		"isPrivate": false,
+		"isUnpluggedCorpus": false,
+		"isLiveContent": false,
+		"isTvfilmVideo": false
+	},
+	"microformat": {
+		"playerMicroformatRenderer": {
+			"thumbnail": {
+				"thumbnails": [
+					{
+						"url": "https://i.ytimg.com/vi/4mcWzkHrlYI/maxresdefault.jpg",
+						"width": 1280,
+						"height": 720
+					}
+				]
+			},
+			"embed": {
+				"iframeUrl": "https://www.youtube.com/embed/4mcWzkHrlYI",
+				"width": 1280,
+				"height": 720
+			},
+			"title": {
+				"simpleText": "Royal Enfield Classic 650 Long-Term Review | Living With 243 kg | carandbike"
+			},
+			"description": {
+				"simpleText": "The Royal Enfield Classic 650 has been Janak’s long termer for almost six months, and he has been using it for daily commutes, leisure rides, highway runs and day-long trips. And while it's certainly a motorcycle that turns heads, living with it over an extended period has revealed a few things that you should know before buying one.\n\nIn this long-term review, we talk about what makes the Classic …"
+			},
+			"lengthSeconds": "566",
+			"ownerProfileUrl": "http://www.youtube.com/@carandbike",
+			"externalChannelId": "UCGRIgtqal_cC7V_cD-Zylkg",
+			"isFamilySafe": true,
+			"isUnlisted": false,
+			"hasYpcMetadata": false,
+			"viewCount": "6387",
+			"category": "Autos & Vehicles",
+			"publishDate": "2026-11-21T00:30:12-08:00",
+			"ownerChannelName": "carandbike",
+			"uploadDate": "2026-11-21T00:30:12-08:00",
+			"isShortsEligible": false,
+			"externalVideoId": "4mcWzkHrlYI",
+			"likeCount": "41",
+			"canonicalUrl": "https://www.youtube.com/watch?v=4mcWzkHrlYI"
+		}
+	}
+}

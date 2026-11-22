@@ -1,0 +1,18 @@
+/*
+ * Tailwind + shadcn theme for extension pages (popup, side panel, options).
+ * Import once per page entry: `import "@/assets/tailwind.css";`
+ * Not for YouTube-injected UI: content scripts use plain CSS in a shadow root.
+ */
+@import "@open-vidiq/ui/globals.css";
+
+@source "../entrypoints";
+@source "../components";
+@source "../lib";
+@source "../../../packages/ui/src";
+
+@layer base {
+	html,
+	body {
+		min-height: 100%;
+	}
+}

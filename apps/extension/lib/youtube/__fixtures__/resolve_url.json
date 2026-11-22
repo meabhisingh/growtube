@@ -1,0 +1,19 @@
+{
+	"endpoint": {
+		"commandMetadata": {
+			"webCommandMetadata": {
+				"url": "/youtubei/v1/navigation/resolve_url",
+				"webPageType": "WEB_PAGE_TYPE_CHANNEL",
+				"rootVe": 3611,
+				"apiUrl": "/youtubei/v1/browse"
+			},
+			"resolveUrlCommandMetadata": {
+				"isVanityUrl": true
+			}
+		},
+		"browseEndpoint": {
+			"browseId": "UCGRIgtqal_cC7V_cD-Zylkg",
+			"params": "EgC4AQCSAwDyBgQKAjIA"
+		}
+	}
+}

@@ -1,0 +1,115 @@
+/* Feed badge row (inside each card's own shadow root). The host gets a
+ * `dark` attribute while YouTube is in its dark theme. */
+:host {
+	all: initial;
+	display: block;
+	/* Own line inside flex-wrap rows (search results' #metadata). */
+	flex-basis: 100%;
+	min-width: 0;
+	margin: 4px 0 2px;
+	contain: content;
+	--ovq-b-bg: rgba(0, 0, 0, 0.05);
+	--ovq-b-fg: #3f3f3f;
+	--ovq-b-muted: #737373;
+	--ovq-b-subs-bg: rgba(6, 95, 212, 0.1);
+	--ovq-b-subs-fg: #065fd4;
+	--ovq-b-viral-bg: rgba(204, 0, 72, 0.12);
+	--ovq-b-viral-fg: #c4004c;
+	--ovq-b-great-bg: rgba(229, 0, 64, 0.1);
+	--ovq-b-great-fg: #d1003b;
+	--ovq-b-good-bg: rgba(230, 120, 0, 0.14);
+	--ovq-b-good-fg: #b35400;
+	--ovq-b-skeleton: rgba(0, 0, 0, 0.08);
+}
+
+:host([dark]) {
+	--ovq-b-bg: #272727;
+	--ovq-b-fg: #e8e8e8;
+	--ovq-b-muted: #9a9a9a;
+	--ovq-b-subs-bg: rgba(62, 166, 255, 0.16);
+	--ovq-b-subs-fg: #6cb8ff;
+	--ovq-b-viral-bg: rgba(255, 64, 129, 0.2);
+	--ovq-b-viral-fg: #ff6fa3;
+	--ovq-b-great-bg: rgba(255, 78, 69, 0.18);
+	--ovq-b-great-fg: #ff7a72;
+	--ovq-b-good-bg: rgba(255, 152, 0, 0.18);
+	--ovq-b-good-fg: #ffb14a;
+	--ovq-b-skeleton: rgba(255, 255, 255, 0.1);
+}
+
+:host([hidden]) {
+	display: none;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+}
+
+.pill {
+	display: inline-flex;
+	align-items: center;
+	height: 18px;
+	padding: 0 6px;
+	border-radius: 9px;
+	background: var(--ovq-b-bg);
+	color: var(--ovq-b-fg);
+	white-space: nowrap;
+	letter-spacing: 0.1px;
+	cursor: default;
+}
+
+.pill.subs {
+	background: var(--ovq-b-subs-bg);
+	color: var(--ovq-b-subs-fg);
+}
+
+.pill.viral {
+	background: var(--ovq-b-viral-bg);
+	color: var(--ovq-b-viral-fg);
+	font-weight: 700;
+}
+
+.pill.great {
+	background: var(--ovq-b-great-bg);
+	color: var(--ovq-b-great-fg);
+	font-weight: 700;
+}
+
+.pill.good {
+	background: var(--ovq-b-good-bg);
+	color: var(--ovq-b-good-fg);
+}
+
+.pill.normal {
+	color: var(--ovq-b-muted);
+}
+
+.pill.low {
+	color: var(--ovq-b-muted);
+	opacity: 0.7;
+}
+
+.pill.skeleton {
+	width: 46px;
+	background: var(--ovq-b-skeleton);
+	animation: ovq-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ovq-pulse {
+	50% {
+		opacity: 0.45;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pill.skeleton {
+		animation: none;
+	}
+}
