@@ -1,4 +1,4 @@
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 import { Link } from "@tanstack/react-router";
 
 import { getServerHealth } from "@/lib/api";
@@ -42,8 +42,8 @@ export default function Footer() {
 				<div className="flex max-w-sm flex-col gap-3">
 					<Logo className="text-foreground" />
 					<p>
-						Free, open-source YouTube growth tools. No plans, no credits, no
-						limits. Not affiliated with YouTube, Google or vidIQ.
+						Free YouTube growth tools, with the source code on GitHub. No plans,
+						no credits, no limits. Not affiliated with YouTube, Google or vidIQ.
 					</p>
 					<ServerStatus />
 				</div>
@@ -53,16 +53,28 @@ export default function Footer() {
 				>
 					{session ? (
 						<>
-							<Link to="/trending" className="hover:text-foreground">
+							<Link
+								to="/trending"
+								className="hover:text-foreground rounded-md transition-colors"
+							>
 								Trending
 							</Link>
-							<Link to="/lookup" className="hover:text-foreground">
+							<Link
+								to="/lookup"
+								className="hover:text-foreground rounded-md transition-colors"
+							>
 								Lookup
 							</Link>
-							<Link to="/mcp" className="hover:text-foreground">
+							<Link
+								to="/mcp"
+								className="hover:text-foreground rounded-md transition-colors"
+							>
 								MCP for AI assistants
 							</Link>
-							<Link to="/dashboard" className="hover:text-foreground">
+							<Link
+								to="/dashboard"
+								className="hover:text-foreground rounded-md transition-colors"
+							>
 								Account
 							</Link>
 						</>
@@ -71,26 +83,37 @@ export default function Footer() {
 							<Link
 								to="/login"
 								search={{ mode: "sign-in" }}
-								className="hover:text-foreground"
+								className="hover:text-foreground rounded-md transition-colors"
 							>
 								Sign in
 							</Link>
 							<Link
 								to="/login"
 								search={{ mode: "sign-up" }}
-								className="hover:text-foreground"
+								className="hover:text-foreground rounded-md transition-colors"
 							>
 								Create account
 							</Link>
 						</>
 					)}
-					<Link to="/" hash="features" className="hover:text-foreground">
+					<Link
+						to="/"
+						hash="features"
+						className="hover:text-foreground rounded-md transition-colors"
+					>
 						Features
 					</Link>
-					<Link to="/" hash="install" className="hover:text-foreground">
+					<Link
+						to="/"
+						hash="install"
+						className="hover:text-foreground rounded-md transition-colors"
+					>
 						Install
 					</Link>
-					<Link to="/" hash="privacy" className="hover:text-foreground">
+					<Link
+						to="/privacy"
+						className="hover:text-foreground rounded-md transition-colors"
+					>
 						Privacy
 					</Link>
 				</nav>

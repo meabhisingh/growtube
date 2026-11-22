@@ -7,9 +7,9 @@
  * browser keeps is a privacy control, e.g. after deleting the account) are
  * shown; the rest is locked.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { TooltipProvider } from "@open-vidiq/ui/components/tooltip";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { TooltipProvider } from "@growtube/ui/components/tooltip";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	Crown,
 	Database,
@@ -129,11 +129,11 @@ export function OptionsApp() {
 					<div className="mx-auto flex max-w-5xl items-center gap-3 px-5 py-3">
 						<Logo size={30} />
 						<div className="flex min-w-0 flex-1 flex-col">
-							<span className="text-sm font-semibold">open-vidiq settings</span>
+							<span className="text-sm font-semibold">GrowTube settings</span>
 							<span className="text-muted-foreground truncate text-[11px]">
 								{user
-									? `Free and open source · no limits · ${user.email}`
-									: "Free and open source · no limits · free account required"}
+									? `Free · no limits · ${user.email}`
+									: "Free · no limits · free account required"}
 							</span>
 						</div>
 						{signedIn ? (
@@ -155,7 +155,7 @@ export function OptionsApp() {
 									<a
 										href={`#${n.id}`}
 										className={cn(
-											"focus-visible:ring-ring flex items-center gap-2 px-2.5 py-1.5 text-xs transition-colors outline-none focus-visible:ring-1",
+											"focus-visible:ring-ring/50 flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs transition-colors duration-150 outline-none focus-visible:ring-2",
 											activeId === n.id
 												? "bg-brand-soft text-brand font-medium"
 												: "text-muted-foreground hover:bg-muted hover:text-foreground",
@@ -174,7 +174,7 @@ export function OptionsApp() {
 							<Notice
 								tone="success"
 								icon={Sparkles}
-								title="Welcome to open-vidiq!"
+								title="Welcome to GrowTube!"
 								actions={
 									<Button
 										size="xs"

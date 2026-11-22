@@ -1,6 +1,6 @@
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import { useNavigate } from "@tanstack/react-router";
 import { ArrowRight, Search } from "lucide-react";
 import { type FormEvent, useId, useState } from "react";
@@ -46,7 +46,7 @@ export function LookupForm({
 		} catch (error) {
 			setMessage(
 				error instanceof ApiError && error.isNotFound
-					? `open-vidiq hasn't seen ${handle} yet. Visit the channel on YouTube with the extension installed, or paste its /channel/UC… link (Share → Copy channel ID).`
+					? `GrowTube hasn't seen ${handle} yet. Visit the channel on YouTube with the extension installed, or paste its /channel/UC… link (Share → Copy channel ID).`
 					: errorMessage(error),
 			);
 		} finally {
@@ -100,8 +100,8 @@ export function LookupForm({
 					<Search
 						aria-hidden="true"
 						className={cn(
-							"text-muted-foreground pointer-events-none absolute top-1/2 left-2.5 -translate-y-1/2",
-							large ? "size-4" : "size-3.5",
+							"text-muted-foreground pointer-events-none absolute top-1/2 -translate-y-1/2",
+							large ? "left-3.5 size-4" : "left-3 size-3.5",
 						)}
 					/>
 					<Input
@@ -118,13 +118,15 @@ export function LookupForm({
 						inputMode="url"
 						aria-invalid={message ? true : undefined}
 						aria-describedby={message ? messageId : undefined}
-						className={cn(large ? "h-11 pl-9 text-sm md:text-sm" : "pl-8")}
+						className={cn(
+							large ? "h-11 rounded-xl pl-10 text-sm md:text-sm" : "pl-8.5",
+						)}
 					/>
 				</div>
 				<Button
 					type="submit"
 					size={large ? "lg" : "default"}
-					className={cn(large && "h-11 px-4")}
+					className={cn(large && "h-11 rounded-xl px-4")}
 					disabled={resolving}
 					aria-busy={resolving || undefined}
 				>

@@ -1,4 +1,4 @@
-import { channelIdSchema, channelResolveQuery } from "@open-vidiq/shared";
+import { channelIdSchema, channelResolveQuery } from "@growtube/shared";
 import { Hono } from "hono";
 import { z } from "zod";
 
@@ -27,7 +27,7 @@ export const channelRoutes = new Hono<AppEnv>()
 					error: "Channel not found",
 					details: {
 						handle,
-						hint: "open-vidiq only knows channels its users have visited; use the channel's UC… id or URL instead.",
+						hint: "GrowTube only knows channels its users have visited; use the channel's UC… id or URL instead.",
 					},
 				},
 				404,

@@ -1,5 +1,5 @@
 /**
- * Which videos may reach the open-vidiq server (uploads and lookups).
+ * Which videos may reach the GrowTube server (uploads and lookups).
  * Pure: safe in the background, extension pages and content scripts.
  *
  * - Uploads: only videos YouTube's player data confirms as public and
@@ -60,7 +60,7 @@ export function withPageRestrictions<T extends VideoDetails>(
  * You / library page (history, Watch later, liked and saved playlist
  * shelves), downloads, clips and playlists. They can show unlisted and
  * private videos, and their contents are the user's history: feed badges
- * there never ask the open-vidiq server and never crowdsource.
+ * there never ask the GrowTube server and never crowdsource.
  */
 export function isPersonalPage(href: string): boolean {
 	let url: URL;

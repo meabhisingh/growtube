@@ -6,8 +6,8 @@ import {
 	formatCompact,
 	formatNumber,
 	formatOutlier,
-} from "@open-vidiq/shared/format";
-import { type OutlierTier, outlierTier } from "@open-vidiq/shared/metrics";
+} from "@growtube/shared/format";
+import { type OutlierTier, outlierTier } from "@growtube/shared/metrics";
 
 import { isYouTubeDark } from "@/lib/dom";
 
@@ -78,7 +78,7 @@ export function vphPill(
 ): PillSpec {
 	const text = `${formatCompact(vph, 1)} VPH`;
 	const title = recent
-		? `${formatNumber(vph)} views per hour over the last ~48 hours (open-vidiq server)`
+		? `${formatNumber(vph)} views per hour over the last ~48 hours (GrowTube server)`
 		: `${formatNumber(vph)} views per hour since upload${approximate ? " (approximate: from the card's rounded views and age)" : ""}`;
 	return { kind: "pill", id: "vph", text, title };
 }

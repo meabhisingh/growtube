@@ -3,10 +3,10 @@
  * Short-worthy segments (clipFinder generator). Each clip opens the video at
  * its timestamp; nothing is downloaded.
  */
-import { formatDuration } from "@open-vidiq/shared/format";
-import { extractVideoId } from "@open-vidiq/shared/youtube";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import { formatDuration } from "@growtube/shared/format";
+import { extractVideoId } from "@growtube/shared/youtube";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
 import { Captions, Play, Scissors, Sparkles } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -312,7 +312,7 @@ function ClipCard({
 			})
 		: "";
 	return (
-		<article className="bg-card ring-foreground/8 flex flex-col gap-2 p-3 ring-1">
+		<article className="bg-card ring-foreground/7 flex flex-col gap-2 rounded-xl p-3 shadow-xs ring-1">
 			<div className="flex items-start gap-2">
 				<ScoreBadge score={clip.score} title="Viral potential (0–100)" />
 				<div className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -331,7 +331,7 @@ function ClipCard({
 			</p>
 			{excerpt ? (
 				<Collapsible summary="Transcript of this clip">
-					<pre className="bg-surface-2 max-h-48 overflow-y-auto p-2 font-sans text-[11px] leading-relaxed whitespace-pre-wrap">
+					<pre className="bg-surface-2 max-h-48 overflow-y-auto rounded-lg p-2.5 font-sans text-[11px] leading-relaxed whitespace-pre-wrap">
 						{excerpt}
 					</pre>
 				</Collapsible>

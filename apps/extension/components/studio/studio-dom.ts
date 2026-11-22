@@ -5,7 +5,7 @@
  * Studio's own listeners see real `beforeinput`/`input` events, mark the form
  * dirty and enable its Save button. Nothing here ever clicks Save.
  */
-import { isVideoId } from "@open-vidiq/shared/youtube";
+import { isVideoId } from "@growtube/shared/youtube";
 
 import {
 	findButtonByText,

@@ -1,11 +1,11 @@
 /**
  * Trends: crowdsourced trending videos (by recent views/hour) from the
- * open-vidiq server, plus outliers among your competitors' recent uploads.
+ * GrowTube server, plus outliers among your competitors' recent uploads.
  */
-import type { TrendingQuery } from "@open-vidiq/shared/api";
-import { formatRelative } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import type { TrendingQuery } from "@growtube/shared/api";
+import { formatRelative } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
 import { Flame, RefreshCw, Search, TrendingUp, Users, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -71,7 +71,7 @@ function TrendingSection({ active }: { active: boolean }) {
 		<Section
 			title="Trending now"
 			icon={Flame}
-			description="Fastest-growing videos seen by open-vidiq users, ranked by views per hour."
+			description="Fastest-growing videos seen by GrowTube users, ranked by views per hour."
 			actions={
 				<IconButton
 					label="Refresh"
@@ -123,7 +123,7 @@ function TrendingSection({ active }: { active: boolean }) {
 				<ErrorNotice
 					error={trending.error}
 					onRetry={() => void trending.run(true)}
-					title="Trending needs the open-vidiq server"
+					title="Trending needs the GrowTube server"
 				/>
 			) : trending.loading && !trending.data ? (
 				<SkeletonList rows={6} />
@@ -134,7 +134,7 @@ function TrendingSection({ active }: { active: boolean }) {
 				>
 					{query
 						? "Try a broader filter, or switch the window to 7 days."
-						: "Trending fills up as open-vidiq users browse YouTube with crowdsourced stats on. Check back soon."}
+						: "Trending fills up as GrowTube users browse YouTube with crowdsourced stats on. Check back soon."}
 				</EmptyState>
 			) : (
 				<div className="flex flex-col gap-3">

@@ -8,10 +8,10 @@ import {
 	formatCompact,
 	formatDuration,
 	parseDurationText,
-} from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import { ImageUp, Moon, Sun, Trash2 } from "lucide-react";
 import {
 	type CSSProperties,
@@ -154,7 +154,7 @@ export function ThumbnailPreview({
 					onDragLeave={() => setDragging(false)}
 					onDrop={onDrop}
 					className={cn(
-						"flex items-center gap-3 border border-dashed p-2.5",
+						"flex items-center gap-3 rounded-lg border border-dashed p-2.5 transition-colors duration-150",
 						dragging && "border-brand bg-brand-soft",
 					)}
 				>
@@ -162,10 +162,10 @@ export function ThumbnailPreview({
 						<img
 							src={image}
 							alt=""
-							className="aspect-video w-28 shrink-0 object-cover"
+							className="aspect-video w-28 shrink-0 rounded-md object-cover"
 						/>
 					) : (
-						<div className="bg-muted text-muted-foreground flex aspect-video w-28 shrink-0 items-center justify-center">
+						<div className="bg-muted text-muted-foreground flex aspect-video w-28 shrink-0 items-center justify-center rounded-md">
 							<ImageUp className="size-5" aria-hidden />
 						</div>
 					)}
@@ -281,7 +281,7 @@ export function ThumbnailPreview({
 			) : null}
 
 			<div
-				className="ring-foreground/10 overflow-hidden p-3 ring-1"
+				className="ring-foreground/10 overflow-hidden rounded-xl p-3 shadow-xs ring-1"
 				style={{ ...PALETTE[theme], fontFamily: FONT }}
 			>
 				{layout === "home" ? (

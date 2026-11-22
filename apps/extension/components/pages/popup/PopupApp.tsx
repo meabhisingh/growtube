@@ -3,9 +3,9 @@
  * the side panel, feature toggles and a link to Settings. Signed out it is
  * only the sign-in / create-account screen.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { TooltipProvider } from "@open-vidiq/ui/components/tooltip";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { TooltipProvider } from "@growtube/ui/components/tooltip";
+import { cn } from "@growtube/ui/lib/utils";
 import { CircleCheck, Heart, PanelRightOpen, Settings } from "lucide-react";
 import { type ReactNode, useEffect } from "react";
 import { browser } from "wxt/browser";
@@ -96,7 +96,7 @@ function SignedInPopup({ email }: { email: string }) {
 					}
 				: undefined,
 			{ closePopup: true },
-		).catch((error) => console.warn("[open-vidiq] side panel", error));
+		).catch((error) => console.warn("[GrowTube] side panel", error));
 	};
 
 	return (
@@ -106,7 +106,7 @@ function SignedInPopup({ email }: { email: string }) {
 					<Logo size={28} />
 					<div className="flex min-w-0 flex-1 flex-col">
 						<span className="text-sm leading-tight font-semibold">
-							open-vidiq
+							GrowTube
 						</span>
 						<span
 							className="text-muted-foreground truncate text-[11px]"
@@ -131,14 +131,14 @@ function SignedInPopup({ email }: { email: string }) {
 						<PanelRightOpen /> Open toolkit
 					</Button>
 
-					<div className="grid grid-cols-3 gap-1">
+					<div className="grid grid-cols-3 gap-2">
 						{TOOLS.map((t) => (
 							<button
 								key={t.id}
 								type="button"
 								onClick={() => open(t.id)}
 								title={t.description}
-								className="bg-surface ring-foreground/8 hover:bg-brand-soft hover:text-brand focus-visible:ring-ring flex flex-col items-center gap-1 px-1 py-2 text-[10.5px] ring-1 transition-colors outline-none"
+								className="bg-surface ring-foreground/7 hover:bg-brand-soft hover:text-brand hover:ring-brand/25 focus-visible:ring-ring/60 flex min-w-0 flex-col items-center gap-1.5 rounded-xl px-1.5 py-2.5 text-[10.5px] shadow-xs ring-1 transition duration-150 ease-out outline-none focus-visible:ring-2 motion-safe:active:scale-[0.97]"
 							>
 								<t.icon className="size-4" aria-hidden />
 								<span className="truncate">{t.label}</span>
@@ -146,7 +146,7 @@ function SignedInPopup({ email }: { email: string }) {
 						))}
 					</div>
 
-					<div className="bg-surface ring-foreground/8 flex flex-col divide-y ring-1">
+					<div className="bg-surface ring-foreground/7 flex flex-col divide-y overflow-hidden rounded-xl shadow-xs ring-1">
 						<StatusRow
 							label="AI provider"
 							loading={ai.loading && !ai.data}
@@ -195,41 +195,47 @@ function SignedInPopup({ email }: { email: string }) {
 						/>
 						<div className="flex items-center gap-2 px-3 py-2">
 							<span className="flex-1 text-xs">
-								Share public view counts
-								<span className="text-muted-foreground block text-[10.5px]">
-									Powers history and trending for everyone
+								Share public stats
+								<span className="text-muted-foreground block text-[10.5px] leading-snug">
+									Uploads titles, view/like/comment counts and channel info of
+									public videos you see, with no account ID
 								</span>
 							</span>
 							<Switch
 								checked={crowdsource}
 								onCheckedChange={(v) => void setCrowdsource(v)}
-								ariaLabel="Share public view counts"
+								ariaLabel="Share public stats"
 							/>
 						</div>
 					</div>
 
 					<div className="flex flex-col">
-						<span className="text-muted-foreground pb-1 text-[10px] font-semibold tracking-wider uppercase">
+						<span className="text-muted-foreground px-1 pb-1.5 text-[10px] font-semibold tracking-wider uppercase">
 							On YouTube
 						</span>
-						{FEATURE_INFO.map((f) => (
-							<div key={f.key} className="flex items-center gap-2.5 py-1.5">
-								<f.icon
-									className="text-muted-foreground size-3.5 shrink-0"
-									aria-hidden
-								/>
-								<span className="flex-1 text-xs" title={f.description}>
-									{f.title}
-								</span>
-								<Switch
-									checked={flags[f.key]}
-									onCheckedChange={(v) =>
-										void setFlags((prev) => ({ ...prev, [f.key]: v }))
-									}
-									ariaLabel={f.title}
-								/>
-							</div>
-						))}
+						<div className="bg-surface ring-foreground/7 flex flex-col divide-y overflow-hidden rounded-xl shadow-xs ring-1">
+							{FEATURE_INFO.map((f) => (
+								<div
+									key={f.key}
+									className="flex items-center gap-2.5 px-3 py-2"
+								>
+									<f.icon
+										className="text-muted-foreground size-3.5 shrink-0"
+										aria-hidden
+									/>
+									<span className="flex-1 text-xs" title={f.description}>
+										{f.title}
+									</span>
+									<Switch
+										checked={flags[f.key]}
+										onCheckedChange={(v) =>
+											void setFlags((prev) => ({ ...prev, [f.key]: v }))
+										}
+										ariaLabel={f.title}
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 

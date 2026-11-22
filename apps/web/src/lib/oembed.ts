@@ -1,4 +1,4 @@
-import { videoUrl } from "@open-vidiq/shared";
+import { videoUrl } from "@growtube/shared";
 import { z } from "zod";
 
 /**

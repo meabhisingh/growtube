@@ -147,7 +147,7 @@ export function ErrorNotice({
 			}
 		>
 			{invalidated
-				? "open-vidiq was updated. Save your changes in Studio, then reload this tab."
+				? "GrowTube was updated. Save your changes in Studio, then reload this tab."
 				: message}
 		</Notice>
 	);

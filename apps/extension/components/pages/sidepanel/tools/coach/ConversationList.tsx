@@ -1,8 +1,8 @@
 /** Saved AI Coach conversations: open, rename, delete. */
-import { formatRelative } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatRelative } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	Check,
 	MessagesSquare,
@@ -181,14 +181,14 @@ function ConversationRow({
 	return (
 		<li
 			className={cn(
-				"group flex items-center gap-1 pr-1",
+				"group flex items-center gap-1 rounded-lg pr-1 transition-colors duration-150",
 				active ? "bg-brand-soft" : "hover:bg-muted",
 			)}
 		>
 			<button
 				type="button"
 				onClick={onOpen}
-				className="focus-visible:ring-ring flex min-w-0 flex-1 flex-col gap-0.5 px-2 py-2 text-left outline-none focus-visible:ring-1"
+				className="focus-visible:ring-ring/50 flex min-w-0 flex-1 flex-col gap-0.5 rounded-lg px-2 py-2 text-left outline-none focus-visible:ring-2"
 			>
 				<span className="truncate text-xs font-medium">
 					{conversation.title}

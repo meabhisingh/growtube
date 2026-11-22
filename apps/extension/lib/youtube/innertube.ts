@@ -32,9 +32,6 @@ export const DEFAULT_YT_CONFIG: YtConfig = {
 	hl: "en",
 	gl: "US",
 	visitorData: null,
-	loggedIn: false,
-	delegatedSessionId: null,
-	context: null,
 	source: "default",
 };
 
@@ -242,7 +239,7 @@ function ensureOriginRule(): Promise<void> {
 		});
 	})().catch((error: unknown) => {
 		console.warn(
-			"[open-vidiq] could not install the InnerTube origin rule",
+			"[GrowTube] could not install the InnerTube origin rule",
 			error,
 		);
 	});

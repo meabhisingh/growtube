@@ -13,7 +13,7 @@
  * crowdsourced. Their cards can be unlisted or private videos, and the list
  * itself is the user's watch history.
  */
-import type { VideoStats } from "@open-vidiq/shared/api-extra";
+import type { VideoStats } from "@growtube/shared/api-extra";
 
 import { server, yt } from "@/lib/client";
 import { createLimiter } from "@/lib/limiter";

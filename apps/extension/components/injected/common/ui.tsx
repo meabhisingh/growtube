@@ -32,19 +32,30 @@ export function Card({
 	);
 }
 
+/** Corner radius of what a skeleton stands in for (tokens in styles/ui.css). */
+const SKELETON_RADIUS = {
+	text: "var(--ovq-radius-sm)",
+	inner: "var(--ovq-radius-inner)",
+	card: "var(--ovq-radius)",
+	round: "var(--ovq-radius-pill)",
+} as const;
+
 export function Skeleton({
 	width = "100%",
 	height = 14,
+	radius = "text",
 	style,
 }: {
 	width?: number | string;
 	height?: number | string;
+	/** text: a line of text · inner: a block inside a card · card: a card · round: avatar/pill */
+	radius?: keyof typeof SKELETON_RADIUS;
 	style?: CSSProperties;
 }) {
 	return (
 		<span
 			className="ovq-skeleton"
-			style={{ width, height, ...style }}
+			style={{ width, height, borderRadius: SKELETON_RADIUS[radius], ...style }}
 			aria-hidden="true"
 		/>
 	);
@@ -161,11 +172,7 @@ export function Segmented<T extends string>({
 	label: string;
 }) {
 	return (
-		<fieldset
-			className="ovq-seg"
-			aria-label={label}
-			style={{ border: 0, margin: 0, padding: 0 }}
-		>
+		<fieldset className="ovq-seg" aria-label={label}>
 			{options.map((o) => (
 				<button
 					key={o.id}

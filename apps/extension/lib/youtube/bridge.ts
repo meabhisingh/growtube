@@ -42,7 +42,7 @@ function onPortMessage(event: MessageEvent) {
 				try {
 					cb(data.data);
 				} catch (error) {
-					console.error("[open-vidiq] onNavigate listener failed", error);
+					console.error("[GrowTube] onNavigate listener failed", error);
 				}
 			}
 		}
@@ -85,7 +85,7 @@ function connect(): Promise<MessagePort> {
 					window.removeEventListener("message", onReady);
 					for (const c of channels) c.port1.close();
 					portPromise = null;
-					reject(new Error("open-vidiq bridge did not respond"));
+					reject(new Error("GrowTube bridge did not respond"));
 				}, 500);
 			}
 		};
@@ -128,7 +128,7 @@ async function request(
 }
 
 /**
- * The page's InnerTube config (client version, hl/gl, login state…).
+ * The page's public InnerTube client identity (client version, API key, hl/gl).
  * Falls back to defaults (`source: "default"`) if the bridge is unavailable.
  */
 export async function getYtConfig(): Promise<YtConfig> {

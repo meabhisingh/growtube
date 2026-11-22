@@ -7,7 +7,7 @@
  * Run generators through `ai.generate(kind, input)` in `@/lib/client`, which
  * executes them in the background with JSON validation + one repair retry.
  */
-import { formatCompact, formatOutlier } from "@open-vidiq/shared/format";
+import { formatCompact, formatOutlier } from "@growtube/shared/format";
 import { z } from "zod";
 
 import { clipText as clip, fitTagsTo500, renderContext } from "./coach";

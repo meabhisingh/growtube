@@ -87,7 +87,7 @@ export function streamAiChat(
 			rejectFn(
 				new AiChatError(
 					error instanceof Error && /context invalidated/i.test(error.message)
-						? "open-vidiq was updated. Reload this page to keep using it."
+						? "GrowTube was updated. Reload this page to keep using it."
 						: String(error),
 					"NETWORK",
 				),

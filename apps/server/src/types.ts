@@ -1,5 +1,5 @@
-import type { Auth } from "@open-vidiq/auth";
-import type { Database } from "@open-vidiq/db";
+import type { Auth } from "@growtube/auth";
+import type { Database } from "@growtube/db";
 import type { Redis } from "ioredis";
 
 /** Per-request I/O clients (see the middleware in index.ts). */

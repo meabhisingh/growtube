@@ -5,7 +5,7 @@
  * ytInitialPlayerResponse / ytInitialData (see lib/youtube/page.ts), so the
  * current video is never fetched twice.
  */
-import { isVideoId, thumbnailUrl } from "@open-vidiq/shared/youtube";
+import { isVideoId, thumbnailUrl } from "@growtube/shared/youtube";
 
 import { cached, cacheGet, TTL } from "../cache";
 import { innertube, YouTubeError } from "./innertube";

@@ -9,7 +9,7 @@ import {
 	sql,
 	videoSnapshots,
 	videos,
-} from "@open-vidiq/db";
+} from "@growtube/db";
 import {
 	computeRecentVph,
 	computeVph,
@@ -21,7 +21,7 @@ import {
 	type VideoStats,
 	type VideoStatsResponse,
 	type VphSource,
-} from "@open-vidiq/shared";
+} from "@growtube/shared";
 
 import { type Cached, cachedJson, cacheKeys, invalidate } from "../lib/cache";
 import { tryRedis } from "../lib/redis";

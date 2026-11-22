@@ -1,6 +1,6 @@
 /** Pieces shared by several side-panel tools. */
-import { Button } from "@open-vidiq/ui/components/button";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { cn } from "@growtube/ui/lib/utils";
 import { Settings, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -45,7 +45,7 @@ export function AiSetupNotice({ className }: { className?: string }) {
 			}
 		>
 			{data.problem ??
-				"open-vidiq works with your own OpenAI-compatible key or a free local model (Ollama, LM Studio). No limits, no credits."}
+				"GrowTube works with your own OpenAI-compatible key or a free local model (Ollama, LM Studio). No limits, no credits."}
 		</Notice>
 	);
 }

@@ -1,5 +1,5 @@
-import { buttonVariants } from "@open-vidiq/ui/components/button";
-import { Toaster } from "@open-vidiq/ui/components/sonner";
+import { buttonVariants } from "@growtube/ui/components/button";
+import { Toaster } from "@growtube/ui/components/sonner";
 import {
 	createRootRouteWithContext,
 	HeadContent,
@@ -24,12 +24,12 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 	head: () => ({
 		meta: [
 			{
-				title: "open-vidiq · The free YouTube growth toolkit",
+				title: "GrowTube · The free YouTube growth toolkit",
 			},
 			{
 				name: "description",
 				content:
-					"Free, open-source YouTube growth toolkit: VPH, outlier scores, SEO, keyword research, trends and an AI coach. No plans, no credits, no limits.",
+					"Free YouTube growth toolkit: VPH, outlier scores, SEO, keyword research, trends and an AI coach. No plans, no credits, no limits.",
 			},
 		],
 	}),

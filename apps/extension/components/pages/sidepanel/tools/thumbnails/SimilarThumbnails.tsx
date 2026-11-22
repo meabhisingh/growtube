@@ -1,7 +1,7 @@
 /** Grid of the top results' thumbnails for a query, with views/VPH/outlier. */
-import { formatCompact, formatRelative } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
+import { formatCompact, formatRelative } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Skeleton } from "@growtube/ui/components/skeleton";
 import { LayoutGrid, MonitorPlay } from "lucide-react";
 import { useEffect, useState } from "react";
 import { yt } from "@/lib/client";
@@ -80,9 +80,9 @@ export function SimilarThumbnails({
 				<Grid>
 					{Array.from({ length: 8 }, (_, i) => (
 						<div key={i} className="flex flex-col gap-1.5">
-							<Skeleton className="aspect-video w-full" />
-							<Skeleton className="h-3 w-5/6" />
-							<Skeleton className="h-2.5 w-1/2" />
+							<Skeleton className="aspect-video w-full rounded-lg" />
+							<Skeleton className="h-3 w-5/6 rounded-full" />
+							<Skeleton className="h-2.5 w-1/2 rounded-full" />
 						</div>
 					))}
 				</Grid>
@@ -103,7 +103,7 @@ export function SimilarThumbnails({
 							type="button"
 							onClick={(e) => openLink(watchUrl(r.videoId), e)}
 							onAuxClick={(e) => openLink(watchUrl(r.videoId), e)}
-							className="group focus-visible:ring-ring flex flex-col gap-1.5 text-left outline-none focus-visible:ring-2"
+							className="group focus-visible:ring-ring/60 flex flex-col gap-1.5 rounded-lg text-left outline-none focus-visible:ring-2"
 						>
 							<Thumb
 								videoId={r.videoId}
@@ -111,9 +111,9 @@ export function SimilarThumbnails({
 								durationSec={r.durationSec}
 								isShort={r.isShort}
 								isLive={r.isLive}
-								className="w-full transition-transform group-hover:scale-[1.02]"
+								className="w-full transition-transform duration-200 ease-out group-hover:scale-[1.02]"
 							/>
-							<span className="ovq-clamp-2 group-hover:text-brand text-[11px] leading-snug font-medium">
+							<span className="ovq-clamp-2 group-hover:text-brand text-[11px] leading-snug font-medium transition-colors duration-150">
 								{r.title}
 							</span>
 							<span className="text-muted-foreground truncate text-[10px]">

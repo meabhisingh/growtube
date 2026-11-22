@@ -215,7 +215,7 @@ export type AiErrorCode =
 	| "NO_IMAGE_SUPPORT"
 	| "BAD_OUTPUT"
 	| "ABORTED"
-	/** Signed out of open-vidiq (not an AI provider problem) */
+	/** Signed out of GrowTube (not an AI provider problem) */
 	| "AUTH_REQUIRED"
 	| "UNKNOWN";
 

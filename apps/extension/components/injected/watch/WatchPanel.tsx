@@ -2,8 +2,8 @@
  * The watch page panel: collapsible card with Views / Overview / AI Coach
  * tabs. Signed out it is only a compact "Sign in" card (no data is loaded).
  */
-import { formatCompact, formatOutlier } from "@open-vidiq/shared/format";
-import { outlierTier } from "@open-vidiq/shared/metrics";
+import { formatCompact, formatOutlier } from "@growtube/shared/format";
+import { outlierTier } from "@growtube/shared/metrics";
 import { ChevronDown, ChevronUp, LogIn } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
@@ -52,10 +52,10 @@ function SignInCard() {
 	const [error, setError] = useState<string | null>(null);
 	return (
 		<div className={dark ? "ovq-root ovq-dark" : "ovq-root"}>
-			<section className="ovq-panel" aria-label="open-vidiq">
+			<section className="ovq-panel" aria-label="GrowTube">
 				<div className="ovq-panel-header">
 					<Logo size={20} />
-					<span className="ovq-panel-title">Sign in to use open-vidiq</span>
+					<span className="ovq-panel-title">Sign in to use GrowTube</span>
 					<button
 						type="button"
 						className="ovq-btn primary small"
@@ -124,10 +124,10 @@ function VideoPanel({
 
 	return (
 		<div className={dark ? "ovq-root ovq-dark" : "ovq-root"}>
-			<section className="ovq-panel" aria-label="open-vidiq video stats">
+			<section className="ovq-panel" aria-label="GrowTube video stats">
 				<div className="ovq-panel-header">
 					<Logo size={20} />
-					<span className="ovq-panel-title">open-vidiq</span>
+					<span className="ovq-panel-title">GrowTube</span>
 					<div className="ovq-panel-summary" aria-live="polite">
 						{m?.vph != null && (
 							<span className="ovq-pill" title="Views per hour">
@@ -149,9 +149,7 @@ function VideoPanel({
 						aria-expanded={!collapsed}
 						aria-controls={`${idPrefix}-body`}
 						aria-label={
-							collapsed
-								? "Expand open-vidiq panel"
-								: "Collapse open-vidiq panel"
+							collapsed ? "Expand GrowTube panel" : "Collapse GrowTube panel"
 						}
 						title={collapsed ? "Expand" : "Collapse"}
 						onClick={() => setPrefs({ watchPanelCollapsed: !collapsed })}
@@ -178,7 +176,7 @@ function VideoPanel({
 							tabs={TABS}
 							value={tab}
 							onChange={(id) => setPrefs({ watchPanelTab: id })}
-							label="open-vidiq sections"
+							label="GrowTube sections"
 							idPrefix={idPrefix}
 						/>
 						{TABS.map((t) =>

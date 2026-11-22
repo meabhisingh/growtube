@@ -23,6 +23,11 @@ export function createRedis(env: RedisConfig) {
 		keyPrefix: REDIS_KEY_PREFIX,
 		connectTimeout: 3_000,
 		maxRetriesPerRequest: 1,
+		// One connection per request: skip the INFO ready check and the two
+		// CLIENT SETINFO calls, which cost a round trip (and Upstash commands)
+		// before every first command.
+		enableReadyCheck: false,
+		disableClientInfo: true,
 		// Give up quickly instead of reconnecting forever inside one request.
 		retryStrategy: (times) => (times > 2 ? null : times * 100),
 	});

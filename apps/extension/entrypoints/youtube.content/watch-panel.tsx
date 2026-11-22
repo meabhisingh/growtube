@@ -124,7 +124,7 @@ export function createWatchPanel(
 				created.mount();
 				mounted = true;
 			} catch (error) {
-				console.debug("[open-vidiq] watch panel mount deferred", error);
+				console.debug("[GrowTube] watch panel mount deferred", error);
 			}
 		});
 	}

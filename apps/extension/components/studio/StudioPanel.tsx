@@ -1,9 +1,9 @@
 /**
- * The open-vidiq optimizer panel injected into YouTube Studio's details
+ * The GrowTube optimizer panel injected into YouTube Studio's details
  * editor (video edit page and the upload dialog's Details step).
  */
-import { findControversialKeywords } from "@open-vidiq/shared/controversial";
-import { computeSeoScore } from "@open-vidiq/shared/seo";
+import { findControversialKeywords } from "@growtube/shared/controversial";
+import { computeSeoScore } from "@growtube/shared/seo";
 import {
 	ChevronDown,
 	ChevronUp,
@@ -433,7 +433,7 @@ export function StudioPanel({
 					type="button"
 					className="ovq-fab"
 					onClick={() => setCollapsed(false)}
-					title="Open the open-vidiq optimizer"
+					title="Open the GrowTube optimizer"
 				>
 					<Logo size={20} />
 					{anyFound ? (
@@ -457,7 +457,7 @@ export function StudioPanel({
 
 	return (
 		<div className={rootClass}>
-			<aside className="ovq-panel" aria-label="open-vidiq optimizer">
+			<aside className="ovq-panel" aria-label="GrowTube optimizer">
 				<header className="ovq-header">
 					<button
 						type="button"
@@ -467,7 +467,7 @@ export function StudioPanel({
 						title={collapsed ? "Expand" : "Collapse"}
 					>
 						<Logo size={20} />
-						<span className="ovq-brand">open-vidiq</span>
+						<span className="ovq-brand">GrowTube</span>
 						<span className="ovq-header-sub">SEO</span>
 						{anyFound ? (
 							<span className={cx("ovq-score-pill", `ovq-tone-${tone}`)}>

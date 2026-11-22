@@ -12,11 +12,11 @@
 	},
 	"iconLibrary": "lucide",
 	"aliases": {
-		"components": "@open-vidiq/ui/components",
-		"utils": "@open-vidiq/ui/lib/utils",
-		"hooks": "@open-vidiq/ui/hooks",
-		"lib": "@open-vidiq/ui/lib",
-		"ui": "@open-vidiq/ui/components"
+		"components": "@growtube/ui/components",
+		"utils": "@growtube/ui/lib/utils",
+		"hooks": "@growtube/ui/hooks",
+		"lib": "@growtube/ui/lib",
+		"ui": "@growtube/ui/components"
 	},
 	"menuColor": "default",
 	"menuAccent": "subtle",

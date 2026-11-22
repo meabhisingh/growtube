@@ -1,4 +1,4 @@
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 import type * as React from "react";
 
 function MessageGroup({ className, ...props }: React.ComponentProps<"div">) {

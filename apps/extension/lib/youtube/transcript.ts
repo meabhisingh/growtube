@@ -8,7 +8,7 @@
  *    transcript panel). YouTube currently gates it behind attestation for
  *    anonymous clients, so it rarely helps, but it's cheap to try.
  */
-import { isVideoId } from "@open-vidiq/shared/youtube";
+import { isVideoId } from "@growtube/shared/youtube";
 
 import { cached, TTL } from "../cache";
 import { innertube, YouTubeError, ytFetch } from "./innertube";

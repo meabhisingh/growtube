@@ -1,5 +1,5 @@
 /**
- * Account sessions with the open-vidiq server. BACKGROUND ONLY.
+ * Account sessions with the GrowTube server. BACKGROUND ONLY.
  *
  * The server runs better-auth (email + password) with its bearer plugin:
  * sign-in / sign-up responses carry the session token in the
@@ -20,7 +20,7 @@ import {
 	AUTH_BASE_PATH,
 	AUTH_TOKEN_RESPONSE_HEADER,
 	type AuthUser,
-} from "@open-vidiq/shared/auth";
+} from "@growtube/shared/auth";
 import { z } from "zod";
 import { storage } from "#imports";
 
@@ -115,7 +115,7 @@ export async function assertSignedIn(): Promise<void> {
 	if (!(await hasSession()))
 		throw new AuthError(
 			"AUTH_REQUIRED",
-			"Sign in to open-vidiq to use this. Open Settings → Account.",
+			"Sign in to GrowTube to use this. Open Settings → Account.",
 		);
 }
 
@@ -173,7 +173,7 @@ async function authFetch(
 	if (!(await hasOriginPermission(base))) {
 		throw new AuthError(
 			"PERMISSION",
-			`open-vidiq needs permission to reach ${originOf(base) ?? base}. Save the server URL in Settings → Server to grant it, then try again.`,
+			`GrowTube needs permission to reach ${originOf(base) ?? base}. Save the server URL in Settings → Server to grant it, then try again.`,
 		);
 	}
 	const headers: Record<string, string> = { Accept: "application/json" };
@@ -192,7 +192,7 @@ async function authFetch(
 	} catch {
 		throw new AuthError(
 			"NETWORK",
-			`Can't reach the open-vidiq server at ${base}. Check your connection and Settings → Server URL.`,
+			`Can't reach the GrowTube server at ${base}. Check your connection and Settings → Server URL.`,
 		);
 	}
 	const text = await res.text().catch(() => "");
@@ -293,13 +293,13 @@ function toAuthError(res: Response, body: unknown, action: Action): AuthError {
 			"UNSUPPORTED",
 			action === "delete"
 				? "This server doesn't support deleting accounts from the extension."
-				: "This server has no open-vidiq accounts (it may be outdated). Check Settings → Server URL.",
+				: "This server has no GrowTube accounts (it may be outdated). Check Settings → Server URL.",
 			status,
 		);
 	if (status >= 500)
 		return new AuthError(
 			"HTTP",
-			`The open-vidiq server had a problem (HTTP ${status}). Try again in a minute.`,
+			`The GrowTube server had a problem (HTTP ${status}). Try again in a minute.`,
 			status,
 		);
 	return new AuthError(
@@ -325,7 +325,7 @@ function readLogin(
 	if (!user.success) {
 		throw new AuthError(
 			"INVALID_RESPONSE",
-			"Unexpected answer from the open-vidiq server. Check Settings → Server URL.",
+			"Unexpected answer from the GrowTube server. Check Settings → Server URL.",
 			res.status,
 		);
 	}

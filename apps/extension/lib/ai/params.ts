@@ -221,7 +221,7 @@ export function rememberCaps(key: string, patch: CapsPatch): Promise<void> {
 				.slice(0, CAPS_MAX_ENTRIES);
 			await aiModelCaps.setValue(Object.fromEntries(kept));
 		} catch (error) {
-			console.debug("[open-vidiq] couldn't save model capabilities:", error);
+			console.debug("[GrowTube] couldn't save model capabilities:", error);
 		}
 	};
 	writeChain = writeChain.then(run, run);

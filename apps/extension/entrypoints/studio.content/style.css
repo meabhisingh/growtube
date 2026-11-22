@@ -1,5 +1,5 @@
 /*
- * open-vidiq Studio optimizer. Lives in a shadow root (WXT resets inherited
+ * GrowTube Studio optimizer. Lives in a shadow root (WXT resets inherited
  * styles with `all: initial`), so everything is styled here. No rem units:
  * Studio's <html> font-size is not 16px.
  */
@@ -32,9 +32,25 @@
 	--ovq-warn-soft: rgba(180, 83, 9, 0.1);
 	--ovq-bad-soft: rgba(200, 30, 30, 0.08);
 	--ovq-good-soft: rgba(21, 128, 61, 0.1);
-	--ovq-shadow: 0 8px 28px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Radius scale (rounded-xl / lg / md / full): panel, cards, inputs and
+	 * buttons use --ovq-radius; things nested in a padded rounded container
+	 * (tabs in their track, small buttons, callouts) use --ovq-radius-inner. */
+	--ovq-radius: 14px;
+	--ovq-radius-inner: 10px;
+	--ovq-radius-sm: 8px;
+	--ovq-radius-pill: 999px;
+	/* Track behind the AI tool tabs, and the raised fill of the active one. */
+	--ovq-track: var(--ovq-surface-2);
+	--ovq-raised: var(--ovq-bg);
+	--ovq-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--ovq-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+	--ovq-shadow:
+		0 16px 40px -12px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.06);
+	--ovq-ease: cubic-bezier(0.2, 0, 0, 1);
 	--ovq-md-link: var(--ovq-accent-strong);
 
+	/* Native bits (scrollbars, caret) follow the theme too. */
+	color-scheme: light;
 	color: var(--ovq-fg);
 	font-family: Roboto, "YouTube Sans", Arial, sans-serif;
 	font-size: 13px;
@@ -61,7 +77,13 @@
 	--ovq-warn-soft: rgba(251, 191, 36, 0.12);
 	--ovq-bad-soft: rgba(248, 113, 113, 0.12);
 	--ovq-good-soft: rgba(74, 222, 128, 0.12);
-	--ovq-shadow: 0 8px 28px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
+	--ovq-track: var(--ovq-surface);
+	--ovq-raised: #3e3e3e;
+	--ovq-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--ovq-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
+	--ovq-shadow:
+		0 16px 40px -12px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.35);
+	color-scheme: dark;
 }
 
 .ovq-root *,
@@ -80,10 +102,13 @@
 	margin: 0 0 16px;
 }
 
+/* overflow: hidden keeps the header bar and the scrolling body inside the
+ * rounded corners. */
 .ovq-panel {
 	background: var(--ovq-bg);
 	border: 1px solid var(--ovq-border);
-	border-radius: 10px;
+	border-radius: var(--ovq-radius);
+	box-shadow: var(--ovq-shadow-xs);
 	overflow: hidden;
 	width: 100%;
 }
@@ -141,6 +166,8 @@
 	gap: 8px;
 	padding: 0;
 	border: 0;
+	/* Shapes the focus ring. */
+	border-radius: var(--ovq-radius-sm);
 	background: transparent;
 	color: inherit;
 	font: inherit;
@@ -162,7 +189,7 @@
 	margin-left: auto;
 	min-width: 32px;
 	padding: 2px 8px;
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	font-weight: 700;
 	font-size: 12px;
 	text-align: center;
@@ -182,15 +209,24 @@
 	height: 28px;
 	padding: 0;
 	border: 0;
-	border-radius: 6px;
+	/* Round, like Studio's own icon buttons. */
+	border-radius: 50%;
 	background: transparent;
 	color: var(--ovq-muted-fg);
 	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		color 0.16s var(--ovq-ease),
+		transform 0.16s var(--ovq-ease);
 }
 
 .ovq-icon-btn:hover {
 	background: var(--ovq-surface-2);
 	color: var(--ovq-fg);
+}
+
+.ovq-icon-btn:active:not(:disabled) {
+	transform: scale(0.94);
 }
 
 /* ---- tones ------------------------------------------------------------- */
@@ -325,14 +361,14 @@
 
 .ovq-meter {
 	height: 4px;
-	border-radius: 2px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-surface-2);
 	overflow: hidden;
 }
 
 .ovq-meter-fill {
 	height: 100%;
-	border-radius: 2px;
+	border-radius: var(--ovq-radius-pill);
 	transition: width 0.3s ease;
 }
 .ovq-meter-fill.ovq-ok {
@@ -369,18 +405,23 @@
 .ovq-input,
 .ovq-textarea {
 	width: 100%;
-	padding: 7px 28px 7px 10px;
+	padding: 8px 30px 8px 12px;
 	border: 1px solid var(--ovq-border);
-	border-radius: 6px;
+	border-radius: var(--ovq-radius);
 	background: var(--ovq-bg);
 	color: var(--ovq-fg);
 	font: inherit;
 	font-size: 13px;
 	outline: none;
+	transition:
+		border-color 0.16s var(--ovq-ease),
+		box-shadow 0.16s var(--ovq-ease);
 }
 
+/* Always sits inside a padded result card, hence the inner radius. */
 .ovq-textarea {
-	padding: 8px 10px;
+	padding: 9px 12px;
+	border-radius: var(--ovq-radius-inner);
 	resize: vertical;
 	min-height: 120px;
 	line-height: 1.45;
@@ -390,21 +431,29 @@
 .ovq-input:focus,
 .ovq-textarea:focus {
 	border-color: var(--ovq-accent);
-	box-shadow: 0 0 0 2px var(--ovq-accent-soft);
+	box-shadow: 0 0 0 3px var(--ovq-accent-soft);
 }
 
 .ovq-input-clear {
 	position: absolute;
 	top: 50%;
-	right: 6px;
+	right: 7px;
 	transform: translateY(-50%);
 	display: inline-flex;
 	padding: 3px;
 	border: 0;
-	border-radius: 4px;
+	border-radius: 50%;
 	background: transparent;
 	color: var(--ovq-muted-fg);
 	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		color 0.16s var(--ovq-ease);
+}
+
+.ovq-input-clear:hover {
+	background: var(--ovq-surface-2);
+	color: var(--ovq-fg);
 }
 
 .ovq-suggestions {
@@ -433,9 +482,9 @@
 	align-items: center;
 	gap: 4px;
 	max-width: 100%;
-	padding: 3px 9px;
+	padding: 3px 10px;
 	border: 1px solid var(--ovq-border);
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-surface);
 	color: var(--ovq-fg);
 	font: inherit;
@@ -448,11 +497,16 @@
 
 button.ovq-chip {
 	cursor: pointer;
+	transition:
+		border-color 0.16s var(--ovq-ease),
+		background-color 0.16s var(--ovq-ease);
 }
 button.ovq-chip:hover {
 	border-color: var(--ovq-accent);
 }
 
+/* Suggestion chip + its "add" button read as one split pill: only the seam
+ * between the two halves is square. */
 .ovq-chip-group .ovq-chip:not(:last-child) {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -470,13 +524,14 @@ button.ovq-chip:hover {
 .ovq-chip-add {
 	display: inline-flex;
 	align-items: center;
-	padding: 0 6px;
+	padding: 0 7px 0 6px;
 	border: 1px solid var(--ovq-border);
 	border-left: 0;
-	border-radius: 0 999px 999px 0;
+	border-radius: 0 var(--ovq-radius-pill) var(--ovq-radius-pill) 0;
 	background: var(--ovq-surface);
 	color: var(--ovq-accent-strong);
 	cursor: pointer;
+	transition: background-color 0.16s var(--ovq-ease);
 }
 .ovq-chip-add:hover {
 	background: var(--ovq-accent-soft);
@@ -506,6 +561,8 @@ button.ovq-chip:hover {
 	gap: 6px;
 	padding: 2px 0;
 	border: 0;
+	/* Shapes the focus ring. */
+	border-radius: var(--ovq-radius-sm);
 	background: transparent;
 	color: inherit;
 	font: inherit;
@@ -529,7 +586,7 @@ button.ovq-chip:hover {
 	display: inline-block;
 	min-width: 18px;
 	padding: 1px 6px;
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-warn-soft);
 	color: var(--ovq-warn);
 	font-weight: 700;
@@ -612,8 +669,8 @@ button.ovq-chip:hover {
 .ovq-flag {
 	display: flex;
 	gap: 8px;
-	padding: 6px 8px;
-	border-radius: 6px;
+	padding: 7px 10px;
+	border-radius: var(--ovq-radius-inner);
 	background: var(--ovq-warn-soft);
 }
 
@@ -639,8 +696,8 @@ button.ovq-chip:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	padding: 9px 10px;
-	border-radius: 6px;
+	padding: 10px 12px;
+	border-radius: var(--ovq-radius-inner);
 	border: 1px solid var(--ovq-border);
 	background: var(--ovq-surface);
 	font-size: 12px;
@@ -675,9 +732,9 @@ button.ovq-chip:hover {
 	align-items: center;
 	justify-content: center;
 	gap: 6px;
-	padding: 6px 12px;
+	padding: 6px 14px;
 	border: 1px solid var(--ovq-border);
-	border-radius: 6px;
+	border-radius: var(--ovq-radius);
 	background: var(--ovq-bg);
 	color: var(--ovq-fg);
 	font: inherit;
@@ -687,10 +744,19 @@ button.ovq-chip:hover {
 	white-space: nowrap;
 	text-decoration: none;
 	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		border-color 0.16s var(--ovq-ease),
+		color 0.16s var(--ovq-ease),
+		transform 0.16s var(--ovq-ease);
 }
 
 .ovq-btn:hover:not(:disabled) {
 	background: var(--ovq-surface);
+}
+
+.ovq-btn:active:not(:disabled) {
+	transform: scale(0.98);
 }
 
 .ovq-btn:disabled {
@@ -698,8 +764,10 @@ button.ovq-chip:hover {
 	cursor: default;
 }
 
+/* Under 28px high: the inner radius (still reads as a pill). */
 .ovq-btn-sm {
-	padding: 4px 9px;
+	padding: 4px 10px;
+	border-radius: var(--ovq-radius-inner);
 	font-size: 12px;
 }
 
@@ -718,11 +786,15 @@ button.ovq-chip:hover {
 	background: transparent;
 }
 
+/* Outlines follow border-radius in current browsers, so the ring has the
+ * control's shape (every focusable control has a radius); unlike a
+ * box-shadow ring it also survives forced-colors mode. */
 .ovq-root button:focus-visible,
 .ovq-root a:focus-visible,
-.ovq-root summary:focus-visible {
+.ovq-root summary:focus-visible,
+.ovq-root input[type="checkbox"]:focus-visible {
 	outline: 2px solid var(--ovq-accent);
-	outline-offset: 1px;
+	outline-offset: 2px;
 }
 
 @keyframes ovq-spin {
@@ -744,31 +816,41 @@ button.ovq-chip:hover {
 	gap: 10px;
 }
 
+/* Rounded track with a raised pill for the active tool. The tab radius is the
+ * track radius minus its padding, so the corners stay concentric. */
 .ovq-tabs {
 	display: flex;
 	gap: 2px;
-	padding: 2px;
-	border-radius: 7px;
-	background: var(--ovq-surface-2);
+	padding: 4px;
+	border-radius: var(--ovq-radius);
+	background: var(--ovq-track);
 }
 
 .ovq-tab {
 	flex: 1;
-	padding: 5px 4px;
+	padding: 6px 4px;
 	border: 0;
-	border-radius: 5px;
+	border-radius: var(--ovq-radius-inner);
 	background: transparent;
 	color: var(--ovq-muted-fg);
 	font: inherit;
 	font-size: 12px;
 	font-weight: 500;
 	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		color 0.16s var(--ovq-ease),
+		box-shadow 0.16s var(--ovq-ease);
+}
+
+.ovq-tab:hover {
+	color: var(--ovq-fg);
 }
 
 .ovq-tab-active {
-	background: var(--ovq-bg);
+	background: var(--ovq-raised);
 	color: var(--ovq-fg);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	box-shadow: var(--ovq-shadow-sm);
 }
 
 .ovq-tool,
@@ -794,10 +876,11 @@ button.ovq-chip:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	padding: 9px 10px;
+	padding: 10px 12px;
 	border: 1px solid var(--ovq-border);
-	border-radius: 8px;
+	border-radius: var(--ovq-radius);
 	background: var(--ovq-bg);
+	box-shadow: var(--ovq-shadow-xs);
 }
 
 .ovq-results {
@@ -830,7 +913,7 @@ button.ovq-chip:hover {
 	align-items: center;
 	gap: 4px;
 	padding: 1px 7px;
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-surface-2);
 	color: var(--ovq-muted-fg);
 	font-size: 11px;
@@ -855,6 +938,50 @@ button.ovq-chip:hover {
 	accent-color: var(--ovq-accent);
 }
 
+/* Drawn checkbox (same element and behaviour): a rounded box with the
+ * accent fill in both themes. 5px is rounded-md scaled to a 16px box;
+ * 8px would turn it into a circle. */
+.ovq-check-row input[type="checkbox"] {
+	appearance: none;
+	display: inline-grid;
+	place-content: center;
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+	border: 1.5px solid var(--ovq-muted-fg);
+	border-radius: 5px;
+	background: var(--ovq-bg);
+	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		border-color 0.16s var(--ovq-ease);
+}
+
+.ovq-check-row input[type="checkbox"]::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: var(--ovq-accent-fg);
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	transform: scale(0);
+	transition: transform 0.12s var(--ovq-ease);
+}
+
+.ovq-check-row input[type="checkbox"]:checked {
+	border-color: var(--ovq-accent);
+	background: var(--ovq-accent);
+}
+
+.ovq-check-row input[type="checkbox"]:checked::before {
+	transform: scale(1);
+}
+
+@media (forced-colors: active) {
+	.ovq-check-row input[type="checkbox"] {
+		appearance: auto;
+	}
+}
+
 .ovq-concept-headline {
 	font-size: 15px;
 	font-weight: 800;
@@ -868,14 +995,17 @@ button.ovq-chip:hover {
 	gap: 4px;
 }
 
+/* Color dot. */
 .ovq-swatch {
 	width: 10px;
 	height: 10px;
-	border-radius: 3px;
+	border-radius: 50%;
 	border: 1px solid var(--ovq-border);
 }
 
 .ovq-details summary {
+	/* Shapes the focus ring. */
+	border-radius: var(--ovq-radius-sm);
 	cursor: pointer;
 	color: var(--ovq-accent-strong);
 }
@@ -895,7 +1025,7 @@ button.ovq-chip:hover {
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	object-fit: cover;
-	border-radius: 6px;
+	border-radius: var(--ovq-radius-inner);
 	border: 1px solid var(--ovq-border);
 }
 
@@ -933,7 +1063,7 @@ button.ovq-chip:hover {
 	min-width: 38px;
 	padding: 2px 7px;
 	border: 0;
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-surface-2);
 	color: var(--ovq-muted-fg);
 	font: inherit;
@@ -973,9 +1103,12 @@ button.ovq-chip:hover {
 	border-top: 1px solid var(--ovq-border);
 }
 
+/* Link-like ghost button: the icon stays aligned with the content edge while
+ * the hover fill gets room around it. */
 .ovq-footer .ovq-btn {
-	padding-left: 4px;
-	padding-right: 6px;
+	margin-left: -4px;
+	padding-left: 8px;
+	padding-right: 10px;
 	color: var(--ovq-accent-strong);
 }
 
@@ -989,13 +1122,24 @@ button.ovq-chip:hover {
 	gap: 8px;
 	padding: 6px 12px 6px 6px;
 	border: 1px solid var(--ovq-border);
-	border-radius: 999px;
+	border-radius: var(--ovq-radius-pill);
 	background: var(--ovq-bg);
 	color: var(--ovq-fg);
 	font: inherit;
 	font-weight: 700;
 	box-shadow: var(--ovq-shadow);
 	cursor: pointer;
+	transition:
+		background-color 0.16s var(--ovq-ease),
+		transform 0.16s var(--ovq-ease);
+}
+
+.ovq-fab:hover {
+	background: var(--ovq-surface);
+}
+
+.ovq-fab:active {
+	transform: scale(0.98);
 }
 
 .ovq-fab-score {
@@ -1007,7 +1151,23 @@ button.ovq-chip:hover {
 		animation-duration: 3s;
 	}
 	.ovq-ring-value,
-	.ovq-meter-fill {
+	.ovq-meter-fill,
+	.ovq-btn,
+	.ovq-icon-btn,
+	.ovq-tab,
+	.ovq-input,
+	.ovq-textarea,
+	.ovq-input-clear,
+	button.ovq-chip,
+	.ovq-chip-add,
+	.ovq-fab,
+	.ovq-check-row input[type="checkbox"],
+	.ovq-check-row input[type="checkbox"]::before {
 		transition: none;
+	}
+	.ovq-btn:active:not(:disabled),
+	.ovq-icon-btn:active:not(:disabled),
+	.ovq-fab:active {
+		transform: none;
 	}
 }

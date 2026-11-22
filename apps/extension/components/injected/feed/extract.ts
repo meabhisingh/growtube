@@ -6,7 +6,7 @@ import {
 	extractChannelRef,
 	extractVideoId,
 	isShortsUrl,
-} from "@open-vidiq/shared/youtube";
+} from "@growtube/shared/youtube";
 
 import { parseAgo, parseCount } from "@/lib/youtube/parse";
 import type { ChannelRef } from "@/lib/youtube/types";

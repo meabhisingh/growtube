@@ -3,9 +3,15 @@
  * options page. Credentials go to the background (`auth.signIn` /
  * `auth.signUp`), which talks to the server; this page never sees the token.
  * Success shows up everywhere through the `authUser` storage item.
+ *
+ * It also carries the data notice the Chrome Web Store asks for before any
+ * collection starts (nothing reaches the server while signed out), and the
+ * opt-in "Share public stats" checkbox (off unless the user ticks it). Keep
+ * its wording in line with ServerSection and the web app's /privacy page.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import { Button } from "@growtube/ui/components/button";
+import { Checkbox } from "@growtube/ui/components/checkbox";
+import { Input } from "@growtube/ui/components/input";
 import {
 	Eye,
 	EyeOff,
@@ -22,6 +28,7 @@ import {
 	MAX_PASSWORD_LENGTH,
 	MIN_PASSWORD_LENGTH,
 	normalizeServerUrl,
+	privacyPolicyUrl,
 } from "@/lib/auth";
 import { account, BackgroundError, ext } from "@/lib/client";
 import { useStorageItem } from "@/lib/hooks";
@@ -30,7 +37,7 @@ import {
 	hasOriginPermission,
 	originOf,
 } from "@/lib/permissions";
-import { serverUrl } from "@/lib/settings";
+import { crowdsourceStats, serverUrl } from "@/lib/settings";
 
 import { Field, Segmented } from "../ui/controls";
 import { ErrorNotice, Notice } from "../ui/feedback";
@@ -91,7 +98,7 @@ export function AuthForm({
 				}
 				if (!(await ensureOriginPermission(base))) {
 					setError(
-						`Chrome didn't grant access to ${originOf(base) ?? base}. open-vidiq needs it to reach its server (Settings → Server URL).`,
+						`Chrome didn't grant access to ${originOf(base) ?? base}. GrowTube needs it to reach its server (Settings → Server URL).`,
 					);
 					return;
 				}
@@ -173,7 +180,7 @@ export function AuthForm({
 						type="button"
 						onClick={() => setShowPassword((s) => !s)}
 						aria-label={showPassword ? "Hide password" : "Show password"}
-						className="text-muted-foreground hover:text-foreground absolute top-1/2 right-2 -translate-y-1/2"
+						className="text-muted-foreground hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 absolute top-1/2 right-1.5 -translate-y-1/2 rounded-md p-0.5 transition-colors duration-150 outline-none focus-visible:ring-2"
 					>
 						{showPassword ? (
 							<EyeOff className="size-3.5" />
@@ -199,7 +206,7 @@ export function AuthForm({
 						</Button>
 					}
 				>
-					open-vidiq needs access to {needsPermission} to sign you in. Sign in
+					GrowTube needs access to {needsPermission} to sign you in. Sign in
 					from the settings page to grant it.
 				</Notice>
 			) : null}
@@ -229,6 +236,8 @@ export function AuthForm({
 				/>
 			) : null}
 
+			<DataNotice base={base} onOpenSettings={onOpenSettings} />
+
 			<Button type="submit" disabled={!canSubmit} className="w-full">
 				{busy ? (
 					<LoaderCircle className="animate-spin" />
@@ -244,7 +253,7 @@ export function AuthForm({
 				{signUp ? "Already have an account? " : "New here? "}
 				<button
 					type="button"
-					className="text-brand font-medium hover:underline"
+					className="text-brand focus-visible:ring-ring/50 rounded-sm font-medium outline-none hover:underline focus-visible:ring-2"
 					onClick={() => switchMode(signUp ? "signIn" : "signUp")}
 				>
 					{signUp ? "Sign in" : "Create a free account"}
@@ -256,7 +265,7 @@ export function AuthForm({
 				(
 				<button
 					type="button"
-					className="hover:text-foreground underline underline-offset-2"
+					className="hover:text-foreground focus-visible:ring-ring/50 rounded-sm underline underline-offset-2 outline-none focus-visible:ring-2"
 					onClick={() => onOpenSettings("server")}
 				>
 					change server
@@ -264,6 +273,73 @@ export function AuthForm({
 				).
 			</p>
 		</form>
+	);
+}
+
+/**
+ * What signing in starts sending, and the opt-in for uploads. The checkbox
+ * writes the setting right away; uploads also need a session, so nothing is
+ * sent before the user signs in.
+ */
+function DataNotice({
+	base,
+	onOpenSettings,
+}: {
+	base: string;
+	onOpenSettings: (hash: string) => void;
+}) {
+	const shareId = useId();
+	const [share, setShare] = useStorageItem(crowdsourceStats);
+	const policy = privacyPolicyUrl(base);
+	const link =
+		"text-foreground focus-visible:ring-ring/50 rounded-sm font-medium underline underline-offset-2 outline-none focus-visible:ring-2";
+	return (
+		<div className="bg-surface-2 text-muted-foreground flex flex-col gap-2 rounded-lg p-2.5 text-[11px] leading-relaxed">
+			<p>
+				<span className="text-foreground font-medium">
+					What GrowTube sends.
+				</span>{" "}
+				To show their stats, GrowTube sends the IDs of the public YouTube videos
+				and channels you view, and your Trends searches, to the GrowTube server
+				with your login. Nothing from unlisted or private videos.
+			</p>
+			<label
+				htmlFor={shareId}
+				className="flex cursor-pointer items-start gap-2"
+			>
+				<Checkbox
+					id={shareId}
+					checked={share}
+					onCheckedChange={(v) => void setShare(!!v)}
+					className="mt-0.5"
+				/>
+				<span>
+					<span className="text-foreground font-medium">
+						Share public stats
+					</span>{" "}
+					(optional): also upload their public numbers (video title, channel
+					name, views, likes, comments, channel avatar URL, country, keywords)
+					with no account ID, to build view history and Trends for everyone.
+				</span>
+			</label>
+			<p>
+				{policy ? (
+					<>
+						<a href={policy} target="_blank" rel="noreferrer" className={link}>
+							Privacy policy
+						</a>
+						{" · "}
+					</>
+				) : null}
+				<button
+					type="button"
+					className={link}
+					onClick={() => onOpenSettings("server")}
+				>
+					What the server stores
+				</button>
+			</p>
+		</div>
 	);
 }
 
@@ -286,7 +362,7 @@ export function SignInScreen({
 				<Logo size={compact ? 28 : 32} />
 				<div className="flex min-w-0 flex-col">
 					<span className="text-sm leading-tight font-semibold">
-						Sign in to open-vidiq
+						Sign in to GrowTube
 					</span>
 					<span className="text-muted-foreground text-[11px]">
 						A free account is required. No plans, no credits, no limits.

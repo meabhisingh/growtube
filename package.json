@@ -1,5 +1,5 @@
 {
-	"name": "open-vidiq",
+	"name": "growtube",
 	"private": true,
 	"workspaces": [
 		"apps/*",
@@ -13,12 +13,12 @@
 		"dev:web": "turbo run dev -F web --",
 		"dev:server": "turbo run dev -F server --",
 		"dev:extension": "turbo run dev -F extension --",
-		"db:push": "turbo run db:push -F @open-vidiq/db --",
-		"db:studio": "turbo run db:studio -F @open-vidiq/db --",
-		"db:generate": "turbo run db:generate -F @open-vidiq/db --",
-		"db:migrate": "turbo run db:migrate -F @open-vidiq/db --",
-		"deploy": "turbo run deploy -F @open-vidiq/infra --",
-		"destroy": "turbo run destroy -F @open-vidiq/infra --",
+		"db:push": "turbo run db:push -F @growtube/db --",
+		"db:studio": "turbo run db:studio -F @growtube/db --",
+		"db:generate": "turbo run db:generate -F @growtube/db --",
+		"db:migrate": "turbo run db:migrate -F @growtube/db --",
+		"deploy": "pnpm --filter @growtube/infra run deploy",
+		"destroy": "pnpm --filter @growtube/infra run destroy",
 		"env:generate": "varlock codegen --path ./apps/web/ && varlock codegen --path ./apps/server/ && varlock codegen --path ./packages/db/",
 		"postinstall": "varlock codegen --path ./apps/web/ && varlock codegen --path ./apps/server/ && varlock codegen --path ./packages/db/",
 		"check": "biome check --write ."
@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.6.7",
 		"@cloudflare/workers-types": "catalog:",
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"@types/node": "catalog:",
 		"lefthook": "^2.2.2",
 		"turbo": "^2.11.11",

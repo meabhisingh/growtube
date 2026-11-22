@@ -1,5 +1,5 @@
 /** YouTube search via InnerTube, plus rank lookup for tag/keyword badges. */
-import { isChannelId } from "@open-vidiq/shared/youtube";
+import { isChannelId } from "@growtube/shared/youtube";
 
 import { cached, TTL } from "../cache";
 import { innertube, loadInnertubeConfig } from "./innertube";

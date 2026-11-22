@@ -1,4 +1,4 @@
-import { ingestChannelsBody, ingestVideosBody } from "@open-vidiq/shared";
+import { ingestChannelsBody, ingestVideosBody } from "@growtube/shared";
 import { Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 

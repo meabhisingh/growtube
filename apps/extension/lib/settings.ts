@@ -65,7 +65,7 @@ export function withProviderDefaults(value: unknown): AiProviderSettings {
 }
 
 /**
- * Defaults open-vidiq v1 shipped per preset. The v2 migration only replaces
+ * Defaults GrowTube v1 shipped per preset. The v2 migration only replaces
  * a model that is still exactly one of these (the user never chose it).
  * Ollama's llama3.2 is left alone: it still works and the user pulled it.
  */
@@ -144,20 +144,23 @@ export const aiModelCaps = storage.defineItem<Record<string, AiModelCaps>>(
 	},
 );
 
-/** open-vidiq server base URL (no trailing slash). */
+/** GrowTube server base URL (no trailing slash). */
 export const serverUrl = storage.defineItem<string>("local:serverUrl", {
 	fallback: DEFAULT_SERVER_URL,
 	version: 1,
 });
 
 /**
- * Share public view counts with the open-vidiq server (powers history &
- * trending). Not linked to the account; unlisted/private videos never sent.
+ * "Share public stats": upload the public numbers of public videos and
+ * channels to the GrowTube server (powers history & trending). Not linked to
+ * the account; unlisted/private videos never sent. Off until the user turns
+ * it on (sign-in form, popup or Settings): Chrome Web Store policy wants an
+ * affirmative opt-in before such data leaves the browser.
  */
 export const crowdsourceStats = storage.defineItem<boolean>(
 	"local:crowdsourceStats",
 	{
-		fallback: true,
+		fallback: false,
 		version: 1,
 	},
 );

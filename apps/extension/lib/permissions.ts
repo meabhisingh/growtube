@@ -65,7 +65,7 @@ export async function ensureOriginPermission(url: string): Promise<boolean> {
 	try {
 		return await p.request({ origins: [pattern] });
 	} catch (error) {
-		console.warn("[open-vidiq] permission request failed", error);
+		console.warn("[GrowTube] permission request failed", error);
 		return false;
 	}
 }

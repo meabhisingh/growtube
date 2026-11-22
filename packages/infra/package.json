@@ -1,5 +1,5 @@
 {
-	"name": "@open-vidiq/infra",
+	"name": "@growtube/infra",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -15,7 +15,7 @@
 		"@alchemy.run/cloudflare": "2.0.0-beta.86",
 		"@effect/platform-bun": "4.1.4",
 		"@effect/platform-node": "4.1.4",
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"alchemy": "2.0.0-beta.86",
 		"effect": "4.1.4",
 		"typescript": "catalog:",

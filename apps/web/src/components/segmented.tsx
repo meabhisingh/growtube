@@ -1,4 +1,4 @@
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 
 export interface SegmentedOption<T extends string> {
 	value: T;
@@ -27,7 +27,7 @@ export function Segmented<T extends string>({
 	return (
 		<fieldset
 			className={cn(
-				"bg-muted/40 inline-flex max-w-full overflow-x-auto border p-0.5",
+				"bg-muted/60 border-border/60 inline-flex max-w-full gap-0.5 overflow-x-auto rounded-xl border p-1",
 				className,
 			)}
 		>
@@ -44,10 +44,10 @@ export function Segmented<T extends string>({
 							if (!selected) onChange(option.value);
 						}}
 						className={cn(
-							"focus-visible:ring-ring h-7 shrink-0 px-2.5 text-xs font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-1",
+							"focus-visible:ring-ring/50 h-7 shrink-0 rounded-lg px-3 text-xs font-medium whitespace-nowrap transition duration-150 ease-out outline-none focus-visible:ring-2 motion-safe:active:scale-[0.97]",
 							selected
-								? "bg-background text-foreground ring-foreground/10 shadow-xs ring-1"
-								: "text-muted-foreground hover:text-foreground",
+								? "bg-background text-foreground ring-foreground/5 dark:bg-foreground/10 dark:ring-foreground/10 shadow-sm ring-1"
+								: "text-muted-foreground hover:text-foreground hover:bg-foreground/5",
 						)}
 					>
 						{option.label}

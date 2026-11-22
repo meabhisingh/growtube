@@ -1,6 +1,6 @@
 {
 	"name": "extension",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"private": true,
 	"description": "manifest.json description",
 	"type": "module",
@@ -10,6 +10,7 @@
 		"build": "wxt build",
 		"build:firefox": "wxt build -b firefox",
 		"zip": "wxt zip",
+		"zip:store": "node --env-file=.env.store node_modules/wxt/bin/wxt.mjs zip",
 		"zip:firefox": "wxt zip -b firefox",
 		"check-types": "tsc --noEmit",
 		"live-check": "node scripts/run-live-check.mjs",
@@ -17,8 +18,8 @@
 		"postinstall": "wxt prepare"
 	},
 	"dependencies": {
-		"@open-vidiq/shared": "workspace:*",
-		"@open-vidiq/ui": "workspace:*",
+		"@growtube/shared": "workspace:*",
+		"@growtube/ui": "workspace:*",
 		"lucide-react": "catalog:",
 		"openai": "^7.57.0",
 		"react": "catalog:",

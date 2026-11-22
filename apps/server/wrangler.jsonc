@@ -3,7 +3,7 @@
 // Production deploys go through Alchemy: packages/infra/alchemy.run.ts.
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "open-vidiq-server-dev",
+	"name": "growtube-server-dev",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-10-01",
 	"compatibility_flags": ["nodejs_compat"],

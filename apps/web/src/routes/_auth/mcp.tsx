@@ -1,15 +1,15 @@
-import { MCP_API_KEY_HEADER } from "@open-vidiq/shared/auth";
-import { Button } from "@open-vidiq/ui/components/button";
+import { MCP_API_KEY_HEADER } from "@growtube/shared/auth";
+import { Button } from "@growtube/ui/components/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@open-vidiq/ui/components/card";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Label } from "@open-vidiq/ui/components/label";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/card";
+import { Input } from "@growtube/ui/components/input";
+import { Label } from "@growtube/ui/components/label";
+import { cn } from "@growtube/ui/lib/utils";
 import { createFileRoute } from "@tanstack/react-router";
 import {
 	CircleCheck,
@@ -26,7 +26,7 @@ import { IS_LOCAL_SERVER, MCP_URL } from "@/lib/api";
 import { type McpProbeResult, probeMcp } from "@/lib/mcp-probe";
 
 export const Route = createFileRoute("/_auth/mcp")({
-	head: () => ({ meta: [{ title: "MCP for AI assistants · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "MCP for AI assistants · GrowTube" }] }),
 	component: McpPage,
 });
 
@@ -93,16 +93,16 @@ const KEY_HEADER = MCP_API_KEY_HEADER;
 const claudeDesktopConfig = JSON.stringify(
 	{
 		mcpServers: {
-			"open-vidiq": {
+			growtube: {
 				command: "npx",
 				args: [
 					"-y",
 					"mcp-remote",
 					MCP_URL,
 					"--header",
-					`${KEY_HEADER}:\${OPEN_VIDIQ_API_KEY}`,
+					`${KEY_HEADER}:\${GROWTUBE_API_KEY}`,
 				],
-				env: { OPEN_VIDIQ_API_KEY: KEY_PLACEHOLDER },
+				env: { GROWTUBE_API_KEY: KEY_PLACEHOLDER },
 			},
 		},
 	},
@@ -113,7 +113,7 @@ const claudeDesktopConfig = JSON.stringify(
 const cursorConfig = JSON.stringify(
 	{
 		mcpServers: {
-			"open-vidiq": {
+			growtube: {
 				url: MCP_URL,
 				headers: { [KEY_HEADER]: KEY_PLACEHOLDER },
 			},
@@ -128,17 +128,17 @@ const vscodeConfig = JSON.stringify(
 		inputs: [
 			{
 				type: "promptString",
-				id: "open-vidiq-api-key",
-				description: "open-vidiq API key",
+				id: "growtube-api-key",
+				description: "GrowTube API key",
 				password: true,
 			},
 		],
 		servers: {
-			"open-vidiq": {
+			growtube: {
 				type: "http",
 				url: MCP_URL,
 				// biome-ignore lint/suspicious/noTemplateCurlyInString: VS Code's own input variable syntax
-				headers: { [KEY_HEADER]: "${input:open-vidiq-api-key}" },
+				headers: { [KEY_HEADER]: "${input:growtube-api-key}" },
 			},
 		},
 	},
@@ -146,7 +146,7 @@ const vscodeConfig = JSON.stringify(
 	2,
 );
 
-const claudeCodeCommand = `claude mcp add --transport http open-vidiq ${MCP_URL} \\
+const claudeCodeCommand = `claude mcp add --transport http growtube ${MCP_URL} \\
   --header "${KEY_HEADER}: ${KEY_PLACEHOLDER}"`;
 
 const headerExample = `${KEY_HEADER}: ${KEY_PLACEHOLDER}
@@ -175,10 +175,10 @@ function McpPage() {
 					Give your AI assistant YouTube stats
 				</h1>
 				<p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
-					open-vidiq exposes its crowdsourced video, channel and trending data
-					as an MCP server. Connect Claude, Cursor, VS Code or any MCP client
-					and ask questions in plain language. Each client signs in with an API
-					key from your account. It's read-only public data with no quota.
+					GrowTube exposes its crowdsourced video, channel and trending data as
+					an MCP server. Connect Claude, Cursor, VS Code or any MCP client and
+					ask questions in plain language. Each client signs in with an API key
+					from your account. It's read-only public data with no quota.
 				</p>
 			</header>
 
@@ -264,9 +264,7 @@ function McpPage() {
 								<code className="font-mono">{KEY_HEADER}</code> header, so the
 								key never sits inside the command arguments.
 							</>,
-							<>
-								Restart Claude Desktop. open-vidiq shows up in the tools menu.
-							</>,
+							<>Restart Claude Desktop. GrowTube shows up in the tools menu.</>,
 						]}
 					/>
 					<CodeBlock
@@ -298,7 +296,7 @@ function McpPage() {
 
 				<Callout tone="info" title="Claude.ai and ChatGPT connectors">
 					Their custom connectors sign in with OAuth and can't send an API key
-					header, so they can't connect to open-vidiq yet. Use Claude Desktop,
+					header, so they can't connect to GrowTube yet. Use Claude Desktop,
 					Claude Code or another client above instead.
 				</Callout>
 			</section>
@@ -349,7 +347,7 @@ function McpPage() {
 					{EXAMPLE_PROMPTS.map((prompt) => (
 						<li
 							key={prompt}
-							className="bg-muted/40 border-l-2 border-l-[var(--chart-2)] px-3 py-2 text-sm"
+							className="bg-muted/40 border-border/60 relative rounded-xl border py-2.5 pr-3.5 pl-5 text-sm before:absolute before:inset-y-2.5 before:left-2 before:w-[3px] before:rounded-full before:bg-[var(--chart-2)]"
 						>
 							{prompt}
 						</li>
@@ -404,7 +402,7 @@ function Steps({ items }: { items: ReactNode[] }) {
 				<li key={i} className="flex gap-2.5">
 					<span
 						aria-hidden="true"
-						className="bg-muted flex size-5 shrink-0 items-center justify-center text-[10px] font-medium tabular-nums"
+						className="bg-muted flex size-5 shrink-0 items-center justify-center rounded-full text-[10px] font-medium tabular-nums"
 					>
 						{i + 1}
 					</span>
@@ -433,9 +431,9 @@ function Callout({
 	return (
 		<div
 			className={cn(
-				"flex gap-3 border px-3 py-2.5 text-xs leading-relaxed",
-				tone === "warning" && "border-amber-500/40 bg-amber-500/10",
-				tone === "success" && "border-emerald-500/40 bg-emerald-500/10",
+				"flex gap-3 rounded-xl border px-3.5 py-3 text-xs leading-relaxed",
+				tone === "warning" && "border-amber-500/30 bg-amber-500/10",
+				tone === "success" && "border-emerald-500/30 bg-emerald-500/10",
 				tone === "info" && "bg-muted/40",
 			)}
 		>

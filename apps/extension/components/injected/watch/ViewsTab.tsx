@@ -1,16 +1,13 @@
 /** Views tab: engagement / outlier / VPH pills and the "Views over time" chart. */
-import type {
-	HistoryRange,
-	VideoHistoryResponse,
-} from "@open-vidiq/shared/api";
+import type { HistoryRange, VideoHistoryResponse } from "@growtube/shared/api";
 import {
 	formatCompact,
 	formatNumber,
 	formatOutlier,
 	formatPercent,
-} from "@open-vidiq/shared/format";
-import { outlierTier } from "@open-vidiq/shared/metrics";
-import { thumbnailUrl } from "@open-vidiq/shared/youtube";
+} from "@growtube/shared/format";
+import { outlierTier } from "@growtube/shared/metrics";
+import { thumbnailUrl } from "@growtube/shared/youtube";
 import { Images } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -150,7 +147,7 @@ export function ViewsTab({ w }: { w: WatchData }) {
 					value={m?.vph != null ? formatCompact(m.vph, 1) : "—"}
 					hint={
 						m?.vphSource === "recent"
-							? "Views per hour over the last ~48h (open-vidiq server)"
+							? "Views per hour over the last ~48h (GrowTube server)"
 							: "Average views per hour since upload"
 					}
 				/>
@@ -180,7 +177,7 @@ export function ViewsTab({ w }: { w: WatchData }) {
 					w.details.error ? (
 						<ErrorNote error={w.details.error} onRetry={w.details.reload} />
 					) : (
-						<Skeleton height={150} />
+						<Skeleton height={150} radius="inner" />
 					)
 				) : (
 					<>
@@ -205,14 +202,14 @@ export function ViewsTab({ w }: { w: WatchData }) {
 						</div>
 						{!isPublicVideo(d) ? (
 							<Note>
-								This video is unlisted or private, so open-vidiq neither uploads
+								This video is unlisted or private, so GrowTube neither uploads
 								it nor asks the server about it: there is no view history for
 								it.
 							</Note>
 						) : history.error ? (
 							isServerUnavailable(history.error) ? (
 								<Note tone="warn">
-									View history comes from the open-vidiq server, which isn't
+									View history comes from the GrowTube server, which isn't
 									reachable right now. The live count is still shown.
 								</Note>
 							) : (

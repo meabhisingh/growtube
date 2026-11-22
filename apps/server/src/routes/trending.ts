@@ -1,4 +1,4 @@
-import { trendingQuery } from "@open-vidiq/shared";
+import { trendingQuery } from "@growtube/shared";
 import { Hono } from "hono";
 
 import { getTrending, TRENDING_CACHE_SECONDS } from "../data/trending";

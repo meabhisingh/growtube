@@ -1,10 +1,10 @@
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from "@open-vidiq/ui/components/dropdown-menu";
+} from "@growtube/ui/components/dropdown-menu";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Menu } from "lucide-react";
 
@@ -34,8 +34,8 @@ export default function Header() {
 				<div className="flex min-w-0 items-center gap-6">
 					<Link
 						to="/"
-						className="focus-visible:ring-ring shrink-0 outline-none focus-visible:ring-1"
-						aria-label="open-vidiq home"
+						className="focus-visible:ring-ring/50 -m-1 shrink-0 rounded-lg p-1 outline-none focus-visible:ring-2"
+						aria-label="GrowTube home"
 					>
 						<Logo />
 					</Link>
@@ -49,7 +49,7 @@ export default function Header() {
 									key={to}
 									to={to}
 									activeOptions={{ exact }}
-									className="text-muted-foreground hover:text-foreground focus-visible:ring-ring data-[status=active]:text-foreground px-2.5 py-1.5 text-xs font-medium transition-colors outline-none focus-visible:ring-1"
+									className="text-muted-foreground hover:text-foreground hover:bg-muted/70 focus-visible:ring-ring/50 data-[status=active]:bg-muted data-[status=active]:text-foreground rounded-lg px-3 py-1.5 text-xs font-medium transition-colors duration-150 outline-none focus-visible:ring-2"
 								>
 									{label}
 								</Link>

@@ -8,9 +8,9 @@
  * ensureProviderPermission() as the FIRST await of the Save / Test / Load
  * models click handlers, so Chrome still sees the user gesture.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	CircleCheck,
 	ExternalLink,
@@ -219,7 +219,7 @@ export function AiSection() {
 		const granted = await ensureProviderPermission(next.baseURL);
 		if (!granted) {
 			setError(
-				`Chrome didn't grant access to ${originOf(next.baseURL) ?? next.baseURL}. open-vidiq needs it to call your AI provider.`,
+				`Chrome didn't grant access to ${originOf(next.baseURL) ?? next.baseURL}. GrowTube needs it to call your AI provider.`,
 			);
 			return false;
 		}
@@ -301,7 +301,7 @@ export function AiSection() {
 			id="ai"
 			title="AI provider"
 			icon={Sparkles}
-			description="Bring your own OpenAI-compatible provider, or run a free local model. open-vidiq adds no limits and no credits on top."
+			description="Bring your own OpenAI-compatible provider, or run a free local model. GrowTube adds no limits and no credits on top."
 		>
 			<StatusLine
 				loading={status.loading && !status.data}
@@ -328,10 +328,10 @@ export function AiSection() {
 							aria-pressed={active}
 							onClick={() => choosePreset(p.id)}
 							className={cn(
-								"focus-visible:ring-ring flex flex-col items-start gap-0.5 px-2.5 py-2 text-left ring-1 transition-colors outline-none focus-visible:ring-2",
+								"focus-visible:ring-ring/60 flex flex-col items-start gap-0.5 rounded-lg px-2.5 py-2 text-left ring-1 transition duration-150 ease-out outline-none focus-visible:ring-2 motion-safe:active:scale-[0.98]",
 								active
-									? "bg-brand-soft ring-brand/50"
-									: "bg-surface ring-foreground/10 hover:ring-foreground/25",
+									? "bg-brand-soft ring-brand/45"
+									: "bg-surface ring-foreground/8 hover:ring-foreground/20 hover:bg-foreground/[0.03]",
 							)}
 						>
 							<span className="text-xs font-medium">{p.label}</span>
@@ -372,7 +372,7 @@ export function AiSection() {
 								href={preset.keyUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-brand inline-flex items-center gap-1 text-[11px] hover:underline"
+								className="text-brand focus-visible:ring-ring/50 inline-flex items-center gap-1 rounded-sm text-[11px] outline-none hover:underline focus-visible:ring-2"
 							>
 								Get a key <ExternalLink className="size-3" />
 							</a>
@@ -408,7 +408,7 @@ export function AiSection() {
 							type="button"
 							onClick={() => setShowKey((s) => !s)}
 							aria-label={showKey ? "Hide key" : "Show key"}
-							className="text-muted-foreground hover:text-foreground absolute top-1/2 right-2 -translate-y-1/2"
+							className="text-muted-foreground hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 absolute top-1/2 right-1.5 -translate-y-1/2 rounded-md p-0.5 transition-colors duration-150 outline-none focus-visible:ring-2"
 						>
 							{showKey ? (
 								<EyeOff className="size-3.5" />
@@ -432,7 +432,7 @@ export function AiSection() {
 							type="button"
 							onClick={() => void onLoadModels()}
 							disabled={busy !== null}
-							className="text-brand inline-flex items-center gap-1 text-[11px] hover:underline disabled:opacity-50"
+							className="text-brand focus-visible:ring-ring/50 inline-flex items-center gap-1 rounded-sm text-[11px] outline-none hover:underline focus-visible:ring-2 disabled:opacity-50"
 						>
 							{busy === "models" ? (
 								<LoaderCircle className="size-3 animate-spin" />
@@ -601,7 +601,7 @@ export function AiSection() {
 			<p className="text-muted-foreground text-[11px] leading-relaxed">
 				Chrome asks once for permission to reach {origin ?? "the provider"} when
 				you save. Requests go straight from your browser to the provider;
-				open-vidiq has no server in between.
+				GrowTube has no server in between.
 			</p>
 		</Section>
 	);
@@ -666,7 +666,7 @@ export function StatusLine({
 	return (
 		<div
 			className={cn(
-				"flex items-center gap-2 px-2.5 py-1.5 text-xs",
+				"flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs",
 				ready ? "bg-emerald-500/10" : "bg-amber-500/10",
 			)}
 		>

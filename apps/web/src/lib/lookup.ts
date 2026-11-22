@@ -4,7 +4,7 @@ import {
 	extractVideoId,
 	HANDLE_RE,
 	VIDEO_ID_RE,
-} from "@open-vidiq/shared";
+} from "@growtube/shared";
 
 export type LookupTarget =
 	| { kind: "video"; videoId: string }

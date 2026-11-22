@@ -6,7 +6,7 @@ export default defineConfig({
 	outDir: "./dist",
 	clean: true,
 	deps: {
-		alwaysBundle: [/@open-vidiq\/.*/],
+		alwaysBundle: [/@growtube\/.*/],
 		neverBundle: ["cloudflare:workers"],
 	},
 });

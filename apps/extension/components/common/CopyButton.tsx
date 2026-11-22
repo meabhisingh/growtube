@@ -90,8 +90,8 @@ export function CopyButton({
 				alignItems: "center",
 				gap: 6,
 				padding: label ? "4px 10px" : 5,
-				border: "1px solid var(--ovq-border, rgba(127,127,127,0.35))",
-				borderRadius: 6,
+				border: "1px solid var(--ovq-border, rgba(127,127,127,0.3))",
+				borderRadius: 10,
 				background: "transparent",
 				color: "inherit",
 				font: "inherit",
@@ -99,6 +99,8 @@ export function CopyButton({
 				lineHeight: 1,
 				cursor: disabled ? "default" : "pointer",
 				opacity: disabled ? 0.5 : 1,
+				transition:
+					"background-color 150ms ease-out, border-color 150ms ease-out, opacity 150ms ease-out",
 				...style,
 			}}
 		>

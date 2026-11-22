@@ -1,6 +1,6 @@
 /** One keyword: score breakdown, top results with VPH/outliers, AI insights. */
-import { formatCompact, formatPercent } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
+import { formatCompact, formatPercent } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
 import {
 	ArrowLeft,
 	Gauge,
@@ -323,12 +323,12 @@ function BigScore({
 }) {
 	const tone = scoreTone(invert ? 100 - value : value);
 	return (
-		<div className="bg-surface-2 flex flex-col items-center gap-1 px-2 py-2.5 text-center">
+		<div className="bg-surface-2 flex flex-col items-center gap-1 rounded-xl px-2 py-2.5 text-center">
 			<div className="text-muted-foreground flex items-center gap-1 text-[11px]">
 				{label}
 				<InfoTip label={`How ${label.toLowerCase()} is scored`}>{help}</InfoTip>
 			</div>
-			<Badge tone={tone} className="h-7 px-2.5 text-base">
+			<Badge tone={tone} className="h-7 rounded-lg px-2.5 text-base">
 				{value}
 			</Badge>
 			<div className="text-muted-foreground text-[11px]">{caption}</div>
@@ -398,7 +398,7 @@ function Insights({
 								key={k}
 								type="button"
 								onClick={() => onResearch(k)}
-								className="bg-surface hover:border-brand/50 hover:text-brand border px-1.5 py-0.5 text-[11px]"
+								className="bg-surface hover:border-brand/40 hover:text-brand focus-visible:ring-ring/50 rounded-lg border px-1.5 py-0.5 text-[11px] transition-colors duration-150 outline-none focus-visible:ring-2"
 							>
 								{k}
 							</button>

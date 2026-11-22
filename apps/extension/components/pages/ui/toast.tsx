@@ -5,7 +5,7 @@
  *   toast("Removed MrBeast", { action: { label: "Undo", onClick: restore } });
  *   <Toasts />  // once per page
  */
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 import { CircleCheck, CircleX, Info, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -86,7 +86,7 @@ function ToastView({ item }: { item: ToastItem }) {
 	return (
 		<div
 			role="status"
-			className="animate-in bg-popover text-popover-foreground ring-foreground/10 fade-in-0 slide-in-from-bottom-2 pointer-events-auto flex w-full max-w-sm items-center gap-2 px-3 py-2 text-xs shadow-lg ring-1"
+			className="animate-in bg-popover text-popover-foreground ring-foreground/8 fade-in-0 slide-in-from-bottom-2 pointer-events-auto flex w-full max-w-sm items-center gap-2 rounded-xl px-3 py-2.5 text-xs shadow-lg ring-1 shadow-black/10 dark:shadow-black/40"
 		>
 			<Icon
 				className={cn(
@@ -105,7 +105,7 @@ function ToastView({ item }: { item: ToastItem }) {
 						item.action?.onClick();
 						dismissToast(item.id);
 					}}
-					className="text-brand shrink-0 font-semibold hover:underline"
+					className="text-brand focus-visible:ring-ring/50 shrink-0 rounded-md font-semibold outline-none hover:underline focus-visible:ring-2"
 				>
 					{item.action.label}
 				</button>
@@ -114,7 +114,7 @@ function ToastView({ item }: { item: ToastItem }) {
 				type="button"
 				onClick={() => dismissToast(item.id)}
 				aria-label="Dismiss"
-				className="text-muted-foreground hover:text-foreground shrink-0"
+				className="text-muted-foreground hover:text-foreground hover:bg-foreground/5 focus-visible:ring-ring/50 -m-0.5 shrink-0 rounded-md p-0.5 transition-colors duration-150 outline-none focus-visible:ring-2"
 			>
 				<X className="size-3.5" />
 			</button>

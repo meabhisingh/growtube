@@ -31,9 +31,9 @@ import {
 	sql,
 	videoSnapshots,
 	videos,
-} from "@open-vidiq/db";
-import { apikey, session, verification } from "@open-vidiq/db/schema/auth";
-import { YOUTUBE_IMAGE_HOSTS } from "@open-vidiq/shared/images";
+} from "@growtube/db";
+import { apikey, session, verification } from "@growtube/db/schema/auth";
+import { YOUTUBE_IMAGE_HOSTS } from "@growtube/shared/images";
 
 import { upsertChannelDailySnapshots } from "../data/channels";
 import { chunk, utcDay, valuesList } from "../data/sql";

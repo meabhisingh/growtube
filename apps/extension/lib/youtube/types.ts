@@ -49,7 +49,7 @@ export type VideoDetails = {
 	/**
 	 * YouTube's player data confirms a public, listed video. False when
 	 * unlisted, private or unknown (no player data). Only public videos are
-	 * sent to (or looked up on) the open-vidiq server: check it with
+	 * sent to (or looked up on) the GrowTube server: check it with
 	 * `isPublicVideo()` from `@/lib/youtube/visibility`.
 	 */
 	isPublic: boolean;
@@ -189,11 +189,11 @@ export type YtConfig = {
 	/** UI language of the user (we always *request* "en" for parsing) */
 	hl: string;
 	gl: string;
+	/**
+	 * Anonymous visitor id the background got from an InnerTube answer (never
+	 * the page's own: the MAIN-world bridge always sends null).
+	 */
 	visitorData: string | null;
-	loggedIn: boolean;
-	delegatedSessionId: string | null;
-	/** Raw INNERTUBE_CONTEXT when read from the page */
-	context: Record<string, unknown> | null;
 	/** Where this config came from */
 	source: "page" | "default";
 };

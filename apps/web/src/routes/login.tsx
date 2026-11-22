@@ -20,7 +20,7 @@ export const Route = createFileRoute("/login")({
 			throw redirect({ href: safeRedirectTarget(search.redirect) });
 		}
 	},
-	head: () => ({ meta: [{ title: "Sign in · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "Sign in · GrowTube" }] }),
 	component: LoginPage,
 });
 
@@ -39,24 +39,26 @@ function LoginPage() {
 			{redirectParam && (
 				<p
 					role="status"
-					className="bg-muted/40 text-muted-foreground flex items-center gap-2 border px-3 py-2 text-xs"
+					className="bg-muted/40 text-muted-foreground flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-xs"
 				>
 					<Lock className="size-3.5 shrink-0" aria-hidden="true" />
-					Sign in or create a free account to use the open-vidiq tools.
+					Sign in or create a free account to use the GrowTube tools.
 				</p>
 			)}
 
-			{mode === "sign-up" ? (
-				<SignUpForm
-					redirectTo={redirectTo}
-					onSwitchToSignIn={() => setMode("sign-in")}
-				/>
-			) : (
-				<SignInForm
-					redirectTo={redirectTo}
-					onSwitchToSignUp={() => setMode("sign-up")}
-				/>
-			)}
+			<div className="bg-card text-card-foreground ring-foreground/8 rounded-xl p-6 shadow-sm ring-1 sm:p-8">
+				{mode === "sign-up" ? (
+					<SignUpForm
+						redirectTo={redirectTo}
+						onSwitchToSignIn={() => setMode("sign-in")}
+					/>
+				) : (
+					<SignInForm
+						redirectTo={redirectTo}
+						onSwitchToSignUp={() => setMode("sign-up")}
+					/>
+				)}
+			</div>
 
 			<AccountNotice />
 		</div>
@@ -77,7 +79,7 @@ function AccountNotice() {
 				Why an account?
 			</h2>
 			<p>
-				open-vidiq is free with no plans or limits, but the extension, the web
+				GrowTube is free with no plans or limits, but the extension, the web
 				tools and the API only work after you sign in.
 			</p>
 			<ul className="flex list-disc flex-col gap-1 pl-4">
@@ -97,11 +99,10 @@ function AccountNotice() {
 			<p>
 				You can sign out everywhere or delete your account from the dashboard.{" "}
 				<Link
-					to="/"
-					hash="privacy"
+					to="/privacy"
 					className="hover:text-foreground underline underline-offset-4"
 				>
-					Privacy details
+					Privacy policy
 				</Link>
 			</p>
 		</section>

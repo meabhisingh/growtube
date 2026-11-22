@@ -1,6 +1,6 @@
 /** Channel info, uploads and performance baselines via InnerTube `browse`. */
-import { computeChannelBaseline, hoursSince } from "@open-vidiq/shared/metrics";
-import { isChannelId } from "@open-vidiq/shared/youtube";
+import { computeChannelBaseline, hoursSince } from "@growtube/shared/metrics";
+import { isChannelId } from "@growtube/shared/youtube";
 
 import { cached, cacheSet, hashKey, TTL } from "../cache";
 import { innertube, YouTubeError } from "./innertube";

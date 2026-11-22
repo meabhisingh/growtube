@@ -7,6 +7,30 @@ import { authClient } from "./lib/auth-client";
 import { clearSessionCache } from "./lib/session";
 import { routeTree } from "./routeTree.gen";
 
+// After a redeploy, a tab that was already open still asks for the old
+// build's page chunks, which no longer exist. Reload once to pick up the new
+// build; if loading still fails after that, let the error show instead of
+// reloading in a loop.
+const RELOADED_FOR_NEW_BUILD = "growtube:reloaded-for-new-build";
+window.addEventListener("vite:preloadError", (event) => {
+	try {
+		if (sessionStorage.getItem(RELOADED_FOR_NEW_BUILD)) return;
+		sessionStorage.setItem(RELOADED_FOR_NEW_BUILD, "1");
+	} catch {
+		return; // No sessionStorage: can't guard against a loop, don't reload.
+	}
+	event.preventDefault();
+	window.location.reload();
+});
+window.addEventListener("load", () => {
+	// This page load worked, so a later stale-chunk error may reload again.
+	window.setTimeout(() => {
+		try {
+			sessionStorage.removeItem(RELOADED_FOR_NEW_BUILD);
+		} catch {}
+	}, 10_000);
+});
+
 const router = createRouter({
 	routeTree,
 	defaultPreload: "intent",

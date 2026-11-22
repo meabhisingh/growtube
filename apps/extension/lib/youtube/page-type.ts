@@ -1,5 +1,5 @@
 /** URL classification shared by the MAIN-world bridge and content scripts. */
-import { extractVideoId } from "@open-vidiq/shared/youtube";
+import { extractVideoId } from "@growtube/shared/youtube";
 
 import type { YtPageType } from "./types";
 

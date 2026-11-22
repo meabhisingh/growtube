@@ -1,4 +1,4 @@
-import { MCP_API_KEY_HEADER } from "@open-vidiq/shared/auth";
+import { MCP_API_KEY_HEADER } from "@growtube/shared/auth";
 import { z } from "zod";
 
 import { MCP_URL } from "./api";
@@ -20,7 +20,11 @@ const rpcResponse = z.object({
 const initializeResult = z.object({
 	protocolVersion: z.string().optional(),
 	serverInfo: z
-		.object({ name: z.string(), version: z.string().optional() })
+		.object({
+			name: z.string(),
+			title: z.string().optional(),
+			version: z.string().optional(),
+		})
 		.optional(),
 });
 
@@ -115,7 +119,7 @@ export async function probeMcp(
 			{
 				protocolVersion: "2025-06-18",
 				capabilities: {},
-				clientInfo: { name: "open-vidiq-web", version: "1.0.0" },
+				clientInfo: { name: "growtube-web", version: "1.0.0" },
 			},
 			1,
 			apiKey,
@@ -144,11 +148,11 @@ export async function probeMcp(
 		// Stateful servers require a session header we can't send cross-origin.
 	}
 
+	// Prefer the display title ("GrowTube") over the machine name ("growtube").
+	const serverInfo = info.success ? info.data.serverInfo : undefined;
 	return {
-		serverName: info.success ? (info.data.serverInfo?.name ?? null) : null,
-		serverVersion: info.success
-			? (info.data.serverInfo?.version ?? null)
-			: null,
+		serverName: serverInfo?.title || serverInfo?.name || null,
+		serverVersion: serverInfo?.version ?? null,
 		protocolVersion: info.success ? (info.data.protocolVersion ?? null) : null,
 		tools,
 	};

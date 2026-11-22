@@ -3,9 +3,9 @@
  * keyword lazily (as it scrolls into view) from the live search results.
  * Scoring formulas: see ./scoring.ts.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	ArrowDown,
 	ArrowUp,
@@ -139,7 +139,7 @@ export function KeywordsTool({ intent }: ToolProps) {
 
 			{!research.seed ? (
 				<EmptyState icon={Search} title="Find keywords worth ranking for">
-					Enter a topic. open-vidiq expands it with YouTube autocomplete (a–z,
+					Enter a topic. GrowTube expands it with YouTube autocomplete (a–z,
 					questions, comparisons) and scores every keyword for volume,
 					competition and overall opportunity. Unlimited searches.
 					<div className="mt-3 flex flex-wrap justify-center gap-1">
@@ -148,7 +148,7 @@ export function KeywordsTool({ intent }: ToolProps) {
 								key={e}
 								type="button"
 								onClick={() => start(e)}
-								className="bg-surface hover:border-brand/50 hover:text-brand border px-2 py-0.5 text-[11px]"
+								className="bg-surface hover:border-brand/40 hover:text-brand focus-visible:ring-ring/50 rounded-lg border px-2 py-0.5 text-[11px] transition-colors duration-150 outline-none focus-visible:ring-2"
 							>
 								{e}
 							</button>
@@ -184,9 +184,9 @@ export function KeywordsTool({ intent }: ToolProps) {
 						<CopyButton text={csv} label="CSV" title="Copy as CSV" size={11} />
 					</div>
 					{research.progress.total > 0 && research.expanding ? (
-						<div className="bg-muted h-0.5 w-full">
+						<div className="bg-muted h-1 w-full overflow-hidden rounded-full">
 							<div
-								className="bg-brand h-full transition-[width]"
+								className="bg-brand h-full rounded-full transition-[width] duration-200"
 								style={{
 									width: `${(research.progress.done / research.progress.total) * 100}%`,
 								}}
@@ -202,8 +202,8 @@ export function KeywordsTool({ intent }: ToolProps) {
 						/>
 					) : null}
 
-					<div className="flex flex-col">
-						<div className="bg-background text-muted-foreground sticky top-0 z-10 grid grid-cols-[1fr_repeat(3,54px)] items-center gap-1 border-b py-1.5 text-[11px] font-medium">
+					<div className="bg-card ring-foreground/7 flex flex-col overflow-clip rounded-xl shadow-xs ring-1">
+						<div className="bg-card/95 text-muted-foreground sticky top-0 z-10 grid grid-cols-[1fr_repeat(3,54px)] items-center gap-1 border-b px-1.5 py-2 text-[11px] font-medium backdrop-blur">
 							<SortHeader
 								label="Keyword"
 								by="keyword"
@@ -338,7 +338,7 @@ function KeywordTableRow({
 			type="button"
 			aria-label={summary}
 			onClick={onOpen}
-			className="border-border/60 hover:bg-muted/60 focus-visible:bg-muted grid grid-cols-[1fr_repeat(3,54px)] items-center gap-1 border-b py-1.5 text-left outline-none"
+			className="border-border/60 hover:bg-muted/60 focus-visible:bg-muted grid grid-cols-[1fr_repeat(3,54px)] items-center gap-1 border-b px-1.5 py-1.5 text-left transition-colors duration-150 outline-none last:border-b-0"
 		>
 			<span className="flex min-w-0 items-center gap-1.5 pl-1">
 				<span

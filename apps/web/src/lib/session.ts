@@ -69,7 +69,7 @@ export function safeRedirectTarget(
 	if (!value.startsWith("/") || value.startsWith("//")) return fallback;
 	if (value.startsWith("/\\")) return fallback;
 	try {
-		const base = "http://open-vidiq.invalid";
+		const base = "http://growtube.invalid";
 		const url = new URL(value, base);
 		if (url.origin !== base) return fallback;
 		if (url.pathname === "/login") return fallback;

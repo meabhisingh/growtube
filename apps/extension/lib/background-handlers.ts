@@ -2,7 +2,7 @@
  * Background implementations of every message in lib/messaging.ts.
  * BACKGROUND ONLY (imported by entrypoints/background.ts).
  *
- * open-vidiq needs an account: every message except the `auth.*` ones,
+ * GrowTube needs an account: every message except the `auth.*` ones,
  * `api.health` and the extension plumbing (`PUBLIC_TYPES`) fails with
  * `AUTH_REQUIRED` while signed out, so nothing reaches YouTube, the server
  * or the AI provider. `auth.*` messages are only accepted from extension
@@ -55,7 +55,7 @@ const CLIENT_VERSION_RE = /^\d+\.\d{8}\.\d{2}\.\d{2}$/;
 /** Fire-and-forget crowdsourcing; never fails the caller. */
 function ingest(fn: () => Promise<unknown>) {
 	void fn().catch((error) =>
-		console.debug("[open-vidiq] ingest skipped:", error),
+		console.debug("[GrowTube] ingest skipped:", error),
 	);
 }
 
@@ -94,7 +94,7 @@ function assertExtensionPage(ctx: HandlerContext) {
 	if (ctx.sender.id !== runtime.id || !url.startsWith(own))
 		throw new AuthError(
 			"FORBIDDEN",
-			"Sign in from the open-vidiq popup, side panel or settings page.",
+			"Sign in from the GrowTube popup, side panel or settings page.",
 		);
 }
 

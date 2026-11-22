@@ -4,8 +4,8 @@
  * the long ("6.3 thousand views", "11 hours ago") and the compact ("6.3K",
  * "11h ago") forms YouTube mixes across renderers.
  */
-import { parseDurationText } from "@open-vidiq/shared/format";
-import { CHANNEL_ID_RE, HANDLE_RE } from "@open-vidiq/shared/youtube";
+import { parseDurationText } from "@growtube/shared/format";
+import { CHANNEL_ID_RE, HANDLE_RE } from "@growtube/shared/youtube";
 
 const WORD_MULT: Record<string, number> = {
 	k: 1e3,

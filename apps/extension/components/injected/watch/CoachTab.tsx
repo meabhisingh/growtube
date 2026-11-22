@@ -3,7 +3,7 @@
  * from the user's own AI provider. No limits. Conversations are saved to the
  * side panel's history so they can be continued there.
  */
-import { computeUploadsPerWeek } from "@open-vidiq/shared/metrics";
+import { computeUploadsPerWeek } from "@growtube/shared/metrics";
 import {
 	ArrowUp,
 	PanelRight,
@@ -226,9 +226,9 @@ export function CoachTab({
 	if (status.loading && !status.data) {
 		return (
 			<div style={{ display: "grid", gap: 8 }}>
-				<Skeleton height={28} />
-				<Skeleton height={28} width="80%" />
-				<Skeleton height={44} />
+				<Skeleton height={28} radius="card" />
+				<Skeleton height={28} width="80%" radius="card" />
+				<Skeleton height={44} radius="card" />
 			</div>
 		);
 	}

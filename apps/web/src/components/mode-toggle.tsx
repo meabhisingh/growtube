@@ -1,10 +1,10 @@
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from "@open-vidiq/ui/components/dropdown-menu";
+} from "@growtube/ui/components/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
 
 import { useTheme } from "@/components/theme-provider";

@@ -21,7 +21,7 @@ export async function assertProviderReady(
 	if (!s.baseURL.trim()) {
 		throw new AiError(
 			"NOT_CONFIGURED",
-			"Set up an AI provider in open-vidiq Settings → AI first.",
+			"Set up an AI provider in GrowTube Settings → AI first.",
 		);
 	}
 	if (!/^https?:\/\//.test(s.baseURL)) {
@@ -33,19 +33,19 @@ export async function assertProviderReady(
 	if (preset.requiresKey && !s.apiKey.trim()) {
 		throw new AiError(
 			"NOT_CONFIGURED",
-			`Add your ${preset.label} API key in open-vidiq Settings → AI.`,
+			`Add your ${preset.label} API key in GrowTube Settings → AI.`,
 		);
 	}
 	if (opts.needModel !== false && !s.model.trim()) {
 		throw new AiError(
 			"NOT_CONFIGURED",
-			"Choose a chat model in open-vidiq Settings → AI.",
+			"Choose a chat model in GrowTube Settings → AI.",
 		);
 	}
 	if (!(await hasOriginPermission(s.baseURL))) {
 		throw new AiError(
 			"PERMISSION",
-			`open-vidiq needs permission to call ${originOf(s.baseURL) ?? s.baseURL}. Open Settings → AI and click "Save" (or "Grant access") to allow it.`,
+			`GrowTube needs permission to call ${originOf(s.baseURL) ?? s.baseURL}. Open Settings → AI and click "Save" (or "Grant access") to allow it.`,
 		);
 	}
 }

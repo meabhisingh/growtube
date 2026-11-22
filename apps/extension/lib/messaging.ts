@@ -19,7 +19,7 @@ import type {
 	VideoHistoryResponse,
 	VideoSnapshotInput,
 	VideoStatsResponse,
-} from "@open-vidiq/shared";
+} from "@growtube/shared";
 import { type Browser, browser } from "wxt/browser";
 
 import type { GenerateImageResult, TestResult } from "./ai/complete";
@@ -178,7 +178,7 @@ export interface Protocol {
 		res: { ok: true };
 	};
 
-	// ---- open-vidiq server (lib/api) ----
+	// ---- GrowTube server (lib/api) ----
 	"api.health": {
 		req: Empty;
 		res: { ok: boolean; serverUrl: string; error?: string };
@@ -359,7 +359,7 @@ export async function sendToBackground<T extends MessageType>(
 			if (/context invalidated/i.test(message)) {
 				throw new BackgroundError(
 					type,
-					"open-vidiq was updated or reloaded. Refresh this page to keep using it.",
+					"GrowTube was updated or reloaded. Refresh this page to keep using it.",
 					"CONTEXT_INVALIDATED",
 				);
 			}
@@ -476,7 +476,7 @@ export function registerBackgroundRouter(handlers: Handlers): void {
 						data: data ?? null,
 					} satisfies ResponseEnvelope),
 				(error: unknown) => {
-					console.warn(`[open-vidiq] ${env.type} failed:`, error);
+					console.warn(`[GrowTube] ${env.type} failed:`, error);
 					sendResponse({
 						__ovq: 1,
 						ok: false,

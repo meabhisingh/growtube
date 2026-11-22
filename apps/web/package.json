@@ -13,8 +13,8 @@
 	},
 	"dependencies": {
 		"@better-auth/api-key": "1.7.22",
-		"@open-vidiq/shared": "workspace:*",
-		"@open-vidiq/ui": "workspace:*",
+		"@growtube/shared": "workspace:*",
+		"@growtube/ui": "workspace:*",
 		"@tailwindcss/vite": "^4.3.5",
 		"@tanstack/react-form": "^1.33.5",
 		"@tanstack/react-router": "^1.170.46",
@@ -29,7 +29,7 @@
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"@tanstack/react-router-devtools": "^1.167.3",
 		"@tanstack/router-plugin": "^1.169.0",
 		"@types/node": "catalog:",

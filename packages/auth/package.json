@@ -1,5 +1,5 @@
 {
-	"name": "@open-vidiq/auth",
+	"name": "@growtube/auth",
 	"type": "module",
 	"exports": {
 		".": "./src/index.ts",
@@ -12,13 +12,13 @@
 		"@better-auth/api-key": "1.7.22",
 		"@better-auth/core": "1.7.22",
 		"@better-auth/drizzle-adapter": "1.7.22",
-		"@open-vidiq/db": "workspace:*",
+		"@growtube/db": "workspace:*",
 		"better-auth": "catalog:",
 		"drizzle-orm": "catalog:",
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"typescript": "catalog:"
 	}
 }

@@ -19,6 +19,8 @@ export type MarkdownProps = {
 	fontSize?: CSSProperties["fontSize"];
 };
 
+const MD_BORDER = "1px solid var(--ovq-md-border, rgba(127,127,127,0.3))";
+
 const S = {
 	root: {
 		lineHeight: 1.55,
@@ -40,15 +42,15 @@ const S = {
 		fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
 		fontSize: "0.9em",
 		background: "var(--ovq-md-code-bg, rgba(127,127,127,0.16))",
-		borderRadius: 4,
-		padding: "0.1em 0.35em",
+		borderRadius: 6,
+		padding: "0.1em 0.4em",
 	} satisfies CSSProperties,
 	pre: {
 		fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
 		fontSize: "0.85em",
 		background: "var(--ovq-md-code-bg, rgba(127,127,127,0.16))",
-		borderRadius: 6,
-		padding: "0.7em 0.9em",
+		borderRadius: 14,
+		padding: "0.8em 1em",
 		margin: "0 0 0.7em",
 		overflowX: "auto",
 		whiteSpace: "pre",
@@ -70,20 +72,38 @@ const S = {
 		textDecoration: "underline",
 		textUnderlineOffset: 2,
 	} satisfies CSSProperties,
-	table: {
-		borderCollapse: "collapse",
-		margin: "0 0 0.7em",
-		fontSize: "0.92em",
-		display: "block",
+	/** Rounded, scrollable frame around a table (cells draw the inner lines). */
+	tableWrap: {
+		width: "fit-content",
+		maxWidth: "100%",
 		overflowX: "auto",
+		margin: "0 0 0.7em",
+		border: MD_BORDER,
+		borderRadius: 10,
+	} satisfies CSSProperties,
+	table: {
+		borderCollapse: "separate",
+		borderSpacing: 0,
+		fontSize: "0.92em",
 	} satisfies CSSProperties,
 	cell: {
-		border: "1px solid var(--ovq-md-border, rgba(127,127,127,0.3))",
-		padding: "0.3em 0.55em",
+		padding: "0.35em 0.6em",
 		textAlign: "left",
 		verticalAlign: "top",
 	} satisfies CSSProperties,
+	headCell: {
+		fontWeight: 600,
+		background: "var(--ovq-md-code-bg, rgba(127,127,127,0.1))",
+	} satisfies CSSProperties,
 };
+
+/** Inner grid lines of a table cell; the frame (S.tableWrap) draws the outer edge. */
+function cellEdges(lastCol: boolean, lastRow: boolean): CSSProperties {
+	return {
+		borderRight: lastCol ? undefined : MD_BORDER,
+		borderBottom: lastRow ? undefined : MD_BORDER,
+	};
+}
 
 // ---------------------------------------------------------------------------
 // Inline
@@ -363,29 +383,45 @@ function renderBlocks(src: string, keyPrefix = "b"): ReactNode[] {
 				i++;
 			}
 			const tk = key();
+			const lastCol = header.length - 1;
 			out.push(
-				<table key={tk} style={S.table}>
-					<thead>
-						<tr>
-							{header.map((h, c) => (
-								<th key={`${tk}h${c}`} style={{ ...S.cell, fontWeight: 600 }}>
-									{renderInline(h, `${tk}h${c}`)}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{rows.map((r, ri) => (
-							<tr key={`${tk}r${ri}`}>
-								{header.map((_, c) => (
-									<td key={`${tk}r${ri}c${c}`} style={S.cell}>
-										{renderInline(r[c] ?? "", `${tk}r${ri}c${c}`)}
-									</td>
+				<div key={tk} style={S.tableWrap}>
+					<table style={S.table}>
+						<thead>
+							<tr>
+								{header.map((h, c) => (
+									<th
+										key={`${tk}h${c}`}
+										style={{
+											...S.cell,
+											...S.headCell,
+											...cellEdges(c === lastCol, rows.length === 0),
+										}}
+									>
+										{renderInline(h, `${tk}h${c}`)}
+									</th>
 								))}
 							</tr>
-						))}
-					</tbody>
-				</table>,
+						</thead>
+						<tbody>
+							{rows.map((r, ri) => (
+								<tr key={`${tk}r${ri}`}>
+									{header.map((_, c) => (
+										<td
+											key={`${tk}r${ri}c${c}`}
+											style={{
+												...S.cell,
+												...cellEdges(c === lastCol, ri === rows.length - 1),
+											}}
+										>
+											{renderInline(r[c] ?? "", `${tk}r${ri}c${c}`)}
+										</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>,
 			);
 			continue;
 		}

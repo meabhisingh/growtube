@@ -1,13 +1,13 @@
 /**
- * open-vidiq server URL (with a reachability test), the crowdsourcing
+ * GrowTube server URL (with a reachability test), the crowdsourcing
  * toggle and an exact account of what the server stores and sees. Usable
  * while signed out (the server URL decides where you sign in).
  *
  * Keep the privacy copy exactly true: it describes the server's behaviour
  * (apps/server, packages/auth) as well as the extension's.
  */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
 import {
 	CircleCheck,
 	LoaderCircle,
@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
-import { authUser } from "@/lib/auth";
+import { authUser, privacyPolicyUrl } from "@/lib/auth";
 import { server } from "@/lib/client";
 import { DEFAULT_SERVER_URL } from "@/lib/env";
 import { useStorageItem } from "@/lib/hooks";
@@ -118,7 +118,7 @@ export function ServerSection() {
 			id="server"
 			title="Server & privacy"
 			icon={Server}
-			description="The open-vidiq server holds your account and the crowdsourced public stats behind view history charts, recent views/hour and Trends."
+			description="The GrowTube server holds your account and the crowdsourced public stats behind view history charts, recent views/hour and Trends."
 		>
 			<Field
 				label="Server URL"
@@ -193,11 +193,11 @@ export function ServerSection() {
 				<SwitchRow
 					icon={ShieldCheck}
 					title="Share public stats (crowdsourcing)"
-					description="Helps every open-vidiq user get view history and trending, for free. You can turn it off any time; everything else keeps working."
+					description="Off unless you turn it on. Uploads the public numbers of public videos and channels you see, not linked to your account, so every GrowTube user gets view history and Trends for free. Turn it off any time; everything else keeps working."
 					checked={crowdsource}
 					onCheckedChange={(v) => void setCrowdsource(v)}
 				/>
-				<PrivacyDetails />
+				<PrivacyDetails policyUrl={privacyPolicyUrl(saved)} />
 			</div>
 		</Section>
 	);
@@ -265,12 +265,12 @@ function PrivacyBlock({
 }
 
 /** What the server stores and sees, exactly. */
-function PrivacyDetails() {
+function PrivacyDetails({ policyUrl }: { policyUrl: string | null }) {
 	return (
-		<div className="bg-surface-2 ml-7 flex flex-col gap-3 p-3 text-[11px] leading-relaxed">
+		<div className="bg-surface-2 ml-7 flex flex-col gap-3 rounded-lg p-3 text-[11px] leading-relaxed">
 			<PrivacyBlock title="Your account">
 				<li>
-					Signing in is required to use open-vidiq: the toolkit, the YouTube and
+					Signing in is required to use GrowTube: the toolkit, the YouTube and
 					Studio panels and the server data.
 				</li>
 				<li>
@@ -285,7 +285,26 @@ function PrivacyDetails() {
 				</li>
 			</PrivacyBlock>
 
-			<PrivacyBlock title="Crowdsourced uploads (when sharing is on)">
+			<PrivacyBlock title="Stats lookups (whenever you're signed in)">
+				<li>
+					To show views per hour, history and Trends, the extension asks the
+					server about the public videos and channels it shows you, and the
+					channels in your competitor list, by their video or channel id. Trends
+					searches send the text you search for.
+				</li>
+				<li>
+					Feed badges look up videos on public YouTube pages (home, search,
+					subscriptions, channels). The extension never looks up a video it
+					knows is unlisted or private, or anything on your watch history,
+					library or playlist pages.
+				</li>
+				<li>
+					Lookups are not stored with your account. They happen whether or not
+					sharing is on.
+				</li>
+			</PrivacyBlock>
+
+			<PrivacyBlock title="Crowdsourced uploads (only when sharing is on)">
 				<li>
 					Only numbers anyone can see on YouTube, for videos and channels the
 					extension looked up while you browse.{" "}
@@ -302,11 +321,8 @@ function PrivacyDetails() {
 				</li>
 				<li>
 					Unlisted and private videos are never uploaded, and opening one
-					uploads nothing about its channel either. Feed badges look up videos
-					on public YouTube pages (home, search, subscriptions, channels) by id,
-					but never one the extension knows is unlisted or private, and nothing
-					on your watch history, library or playlist pages is looked up or
-					uploaded.
+					uploads nothing about its channel either. Nothing on your watch
+					history, library or playlist pages is uploaded.
 				</li>
 				<li>
 					If a public video later turns unlisted or private, a server with a
@@ -335,14 +351,24 @@ function PrivacyDetails() {
 			</PrivacyBlock>
 
 			<p>
-				<span className="font-medium">
-					Never sent to the open-vidiq server:
-				</span>{" "}
+				<span className="font-medium">Never sent to the GrowTube server:</span>{" "}
 				your AI key and AI chats (AI requests go straight from your browser to
 				the provider you chose), transcripts, anything from YouTube Studio (the
 				video you are editing, the titles, descriptions and tags you edit there,
 				and the tag-rank searches), and your Google account and cookies.
 			</p>
+			{policyUrl ? (
+				<p>
+					<a
+						href={policyUrl}
+						target="_blank"
+						rel="noreferrer"
+						className="text-foreground focus-visible:ring-ring/50 rounded-sm font-medium underline underline-offset-2 outline-none focus-visible:ring-2"
+					>
+						Read the full privacy policy
+					</a>
+				</p>
+			) : null}
 		</div>
 	);
 }

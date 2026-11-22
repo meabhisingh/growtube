@@ -2,7 +2,7 @@
  * React hooks shared by the extension pages (side panel, popup, options).
  * For storage-bound settings use `useStorageItem` from `@/lib/hooks`.
  */
-import { extractChannelRef, extractVideoId } from "@open-vidiq/shared/youtube";
+import { extractChannelRef, extractVideoId } from "@growtube/shared/youtube";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { browser } from "wxt/browser";
 
@@ -146,7 +146,9 @@ export function describeTab(tab: {
 
 /**
  * The active tab of the window this page lives in, live-updated on tab
- * switches and SPA navigations (needs the "tabs" permission).
+ * switches and SPA navigations. No "tabs" permission: Chrome fills in `url`
+ * and `title` only for tabs the host permissions cover (youtube.com), so any
+ * other tab shows up as a non-YouTube tab with no url, which is all we need.
  */
 export function useActiveTab(): ActiveTab {
 	const [tab, setTab] = useState<ActiveTab>(EMPTY_TAB);

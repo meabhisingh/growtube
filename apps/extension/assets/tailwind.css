@@ -3,7 +3,7 @@
  * Import once per page entry: `import "@/assets/tailwind.css";`
  * Not for YouTube-injected UI: content scripts use plain CSS in a shadow root.
  */
-@import "@open-vidiq/ui/globals.css";
+@import "@growtube/ui/globals.css";
 
 @source "../entrypoints";
 @source "../components";

@@ -199,7 +199,7 @@ export function toAiError(
 	if (error instanceof AuthenticationError) {
 		return new AiError(
 			"AUTH",
-			`${origin} rejected the API key (401). Check the key in open-vidiq Settings → AI.`,
+			`${origin} rejected the API key (401). Check the key in GrowTube Settings → AI.`,
 		);
 	}
 	if (error instanceof PermissionDeniedError) {
@@ -252,7 +252,7 @@ export function toAiError(
 			const hint = /reasoning|effort|thinking/i.test(msg)
 				? "Try another Reasoning effort (or Default) in Settings → AI."
 				: /max_(completion_)?tokens/i.test(msg)
-					? "open-vidiq already retried with the other output-limit parameter and without one; use Test connection in Settings → AI to check the provider."
+					? "GrowTube already retried with the other output-limit parameter and without one; use Test connection in Settings → AI to check the provider."
 					: /temperature/i.test(msg)
 						? "Try another Temperature in Settings → AI."
 						: "Try another model in Settings → AI.";

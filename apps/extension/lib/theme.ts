@@ -1,5 +1,5 @@
 /**
- * Extension pages: toggles the `.dark` class (used by @open-vidiq/ui's
+ * Extension pages: toggles the `.dark` class (used by @growtube/ui's
  * `dark:` variant) from the OS color scheme. Call once at page startup.
  *
  *   import "@/assets/tailwind.css";

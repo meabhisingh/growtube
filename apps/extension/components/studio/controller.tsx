@@ -5,7 +5,7 @@
  * or the upload dialog's Details step, and keeps ONE shadow-root panel
  * mounted next to it. The panel's host element is moved between placements
  * (docked / floating / inline) instead of being re-created, so React state
- * survives layout changes. Renders nothing while signed out of open-vidiq
+ * survives layout changes. Renders nothing while signed out of GrowTube
  * (follows `authUser` live).
  */
 import ReactDOM from "react-dom/client";
@@ -190,7 +190,7 @@ export function startStudioOptimizer(ctx: ContentScriptContext): void {
 			ui = created;
 			guardEscape(created.shadowHost);
 		} catch (error) {
-			console.warn("[open-vidiq] couldn't create the Studio panel", error);
+			console.warn("[GrowTube] couldn't create the Studio panel", error);
 		} finally {
 			creating = false;
 		}
@@ -220,7 +220,7 @@ export function startStudioOptimizer(ctx: ContentScriptContext): void {
 		try {
 			run();
 		} catch (error) {
-			console.warn("[open-vidiq] Studio optimizer", error);
+			console.warn("[GrowTube] Studio optimizer", error);
 		}
 	}
 
@@ -310,7 +310,7 @@ export function startStudioOptimizer(ctx: ContentScriptContext): void {
 		})
 		.catch((error: unknown) => {
 			// Without the sign-in state the panel stays off.
-			console.warn("[open-vidiq] couldn't read settings", error);
+			console.warn("[GrowTube] couldn't read settings", error);
 		});
 	ctx.onInvalidated(
 		features.watch((flags) => {

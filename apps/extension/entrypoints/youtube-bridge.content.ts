@@ -63,10 +63,15 @@ function cfg(key: string): unknown {
 	}
 }
 
+/**
+ * Only the public client identity: no sign-in state, session or channel ids,
+ * visitor id or raw INNERTUBE_CONTEXT ever leave this world (the extension
+ * has no feature that needs them).
+ */
 function readConfig(): YtConfig | null {
 	const clientVersion = cfg("INNERTUBE_CLIENT_VERSION");
 	if (typeof clientVersion !== "string") return null;
-	const context = (cfg("INNERTUBE_CONTEXT") as AnyObj | undefined) ?? null;
+	const context = cfg("INNERTUBE_CONTEXT") as AnyObj | undefined;
 	const client = (context?.client as AnyObj | undefined) ?? {};
 	return {
 		apiKey: (cfg("INNERTUBE_API_KEY") as string | undefined) ?? null,
@@ -76,14 +81,8 @@ function readConfig(): YtConfig | null {
 		clientVersion,
 		hl: String(cfg("HL") ?? client.hl ?? "en"),
 		gl: String(cfg("GL") ?? client.gl ?? "US"),
-		visitorData:
-			(cfg("VISITOR_DATA") as string | undefined) ??
-			(client.visitorData as string) ??
-			null,
-		loggedIn: cfg("LOGGED_IN") === true,
-		delegatedSessionId:
-			(cfg("DELEGATED_SESSION_ID") as string | undefined) ?? null,
-		context,
+		// The background learns its own anonymous one from InnerTube answers.
+		visitorData: null,
 		source: "page",
 	};
 }

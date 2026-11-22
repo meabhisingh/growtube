@@ -1,7 +1,7 @@
 /** Colored metric badges (scores, outliers, VPH). */
-import { formatCompact, formatOutlier } from "@open-vidiq/shared/format";
-import { outlierTier } from "@open-vidiq/shared/metrics";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatCompact, formatOutlier } from "@growtube/shared/format";
+import { outlierTier } from "@growtube/shared/metrics";
+import { cn } from "@growtube/ui/lib/utils";
 import { Flame, Zap } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -40,7 +40,7 @@ export function Badge({
 	return (
 		<span
 			className={cn(
-				"ovq-num inline-flex h-5 shrink-0 items-center gap-1 rounded-sm px-1.5 text-[11px] leading-none font-medium ring-1 ring-inset",
+				"ovq-num inline-flex h-5 shrink-0 items-center gap-1 rounded-md px-1.5 text-[11px] leading-none font-medium ring-1 ring-inset",
 				TONES[tone],
 				className,
 			)}

@@ -10,8 +10,8 @@
  * Signed out, the panel is only the sign-in / create-account screen: no tool
  * is mounted, so nothing is loaded. It switches live on sign-in/out.
  */
-import { TooltipProvider } from "@open-vidiq/ui/components/tooltip";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { TooltipProvider } from "@growtube/ui/components/tooltip";
+import { cn } from "@growtube/ui/lib/utils";
 import { Settings } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { browser } from "wxt/browser";
@@ -195,7 +195,7 @@ function Toolkit() {
 								className={cn(
 									"text-muted-foreground relative",
 									t.id === tool &&
-										"bg-brand-soft text-brand hover:bg-brand-soft hover:text-brand before:bg-brand before:absolute before:top-1.5 before:bottom-1.5 before:-left-2 before:w-0.5",
+										"bg-brand-soft text-brand hover:bg-brand-soft hover:text-brand before:bg-brand before:absolute before:top-2 before:bottom-2 before:-left-2 before:w-[3px] before:rounded-r-full",
 								)}
 							/>
 						))}

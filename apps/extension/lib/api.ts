@@ -1,5 +1,5 @@
 /**
- * open-vidiq server client. BACKGROUND ONLY (service worker): content scripts
+ * GrowTube server client. BACKGROUND ONLY (service worker): content scripts
  * and pages call these through `server` in `@/lib/client`, which avoids CORS
  * and Chrome's private-network checks for http://localhost.
  *
@@ -32,8 +32,8 @@ import {
 	videoSnapshotInput,
 	videoStatsPath,
 	videoStatsResponse,
-} from "@open-vidiq/shared";
-import { isAuthRequiredError } from "@open-vidiq/shared/auth";
+} from "@growtube/shared";
+import { isAuthRequiredError } from "@growtube/shared/auth";
 import { browser } from "wxt/browser";
 import type { z } from "zod";
 
@@ -81,7 +81,7 @@ const srvKey = (base: string, key: string) => `srv:${base}|${key}`;
 const signInRequired = () =>
 	new ServerError(
 		"AUTH_REQUIRED",
-		"Sign in to open-vidiq to use history, trends and live stats (Settings → Account).",
+		"Sign in to GrowTube to use history, trends and live stats (Settings → Account).",
 		401,
 	);
 
@@ -110,7 +110,7 @@ async function request<S extends z.ZodType>(
 	if (!(await hasOriginPermission(base))) {
 		throw new ServerError(
 			"PERMISSION",
-			`open-vidiq needs permission to reach ${originOf(base) ?? base}. Open Settings and save the server URL to grant it.`,
+			`GrowTube needs permission to reach ${originOf(base) ?? base}. Open Settings and save the server URL to grant it.`,
 		);
 	}
 	const res = await withRetry(
@@ -148,7 +148,7 @@ async function request<S extends z.ZodType>(
 			await onSessionRejected(token);
 			throw new ServerError(
 				"AUTH_REQUIRED",
-				"Your open-vidiq session has ended. Sign in again (Settings → Account).",
+				"Your GrowTube session has ended. Sign in again (Settings → Account).",
 				401,
 			);
 		}
@@ -156,7 +156,7 @@ async function request<S extends z.ZodType>(
 			throw new ServerError("HTTP", error.message, error.status);
 		throw new ServerError(
 			"NETWORK",
-			`Can't reach the open-vidiq server at ${base}. Check Settings → Server URL.`,
+			`Can't reach the GrowTube server at ${base}. Check Settings → Server URL.`,
 		);
 	});
 	const json: unknown = await res.json().catch(() => null);
@@ -618,7 +618,7 @@ async function sendBatches<T>(
 			// Drop only the rejected batch so one bad item can't wedge the queue.
 			if (!isBatchRejected(error)) throw error;
 			console.debug(
-				"[open-vidiq] ingest batch rejected:",
+				"[GrowTube] ingest batch rejected:",
 				error instanceof Error ? error.message : error,
 			);
 		}
@@ -677,7 +677,7 @@ export async function flushIngestQueue(
 				Math.min(BACKOFF_BASE_MS * 2 ** (failures - 1), BACKOFF_MAX_MS);
 			scheduleSave();
 			console.debug(
-				"[open-vidiq] ingest flush deferred:",
+				"[GrowTube] ingest flush deferred:",
 				error instanceof Error ? error.message : error,
 			);
 		} finally {

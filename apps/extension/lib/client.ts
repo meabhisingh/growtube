@@ -12,7 +12,7 @@ import type {
 	HistoryRange,
 	TrendingQuery,
 	VideoSnapshotInput,
-} from "@open-vidiq/shared";
+} from "@growtube/shared";
 
 import type {
 	GeneratorInput,
@@ -110,7 +110,7 @@ export const yt = {
 	) => sendToBackground("yt.getTranscript", { videoId, ...opts }),
 };
 
-/** open-vidiq server (crowdsourced history, trending). */
+/** GrowTube server (crowdsourced history, trending). */
 export const server = {
 	health: () => sendToBackground("api.health", {}),
 	getVideoHistory: (
@@ -171,7 +171,7 @@ export const ai = {
 };
 
 /**
- * The open-vidiq account (EXTENSION PAGES only: the background refuses these
+ * The GrowTube account (EXTENSION PAGES only: the background refuses these
  * from content scripts). Results never contain the login token; watch
  * `authUser` from `@/lib/auth` for the signed-in state.
  */

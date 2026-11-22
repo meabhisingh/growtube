@@ -30,6 +30,8 @@
 	--chart-3: oklch(0.546 0.245 262.881);
 	--chart-4: oklch(0.488 0.243 264.376);
 	--chart-5: oklch(0.424 0.199 265.638);
+	/* The one radius source (10px). The scale in @theme derives from it:
+	   rounded-sm 6px, md 8px, lg 10px, xl 14px, 2xl 18px. */
 	--radius: 0.625rem;
 	--sidebar: oklch(0.985 0 0);
 	--sidebar-foreground: oklch(0.145 0 0);
@@ -126,5 +128,22 @@
 	}
 	html {
 		@apply font-sans;
+	}
+}
+
+/* Reduced motion: menus and tooltips still fade, but they no longer zoom,
+   slide or rotate (tw-animate-css reads these variables). */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		--tw-enter-scale: 1;
+		--tw-exit-scale: 1;
+		--tw-enter-translate-x: 0;
+		--tw-enter-translate-y: 0;
+		--tw-exit-translate-x: 0;
+		--tw-exit-translate-y: 0;
+		--tw-enter-rotate: 0;
+		--tw-exit-rotate: 0;
 	}
 }

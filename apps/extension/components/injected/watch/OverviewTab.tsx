@@ -7,21 +7,21 @@ import {
 	type ControversialCategory,
 	type ControversialMatch,
 	findControversialKeywords,
-} from "@open-vidiq/shared/controversial";
+} from "@growtube/shared/controversial";
 import {
 	formatAge,
 	formatCompact,
 	formatNumber,
 	formatOutlier,
-} from "@open-vidiq/shared/format";
+} from "@growtube/shared/format";
 import {
 	computeAverage,
 	computeBestPostingSlots,
 	computeChannelBaseline,
 	computeUploadsPerWeek,
 	type PostingSlot,
-} from "@open-vidiq/shared/metrics";
-import type { SeoResult } from "@open-vidiq/shared/seo";
+} from "@growtube/shared/metrics";
+import type { SeoResult } from "@growtube/shared/seo";
 import { Check, ChevronDown, ChevronUp, Download, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -47,6 +47,9 @@ import type { WatchData } from "./data";
 
 export type TagRanks = Record<string, number | null>;
 
+/** CopyButton sits next to pill buttons here, so it gets the same shape. */
+const PILL = { borderRadius: "var(--ovq-radius-pill)" } as const;
+
 export function OverviewTab({
 	w,
 	onTagRanks,
@@ -60,9 +63,9 @@ export function OverviewTab({
 			<ErrorNote error={w.details.error} onRetry={w.details.reload} />
 		) : (
 			<div style={{ display: "grid", gap: 10 }}>
-				<Skeleton height={90} />
-				<Skeleton height={120} />
-				<Skeleton height={120} />
+				<Skeleton height={90} radius="card" />
+				<Skeleton height={120} radius="card" />
+				<Skeleton height={120} radius="card" />
 			</div>
 		);
 	}
@@ -102,7 +105,7 @@ function ChannelCard({ w }: { w: WatchData }) {
 					/>
 				) : (
 					<div className="ovq-channel">
-						<Skeleton width={44} height={44} style={{ borderRadius: "50%" }} />
+						<Skeleton width={44} height={44} radius="round" />
 						<div style={{ flex: 1, display: "grid", gap: 6 }}>
 							<Skeleton width="60%" />
 							<Skeleton width="40%" height={12} />
@@ -172,7 +175,7 @@ function ChannelCard({ w }: { w: WatchData }) {
 				/>
 			</div>
 			{history.loading ? (
-				<Skeleton height={110} />
+				<Skeleton height={110} radius="inner" />
 			) : points.length >= 2 ? (
 				<AreaChart
 					data={points}
@@ -205,7 +208,7 @@ function ChannelCard({ w }: { w: WatchData }) {
 					</dl>
 					{history.error && isServerUnavailable(history.error) ? (
 						<Note tone="warn">
-							Channel history comes from the open-vidiq server, which isn't
+							Channel history comes from the GrowTube server, which isn't
 							reachable right now.
 						</Note>
 					) : (
@@ -436,6 +439,7 @@ function ChannelTagsCard({ w }: { w: WatchData }) {
 						text={tags.join(", ")}
 						label="Copy"
 						title="Copy channel tags"
+						style={PILL}
 					/>
 				) : null
 			}
@@ -487,7 +491,12 @@ function VideoTagsCard({
 			actions={
 				tags.length ? (
 					<>
-						<CopyButton text={text} label="Copy all" title="Copy all tags" />
+						<CopyButton
+							text={text}
+							label="Copy all"
+							title="Copy all tags"
+							style={PILL}
+						/>
 						<button
 							type="button"
 							className="ovq-btn small ghost"

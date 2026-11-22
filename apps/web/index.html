@@ -8,7 +8,17 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <title>open-vidiq</title>
+    <!-- For link previews (Slack, Discord, X, ...), which don't run the app's JS.
+         The page title and description themselves come from routes/__root.tsx. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GrowTube" />
+    <meta property="og:title" content="GrowTube · The free YouTube growth toolkit" />
+    <meta
+      property="og:description"
+      content="Free YouTube growth toolkit: VPH, outlier scores, SEO, keyword research, trends and an AI coach. No plans, no credits, no limits."
+    />
+    <meta name="twitter:card" content="summary" />
+    <title>GrowTube · The free YouTube growth toolkit</title>
   </head>
 
   <body>

@@ -17,7 +17,7 @@
  * crowdsourcing, because those cards can be unlisted or private videos and
  * the list itself is the user's history.
  */
-import { computeOutlierScore, computeVph } from "@open-vidiq/shared/metrics";
+import { computeOutlierScore, computeVph } from "@growtube/shared/metrics";
 
 import type { ContentScriptContext } from "#imports";
 

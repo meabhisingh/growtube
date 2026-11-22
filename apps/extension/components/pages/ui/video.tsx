@@ -3,9 +3,9 @@ import {
 	formatCompact,
 	formatDuration,
 	formatRelative,
-} from "@open-vidiq/shared/format";
-import { thumbnailUrl } from "@open-vidiq/shared/youtube";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/shared/format";
+import { thumbnailUrl } from "@growtube/shared/youtube";
+import { cn } from "@growtube/ui/lib/utils";
 import { UserRound } from "lucide-react";
 import { type ReactNode, useState } from "react";
 
@@ -33,7 +33,7 @@ export function Thumb({
 	return (
 		<div
 			className={cn(
-				"bg-muted relative aspect-video shrink-0 overflow-hidden",
+				"bg-muted relative aspect-video shrink-0 overflow-hidden rounded-lg",
 				className,
 			)}
 		>
@@ -47,15 +47,15 @@ export function Thumb({
 				className="size-full object-cover"
 			/>
 			{isLive ? (
-				<span className="absolute right-1 bottom-1 bg-red-600 px-1 text-[10px] leading-4 font-semibold text-white">
+				<span className="absolute right-1 bottom-1 rounded-md bg-red-600 px-1.5 text-[10px] leading-4 font-semibold text-white">
 					LIVE
 				</span>
 			) : isShort ? (
-				<span className="absolute right-1 bottom-1 bg-black/80 px-1 text-[10px] leading-4 font-semibold text-white">
+				<span className="absolute right-1 bottom-1 rounded-md bg-black/80 px-1.5 text-[10px] leading-4 font-semibold text-white">
 					SHORT
 				</span>
 			) : durationSec ? (
-				<span className="ovq-num absolute right-1 bottom-1 bg-black/80 px-1 text-[10px] leading-4 font-medium text-white">
+				<span className="ovq-num absolute right-1 bottom-1 rounded-md bg-black/80 px-1.5 text-[10px] leading-4 font-medium text-white">
 					{formatDuration(durationSec)}
 				</span>
 			) : null}
@@ -113,7 +113,7 @@ export function VideoRow({
 				type="button"
 				onClick={open}
 				onAuxClick={open}
-				className="focus-visible:ring-ring shrink-0 outline-none focus-visible:ring-2"
+				className="focus-visible:ring-ring/60 shrink-0 rounded-lg outline-none focus-visible:ring-2"
 				aria-label={`Open “${video.title}” on YouTube`}
 			>
 				<Thumb
@@ -130,7 +130,7 @@ export function VideoRow({
 					type="button"
 					onClick={open}
 					onAuxClick={open}
-					className="ovq-clamp-2 hover:text-brand focus-visible:text-brand text-left text-xs leading-snug font-medium outline-none"
+					className="ovq-clamp-2 hover:text-brand focus-visible:text-brand text-left text-xs leading-snug font-medium transition-colors duration-150 outline-none"
 					title={video.title}
 				>
 					{video.title}

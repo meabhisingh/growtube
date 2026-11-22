@@ -1,5 +1,5 @@
 {
-	"name": "@open-vidiq/db",
+	"name": "@growtube/db",
 	"type": "module",
 	"exports": {
 		".": "./src/index.ts",
@@ -19,7 +19,7 @@
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"@types/pg": "^8.23.1",
 		"drizzle-kit": "1.0.0-rc.5",
 		"typescript": "catalog:",

@@ -3,7 +3,7 @@
  * and channel name. Needs no API key or quota, so the cron can verify
  * crowdsourced videos even without YOUTUBE_API_KEY.
  */
-import { videoUrl } from "@open-vidiq/shared";
+import { videoUrl } from "@growtube/shared";
 import { z } from "zod";
 
 export const YOUTUBE_OEMBED_URL = "https://www.youtube.com/oembed";

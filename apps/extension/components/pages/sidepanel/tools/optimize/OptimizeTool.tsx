@@ -3,12 +3,12 @@
  * generator for a topic or an existing video, with a live SEO score
  * (computeSeoScore) of the chosen combination.
  */
-import { computeSeoScore, type SeoResult } from "@open-vidiq/shared/seo";
-import { extractVideoId } from "@open-vidiq/shared/youtube";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Textarea } from "@open-vidiq/ui/components/textarea";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { computeSeoScore, type SeoResult } from "@growtube/shared/seo";
+import { extractVideoId } from "@growtube/shared/youtube";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { Textarea } from "@growtube/ui/components/textarea";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	Check,
 	FileText,
@@ -314,7 +314,7 @@ export function OptimizeTool({ intent }: ToolProps) {
 								<li
 									key={t.title}
 									className={cn(
-										"ring-foreground/8 flex items-start gap-2 p-2 ring-1",
+										"ring-foreground/7 flex items-start gap-2 rounded-lg p-2 ring-1 transition-colors duration-150",
 										chosen ? "bg-brand-soft ring-brand/40" : "bg-surface",
 									)}
 								>
@@ -427,14 +427,14 @@ export function OptimizeTool({ intent }: ToolProps) {
 					{tags.map((t) => (
 						<span
 							key={t}
-							className="bg-muted inline-flex items-center gap-1 py-0.5 pr-1 pl-2 text-[11px]"
+							className="bg-muted inline-flex items-center gap-1 rounded-lg py-0.5 pr-1 pl-2 text-[11px]"
 						>
 							{t}
 							<button
 								type="button"
 								onClick={() => setTags((prev) => prev.filter((x) => x !== t))}
 								aria-label={`Remove tag ${t}`}
-								className="text-muted-foreground hover:text-foreground"
+								className="text-muted-foreground hover:text-foreground hover:bg-foreground/10 focus-visible:ring-ring/50 rounded-full transition-colors duration-150 outline-none focus-visible:ring-2"
 							>
 								<X className="size-3" />
 							</button>
@@ -578,9 +578,12 @@ function SeoBar({
 					{seo.keyword ? `for "${seo.keyword}"` : "add a target keyword"}
 				</span>
 			</div>
-			<div className="bg-muted h-1 w-full">
+			<div className="bg-muted h-1 w-full overflow-hidden rounded-full">
 				<div
-					className={cn("h-full transition-[width]", color)}
+					className={cn(
+						"h-full rounded-full transition-[width] duration-200",
+						color,
+					)}
 					style={{ width: `${seo.score}%` }}
 				/>
 			</div>

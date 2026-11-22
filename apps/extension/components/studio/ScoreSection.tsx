@@ -1,6 +1,6 @@
 /** SEO score ring, character counters and the target keyword field. */
-import { formatNumber } from "@open-vidiq/shared/format";
-import type { SeoResult } from "@open-vidiq/shared/seo";
+import { formatNumber } from "@growtube/shared/format";
+import type { SeoResult } from "@growtube/shared/seo";
 import { Plus, X } from "lucide-react";
 
 import { hasInvalidChars, LIMITS, youtubeTagsLength } from "./text";

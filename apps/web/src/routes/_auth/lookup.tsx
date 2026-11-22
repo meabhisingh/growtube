@@ -5,7 +5,7 @@ import { LookupForm } from "@/components/lookup-form";
 
 export const Route = createFileRoute("/_auth/lookup")({
 	head: () => ({
-		meta: [{ title: "Look up a video or channel · open-vidiq" }],
+		meta: [{ title: "Look up a video or channel · GrowTube" }],
 	}),
 	component: LookupPage,
 });
@@ -47,7 +47,7 @@ function LookupPage() {
 				</h1>
 				<p className="text-muted-foreground text-sm text-balance">
 					Views over time, views per hour, engagement and subscriber history
-					from open-vidiq's crowdsourced stats. Free and unlimited.
+					from GrowTube's crowdsourced stats. Free and unlimited.
 				</p>
 			</div>
 
@@ -67,7 +67,7 @@ function LookupPage() {
 					{formats.map(({ icon: Icon, title, examples }) => (
 						<li
 							key={title}
-							className="bg-card ring-foreground/10 flex gap-3 p-4 ring-1"
+							className="bg-card ring-foreground/8 flex gap-3 rounded-xl p-4 shadow-xs ring-1"
 						>
 							<Icon
 								className="text-muted-foreground mt-0.5 size-4 shrink-0"
@@ -88,7 +88,7 @@ function LookupPage() {
 					))}
 				</ul>
 				<p className="text-muted-foreground text-xs">
-					@handles work for channels open-vidiq has already seen (any extension
+					@handles work for channels GrowTube has already seen (any extension
 					user visited them). Legacy /c/ and /user/ links aren't supported: open
 					the channel on YouTube and copy its channel ID, or browse the{" "}
 					<Link

@@ -1,5 +1,5 @@
-import { Button } from "@open-vidiq/ui/components/button";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { cn } from "@growtube/ui/lib/utils";
 import { Check, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -61,8 +61,13 @@ interface CodeBlockProps {
 
 export function CodeBlock({ code, caption, className }: CodeBlockProps) {
 	return (
-		<div className={cn("bg-muted/40 min-w-0 border", className)}>
-			<div className="flex items-center justify-between gap-2 border-b py-0.5 pr-0.5 pl-3">
+		<div
+			className={cn(
+				"bg-muted/40 border-border/70 min-w-0 overflow-hidden rounded-xl border",
+				className,
+			)}
+		>
+			<div className="border-border/70 flex items-center justify-between gap-2 border-b py-1 pr-1 pl-3.5">
 				<span className="text-muted-foreground truncate text-[11px]">
 					{caption ?? " "}
 				</span>
@@ -71,7 +76,7 @@ export function CodeBlock({ code, caption, className }: CodeBlockProps) {
 					label={caption ? `Copy ${caption}` : "Copy code"}
 				/>
 			</div>
-			<pre className="overflow-x-auto p-3 font-mono text-xs leading-relaxed">
+			<pre className="overflow-x-auto px-3.5 py-3 font-mono text-xs leading-relaxed">
 				<code>{code}</code>
 			</pre>
 		</div>
@@ -90,10 +95,13 @@ export function CopyField({
 }) {
 	return (
 		<div
-			className={cn("bg-muted/40 flex min-w-0 items-center border", className)}
+			className={cn(
+				"bg-muted/40 border-border/70 flex min-w-0 items-center overflow-hidden rounded-xl border pr-1",
+				className,
+			)}
 		>
 			<code
-				className="min-w-0 flex-1 truncate px-3 py-2 font-mono text-xs"
+				className="min-w-0 flex-1 truncate py-2 pr-2 pl-3.5 font-mono text-xs"
 				title={value}
 			>
 				{value}

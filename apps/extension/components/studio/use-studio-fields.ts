@@ -49,7 +49,7 @@ export function useStudioFields(
 		try {
 			next = fields.read();
 		} catch (error) {
-			console.warn("[open-vidiq] reading Studio fields failed", error);
+			console.warn("[GrowTube] reading Studio fields failed", error);
 			next = EMPTY;
 		}
 		if (!same(latest.current, next)) {

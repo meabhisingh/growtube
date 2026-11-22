@@ -30,8 +30,8 @@
  *
  * "Top results" = the first 10 non-live results of an anonymous search.
  */
-import { median } from "@open-vidiq/shared/metrics";
-import { normalizeText } from "@open-vidiq/shared/seo";
+import { median } from "@growtube/shared/metrics";
+import { normalizeText } from "@growtube/shared/seo";
 
 import type { SearchResult } from "@/lib/youtube/types";
 

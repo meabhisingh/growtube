@@ -1,5 +1,5 @@
 import { apiKeyClient } from "@better-auth/api-key/client";
-import { AUTH_BASE_PATH } from "@open-vidiq/shared/auth";
+import { AUTH_BASE_PATH } from "@growtube/shared/auth";
 import { createAuthClient } from "better-auth/react";
 
 import { ENV } from "../env";

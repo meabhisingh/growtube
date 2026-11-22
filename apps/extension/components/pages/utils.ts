@@ -6,8 +6,8 @@ import {
 	computeOutlierScore,
 	computeVph,
 	hoursSince,
-} from "@open-vidiq/shared/metrics";
-import { extractVideoId } from "@open-vidiq/shared/youtube";
+} from "@growtube/shared/metrics";
+import { extractVideoId } from "@growtube/shared/youtube";
 import { browser } from "wxt/browser";
 
 import { BackgroundError } from "@/lib/messaging";
@@ -54,7 +54,7 @@ export function describeError(error: unknown): ErrorInfo {
 			: typeof error === "string"
 				? error
 				: "Something went wrong.";
-	const mentionsServer = /open-vidiq server|server url/i.test(message);
+	const mentionsServer = /growtube server|server url/i.test(message);
 	let action: ErrorAction = null;
 	if (code === "CONTEXT_INVALIDATED") action = "reload";
 	else if (code === "AUTH_REQUIRED") action = "sign-in";

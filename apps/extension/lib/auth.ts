@@ -1,5 +1,5 @@
 /**
- * Sign-in state every part of the extension can read. open-vidiq can't be
+ * Sign-in state every part of the extension can read. GrowTube can't be
  * used without an account: popup, side panel, options, the YouTube/Studio
  * content scripts and the background all gate themselves on `authUser`.
  *
@@ -12,7 +12,7 @@
  * (lib/auth-session.ts). Pages sign in / out through the `auth.*` messages,
  * which only extension pages may send.
  */
-import type { AuthUser } from "@open-vidiq/shared/auth";
+import type { AuthUser } from "@growtube/shared/auth";
 import { storage } from "#imports";
 
 import { DEFAULT_SERVER_URL, DEFAULT_WEB_URL } from "./env";
@@ -57,4 +57,10 @@ export function webAppUrl(serverUrl: string): string | null {
 	if (DEFAULT_WEB_URL && url === DEFAULT_SERVER_URL) return DEFAULT_WEB_URL;
 	if (url === LOCAL_DEV_SERVER) return LOCAL_DEV_WEB;
 	return null;
+}
+
+/** The privacy policy of `serverUrl`'s web app, when the extension knows it. */
+export function privacyPolicyUrl(serverUrl: string): string | null {
+	const web = webAppUrl(serverUrl);
+	return web ? `${web}/privacy` : null;
 }

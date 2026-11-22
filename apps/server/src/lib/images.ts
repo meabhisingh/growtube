@@ -1,4 +1,4 @@
-import { isYouTubeImageUrl } from "@open-vidiq/shared/images";
+import { isYouTubeImageUrl } from "@growtube/shared/images";
 
 /**
  * A YouTube image URL in its WHATWG-serialized form (`https://<host>/...`,

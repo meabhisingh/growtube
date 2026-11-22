@@ -3,10 +3,10 @@
  * (current tab / my channel / pinned / none), suggested prompts, copy,
  * regenerate and stop. Unlimited: no counters, no quotas.
  */
-import { formatCompact } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Textarea } from "@open-vidiq/ui/components/textarea";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatCompact } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Textarea } from "@growtube/ui/components/textarea";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	ArrowUp,
 	Clapperboard,
@@ -369,7 +369,7 @@ export function CoachTool({ intent, active }: ToolProps) {
 									type="button"
 									disabled={coach.loading || preparing}
 									onClick={() => void send(s)}
-									className="bg-surface hover:border-brand/50 hover:bg-brand-soft focus-visible:ring-ring border px-3 py-2 text-left text-xs transition-colors outline-none focus-visible:ring-1 disabled:opacity-50"
+									className="bg-surface hover:border-brand/40 hover:bg-brand-soft focus-visible:ring-ring/50 rounded-xl border px-3 py-2 text-left text-xs shadow-xs transition duration-150 ease-out outline-none focus-visible:ring-3 disabled:opacity-50 motion-safe:active:scale-[0.99]"
 								>
 									{s.label}
 								</button>
@@ -556,7 +556,7 @@ function ChatMessage({
 	if (message.role === "user") {
 		return (
 			<div className="flex justify-end">
-				<div className="bg-muted max-w-[88%] px-3 py-2 text-xs leading-relaxed [overflow-wrap:anywhere] whitespace-pre-wrap">
+				<div className="bg-muted max-w-[88%] rounded-xl rounded-br-[4px] px-3 py-2 text-xs leading-relaxed [overflow-wrap:anywhere] whitespace-pre-wrap">
 					{message.content}
 				</div>
 			</div>

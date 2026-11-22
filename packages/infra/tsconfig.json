@@ -1,4 +1,4 @@
 {
-	"extends": "@open-vidiq/config/tsconfig.base.json",
-	"include": ["alchemy.run.ts"]
+	"extends": "@growtube/config/tsconfig.base.json",
+	"include": ["alchemy.run.ts", "web-worker.ts"]
 }

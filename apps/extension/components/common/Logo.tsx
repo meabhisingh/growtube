@@ -1,5 +1,5 @@
 /**
- * open-vidiq logo (same artwork as public/icon/*.png). The image is inlined
+ * GrowTube logo (same artwork as public/icon/*.png). The image is inlined
  * as a data URI by scripts/generate-icons.mjs because this renders inside
  * shadow DOM on youtube.com, where chrome-extension:// URLs would need
  * web_accessible_resources.
@@ -9,7 +9,7 @@ import { LOGO_DATA_URI } from "./logo-data";
 
 export function Logo({
 	size = 24,
-	title = "open-vidiq",
+	title = "GrowTube",
 	style,
 }: {
 	size?: number;

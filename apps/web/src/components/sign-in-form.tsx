@@ -1,6 +1,6 @@
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Label } from "@open-vidiq/ui/components/label";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { Label } from "@growtube/ui/components/label";
 import { useForm } from "@tanstack/react-form";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
@@ -57,7 +57,7 @@ export default function SignInForm({
 			<div className="flex flex-col gap-1.5 text-center">
 				<h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
 				<p className="text-muted-foreground text-sm">
-					Sign in to your open-vidiq account.
+					Sign in to your GrowTube account.
 				</p>
 			</div>
 
@@ -136,7 +136,7 @@ export default function SignInForm({
 			</form>
 
 			<p className="text-muted-foreground text-center text-xs">
-				New to open-vidiq?{" "}
+				New to GrowTube?{" "}
 				<Button
 					variant="link"
 					size="xs"

@@ -132,7 +132,7 @@ export function registerAiChatPort(): void {
 						: post({
 								type: "error",
 								message:
-									"Sign in to open-vidiq to use the AI coach (Settings → Account).",
+									"Sign in to GrowTube to use the AI coach (Settings → Account).",
 								code: "AUTH_REQUIRED",
 							}),
 				),

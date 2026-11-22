@@ -1,7 +1,7 @@
 /*
  * Styles for the extension's own pages (side panel, popup, options).
  * Import this instead of assets/tailwind.css from those pages: it pulls in the
- * Tailwind + shadcn theme and layers the open-vidiq brand on top.
+ * Tailwind + shadcn theme and layers the GrowTube brand on top.
  */
 @import "../../assets/tailwind.css";
 
@@ -35,7 +35,7 @@
 	--ovq-md-code-bg: oklch(0.5 0 0 / 10%);
 	--ovq-md-border: oklch(0.5 0 0 / 20%);
 	--ovq-md-muted: oklch(0.5 0 0);
-	--ovq-border: oklch(0.5 0 0 / 25%);
+	--ovq-border: oklch(0.5 0 0 / 20%);
 }
 
 .dark {
@@ -66,7 +66,7 @@
 	--ovq-md-code-bg: oklch(1 0 0 / 8%);
 	--ovq-md-border: oklch(1 0 0 / 14%);
 	--ovq-md-muted: oklch(0.72 0 0);
-	--ovq-border: oklch(1 0 0 / 16%);
+	--ovq-border: oklch(1 0 0 / 14%);
 }
 
 html,
@@ -140,4 +140,17 @@ body {
 /* Range input accent */
 input[type="range"] {
 	accent-color: var(--ovq-brand);
+}
+
+/*
+ * Reduced motion: no hover/press transitions (press-scale classes are
+ * motion-safe: only). Unlayered, so it beats Tailwind's layered utilities.
+ * Spinners and progress animations keep running.
+ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		transition-duration: 0s;
+	}
 }

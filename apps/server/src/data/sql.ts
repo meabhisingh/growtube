@@ -1,4 +1,4 @@
-import { type Database, getTableName, type SQL, sql } from "@open-vidiq/db";
+import { type Database, getTableName, type SQL, sql } from "@growtube/db";
 
 /** A drizzle client or an open transaction. */
 export type Tx = Parameters<Parameters<Database["transaction"]>[0]>[0];

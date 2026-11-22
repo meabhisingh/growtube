@@ -14,7 +14,7 @@ export function useAiStatus() {
 	]);
 }
 
-/** open-vidiq server health check, re-run when the server URL changes. */
+/** GrowTube server health check, re-run when the server URL changes. */
 export function useServerHealth() {
 	const [url] = useStorageItem(serverUrl);
 	return useBackground("api.health", {}, [url]);

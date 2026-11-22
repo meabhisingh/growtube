@@ -1,6 +1,6 @@
-import { formatCompact } from "@open-vidiq/shared";
-import { buttonVariants } from "@open-vidiq/ui/components/button";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatCompact } from "@growtube/shared";
+import { buttonVariants } from "@growtube/ui/components/button";
+import { cn } from "@growtube/ui/lib/utils";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
 	ArrowRight,
@@ -156,7 +156,7 @@ const FEATURES: Feature[] = [
 		icon: Plug,
 		title: "MCP for AI assistants",
 		description:
-			"Plug Claude, Cursor or any MCP client into open-vidiq's video, channel and trending data with your own API key.",
+			"Plug Claude, Cursor or any MCP client into GrowTube's video, channel and trending data with your own API key.",
 		where: "Web",
 		to: "/mcp",
 	},
@@ -182,7 +182,7 @@ const SHARED_DATA = [
 ];
 
 const NEVER_SHARED = [
-	"Which open-vidiq account sent an upload",
+	"Which GrowTube account sent an upload",
 	"Unlisted or private videos, even ones you open",
 	"Your Google account or YouTube identity",
 	"Cookies, watch history or search history",
@@ -223,12 +223,12 @@ function Hero({ signedIn }: { signedIn: boolean }) {
 			/>
 			<div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-16 md:py-24 lg:grid-cols-[1.1fr_1fr]">
 				<div className="flex flex-col gap-6">
-					<span className="bg-background text-muted-foreground inline-flex w-fit items-center gap-2 border px-2.5 py-1 text-[11px] font-medium">
+					<span className="bg-background/80 text-muted-foreground inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-medium shadow-xs backdrop-blur-sm">
 						<Sparkles
 							className="size-3 text-[var(--chart-2)]"
 							aria-hidden="true"
 						/>
-						Free and open source · Chrome extension
+						Free · Chrome extension
 					</span>
 					<h1 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl">
 						The free YouTube growth toolkit
@@ -325,10 +325,10 @@ function HeroPreview() {
 			inert
 			className="relative mx-auto w-full max-w-md select-none lg:max-w-none"
 		>
-			<div className="bg-card ring-foreground/10 p-3 shadow-2xl ring-1">
-				<div className="relative aspect-video overflow-hidden bg-[linear-gradient(135deg,color-mix(in_oklch,var(--chart-2)_55%,transparent),color-mix(in_oklch,var(--chart-5)_35%,transparent)_60%,var(--muted))]">
+			<div className="bg-card ring-foreground/8 rounded-xl p-3 shadow-2xl ring-1 shadow-black/10 dark:shadow-black/40">
+				<div className="relative aspect-video overflow-hidden rounded-lg bg-[linear-gradient(135deg,color-mix(in_oklch,var(--chart-2)_55%,transparent),color-mix(in_oklch,var(--chart-5)_35%,transparent)_60%,var(--muted))]">
 					<div className="absolute inset-0 flex items-center justify-center">
-						<div className="flex size-14 items-center justify-center bg-black/55 text-white">
+						<div className="flex size-14 items-center justify-center rounded-full bg-black/55 text-white shadow-lg backdrop-blur-sm">
 							<svg
 								viewBox="0 0 24 24"
 								className="ml-1 size-7 fill-current"
@@ -339,24 +339,24 @@ function HeroPreview() {
 						</div>
 					</div>
 					<div className="absolute top-2 left-2 flex gap-1">
-						<span className="bg-[var(--chart-2)] px-1.5 py-0.5 text-[11px] font-semibold text-white">
+						<span className="rounded-md bg-[var(--chart-2)] px-1.5 py-0.5 text-[11px] font-semibold text-white shadow-sm">
 							12.4K VPH
 						</span>
-						<span className="bg-emerald-600 px-1.5 py-0.5 text-[11px] font-semibold text-white">
+						<span className="rounded-md bg-emerald-600 px-1.5 py-0.5 text-[11px] font-semibold text-white shadow-sm">
 							8.2x
 						</span>
 					</div>
-					<span className="absolute right-2 bottom-2 bg-black/80 px-1 py-0.5 text-[11px] font-medium text-white">
+					<span className="absolute right-2 bottom-2 rounded-md bg-black/80 px-1.5 py-0.5 text-[11px] font-medium text-white">
 						12:34
 					</span>
 				</div>
 				<div className="flex gap-3 pt-3">
 					<div className="bg-muted size-9 shrink-0 rounded-full" />
 					<div className="flex min-w-0 flex-1 flex-col gap-1.5">
-						<div className="bg-foreground/15 h-3 w-11/12" />
-						<div className="bg-foreground/15 h-3 w-2/3" />
+						<div className="bg-foreground/15 h-3 w-11/12 rounded-full" />
+						<div className="bg-foreground/15 h-3 w-2/3 rounded-full" />
 						<div className="text-muted-foreground flex items-center gap-2 pt-0.5 text-[11px]">
-							<span className="bg-muted text-foreground px-1.5 py-0.5 font-medium">
+							<span className="bg-muted text-foreground rounded-md px-1.5 py-0.5 font-medium">
 								1.41M subs
 							</span>
 							<span>184K views · 2 days ago</span>
@@ -378,7 +378,7 @@ function HeroPreview() {
 					/>
 				</div>
 			</div>
-			<div className="bg-popover text-popover-foreground ring-foreground/10 absolute top-[30%] -left-6 hidden max-w-[15rem] p-3 shadow-xl ring-1 sm:block">
+			<div className="bg-popover text-popover-foreground ring-foreground/8 absolute top-[30%] -left-6 hidden max-w-[15rem] rounded-xl p-3 shadow-xl ring-1 shadow-black/10 sm:block dark:shadow-black/40">
 				<div className="flex items-center gap-1.5 pb-1 text-[11px] font-medium">
 					<Bot className="size-3.5 text-[var(--chart-2)]" aria-hidden="true" />
 					AI Coach
@@ -479,7 +479,7 @@ function FeaturesSection() {
 					Data where you already work: on YouTube, in Studio and in a side
 					panel. Every tool is free, with no daily caps.
 				</SectionHeading>
-				<ul className="bg-border ring-border grid gap-px overflow-hidden ring-1 sm:grid-cols-2 lg:grid-cols-3">
+				<ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 					{FEATURES.map((feature) => (
 						<li key={feature.title} className="flex">
 							<FeatureCard feature={feature} />
@@ -494,9 +494,9 @@ function FeaturesSection() {
 function FeatureCard({ feature }: { feature: Feature }) {
 	const { icon: Icon, title, description, where, to } = feature;
 	return (
-		<div className="group bg-background hover:bg-muted/40 relative flex w-full flex-col gap-3 p-5 transition-colors">
+		<div className="group bg-card ring-foreground/8 hover:ring-foreground/15 has-[a:focus-visible]:ring-ring/60 relative flex w-full flex-col gap-3 rounded-xl p-5 shadow-xs ring-1 transition duration-200 ease-out hover:shadow-md has-[a:focus-visible]:ring-2">
 			<div className="flex items-center justify-between gap-2">
-				<span className="bg-muted text-foreground flex size-8 items-center justify-center">
+				<span className="bg-muted text-foreground flex size-8 items-center justify-center rounded-lg">
 					<Icon className="size-4" aria-hidden="true" />
 				</span>
 				<span className="text-muted-foreground text-[10px] tracking-wider uppercase">
@@ -507,7 +507,7 @@ function FeatureCard({ feature }: { feature: Feature }) {
 				{to ? (
 					<Link
 						to={to}
-						className="outline-none after:absolute after:inset-0 focus-visible:underline"
+						className="outline-none after:absolute after:inset-0 after:rounded-xl focus-visible:underline"
 					>
 						{title}
 						<ArrowRight
@@ -594,7 +594,7 @@ function BringYourOwnAi() {
 					<ul className="flex flex-col gap-3 text-sm">
 						{[
 							"Your key is stored locally in the extension and sent only to the provider you pick.",
-							"Requests go straight from your browser to that provider, never through open-vidiq servers.",
+							"Requests go straight from your browser to that provider, never through GrowTube servers.",
 							"Run fully offline with a local model in Ollama or LM Studio.",
 							"No usage caps from us: you pay your provider directly, or nothing with a local model.",
 						].map((line) => (
@@ -614,7 +614,7 @@ function BringYourOwnAi() {
 						{PROVIDERS.map((provider) => (
 							<li
 								key={provider}
-								className="bg-background border px-2 py-1 text-[11px]"
+								className="bg-background rounded-full border px-2.5 py-1 text-[11px]"
 							>
 								{provider}
 							</li>
@@ -625,7 +625,10 @@ function BringYourOwnAi() {
 					</ul>
 				</div>
 
-				<div inert className="bg-card ring-foreground/10 p-5 shadow-xl ring-1">
+				<div
+					inert
+					className="bg-card ring-foreground/8 rounded-xl p-5 shadow-xl ring-1 shadow-black/10 dark:shadow-black/40"
+				>
 					<div className="flex items-center gap-2 border-b pb-3 text-sm font-medium">
 						<KeyRound className="size-4" aria-hidden="true" />
 						AI provider
@@ -649,7 +652,7 @@ function MockField({ label, value }: { label: string; value: string }) {
 	return (
 		<div className="flex flex-col gap-1">
 			<dt className="text-muted-foreground">{label}</dt>
-			<dd className="bg-background truncate border px-2.5 py-2 font-mono">
+			<dd className="bg-background truncate rounded-xl border px-3 py-2 font-mono">
 				{value}
 			</dd>
 		</div>
@@ -660,7 +663,7 @@ function InstallSection() {
 	const steps = [
 		{
 			title: "Get the code",
-			body: "Clone the open-vidiq repository and install dependencies with pnpm.",
+			body: "Clone the GrowTube repository and install dependencies with pnpm.",
 			code: "pnpm install",
 			caption: "Terminal, in the repo root",
 		},
@@ -684,7 +687,7 @@ function InstallSection() {
 		},
 		{
 			title: "Sign in",
-			body: "Open the extension's side panel and sign in with your open-vidiq account. Nothing runs until you do.",
+			body: "Open the extension's side panel and sign in with your GrowTube account. Nothing runs until you do.",
 			code: null,
 			caption: null,
 		},
@@ -702,17 +705,16 @@ function InstallSection() {
 					eyebrow="Install"
 					title="Up and running in two minutes"
 				>
-					open-vidiq isn't on the Chrome Web Store yet, so you build it
-					yourself. Pin it from the puzzle-piece menu, sign in, open YouTube,
-					and the badges appear. Add an AI provider in the settings whenever you
-					like.
+					GrowTube isn't on the Chrome Web Store yet, so you build it yourself.
+					Pin it from the puzzle-piece menu, sign in, open YouTube, and the
+					badges appear. Add an AI provider in the settings whenever you like.
 				</SectionHeading>
 				<ol className="grid gap-6 md:grid-cols-2">
 					{steps.map((step, i) => (
 						<li key={step.title} className="flex gap-4">
 							<span
 								aria-hidden="true"
-								className="bg-primary text-primary-foreground flex size-7 shrink-0 items-center justify-center text-xs font-semibold tabular-nums"
+								className="bg-primary text-primary-foreground flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold tabular-nums shadow-sm"
 							>
 								{i + 1}
 							</span>
@@ -749,12 +751,13 @@ function PrivacySection() {
 					eyebrow="Privacy"
 					title="Crowdsourced stats, nothing personal"
 				>
-					You need a free account to use open-vidiq, but the stats you share are
+					You need a free account to use GrowTube, but the stats you share are
 					not tied to it. View history and trends exist because signed-in
-					extension users share the public numbers they already see on YouTube;
-					the server checks that an upload comes from a signed-in account, then
-					stores it without any user ID. Unlisted and private videos are never
-					uploaded. The exact payload is defined in{" "}
+					extension users who turn on Share public stats (it's opt-in) share the
+					public numbers they already see on YouTube; the server checks that an
+					upload comes from a signed-in account, then stores it without any user
+					ID. Unlisted and private videos are never uploaded. The exact payload
+					is defined in{" "}
 					<code className="text-foreground font-mono text-xs">
 						packages/shared/src/api.ts
 					</code>
@@ -780,6 +783,13 @@ function PrivacySection() {
 						footnote="AI features talk directly to the provider you configure."
 					/>
 				</div>
+				<Link
+					to="/privacy"
+					className={cn(buttonVariants({ variant: "outline" }), "self-start")}
+				>
+					Read the full privacy policy
+					<ArrowRight aria-hidden="true" data-icon="inline-end" />
+				</Link>
 			</div>
 		</section>
 	);
@@ -798,7 +808,7 @@ function PrivacyList({
 }) {
 	const Icon = tone === "private" ? X : Check;
 	return (
-		<div className="bg-card ring-foreground/10 flex flex-col gap-4 p-5 ring-1">
+		<div className="bg-card ring-foreground/8 flex flex-col gap-4 rounded-xl p-5 shadow-xs ring-1">
 			<h3 className="flex items-center gap-2 text-sm font-semibold">
 				{tone === "account" ? (
 					<UserRound className="size-4" aria-hidden="true" />

@@ -1,6 +1,6 @@
-# open-vidiq
+# GrowTube
 
-**A free, open-source YouTube creator toolkit.** A Chrome extension plus a small
+**A free, source-available YouTube creator toolkit.** A Chrome extension plus a small
 server that give you the creator-growth features usually locked behind a
 subscription: views per hour, outlier scores, keyword research, SEO scoring,
 controversial-keyword checks, a Studio optimizer and an AI coach.
@@ -14,12 +14,12 @@ controversial-keyword checks, a Studio optimizer and an AI coach.
   through Ollama or LM Studio. Your API key stays in your browser and requests go
   straight from the extension to your provider.
 - **Crowdsourced history.** The extension can share the public numbers you already see
-  on YouTube (views, likes, comments, subscribers) with the open-vidiq server. That
-  builds view-history charts and a trending board for everyone. It's a switch in the
-  popup and in Settings, nothing personal is ever sent, and the server stores the
-  numbers without any link to your account.
+  on YouTube (views, likes, comments, subscribers) with the GrowTube server. That
+  builds view-history charts and a trending board for everyone. It's opt-in (a checkbox
+  on the sign-in form, and a switch in the popup and in Settings), nothing personal is
+  ever sent, and the server stores the numbers without any link to your account.
 
-open-vidiq is an independent project. It is not affiliated with YouTube, Google or
+GrowTube is an independent project. It is not affiliated with YouTube, Google or
 vidIQ.
 
 ## Features
@@ -99,7 +99,7 @@ Details: [`apps/server/README.md`](apps/server/README.md) and
 pnpm workspaces + Turborepo, TypeScript everywhere, Biome for linting and formatting.
 
 ```
-open-vidiq/
+growtube/
 ├── apps/
 │   ├── extension/   # Chrome MV3 extension (WXT + React 19)
 │   │   ├── entrypoints/   # background, youtube + studio content scripts, bridge, popup, side panel, options
@@ -132,9 +132,9 @@ pnpm install
 Any Postgres 15+ and Redis 6+ work. With Docker:
 
 ```bash
-docker run -d --name open-vidiq-postgres -p 5432:5432 \
-  -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=open_vidiq postgres:17
-docker run -d --name open-vidiq-redis -p 6379:6379 redis:7
+docker run -d --name growtube-postgres -p 5432:5432 \
+  -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=growtube postgres:17
+docker run -d --name growtube-redis -p 6379:6379 redis:7
 ```
 
 Every Redis key the server writes starts with `ovq:`, so a Redis instance shared with
@@ -149,7 +149,7 @@ Each app declares its variables in a `.env.schema` file
 
 ```bash
 NODE_ENV=development
-DATABASE_URL=postgres://postgres:postgres@localhost:5432/open_vidiq
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/growtube
 REDIS_URL=redis://localhost:6379
 BETTER_AUTH_SECRET=change-me-to-a-random-string-of-32-chars-or-more
 BETTER_AUTH_URL=http://localhost:3000
@@ -160,7 +160,7 @@ CORS_ORIGIN=http://localhost:3001
 # EXTENSION_ORIGINS=chrome-extension://abcdefghijklmnopabcdefghijklmnop
 ```
 
-`apps/web/.env`:
+`apps/web/.env` (local development only; the deploy sets `VITE_SERVER_URL` itself):
 
 ```bash
 VITE_SERVER_URL=http://localhost:3000
@@ -211,8 +211,9 @@ pnpm --filter extension live-check  # YouTube parsers against saved fixtures and
 
 ## Deploy
 
-The server deploys to Cloudflare Workers with [Alchemy](https://alchemy.run)
-(`packages/infra/alchemy.run.ts`), with the hourly cron trigger included.
+The server and the website deploy together to Cloudflare Workers with
+[Alchemy](https://alchemy.run) (`packages/infra/alchemy.run.ts`), with the server's
+hourly cron trigger included.
 
 1. **Connect Cloudflare** once:
 
@@ -221,55 +222,90 @@ The server deploys to Cloudflare Workers with [Alchemy](https://alchemy.run)
    pnpm exec alchemy profile edit --profile default --add Cloudflare
    ```
 
+   This needs a workers.dev subdomain on the account (Workers & Pages in the
+   dashboard). Use the Workers Paid plan: password hashing at sign-in and sign-up
+   takes ~50 ms of CPU, over the Free plan's 10 ms per request. Alchemy's
+   telemetry also crashes the CLI on exit on Windows; turn it off once with a
+   file `~/.alchemy/telemetry-disabled` containing `true`.
+
 2. **Provision the data stores.** Any Postgres reachable from Workers works; a
-   [Neon](https://neon.tech) database is the easiest. For Redis, use any Redis
-   reachable over TCP (Upstash, Redis Cloud, Aiven…); use a `rediss://` URL for TLS.
-   Then create the tables against the production database:
+   [Neon](https://neon.tech) database is the easiest (give the Worker the
+   **pooled** `-pooler` connection string). For Redis, use any Redis reachable over
+   TCP (Upstash, Redis Cloud, Aiven…) with a `rediss://` URL (TLS; Upstash requires
+   it). Put both in the same region and set `placement.region` in
+   `packages/infra/alchemy.run.ts` to match (it is `aws:ap-southeast-1`).
+
+3. **Set the production values** in `apps/server/.env.production.local`
+   (git-ignored), values in single quotes: `DATABASE_URL`, `REDIS_URL`,
+   `BETTER_AUTH_SECRET` (a new 32+ character random string), `CORS_ORIGIN` (the exact
+   origin of the website, `https://growtube.<your-subdomain>.workers.dev`, no trailing
+   slash; see step 4) and, optionally, `YOUTUBE_API_KEY` and `EXTENSION_ORIGINS` (your
+   published extension's `chrome-extension://<id>`; without it any extension origin may
+   call sign-in and sign-up, cookie-less requests only). The Alchemy CLI always runs with
+   `NODE_ENV=production`, so this file is layered over `apps/server/.env`. Any key
+   missing from it silently falls back to the local value in `apps/server/.env`;
+   add `# @disable=forEnv(production)` and `# ---` as the first two lines of
+   `apps/server/.env` to turn that into an error. `BETTER_AUTH_URL` is set by
+   Alchemy to the server Worker's URL.
+
+   Then create the tables in the production database, ideally over Neon's
+   **direct** (non-pooler) connection string set for this one command:
 
    ```bash
-   DATABASE_URL="postgres://…" pnpm db:push
+   DATABASE_URL='postgres://…' pnpm --filter @growtube/db db:push
    ```
-
-3. **Set the production values** for `DATABASE_URL`, `REDIS_URL`,
-   `BETTER_AUTH_SECRET` (32+ random characters), `CORS_ORIGIN` (the exact origin of your
-   deployed website, e.g. `https://open-vidiq.example.com`) and, optionally,
-   `YOUTUBE_API_KEY` and `EXTENSION_ORIGINS` (your published extension's
-   `chrome-extension://<id>`; without it any extension origin may call sign-in and
-   sign-up, cookie-less requests only). Either export them in your shell (process variables always win) or
-   put them in `apps/server/.env.production.local` (git-ignored) and deploy with
-   `NODE_ENV=production`. `BETTER_AUTH_URL` is set by Alchemy to the Worker's URL.
-   Optionally set `ALCHEMY_PASSWORD` to encrypt secrets in Alchemy's state.
 
 4. **Deploy:**
 
    ```bash
-   pnpm run deploy
+   pnpm run deploy --stage production
    ```
 
-   Use `pnpm run deploy`, not `pnpm deploy`: the latter is a built-in pnpm command.
-   Deploys go to a personal `dev_<username>` stage by default; for production run
-   `cd packages/infra && pnpm exec alchemy deploy --stage production`. The output prints
-   the Worker URL. `pnpm run destroy` tears the stage down.
+   Use `pnpm run deploy`, not `pnpm deploy` (a built-in pnpm command), and always the
+   same `--stage production`. It deploys two Workers and prints both URLs at the end:
+   - **`growtube-api`**, the server, at `https://growtube-api.<your-subdomain>.workers.dev`.
+   - **`growtube`**, the website, at `https://growtube.<your-subdomain>.workers.dev`.
+     Alchemy builds `apps/web` with `VITE_SERVER_URL` set to the deployed server's URL
+     (no `apps/web` env file is needed for production) and serves `apps/web/dist`, with
+     security headers and long-lived caching for the hashed `/assets/*` files. Unknown
+     page paths fall back to `index.html` (single-page app), so routes like `/privacy`
+     and `/dashboard` load directly. A small script (`packages/infra/web-worker.ts`)
+     answers only requests that match no file: missing files get a real 404 (so a tab
+     left open across a deploy reloads itself instead of caching HTML as a script), and
+     page paths fetched by crawlers and link previews get `index.html`. The site is
+     rebuilt only when `apps/web`, `packages/shared`, `packages/ui`, their tsconfigs or
+     the lockfile change.
 
-5. **Website:** build it with the server URL and host `apps/web/dist` on any static host
-   (Cloudflare Pages, Netlify, an S3 bucket…), with a fallback to `index.html` for
-   client-side routes:
+   The server's `CORS_ORIGIN` (step 3) must equal the website's URL, or sign-in from the
+   website is refused; if you change it, deploy again. Run deploys from the repo root
+   (or `packages/infra`): the paths in `alchemy.run.ts` are relative to `packages/infra`.
+   `pnpm run destroy --stage production` tears both Workers down.
+
+5. **Extension:** build the Chrome Web Store package:
 
    ```bash
-   VITE_SERVER_URL=https://<your-worker>.workers.dev pnpm --filter web build
+   pnpm --filter extension zip:store
    ```
 
-   If its origin differs from the `CORS_ORIGIN` you deployed with, update it and deploy
-   the server again.
+   This writes `apps/extension/.output/growtube-<version>-chrome.zip`, built against the
+   production URLs in `apps/extension/.env.store` (`WXT_SERVER_URL` and `WXT_WEB_URL`,
+   public values that ship in the extension; point them at your own deployment). Local
+   `dev` and `build` don't read that file and stay on `http://localhost:3000`.
+   `zip:store` reuses `apps/extension/.output/chrome-mv3`, so run
+   `pnpm --filter extension build` afterwards to get the localhost build back. A ZIP
+   built against a plain-http server (a plain `pnpm --filter extension zip`) is named
+   `growtube-<version>-chrome-localhost.zip`; never upload that one.
 
-6. **Extension:** set `WXT_SERVER_URL=https://<your-worker>.workers.dev` in
-   `apps/extension/.env`, then `pnpm --filter extension zip` for a store-ready zip in
-   `apps/extension/.output/`. Users of an existing build can instead point
+   Upload the ZIP in the Chrome Web Store developer dashboard: the store takes the ZIP
+   and signs the `.crx` itself. Bump `"version"` in `apps/extension/package.json` for
+   every upload (each one must be higher than the last). After the first publish, add
+   `EXTENSION_ORIGINS=chrome-extension://<store id>` to the server's production values
+   (step 3) and deploy the server again. Users of an existing build can instead point
    **Settings → Server & privacy** at any server.
 
 ## Accounts & privacy
 
-open-vidiq only works signed in: the extension, the website's tools, the REST API and
+GrowTube only works signed in: the extension, the website's tools, the REST API and
 MCP all need a (free) account. This is exactly what the server stores:
 
 - **Account:** your name, your email address and a hash of your password (scrypt,
@@ -282,7 +318,8 @@ MCP all need a (free) account. This is exactly what the server stores:
   optional expiry times. The full key is shown once, when you create it.
 - **Crowdsourced uploads are not linked to accounts.** Uploads need a signed-in
   extension, but the server never stores who sent what: video and channel rows and
-  snapshots have no user column. With crowdsourcing on, the extension sends only
+  snapshots have no user column. With crowdsourcing on (it is opt-in, off until the
+  user ticks "Share public stats"), the extension sends only
   public numbers and metadata: video id, title, channel id and name, publish date,
   duration, Short or not, views, likes and comments, and for channels their handle,
   name, avatar (only a YouTube image URL is kept), subscribers, total views, video
@@ -293,6 +330,10 @@ MCP all need a (free) account. This is exactly what the server stores:
   With a YouTube Data API key the server also re-checks the visibility of the videos
   it refreshes every hour, and deletes one that became unlisted or private together
   with its history.
+- **Stats lookups** happen whenever you're signed in, sharing on or off: the extension
+  asks the server about the public videos and channels it shows you (and your
+  competitors' channels) by id, and Trends sends its search text. They are answered
+  from the database and not stored with the account.
 - **Rate limits** count requests in Redis under an HMAC of your user id (or, for
   sign-in, sign-up and account deletion, of your IP address or its IPv6 /64, and for
   sign-in also of the email address), never the id, IP or email itself; the counters
@@ -312,11 +353,12 @@ MCP all need a (free) account. This is exactly what the server stores:
 In the extension and browser:
 
 - The extension talks to YouTube anonymously (no cookies) and caches results locally.
-  It keeps your open-vidiq session token in extension storage.
+  It keeps your GrowTube session token in extension storage.
 - AI requests go from your browser to the provider you configure, with your own key.
-  The open-vidiq server never sees them.
+  The GrowTube server never sees them.
 
 ## License
 
-No license file has been chosen yet. Add one (for example MIT or AGPL-3.0) before
-publishing the repository.
+No license file has been chosen yet, so the code is source-available, not open source.
+Add one (for example MIT or AGPL-3.0) before publishing the repository; the website,
+the extension and the store listing then can say "open source" again.

@@ -1,7 +1,4 @@
-import type {
-	ChannelHistoryPoint,
-	VideoHistoryPoint,
-} from "@open-vidiq/shared";
+import type { ChannelHistoryPoint, VideoHistoryPoint } from "@growtube/shared";
 
 import type { ChartPoint } from "@/components/charts/area-chart";
 

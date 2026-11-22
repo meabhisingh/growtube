@@ -14,7 +14,7 @@ import {
 	formatOutlier,
 	formatPercent,
 	formatRelative,
-} from "@open-vidiq/shared/format";
+} from "@growtube/shared/format";
 
 import type { CoachContext } from "./types";
 
@@ -206,7 +206,7 @@ export function renderContext(ctx: CoachContext | undefined | null): string {
 export function coachSystemPrompt(ctx?: CoachContext | null): string {
 	const context = renderContext(ctx);
 	return [
-		"You are the open-vidiq Coach: a sharp, practical YouTube growth strategist who has helped thousands of creators grow.",
+		"You are the GrowTube Coach: a sharp, practical YouTube growth strategist who has helped thousands of creators grow.",
 		"Principles:",
 		"- Be specific and actionable. Prefer concrete examples (actual title rewrites, hook scripts, thumbnail text) over generic advice.",
 		"- Ground claims in the data provided below. Never invent statistics; if a number you need is missing, say what to check.",

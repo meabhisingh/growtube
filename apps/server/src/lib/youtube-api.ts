@@ -2,7 +2,7 @@
  * Minimal YouTube Data API v3 client (videos.list / channels.list), used by
  * the hourly cron. Each list call costs 1 quota unit for up to 50 ids.
  */
-import { parseIsoDuration } from "@open-vidiq/shared";
+import { parseIsoDuration } from "@growtube/shared";
 import { z } from "zod";
 
 export const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";

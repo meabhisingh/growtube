@@ -1,11 +1,11 @@
-import { channelSnapshots, channels, desc, eq, sql } from "@open-vidiq/db";
+import { channelSnapshots, channels, desc, eq, sql } from "@growtube/db";
 import type {
 	ChannelHistoryResponse,
 	ChannelResolveResponse,
 	ChannelSnapshotInput,
 	IngestResponse,
-} from "@open-vidiq/shared";
-import { youTubeImageOrNull } from "@open-vidiq/shared/images";
+} from "@growtube/shared";
+import { youTubeImageOrNull } from "@growtube/shared/images";
 
 import { type Cached, cachedJson, cacheKeys, invalidate } from "../lib/cache";
 import { canonicalYouTubeImageUrl } from "../lib/images";

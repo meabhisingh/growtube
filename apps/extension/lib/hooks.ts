@@ -40,7 +40,7 @@ export function useStorageItem<T>(
 				setLocal(v);
 			})
 			.catch((error: unknown) =>
-				console.error("[open-vidiq] storage read failed", item.key, error),
+				console.error("[GrowTube] storage read failed", item.key, error),
 			)
 			.finally(() => alive && setLoading(false));
 		const unwatch = item.watch((v) => {

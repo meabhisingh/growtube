@@ -1,4 +1,4 @@
-import { Button, buttonVariants } from "@open-vidiq/ui/components/button";
+import { Button, buttonVariants } from "@growtube/ui/components/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -7,9 +7,9 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@open-vidiq/ui/components/dropdown-menu";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/dropdown-menu";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { KeyRound, LayoutDashboard, LogOut } from "lucide-react";
 import { toast } from "sonner";
@@ -22,7 +22,7 @@ export default function UserMenu() {
 	const { data: session, isPending } = authClient.useSession();
 
 	if (isPending) {
-		return <Skeleton className="h-8 w-20" />;
+		return <Skeleton className="h-8 w-20 rounded-xl" />;
 	}
 
 	if (!session) {

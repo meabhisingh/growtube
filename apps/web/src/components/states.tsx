@@ -1,4 +1,4 @@
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 import {
 	Empty,
 	EmptyContent,
@@ -6,8 +6,8 @@ import {
 	EmptyHeader,
 	EmptyMedia,
 	EmptyTitle,
-} from "@open-vidiq/ui/components/empty";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/empty";
+import { cn } from "@growtube/ui/lib/utils";
 import { type LucideIcon, RefreshCw, TriangleAlert } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -31,7 +31,7 @@ export function EmptyState({
 	role,
 }: EmptyStateProps) {
 	return (
-		<Empty role={role} className={cn("border", className)}>
+		<Empty role={role} className={cn("rounded-xl border", className)}>
 			<EmptyHeader>
 				<EmptyMedia variant="icon">
 					<Icon aria-hidden="true" />
@@ -95,7 +95,7 @@ export function StaleBanner({
 	return (
 		<div
 			role="status"
-			className="border-destructive/30 bg-destructive/5 flex flex-wrap items-center justify-between gap-2 border px-3 py-2 text-xs"
+			className="border-destructive/25 bg-destructive/5 flex flex-wrap items-center justify-between gap-2 rounded-xl border py-2 pr-2 pl-3.5 text-xs"
 		>
 			<span className="text-destructive flex items-center gap-2">
 				<TriangleAlert className="size-3.5" aria-hidden="true" />

@@ -110,7 +110,7 @@ const OPENAI_RULES: readonly Rule[] = [
 	},
 ];
 
-/** Retired ids of other presets (old open-vidiq defaults included). */
+/** Retired ids of other presets (old GrowTube defaults included). */
 const PRESET_RULES: Readonly<Record<string, readonly Rule[]>> = {
 	groq: [
 		{

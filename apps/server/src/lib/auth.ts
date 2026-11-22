@@ -2,7 +2,7 @@ import {
 	AUTH_REQUIRED_CODE,
 	type AuthRequiredError,
 	MCP_API_KEY_HEADER,
-} from "@open-vidiq/shared/auth";
+} from "@growtube/shared/auth";
 import type { Context, MiddlewareHandler } from "hono";
 
 import { ENV } from "../env.server";
@@ -103,12 +103,12 @@ function apiKeyRequired(c: Context<AppEnv>, keySent: boolean) {
 	c.header(
 		"WWW-Authenticate",
 		keySent
-			? 'Bearer realm="open-vidiq", error="invalid_token", error_description="Invalid or expired API key"'
-			: 'Bearer realm="open-vidiq"',
+			? 'Bearer realm="GrowTube", error="invalid_token", error_description="Invalid or expired API key"'
+			: 'Bearer realm="GrowTube"',
 	);
 	const body: AuthRequiredError = {
 		error: keySent
-			? "Invalid or expired API key. Create one on the open-vidiq website (MCP page)."
+			? "Invalid or expired API key. Create one on the GrowTube website (MCP page)."
 			: "API key required: send it in the x-api-key header or as Authorization: Bearer <key>.",
 		code: AUTH_REQUIRED_CODE,
 	};

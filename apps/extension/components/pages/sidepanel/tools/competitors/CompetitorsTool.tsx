@@ -7,10 +7,10 @@ import {
 	formatCompact,
 	formatNumber,
 	formatRelative,
-} from "@open-vidiq/shared/format";
-import { channelUrl } from "@open-vidiq/shared/youtube";
-import { Button } from "@open-vidiq/ui/components/button";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/shared/format";
+import { channelUrl } from "@growtube/shared/youtube";
+import { Button } from "@growtube/ui/components/button";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	ChevronDown,
 	Crown,
@@ -300,7 +300,10 @@ function CompetitorCard({
 		.filter((v): v is number => v != null);
 
 	return (
-		<div ref={ref} className="bg-card ring-foreground/8 flex flex-col ring-1">
+		<div
+			ref={ref}
+			className="bg-card ring-foreground/7 flex flex-col overflow-hidden rounded-xl shadow-xs ring-1"
+		>
 			<div className="flex items-start gap-2.5 p-3">
 				<button
 					type="button"
@@ -395,11 +398,11 @@ function CompetitorCard({
 				type="button"
 				onClick={() => setExpanded((e) => !e)}
 				aria-expanded={expanded}
-				className="text-muted-foreground hover:text-foreground focus-visible:text-foreground flex items-center gap-1.5 border-t px-3 py-1.5 text-[11px] outline-none"
+				className="text-muted-foreground hover:text-foreground hover:bg-foreground/[0.03] focus-visible:text-foreground focus-visible:bg-foreground/[0.04] flex items-center gap-1.5 border-t px-3 py-2 text-[11px] transition-colors duration-150 outline-none"
 			>
 				<ChevronDown
 					className={cn(
-						"size-3.5 transition-transform",
+						"size-3.5 transition-transform duration-200",
 						!expanded && "-rotate-90",
 					)}
 					aria-hidden

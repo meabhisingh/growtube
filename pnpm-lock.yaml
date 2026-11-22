@@ -66,7 +66,7 @@ importers:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
         version: 5.20261114.1
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:packages/config
       '@types/node':
@@ -87,10 +87,10 @@ importers:
 
   apps/extension:
     dependencies:
-      '@open-vidiq/shared':
+      '@growtube/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@open-vidiq/ui':
+      '@growtube/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:
@@ -148,13 +148,13 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.32.2
         version: 1.32.2(supports-color@10.2.2)(zod@4.6.7)
-      '@open-vidiq/auth':
+      '@growtube/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@open-vidiq/db':
+      '@growtube/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@open-vidiq/shared':
+      '@growtube/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       better-auth:
@@ -176,10 +176,10 @@ importers:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
         version: 5.20261114.1
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@open-vidiq/infra':
+      '@growtube/infra':
         specifier: workspace:*
         version: link:../../packages/infra
       '@types/node':
@@ -200,10 +200,10 @@ importers:
       '@better-auth/api-key':
         specifier: 1.7.22
         version: 1.7.22(@better-auth/core@1.7.22(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.5(zod@4.6.7))(jose@6.2.17)(kysely@0.29.9)(nanostores@1.5.5))(@better-auth/utils@0.5.1)(better-auth@1.7.22(drizzle-kit@1.0.0-rc.5(drizzle-orm@1.0.0-rc.5(@cloudflare/workers-types@5.20261114.1)(@effect/sql-d1@4.1.4(effect@4.1.4))(@neondatabase/serverless@1.2.1)(@types/pg@8.23.1)(effect@4.1.4)(pg@8.23.1)(zod@4.6.7)))(drizzle-orm@1.0.0-rc.5(@cloudflare/workers-types@5.20261114.1)(@effect/sql-d1@4.1.4(effect@4.1.4))(@neondatabase/serverless@1.2.1)(@types/pg@8.23.1)(effect@4.1.4)(pg@8.23.1)(zod@4.6.7))(pg@8.23.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(better-call@1.4.5(zod@4.6.7))
-      '@open-vidiq/shared':
+      '@growtube/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@open-vidiq/ui':
+      '@growtube/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@tailwindcss/vite':
@@ -243,7 +243,7 @@ importers:
         specifier: 'catalog:'
         version: 4.6.7
     devDependencies:
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../../packages/config
       '@tanstack/react-router-devtools':
@@ -288,7 +288,7 @@ importers:
       '@better-auth/drizzle-adapter':
         specifier: 1.7.22
         version: 1.7.22(@better-auth/core@1.7.22(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.5(zod@4.6.7))(jose@6.2.17)(kysely@0.29.9)(nanostores@1.5.5))(@better-auth/utils@0.5.1)(drizzle-orm@1.0.0-rc.5(@cloudflare/workers-types@5.20261114.1)(@effect/sql-d1@4.1.4(effect@4.1.4))(@neondatabase/serverless@1.2.1)(@types/pg@8.23.1)(effect@4.1.4)(pg@8.23.1)(zod@4.6.7))
-      '@open-vidiq/db':
+      '@growtube/db':
         specifier: workspace:*
         version: link:../db
       better-auth:
@@ -301,7 +301,7 @@ importers:
         specifier: 'catalog:'
         version: 4.6.7
     devDependencies:
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../config
       typescript:
@@ -322,7 +322,7 @@ importers:
         specifier: 'catalog:'
         version: 4.6.7
     devDependencies:
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../config
       '@types/pg':
@@ -353,7 +353,7 @@ importers:
       '@effect/platform-node':
         specifier: 4.1.4
         version: 4.1.4(effect@4.1.4)(redis@6.3.1)
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../config
       alchemy:
@@ -375,7 +375,7 @@ importers:
         specifier: 'catalog:'
         version: 4.6.7
     devDependencies:
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../config
       typescript:
@@ -418,7 +418,7 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
     devDependencies:
-      '@open-vidiq/config':
+      '@growtube/config':
         specifier: workspace:*
         version: link:../config
       '@tailwindcss/postcss':

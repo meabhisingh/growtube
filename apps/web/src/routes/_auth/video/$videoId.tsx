@@ -11,8 +11,8 @@ import {
 	thumbnailUrl,
 	type VideoHistoryResponse,
 	videoUrl,
-} from "@open-vidiq/shared";
-import { buttonVariants } from "@open-vidiq/ui/components/button";
+} from "@growtube/shared";
+import { buttonVariants } from "@growtube/ui/components/button";
 import {
 	Card,
 	CardContent,
@@ -20,9 +20,9 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@open-vidiq/ui/components/card";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/card";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	createFileRoute,
 	Link,
@@ -73,7 +73,7 @@ type VideoSearch = z.output<typeof videoSearchSchema>;
 export const Route = createFileRoute("/_auth/video/$videoId")({
 	validateSearch: videoSearchSchema,
 	search: { middlewares: [stripSearchParams(searchDefaults)] },
-	head: () => ({ meta: [{ title: "Video stats · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "Video stats · GrowTube" }] }),
 	component: VideoPage,
 });
 
@@ -255,14 +255,14 @@ function VideoHeader({
 				href={videoUrl(videoId)}
 				target="_blank"
 				rel="noreferrer"
-				className="group bg-muted ring-foreground/10 relative block aspect-video overflow-hidden ring-1"
+				className="group bg-muted ring-foreground/8 focus-visible:ring-ring/60 relative block aspect-video overflow-hidden rounded-xl shadow-sm ring-1 transition-shadow duration-200 outline-none hover:shadow-md focus-visible:ring-2"
 				aria-label="Watch on YouTube"
 			>
 				<img
 					src={thumbnailUrl(videoId, "hqdefault")}
 					alt=""
 					referrerPolicy="no-referrer"
-					className="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+					className="size-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
 				/>
 			</a>
 			<div className="flex min-w-0 flex-col gap-3">
@@ -271,7 +271,7 @@ function VideoHeader({
 						Video stats
 					</p>
 					{titleLoading ? (
-						<Skeleton className="h-7 w-3/4" />
+						<Skeleton className="h-7 w-3/4 rounded-md" />
 					) : (
 						<h1
 							id="video-title"
@@ -454,7 +454,7 @@ function ChartCard({
 
 	let body: ReactNode;
 	if (isPending || (isFetching && !points)) {
-		body = <Skeleton className="h-[260px] w-full" />;
+		body = <Skeleton className="h-[260px] w-full rounded-lg" />;
 	} else if (error && !points) {
 		body = (
 			<ErrorState
@@ -472,7 +472,7 @@ function ChartCard({
 				title={`No snapshots from ${RANGE_TEXT[range]}`}
 				description={
 					history?.firstSeenAt
-						? `open-vidiq first saw this video ${formatRelative(history.firstSeenAt)}, so there's no data from ${RANGE_TEXT[range]} after publishing.`
+						? `GrowTube first saw this video ${formatRelative(history.firstSeenAt)}, so there's no data from ${RANGE_TEXT[range]} after publishing.`
 						: "This range has no snapshots yet."
 				}
 				className="min-h-[260px]"
@@ -573,7 +573,7 @@ function NotTrackedState({ videoId }: { videoId: string }) {
 	return (
 		<EmptyState
 			icon={History}
-			title="open-vidiq hasn't tracked this video yet"
+			title="GrowTube hasn't tracked this video yet"
 			description="View history is built from public stats that signed-in extension users see on YouTube. Open this video with the extension installed and tracking starts right away. Unlisted and private videos are never tracked."
 		>
 			<a

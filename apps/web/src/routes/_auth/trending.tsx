@@ -1,7 +1,7 @@
-import { formatRelative, trendingQuery } from "@open-vidiq/shared";
-import { Button, buttonVariants } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatRelative, trendingQuery } from "@growtube/shared";
+import { Button, buttonVariants } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	createFileRoute,
 	Link,
@@ -45,7 +45,7 @@ type TrendingSearch = z.output<typeof trendingSearchSchema>;
 export const Route = createFileRoute("/_auth/trending")({
 	validateSearch: trendingSearchSchema,
 	search: { middlewares: [stripSearchParams(searchDefaults)] },
-	head: () => ({ meta: [{ title: "Trending on YouTube · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "Trending on YouTube · GrowTube" }] }),
 	component: TrendingPage,
 });
 
@@ -96,8 +96,8 @@ function TrendingPage() {
 				</h1>
 				<p className="text-muted-foreground max-w-2xl text-sm">
 					The fastest-growing videos by views per hour, from public stats that
-					open-vidiq users see while they browse YouTube. Free, unlimited,
-					updated continuously.
+					GrowTube users see while they browse YouTube. Free, unlimited, updated
+					continuously.
 				</p>
 			</div>
 
@@ -179,7 +179,7 @@ function TrendingPage() {
 					<EmptyState
 						icon={Flame}
 						title="Nothing trending here yet"
-						description="The board fills up as people browse YouTube with the open-vidiq extension. Install it and every video you see helps."
+						description="The board fills up as people browse YouTube with the GrowTube extension. Install it and every video you see helps."
 					>
 						<Link
 							to="/"
@@ -264,7 +264,7 @@ function SearchBox({ value, onCommit }: SearchBoxProps) {
 				</label>
 				<Search
 					aria-hidden="true"
-					className="text-muted-foreground pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2"
+					className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-3.5 -translate-y-1/2"
 				/>
 				<Input
 					id="trending-search"
@@ -273,7 +273,7 @@ function SearchBox({ value, onCommit }: SearchBoxProps) {
 					maxLength={100}
 					onChange={(event) => setDraft(event.target.value)}
 					placeholder="Filter by title…"
-					className="pr-8 pl-8 [&::-webkit-search-cancel-button]:hidden"
+					className="pr-9 pl-8.5 [&::-webkit-search-cancel-button]:hidden"
 				/>
 				{draft && (
 					<button
@@ -282,7 +282,7 @@ function SearchBox({ value, onCommit }: SearchBoxProps) {
 							setDraft("");
 							commit("");
 						}}
-						className="text-muted-foreground hover:text-foreground absolute top-1/2 right-1.5 -translate-y-1/2 p-1"
+						className="text-muted-foreground hover:text-foreground hover:bg-muted focus-visible:ring-ring/50 absolute top-1/2 right-1.5 -translate-y-1/2 rounded-lg p-1 transition-colors duration-150 outline-none focus-visible:ring-2"
 						aria-label="Clear search"
 					>
 						<X className="size-3.5" aria-hidden="true" />

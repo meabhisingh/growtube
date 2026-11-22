@@ -1,6 +1,7 @@
-// Builds every open-vidiq logo asset from the brand master
+// Builds every GrowTube logo asset from the brand master
 // (assets/brand/logo-source.png, a lossless copy of the owner's artwork):
 //   public/icon/{16,32,48,96,128}.png      extension icons
+//   store/images/store-icon-128.png        Chrome Web Store icon (96px art, 16px padding)
 //   components/common/logo-data.ts         inlined image for <Logo>
 //   ../web/public/favicon-{16,32}.png, apple-touch-icon.png,
 //   icon-{192,512}.png, logo.png (linked from apps/web/index.html)
@@ -15,6 +16,7 @@ const appRoot = join(here, "..");
 const repoRoot = join(appRoot, "..", "..");
 const MASTER = join(appRoot, "assets", "brand", "logo-source.png");
 const ICON_DIR = join(appRoot, "public", "icon");
+const STORE_ICON = join(appRoot, "store", "images", "store-icon-128.png");
 const LOGO_DATA = join(appRoot, "components", "common", "logo-data.ts");
 const WEB_PUBLIC = join(appRoot, "..", "web", "public");
 
@@ -27,6 +29,12 @@ const MARGIN = 0.05;
  */
 const ALPHA_LO = 8;
 const ALPHA_HI = 248;
+/**
+ * Chrome Web Store icon: 128x128 with the artwork in the middle 96x96 and
+ * 16px of transparent padding per side (developer.chrome.com/docs/webstore/images).
+ */
+const STORE_SIZE = 128;
+const STORE_ART = 96;
 /** <Logo> is drawn at up to 36px, so the inlined image is 2x that. */
 const INLINE_SIZE = 72;
 /** Logo size inside the 180px opaque apple-touch-icon. */
@@ -110,6 +118,26 @@ for (const size of [16, 32, 48, 96, 128]) {
 	write(join(ICON_DIR, `${size}.png`), await png(size));
 }
 
+// Store icon: the square master already has MARGIN around the artwork, so
+// scale it until the artwork itself is STORE_ART wide, then pad to 128.
+{
+	const inner = Math.round(STORE_ART / (1 - 2 * MARGIN));
+	const pad = Math.floor((STORE_SIZE - inner) / 2);
+	write(
+		STORE_ICON,
+		await sharp(await png(inner))
+			.extend({
+				left: pad,
+				right: STORE_SIZE - inner - pad,
+				top: pad,
+				bottom: STORE_SIZE - inner - pad,
+				background: { r: 0, g: 0, b: 0, alpha: 0 },
+			})
+			.png(PNG)
+			.toBuffer(),
+	);
+}
+
 // <Logo> renders in shadow DOM on youtube.com, where chrome-extension://
 // URLs would need web_accessible_resources, so the image is inlined.
 const inline = await sharp(await png(INLINE_SIZE))
@@ -122,7 +150,7 @@ write(
 /** Pixel size of LOGO_DATA_URI (2x the largest <Logo> size). */
 export const LOGO_DATA_SIZE = ${INLINE_SIZE};
 
-/** open-vidiq logo as an inlined WebP (${inline.length} bytes). */
+/** GrowTube logo as an inlined WebP (${inline.length} bytes). */
 export const LOGO_DATA_URI =
 	"data:image/webp;base64,${inline.toString("base64")}";
 `),

@@ -1,5 +1,5 @@
 /**
- * Everything open-vidiq injects into youtube.com:
+ * Everything GrowTube injects into youtube.com:
  * - feed badges (VPH / outlier / subscribers) under video cards,
  * - the watch page panel (Views / Overview / AI Coach),
  * - Shorts controls (speed, seek, auto-scroll, mini stats).
@@ -79,7 +79,7 @@ export default defineContentScript({
 				authUser.getValue(),
 			]);
 		} catch (error) {
-			console.debug("[open-vidiq] couldn't read settings", error);
+			console.debug("[GrowTube] couldn't read settings", error);
 		}
 		if (ctx.isInvalid) return;
 		signedIn = !!user;

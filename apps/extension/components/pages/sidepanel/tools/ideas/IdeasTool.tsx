@@ -4,11 +4,11 @@
  * thumbnail concept (thumbnailConcepts generator). Save ideas to
  * settings.savedIdeas and manage them in the Saved tab.
  */
-import { formatRelative } from "@open-vidiq/shared/format";
-import { Button } from "@open-vidiq/ui/components/button";
-import { Checkbox } from "@open-vidiq/ui/components/checkbox";
-import { Input } from "@open-vidiq/ui/components/input";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatRelative } from "@growtube/shared/format";
+import { Button } from "@growtube/ui/components/button";
+import { Checkbox } from "@growtube/ui/components/checkbox";
+import { Input } from "@growtube/ui/components/input";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	Bookmark,
 	BookmarkCheck,
@@ -382,7 +382,7 @@ function IdeaCard({
 	};
 
 	return (
-		<article className="bg-card ring-foreground/8 flex flex-col gap-2.5 p-3 ring-1">
+		<article className="bg-card ring-foreground/7 flex flex-col gap-2.5 rounded-xl p-3 shadow-xs ring-1">
 			<div className="flex items-start gap-2">
 				<div className="flex min-w-0 flex-1 flex-col gap-1.5">
 					<Badge
@@ -412,7 +412,7 @@ function IdeaCard({
 				</p>
 			</div>
 
-			<div className="bg-surface-2 flex flex-col gap-1.5 p-2.5">
+			<div className="bg-surface-2 flex flex-col gap-1.5 rounded-lg p-2.5">
 				<Eyebrow>Thumbnail concept</Eyebrow>
 				{concept ? (
 					<ConceptView concept={concept} />
@@ -437,7 +437,7 @@ function IdeaCard({
 							key={k}
 							type="button"
 							onClick={() => navigate("keywords", { prefill: k })}
-							className="bg-surface text-muted-foreground hover:border-brand/50 hover:text-brand border px-1.5 py-0.5 text-[11px]"
+							className="bg-surface text-muted-foreground hover:border-brand/40 hover:text-brand focus-visible:ring-ring/50 rounded-lg border px-1.5 py-0.5 text-[11px] transition-colors duration-150 outline-none focus-visible:ring-2"
 							title="Research this keyword"
 						>
 							{k}
@@ -508,7 +508,7 @@ function ConceptView({ concept }: { concept: ThumbnailConcept }) {
 					{concept.colors.slice(0, 6).map((c) => (
 						<span
 							key={c}
-							className="ring-foreground/15 h-3 w-6 ring-1"
+							className="ring-foreground/15 h-3 w-6 rounded-full ring-1"
 							style={{ background: c }}
 							title={c}
 						/>
@@ -590,7 +590,7 @@ function SavedIdeasList() {
 							<div
 								key={idea.id}
 								className={cn(
-									"group bg-card ring-foreground/8 flex items-start gap-2.5 p-2.5 ring-1",
+									"group bg-card ring-foreground/7 flex items-start gap-2.5 rounded-xl p-2.5 shadow-xs ring-1 transition-opacity duration-150",
 									idea.done && "opacity-60",
 								)}
 							>

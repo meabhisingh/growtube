@@ -1,5 +1,5 @@
 {
-	"name": "@open-vidiq/shared",
+	"name": "@growtube/shared",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -14,7 +14,7 @@
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@open-vidiq/config": "workspace:*",
+		"@growtube/config": "workspace:*",
 		"typescript": "catalog:"
 	}
 }

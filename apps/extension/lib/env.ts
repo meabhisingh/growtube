@@ -11,13 +11,13 @@ function readEnv(key: string): string | undefined {
 	}
 }
 
-/** Default open-vidiq server (Hono worker). Users can override it in Settings. */
+/** Default GrowTube server (Hono worker). Users can override it in Settings. */
 export const DEFAULT_SERVER_URL = (
 	readEnv("WXT_SERVER_URL") ?? "http://localhost:3000"
 ).replace(/\/+$/, "");
 
 /**
- * The open-vidiq web app for the default server (WXT_WEB_URL), where MCP API
+ * The GrowTube web app for the default server (WXT_WEB_URL), where MCP API
  * keys are managed. null when not configured.
  */
 export const DEFAULT_WEB_URL: string | null =

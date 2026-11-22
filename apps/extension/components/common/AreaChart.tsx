@@ -7,7 +7,7 @@
  *   --ovq-chart-tooltip-bg, --ovq-chart-tooltip-fg
  * Text inherits `color` / `font-family` from the parent.
  */
-import { formatCompact } from "@open-vidiq/shared/format";
+import { formatCompact } from "@growtube/shared/format";
 import {
 	type CSSProperties,
 	type PointerEvent,
@@ -203,7 +203,7 @@ export function AreaChart({
 						fontSize: 12,
 						opacity: 0.6,
 						border: "1px dashed var(--ovq-chart-grid, rgba(127,127,127,0.3))",
-						borderRadius: 8,
+						borderRadius: 10,
 					}}
 				>
 					{emptyText}
@@ -336,13 +336,14 @@ export function AreaChart({
 							Math.max(0, width - 120),
 						),
 						minWidth: 120,
-						padding: "5px 8px",
-						borderRadius: 6,
+						padding: "6px 10px",
+						borderRadius: 10,
 						fontSize: 11,
 						lineHeight: 1.35,
 						background: "var(--ovq-chart-tooltip-bg, rgba(20,20,20,0.92))",
 						color: "var(--ovq-chart-tooltip-fg, #fff)",
-						boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+						boxShadow:
+							"0 1px 2px rgba(0,0,0,0.08), 0 6px 20px -4px rgba(0,0,0,0.22)",
 						whiteSpace: "nowrap",
 						zIndex: 1,
 					}}

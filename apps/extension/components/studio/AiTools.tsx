@@ -3,7 +3,7 @@
  * thumbnail ideas. Every result can be copied; titles, descriptions and tags
  * can be applied to Studio's fields (never saved: the creator clicks Save).
  */
-import { formatNumber } from "@open-vidiq/shared/format";
+import { formatNumber } from "@growtube/shared/format";
 import {
 	Check,
 	Download,
@@ -41,6 +41,9 @@ type Job<T> = {
 };
 
 const IDLE = { status: "idle" } as const;
+
+/** CopyButton sits next to small Btns, so it gets their radius. */
+const COPY_STYLE = { borderRadius: "var(--ovq-radius-inner)" } as const;
 
 /** A remembered async job (survives remounts, keyed per video). */
 function useJob<T>(key: string) {
@@ -235,7 +238,12 @@ function TitleIdeas(p: AiToolsProps) {
 									<div className="ovq-small ovq-muted">{t.why}</div>
 								) : null}
 								<div className="ovq-result-actions">
-									<CopyButton text={t.title} label="Copy" size={12} />
+									<CopyButton
+										text={t.title}
+										label="Copy"
+										size={12}
+										style={COPY_STYLE}
+									/>
 									<Btn
 										small
 										icon={<Wand2 size={12} />}
@@ -383,7 +391,12 @@ function DescriptionWriter(p: AiToolsProps) {
 						) : null}
 					</div>
 					<div className="ovq-result-actions">
-						<CopyButton text={() => draft} label="Copy" size={12} />
+						<CopyButton
+							text={() => draft}
+							label="Copy"
+							size={12}
+							style={COPY_STYLE}
+						/>
 						<Btn
 							small
 							icon={<Wand2 size={12} />}
@@ -505,7 +518,12 @@ function TagGenerator(p: AiToolsProps) {
 						</span>
 					</div>
 					<div className="ovq-result-actions">
-						<CopyButton text={generated.join(", ")} label="Copy" size={12} />
+						<CopyButton
+							text={generated.join(", ")}
+							label="Copy"
+							size={12}
+							style={COPY_STYLE}
+						/>
 						<Btn
 							small
 							icon={<Plus size={12} />}
@@ -675,8 +693,18 @@ function ConceptCard({
 				</div>
 			) : null}
 			<div className="ovq-result-actions">
-				<CopyButton text={conceptText(c)} label="Copy" size={12} />
-				<CopyButton text={c.imagePrompt} label="Copy prompt" size={12} />
+				<CopyButton
+					text={conceptText(c)}
+					label="Copy"
+					size={12}
+					style={COPY_STYLE}
+				/>
+				<CopyButton
+					text={c.imagePrompt}
+					label="Copy prompt"
+					size={12}
+					style={COPY_STYLE}
+				/>
 				{image ? (
 					<a
 						className="ovq-btn ovq-btn-default ovq-btn-sm"
@@ -695,7 +723,7 @@ function ConceptCard({
 						title={
 							imageModel
 								? "Generate a background image with your image model"
-								: "Set an image model in open-vidiq's AI settings"
+								: "Set an image model in GrowTube's AI settings"
 						}
 						onClick={() => void makeImage()}
 					>

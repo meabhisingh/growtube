@@ -2,8 +2,8 @@
 import {
 	CONTROVERSIAL_CATEGORY_LABELS,
 	type ControversialMatch,
-} from "@open-vidiq/shared/controversial";
-import type { SeoCheck } from "@open-vidiq/shared/seo";
+} from "@growtube/shared/controversial";
+import type { SeoCheck } from "@growtube/shared/seo";
 import { AlertTriangle, CheckCircle2, Circle, ShieldCheck } from "lucide-react";
 
 import { fieldsContaining } from "./text";

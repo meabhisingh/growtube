@@ -9,7 +9,7 @@ import {
 	formatOutlier,
 	formatPercent,
 	formatRelative,
-} from "@open-vidiq/shared/format";
+} from "@growtube/shared/format";
 import {
 	computeAverage,
 	computeBestPostingSlots,
@@ -17,11 +17,11 @@ import {
 	computeUploadsPerWeek,
 	median,
 	type PostingSlot,
-} from "@open-vidiq/shared/metrics";
-import { computeSeoScore, type SeoResult } from "@open-vidiq/shared/seo";
-import { channelUrl } from "@open-vidiq/shared/youtube";
-import { Button } from "@open-vidiq/ui/components/button";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/shared/metrics";
+import { computeSeoScore, type SeoResult } from "@growtube/shared/seo";
+import { channelUrl } from "@growtube/shared/youtube";
+import { Button } from "@growtube/ui/components/button";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	CalendarClock,
 	ChartColumn,
@@ -430,9 +430,9 @@ function AuditReport({
 				<div className="grid grid-cols-7 gap-1">
 					{data.weekdays.map((w) => (
 						<div key={w.weekday} className="flex flex-col items-center gap-1">
-							<div className="bg-surface-2 flex h-14 w-full items-end">
+							<div className="bg-surface-2 flex h-14 w-full items-end overflow-hidden rounded-lg">
 								<div
-									className="bg-brand/70 w-full"
+									className="bg-brand/70 w-full rounded-md transition-[height] duration-200"
 									style={{
 										height: `${((w.avgOutlier ?? 0) / maxWeekday) * 100}%`,
 									}}
@@ -509,7 +509,7 @@ function AuditReport({
 												e,
 											)
 										}
-										className="ovq-clamp-2 hover:text-brand min-w-0 flex-1 text-left text-xs leading-snug"
+										className="ovq-clamp-2 hover:text-brand focus-visible:ring-ring/50 min-w-0 flex-1 rounded-sm text-left text-xs leading-snug transition-colors duration-150 outline-none focus-visible:ring-2"
 									>
 										{v.title}
 									</button>
@@ -578,7 +578,10 @@ function AiAudit({ data }: { data: AuditOutput }) {
 	return (
 		<div className="flex flex-col gap-3 text-xs">
 			<div className="flex items-center gap-2">
-				<Badge tone={scoreTone(data.score)} className="h-7 px-2.5 text-base">
+				<Badge
+					tone={scoreTone(data.score)}
+					className="h-7 rounded-lg px-2.5 text-base"
+				>
 					{data.score}
 				</Badge>
 				<span className="text-muted-foreground text-[11px]">
@@ -612,7 +615,10 @@ function AiAudit({ data }: { data: AuditOutput }) {
 				<Eyebrow>Action plan</Eyebrow>
 				<ol className="flex flex-col gap-1.5">
 					{data.actions.map((a, i) => (
-						<li key={a.title} className="bg-surface-2 flex gap-2 p-2">
+						<li
+							key={a.title}
+							className="bg-surface-2 flex gap-2 rounded-lg p-2.5"
+						>
 							<span className="text-muted-foreground font-semibold">
 								{i + 1}
 							</span>

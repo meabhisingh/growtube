@@ -1,5 +1,5 @@
 /** Layout building blocks: sections, stat tiles, collapsibles. */
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 import { ChevronDown, type LucideIcon } from "lucide-react";
 import { type ReactNode, useState } from "react";
 
@@ -27,7 +27,7 @@ export function Section({
 		<section
 			id={id}
 			className={cn(
-				"bg-card ring-foreground/8 flex flex-col gap-3 p-3 ring-1",
+				"bg-card ring-foreground/7 flex flex-col gap-3 rounded-xl p-3 shadow-xs ring-1",
 				className,
 			)}
 		>
@@ -78,7 +78,7 @@ export function StatTile({
 	return (
 		<div
 			className={cn(
-				"bg-surface-2 flex min-w-0 flex-col gap-0.5 px-2.5 py-2",
+				"bg-surface-2 flex min-w-0 flex-col gap-0.5 rounded-lg px-2.5 py-2",
 				className,
 			)}
 			title={title}
@@ -134,10 +134,13 @@ export function Collapsible({
 					setOpen((o) => !o);
 					setMounted(true);
 				}}
-				className="text-muted-foreground hover:text-foreground focus-visible:text-foreground flex items-center gap-1.5 py-1 text-left text-xs outline-none"
+				className="text-muted-foreground hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 -mx-1 flex items-center gap-1.5 rounded-md px-1 py-1 text-left text-xs transition-colors duration-150 outline-none focus-visible:ring-2"
 			>
 				<ChevronDown
-					className={cn("size-3.5 transition-transform", !open && "-rotate-90")}
+					className={cn(
+						"size-3.5 transition-transform duration-200",
+						!open && "-rotate-90",
+					)}
 					aria-hidden
 				/>
 				{summary}

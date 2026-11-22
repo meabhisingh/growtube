@@ -1,4 +1,4 @@
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 import {
 	Card,
 	CardContent,
@@ -6,10 +6,10 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@open-vidiq/ui/components/card";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Label } from "@open-vidiq/ui/components/label";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/card";
+import { Input } from "@growtube/ui/components/input";
+import { Label } from "@growtube/ui/components/label";
+import { cn } from "@growtube/ui/lib/utils";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
 	ArrowRight,
@@ -32,7 +32,7 @@ import { authClient } from "@/lib/auth-client";
 import { clearSessionCache } from "@/lib/session";
 
 export const Route = createFileRoute("/_auth/dashboard")({
-	head: () => ({ meta: [{ title: "Your account · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "Your account · GrowTube" }] }),
 	component: DashboardPage,
 });
 
@@ -71,8 +71,8 @@ function DashboardPage() {
 					Hi, {user.name}
 				</h1>
 				<p className="text-muted-foreground text-sm">
-					Everything in open-vidiq is free and unlimited. Your account just
-					keeps the tools and the API to signed-in people.
+					Everything in GrowTube is free and unlimited. Your account just keeps
+					the tools and the API to signed-in people.
 				</p>
 			</header>
 
@@ -82,7 +82,7 @@ function DashboardPage() {
 				<CardHeader>
 					<CardTitle className="text-sm">Account details</CardTitle>
 					<CardDescription>
-						This is all the personal information open-vidiq keeps about you.
+						This is all the personal information GrowTube keeps about you.
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
@@ -133,12 +133,12 @@ const TOOLS: {
 function ToolLinks() {
 	return (
 		<nav aria-label="Tools">
-			<ul className="bg-border ring-border grid gap-px overflow-hidden ring-1 sm:grid-cols-3">
+			<ul className="grid gap-3 sm:grid-cols-3">
 				{TOOLS.map(({ to, icon: Icon, title, body }) => (
 					<li key={to} className="flex">
 						<Link
 							to={to}
-							className="group bg-background hover:bg-muted/40 focus-visible:ring-ring flex w-full flex-col gap-2 p-4 transition-colors outline-none focus-visible:ring-1 focus-visible:ring-inset"
+							className="group bg-card ring-foreground/8 hover:bg-muted/40 hover:ring-foreground/15 focus-visible:ring-ring/60 flex w-full flex-col gap-2 rounded-xl p-4 shadow-xs ring-1 transition duration-200 ease-out outline-none hover:shadow-md focus-visible:ring-2 motion-safe:active:scale-[0.99]"
 						>
 							<span className="flex items-center justify-between gap-2">
 								<span className="flex items-center gap-2 text-sm font-medium">
@@ -146,7 +146,7 @@ function ToolLinks() {
 									{title}
 								</span>
 								<ArrowRight
-									className="text-muted-foreground size-3.5 transition-transform group-hover:translate-x-0.5"
+									className="text-muted-foreground size-3.5 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
 									aria-hidden="true"
 								/>
 							</span>
@@ -272,7 +272,7 @@ function StoredDataCard() {
 					What your account stores
 				</CardTitle>
 				<CardDescription>
-					open-vidiq keeps the minimum it needs to sign you in.
+					GrowTube keeps the minimum it needs to sign you in.
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="grid gap-5 text-xs md:grid-cols-2">
@@ -362,7 +362,7 @@ function DeleteAccountCard() {
 				{open && (
 					<form
 						onSubmit={(event) => void onSubmit(event)}
-						className="border-destructive/30 bg-destructive/5 flex flex-col gap-3 border p-3"
+						className="border-destructive/25 bg-destructive/5 flex flex-col gap-3 rounded-xl border p-3.5"
 						noValidate
 					>
 						<p className="flex items-start gap-2 font-medium">

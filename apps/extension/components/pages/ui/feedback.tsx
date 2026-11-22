@@ -1,7 +1,7 @@
 /** Loading, empty and error states for the extension pages. */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Button } from "@growtube/ui/components/button";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	CircleAlert,
 	Info,
@@ -62,11 +62,13 @@ export function SkeletonList({
 		<div className="flex flex-col gap-3" aria-hidden>
 			{Array.from({ length: rows }, (_, i) => (
 				<div key={i} className="flex gap-2.5">
-					{thumb ? <Skeleton className="aspect-video w-28 shrink-0" /> : null}
+					{thumb ? (
+						<Skeleton className="aspect-video w-28 shrink-0 rounded-lg" />
+					) : null}
 					<div className="flex flex-1 flex-col gap-1.5 py-0.5">
-						<Skeleton className="h-3 w-11/12" />
-						<Skeleton className="h-3 w-2/3" />
-						<Skeleton className="h-2.5 w-1/3" />
+						<Skeleton className="h-3 w-11/12 rounded-full" />
+						<Skeleton className="h-3 w-2/3 rounded-full" />
+						<Skeleton className="h-2.5 w-1/3 rounded-full" />
 					</div>
 				</div>
 			))}
@@ -79,19 +81,19 @@ type NoticeTone = "info" | "warning" | "error" | "success";
 const NOTICE: Record<NoticeTone, { icon: LucideIcon; className: string }> = {
 	info: {
 		icon: Info,
-		className: "border-sky-500/30 bg-sky-500/8 text-foreground",
+		className: "border-sky-500/25 bg-sky-500/8 text-foreground",
 	},
 	warning: {
 		icon: TriangleAlert,
-		className: "border-amber-500/35 bg-amber-500/8 text-foreground",
+		className: "border-amber-500/30 bg-amber-500/8 text-foreground",
 	},
 	error: {
 		icon: CircleAlert,
-		className: "border-red-500/35 bg-red-500/8 text-foreground",
+		className: "border-red-500/30 bg-red-500/8 text-foreground",
 	},
 	success: {
 		icon: Info,
-		className: "border-emerald-500/35 bg-emerald-500/8 text-foreground",
+		className: "border-emerald-500/30 bg-emerald-500/8 text-foreground",
 	},
 };
 
@@ -121,7 +123,7 @@ export function Notice({
 	return (
 		<div
 			className={cn(
-				"flex gap-2.5 border px-3 py-2.5 text-xs",
+				"flex gap-2.5 rounded-xl border px-3 py-2.5 text-xs in-[section]:rounded-lg",
 				NOTICE[tone].className,
 				className,
 			)}
@@ -224,11 +226,11 @@ function defaultTitle(action: ReturnType<typeof describeError>["action"]) {
 		case "ai-settings":
 			return "AI provider needs attention";
 		case "server-settings":
-			return "Can't reach the open-vidiq server";
+			return "Can't reach the GrowTube server";
 		case "sign-in":
-			return "Sign in to open-vidiq";
+			return "Sign in to GrowTube";
 		case "reload":
-			return "open-vidiq was updated";
+			return "GrowTube was updated";
 		default:
 			return "Something went wrong";
 	}
@@ -250,12 +252,12 @@ export function EmptyState({
 	return (
 		<div
 			className={cn(
-				"flex flex-col items-center gap-2 border border-dashed px-4 py-8 text-center",
+				"flex flex-col items-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center in-[section]:rounded-lg",
 				className,
 			)}
 		>
 			{Icon ? (
-				<div className="bg-brand-soft text-brand mb-1 flex size-9 items-center justify-center">
+				<div className="bg-brand-soft text-brand mb-1 flex size-9 items-center justify-center rounded-xl">
 					<Icon className="size-4.5" aria-hidden />
 				</div>
 			) : null}

@@ -1,9 +1,12 @@
 /**
  * Background service worker: the single place that talks to YouTube
- * (InnerTube), the open-vidiq server and the user's AI provider.
+ * (InnerTube), the GrowTube server and the user's AI provider.
  * Content scripts and pages reach it via lib/messaging.ts and the
  * "ai-chat" Port. Nothing works while signed out (see lib/auth-session.ts).
  */
+// Must stay first: it configures zod before any schema is created.
+import "@/lib/zod-config";
+
 import { browser, defineBackground } from "#imports";
 
 import { registerAiChatPort } from "@/lib/ai/chat";
@@ -84,7 +87,7 @@ export default defineBackground(() => {
 				url: runtime.getURL(`/options.html#${ACCOUNT_SECTION}`),
 			});
 		} catch (error) {
-			console.warn("[open-vidiq] could not open the options page", error);
+			console.warn("[GrowTube] could not open the options page", error);
 		}
 	});
 });

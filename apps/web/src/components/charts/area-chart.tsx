@@ -1,5 +1,5 @@
-import { formatCompact, formatNumber } from "@open-vidiq/shared";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { formatCompact, formatNumber } from "@growtube/shared";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	type PointerEvent as ReactPointerEvent,
 	type RefObject,
@@ -369,7 +369,7 @@ export function AreaChart({
 		<div
 			ref={containerRef}
 			className={cn(
-				"ring-ring/60 relative w-full touch-pan-y outline-none select-none has-[input:focus-visible]:ring-1",
+				"ring-ring/50 relative w-full touch-pan-y rounded-lg outline-none select-none has-[input:focus-visible]:ring-2",
 				className,
 			)}
 			style={{ height }}
@@ -379,7 +379,7 @@ export function AreaChart({
 			onPointerCancel={() => setActive(null)}
 		>
 			{count === 0 && (
-				<div className="text-muted-foreground flex h-full items-center justify-center border border-dashed text-xs">
+				<div className="text-muted-foreground flex h-full items-center justify-center rounded-xl border border-dashed text-xs">
 					No data to chart yet
 				</div>
 			)}
@@ -475,7 +475,7 @@ export function AreaChart({
 			{activePoint && ax != null && ay != null && (
 				<div
 					aria-hidden="true"
-					className="bg-popover text-popover-foreground pointer-events-none absolute z-10 border px-2.5 py-1.5 whitespace-nowrap shadow-md"
+					className="bg-popover text-popover-foreground border-border/70 pointer-events-none absolute z-10 rounded-lg border px-2.5 py-1.5 whitespace-nowrap shadow-lg shadow-black/10"
 					style={{
 						left: ax,
 						top: tooltipBelow ? ay + 14 : ay - 14,

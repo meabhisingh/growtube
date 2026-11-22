@@ -1,4 +1,4 @@
-# open-vidiq extension core (`apps/extension/lib`)
+# GrowTube extension core (`apps/extension/lib`)
 
 The API every UI in the extension builds on. Path aliases: `@/` = `apps/extension/`.
 
@@ -13,7 +13,7 @@ Golden rules
    own player response) and react to SPA navigation with `onNavigate()`.
 3. **Never break YouTube.** Injected UI goes in a shadow root with plain CSS and must be
    readable in both YouTube themes (`<html dark>` = dark). Extension pages use Tailwind +
-   `@open-vidiq/ui`.
+   `@growtube/ui`.
 4. **No limits, no paywalls, no upgrade prompts.** Everything is free and unlimited.
 5. Data is JSON-safe everywhere: timestamps are ISO strings, unknown values are `null`.
 6. **No use without an account.** Every surface gates itself on `authUser` (`@/lib/auth`)
@@ -38,7 +38,7 @@ lib/
   cache.ts              TTL cache + in-flight dedupe (memory + chrome.storage.local)
   limiter.ts            createLimiter, withRetry, HttpError
   permissions.ts        optional host permissions (AI provider / server URL)
-  api.ts                open-vidiq server client + ingest queue (background only)
+  api.ts                GrowTube server client + ingest queue (background only)
   dom.ts                waitForElement, isYouTubeDark, onYouTubeThemeChange
   theme.ts              applyColorScheme() for extension pages
   env.ts                DEFAULT_SERVER_URL (WXT_SERVER_URL)
@@ -54,9 +54,9 @@ assets/brand/          logo-source.png: logo master (scripts/generate-icons.mjs)
 
 ## 0. Account (sign-in required)
 
-open-vidiq is unusable without an account on the configured open-vidiq server (better-auth
+GrowTube is unusable without an account on the configured GrowTube server (better-auth
 email + password with its bearer plugin, mounted at `AUTH_BASE_PATH` = `/api/auth`; constants
-in `@open-vidiq/shared/auth`). It stays free: no plans, credits or quotas, ever.
+in `@growtube/shared/auth`). It stays free: no plans, credits or quotas, ever.
 
 ### Storage
 
@@ -132,7 +132,7 @@ Settings instead because it closes when Chrome's prompt opens), `NETWORK`, `RATE
   sign in); every other section is hidden behind a "Sign in to see the rest" notice. First
   install opens `options.html#account`.
 - **youtube.com**: feed badges and Shorts controls (and their keyboard shortcuts) are stopped;
-  the watch panel renders only a compact "Sign in to use open-vidiq" card whose button opens
+  the watch panel renders only a compact "Sign in to use GrowTube" card whose button opens
   `options.html#account`. **Studio**: the panel renders nothing. Everything follows
   `authUser.watch` live: no reload after signing in or out.
 - The extension has no context menus or manifest commands; if you add any, check `authUser`
@@ -180,7 +180,7 @@ const { baseline } = await yt.getChannelBaseline(
 	channel.channelId,
 	video.isShort ? "short" : "long",
 );
-const outlier = computeOutlierScore(video.views, baseline); // from @open-vidiq/shared
+const outlier = computeOutlierScore(video.views, baseline); // from @growtube/shared
 
 const ranks = await yt.findVideoRanks(video.videoId, video.keywords); // tag rank badges
 ```
@@ -203,7 +203,7 @@ for a public video).
 **Ranks**: positions count every video-like result in page order, Shorts included
 (a Shorts shelf contributes its items). Personalization-free (anonymous requests).
 
-### `server` — open-vidiq server (crowdsourced history, trending)
+### `server` — GrowTube server (crowdsourced history, trending)
 
 Every call needs a signed-in user (else `AUTH_REQUIRED`), except `health()`.
 
@@ -216,7 +216,7 @@ Every call needs a signed-in user (else `AUTH_REQUIRED`), except `health()`.
 | `server.getVideosStats(videoIds)`                                                      | `VideoStatsResponse` (`videos[]` + `missing[]`, chunked by 50) |
 | `server.ingestVideos(snapshots)` / `server.ingestChannels(snapshots)`                  | `{ queued }`                                                   |
 
-Types/schemas come from `@open-vidiq/shared` (`api.ts`, `api-extra.ts`). You rarely need
+Types/schemas come from `@growtube/shared` (`api.ts`, `api-extra.ts`). You rarely need
 `ingest*`: **the background automatically queues a snapshot for every video/channel it
 fetches** (getVideoDetails, getVideoDetailsBatch, getChannel, and search results with exact
 view counts), when `crowdsourceStats` is on and the user is signed in. Unlisted and private
@@ -295,7 +295,7 @@ died mid-request is retried only for idempotent types, never for `ai.*`, `option
 
 | code                                                                             | meaning / suggested UI                                                                                                                                |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AUTH_REQUIRED`                                                                  | signed out of open-vidiq → `ext.openOptions("account")` (ErrorNotice offers it)                                                                       |
+| `AUTH_REQUIRED`                                                                  | signed out of GrowTube → `ext.openOptions("account")` (ErrorNotice offers it)                                                                         |
 | `NOT_CONFIGURED`                                                                 | AI not set up → button `ext.openOptions("ai")`                                                                                                        |
 | `PERMISSION`                                                                     | host permission missing for the AI provider or server URL → open options; the options page must call `ensureOriginPermission(url)` in a click handler |
 | `AUTH`, `MODEL`, `RATE_LIMIT`, `OLLAMA_ORIGIN`, `NO_IMAGE_SUPPORT`, `BAD_OUTPUT` | AI provider problems; `message` is actionable as-is. `MODEL` = the model id is unknown/retired                                                        |
@@ -347,7 +347,7 @@ All hooks work inside shadow roots and extension pages.
 | -------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | `aiProvider`         | `AiProviderSettings { presetId, baseURL, apiKey, model, imageModel, temperature, reasoningEffort }` (v2) | OpenAI preset (`gpt-6-luna`, `gpt-image-2.6-sunburst`), empty key, effort `""` |
 | `serverUrl`          | `string`                                                                                                 | `WXT_SERVER_URL` or `http://localhost:3000`                                    |
-| `crowdsourceStats`   | `boolean`                                                                                                | `true`                                                                         |
+| `crowdsourceStats`   | `boolean` (opt-in: the sign-in form, popup or Settings turns it on)                                      | `false`                                                                        |
 | `myChannel`          | `{ channelId, handle, title } \| null`                                                                   | `null`                                                                         |
 | `competitors`        | `{ channelId, handle, title, avatarUrl }[]`                                                              | `[]`                                                                           |
 | `features`           | `{ feedBadges, watchPanel, shortsControls, studioOptimizer }`                                            | all `true`                                                                     |
@@ -367,7 +367,7 @@ older/imported values; `getProviderSettings()` in the background always uses it)
 
 `aiProvider` is version 2. The v1 -> v2 migration (`migrateAiProviderV2`) adds
 `reasoningEffort: ""` and replaces `model` / `imageModel` only when they are exactly a v1
-default open-vidiq shipped for that preset (with the preset's own base URL) or an id OpenAI has
+default GrowTube shipped for that preset (with the preset's own base URL) or an id OpenAI has
 already shut down (`gpt-image-1` and its dated snapshots, `gpt-4o-2024-05-13`, `dall-e-*`,
 `o1*`, `o3-mini*`, `o4-mini*`, `gpt-4.1-nano*`, `gpt-4-turbo*`, `gpt-3.5-turbo*`). User-chosen
 ids that still work (including `gpt-image-1.5` / `gpt-image-1-mini` until Dec 1 2026, which the
@@ -459,7 +459,7 @@ SearchResult { position, videoId, title, channelId, channelTitle, channelHandle,
   publishedAt (approx), publishedApprox, publishedText, durationSec, isShort, isLive, thumbnail,
   source: "video"|"lockup"|"short" }      // Shorts shelf items have no channel title/date
 Transcript { videoId, languageCode, kind: "manual"|"asr", segments: { start, dur, text }[] }  // seconds
-YtConfig { apiKey, clientName, clientVersion, hl, gl, visitorData, loggedIn, delegatedSessionId, context, source }
+YtConfig { apiKey, clientName, clientVersion, hl, gl, visitorData, source }
 YtPageData { url, pageType, videoId, playerResponse, initialData, capturedAt }
 ```
 
@@ -762,13 +762,13 @@ Theming via CSS variables (set them on a parent): `--ovq-chart-color`, `--ovq-ch
 `--ovq-md-code-bg`, `--ovq-md-border`, `--ovq-md-muted`, `--ovq-border`. Text inherits
 `color`/`font` from the parent. `copyText(text)` is exported for non-button use.
 
-### Extension pages (popup, side panel, options): Tailwind + `@open-vidiq/ui`
+### Extension pages (popup, side panel, options): Tailwind + `@growtube/ui`
 
 ```tsx
 // entrypoints/sidepanel/main.tsx
 import "@/assets/tailwind.css";
 import { applyColorScheme } from "@/lib/theme";
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 applyColorScheme(); // toggles .dark from the OS theme
 ```
 

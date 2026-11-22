@@ -89,7 +89,7 @@ export const verification = pgTable(
  * removes its keys in the same statement, and a key created while the
  * account is being deleted fails instead of outliving it (`packages/auth`
  * also deletes the keys first). The rate-limit / quota columns exist
- * because the plugin reads them; open-vidiq disables both.
+ * because the plugin reads them; GrowTube disables both.
  */
 export const apikey = pgTable(
 	"apikey",

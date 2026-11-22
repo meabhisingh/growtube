@@ -45,7 +45,7 @@ export function createPageHub(ctx: ContentScriptContext): PageHub {
 			try {
 				listener(page);
 			} catch (error) {
-				console.error("[open-vidiq] page listener failed", error);
+				console.error("[GrowTube] page listener failed", error);
 			}
 		}
 	};

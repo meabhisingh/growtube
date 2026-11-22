@@ -1,7 +1,7 @@
 import { apiKey } from "@better-auth/api-key";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
-import { type Database, describeError, eq } from "@open-vidiq/db";
-import * as schema from "@open-vidiq/db/schema/auth";
+import { type Database, describeError, eq } from "@growtube/db";
+import * as schema from "@growtube/db/schema/auth";
 import { betterAuth } from "better-auth";
 import { APIError, createAuthMiddleware } from "better-auth/api";
 import { bearer } from "better-auth/plugins";
@@ -19,11 +19,17 @@ export type AuthConfig = {
 	EXTENSION_ORIGINS?: string | undefined;
 };
 
-/** Same value as `AUTH_BASE_PATH` in `@open-vidiq/shared/auth` (better-auth's default). */
+/** Same value as `AUTH_BASE_PATH` in `@growtube/shared/auth` (better-auth's default). */
 const AUTH_BASE_PATH = "/api/auth";
 
-/** Every API key starts with this, so a leaked key is easy to recognise. */
-export const API_KEY_PREFIX = "ovq_";
+/** Every new API key starts with this, so a leaked key is easy to recognise. */
+export const API_KEY_PREFIX = "gt_";
+
+/**
+ * Prefixes of keys created before the GrowTube rename. They still verify, so
+ * existing MCP setups keep working, but no new key is created with them.
+ */
+export const LEGACY_API_KEY_PREFIXES: readonly string[] = ["ovq_"];
 
 /** Longest display name accepted at sign-up (the clients use the same cap). */
 export const MAX_NAME_LENGTH = 100;
@@ -188,8 +194,9 @@ export function createAuth(
 		hooks: {
 			before: createAuthMiddleware(async (ctx) => {
 				const body = ctx.body as Record<string, unknown> | undefined;
-				// The api-key plugin lets clients pick the prefix; every key starts
-				// with API_KEY_PREFIX so a leaked one is easy to recognise.
+				// The api-key plugin lets clients pick the prefix; every new key
+				// starts with API_KEY_PREFIX so a leaked one is easy to recognise
+				// (legacy prefixes only verify, see customAPIKeyValidator).
 				if (ctx.path === "/api-key/create") {
 					if (body?.prefix !== undefined && body.prefix !== API_KEY_PREFIX) {
 						throw new APIError("BAD_REQUEST", {
@@ -289,12 +296,15 @@ export function createAuth(
 			// `x-api-key` (the plugin default) or as `Authorization: Bearer`.
 			apiKey({
 				defaultPrefix: API_KEY_PREFIX,
-				// Keys created under any other prefix (before it was enforced at
-				// creation) no longer verify.
-				customAPIKeyValidator: ({ key }) => key.startsWith(API_KEY_PREFIX),
-				// Key lists show "ovq_" plus 4 characters.
+				// Keys under API_KEY_PREFIX or a legacy prefix (keys made before
+				// the GrowTube rename) verify. Keys created under any other prefix
+				// (before it was enforced at creation) no longer verify.
+				customAPIKeyValidator: ({ key }) =>
+					key.startsWith(API_KEY_PREFIX) ||
+					LEGACY_API_KEY_PREFIXES.some((prefix) => key.startsWith(prefix)),
+				// Key lists show "gt_" plus 5 characters.
 				startingCharactersConfig: { shouldStore: true, charactersLength: 8 },
-				// No per-key rate limits or quotas: open-vidiq has no plans or
+				// No per-key rate limits or quotas: GrowTube has no plans or
 				// limits. The server's Redis limiter handles abuse.
 				rateLimit: { enabled: false },
 				// No expiry unless the user picks one (1-365 days).

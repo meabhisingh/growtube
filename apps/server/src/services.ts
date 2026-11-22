@@ -1,5 +1,5 @@
-import { createAuth as createConfiguredAuth } from "@open-vidiq/auth";
-import { createDb, type Database } from "@open-vidiq/db";
+import { createAuth as createConfiguredAuth } from "@growtube/auth";
+import { createDb, type Database } from "@growtube/db";
 import type { Context } from "hono";
 
 import { ENV } from "./env.server";

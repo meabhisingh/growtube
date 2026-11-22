@@ -1,5 +1,5 @@
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -26,7 +26,7 @@ export function StatTile({
 	return (
 		<div
 			className={cn(
-				"bg-card ring-foreground/10 flex min-w-0 flex-col gap-1 p-3 ring-1",
+				"bg-card ring-foreground/8 flex min-w-0 flex-col gap-1 rounded-xl p-3.5 shadow-xs ring-1",
 				className,
 			)}
 		>
@@ -35,7 +35,7 @@ export function StatTile({
 				<span className="truncate">{label}</span>
 			</div>
 			{loading ? (
-				<Skeleton className="h-7 w-20" />
+				<Skeleton className="h-7 w-20 rounded-md" />
 			) : (
 				<div
 					className="truncate text-xl font-semibold tracking-tight tabular-nums"

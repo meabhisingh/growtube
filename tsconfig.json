@@ -1,3 +1,3 @@
 {
-	"extends": "@open-vidiq/config/tsconfig.base.json"
+	"extends": "@growtube/config/tsconfig.base.json"
 }

@@ -1,6 +1,6 @@
-# open-vidiq server
+# GrowTube server
 
-The backend for open-vidiq: a [Hono](https://hono.dev) app on Cloudflare Workers
+The backend for GrowTube: a [Hono](https://hono.dev) app on Cloudflare Workers
 with Postgres (drizzle) and Redis. It provides:
 
 - **accounts** with [better-auth](https://better-auth.com) at `/api/auth/*`
@@ -19,14 +19,14 @@ Everything is free and unlimited: no plans, credits or quotas. Accounts and API 
 are free; they exist so the service is only usable signed in. The only limits are
 anti-abuse rate limits (see below).
 
-The HTTP contract (zod schemas + TS types) lives in `@open-vidiq/shared`
+The HTTP contract (zod schemas + TS types) lives in `@growtube/shared`
 (`packages/shared/src/api.ts` and `api-extra.ts`). Every input is validated with
 those schemas, and every response matches them.
 
 ## Accounts and authentication
 
 better-auth (`packages/auth`) is mounted at `/api/auth` (`AUTH_BASE_PATH` in
-`@open-vidiq/shared/auth`) with email + password sign-in, the
+`@growtube/shared/auth`) with email + password sign-in, the
 [bearer](https://better-auth.com/docs/plugins/bearer) plugin and the
 [api-key](https://better-auth.com/docs/plugins/api-key) plugin. There are no social
 logins and no emails (so no email verification and no password-reset mails).
@@ -51,7 +51,7 @@ stolen session guess the password without the sign-in limits. Server code can st
 call any endpoint through `auth.api`. Auth request bodies are limited to 16 KB (`413`).
 The `400` error codes the clients may see besides better-auth's: `INVALID_NAME`,
 `IMAGE_NOT_SUPPORTED`, `PASSWORD_REQUIRED` (delete-user), `PREFIX_NOT_ALLOWED`
-(api-key/create with a `prefix`: every key starts with `ovq_`) and `TOO_MANY_API_KEYS`
+(api-key/create with a `prefix`: every new key starts with `gt_`) and `TOO_MANY_API_KEYS`
 (the 50-key cap is abuse protection, not a plan limit; it also holds for concurrent
 creates, see `capApiKeys`).
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 {"error":"Sign in required","code":"AUTH_REQUIRED"}
 ```
 
-(`AuthRequiredError` / `isAuthRequiredError` in `@open-vidiq/shared/auth`). `/mcp`
+(`AuthRequiredError` / `isAuthRequiredError` in `@growtube/shared/auth`). `/mcp`
 answers with the same shape (and an API-key message) plus `WWW-Authenticate: Bearer`.
 `/health` and `/` are public. CORS preflights (`OPTIONS`) never need auth.
 
@@ -178,7 +178,7 @@ Body: `{ "channels": [{ "channelId", "handle"?, "title"?, "avatarUrl"?, "subscri
 "totalViews"?, "videoCount"?, "joinedAt"? (YYYY-MM-DD), "country"?, "keywords"? }] }`.
 `avatarUrl` is kept only when it is an https URL on YouTube's image hosts
 (`yt3.ggpht.com`, `yt3.googleusercontent.com`, `yt4.ggpht.com`, `i.ytimg.com`; see
-`isYouTubeImageUrl` in `@open-vidiq/shared/images`), and it is stored in its
+`isYouTubeImageUrl` in `@growtube/shared/images`), and it is stored in its
 normalized form (`https://<host>/...`, see `canonicalYouTubeImageUrl` in
 `src/lib/images.ts`). Any other value is dropped as if absent, without failing the
 batch.
@@ -189,7 +189,7 @@ the number of channels stored, and `skipped` counts duplicates in the batch.
 ### `GET /v1/videos/stats?ids=a,b,c`
 
 Batch lookup for feed and search cards (schemas: `videoStatsQuery` and
-`videoStatsResponse` in `@open-vidiq/shared`; use `videoStatsPath(ids)`). It returns
+`videoStatsResponse` in `@growtube/shared`; use `videoStatsPath(ids)`). It returns
 `{ generatedAt, videos: VideoStats[], missing: string[] }`. Results keep the request
 order, and duplicate ids are ignored. `recentVph` and `vphSource` work as described
 above. `firstSeenAt` and `lastSnapshotAt` are rounded down to the hour: they are when
@@ -222,7 +222,7 @@ MCP tools do the same, see below).
 Turns an `@handle` (the `@` is optional, matching is case-insensitive) into
 `{ channelId, handle, title }` from channels that clients have reported, preferring the
 most recently seen owner. It returns `404 { error, details }` for a handle the server has
-never seen; open-vidiq doesn't call YouTube for this. Schemas: `channelResolveQuery` and
+never seen; GrowTube doesn't call YouTube for this. Schemas: `channelResolveQuery` and
 `channelResolveResponse`; build the URL with `channelResolvePath(handle)`.
 
 ### `GET /v1/trending`
@@ -392,13 +392,15 @@ MCP endpoint built on `@hono/mcp` and `@modelcontextprotocol/sdk`. It needs an
 because no server-initiated stream is offered.
 
 **API keys.** Sign in on the website and create a key on the MCP page
-(`POST /api/auth/api-key/create`, api-key plugin). Keys look like `ovq_` + 64 letters,
-are shown once, and are stored only as a SHA-256 hash. They never expire unless you
+(`POST /api/auth/api-key/create`, api-key plugin). Keys look like `gt_` + 64 letters,
+are shown once, and are stored only as a SHA-256 hash. Keys created before the
+GrowTube rename start with `ovq_`; they keep working (`LEGACY_API_KEY_PREFIXES` in
+`packages/auth`), but new keys always start with `gt_`. Keys never expire unless you
 pick an expiry (1-365 days) and have no quotas or per-key limits; delete one to revoke
 it. Send the key as `x-api-key: <key>` or `Authorization: Bearer <key>`. The server
 checks it with `auth.api.verifyApiKey({ body: { key } })` (server-only), and the key's
 owner is what the `mcp` rate limit counts. A missing key gets `401` with
-`WWW-Authenticate: Bearer realm="open-vidiq"`; an invalid, expired or deleted one
+`WWW-Authenticate: Bearer realm="GrowTube"`; an invalid, expired or deleted one
 also gets `error="invalid_token"`. Keys only work for `/mcp`, never as a session.
 
 Tools (all read-only, each returns JSON text content, followed by a second text item
@@ -414,11 +416,11 @@ that a key is required):
 | `get_trending`        | `window` (`24h`/`7d`), `type` (`all`/`long`/`short`), `q`, `limit` (1–100, default 25) | `TrendingResponse`                |
 
 Replace `https://YOUR-SERVER` below with your deployed worker URL (`alchemy deploy`
-prints it), or use `http://localhost:3000` for local clients, and `ovq_…` with your
+prints it), or use `http://localhost:3000` for local clients, and `gt_…` with your
 key. The server has no OAuth, so a client must be able to send a request header.
 
 - **Claude Code**:
-  `claude mcp add --transport http open-vidiq https://YOUR-SERVER/mcp --header "x-api-key: ovq_…"`
+  `claude mcp add --transport http growtube https://YOUR-SERVER/mcp --header "x-api-key: gt_…"`
 - **Claude Desktop** (or any client that only speaks stdio): bridge with
   [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) in
   `claude_desktop_config.json`:
@@ -426,24 +428,24 @@ key. The server has no OAuth, so a client must be able to send a request header.
   ```json
   {
     "mcpServers": {
-      "open-vidiq": {
+      "growtube": {
         "command": "npx",
         "args": [
           "-y",
           "mcp-remote",
           "https://YOUR-SERVER/mcp",
           "--header",
-          "x-api-key:${OPEN_VIDIQ_KEY}"
+          "x-api-key:${GROWTUBE_API_KEY}"
         ],
-        "env": { "OPEN_VIDIQ_KEY": "ovq_…" }
+        "env": { "GROWTUBE_API_KEY": "gt_…" }
       }
     }
   }
   ```
 
 - **Other clients** (Cursor, ChatGPT developer mode, …): use the URL
-  `https://YOUR-SERVER/mcp` with a custom header `x-api-key: ovq_…`, or a bearer
-  token `ovq_…`, if the client offers one. Connectors that only support OAuth
+  `https://YOUR-SERVER/mcp` with a custom header `x-api-key: gt_…`, or a bearer
+  token `gt_…`, if the client offers one. Connectors that only support OAuth
   (claude.ai custom connectors, for example) can't connect yet.
 - **Debugging**: `npx @modelcontextprotocol/inspector`, transport "Streamable HTTP",
   URL `http://localhost:3000/mcp`, with the header `x-api-key`.
@@ -451,7 +453,7 @@ key. The server has no OAuth, so a client must be able to send a request header.
 Raw JSON-RPC over curl:
 
 ```sh
-KEY=ovq_…
+KEY=gt_…
 H="-H Content-Type:application/json -H Accept:application/json,text/event-stream -H x-api-key:$KEY"
 curl -s $H localhost:3000/mcp -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"curl","version":"1"}}}'
 curl -s $H localhost:3000/mcp -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
@@ -508,7 +510,7 @@ YouTube (`packages/db/src/schema/youtube.ts`):
 ## Local development
 
 ```sh
-pnpm --filter @open-vidiq/db db:push   # create/update tables (drizzle-kit)
+pnpm --filter @growtube/db db:push   # create/update tables (drizzle-kit)
 pnpm --filter server dev               # wrangler dev --test-scheduled on :3000
 pnpm --filter server check-types
 ```

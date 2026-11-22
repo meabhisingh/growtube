@@ -1,5 +1,5 @@
 /**
- * Typed client for the open-vidiq HTTP API. URLs come from `API_ROUTES` and
+ * Typed client for the GrowTube HTTP API. URLs come from `API_ROUTES` and
  * every response is validated with the shared zod contract, so a server-side
  * contract change surfaces as a type error (or a clear runtime error) here.
  */
@@ -17,11 +17,8 @@ import {
 	trendingResponse,
 	type VideoHistoryResponse,
 	videoHistoryResponse,
-} from "@open-vidiq/shared";
-import {
-	AUTH_REQUIRED_CODE,
-	isAuthRequiredError,
-} from "@open-vidiq/shared/auth";
+} from "@growtube/shared";
+import { AUTH_REQUIRED_CODE, isAuthRequiredError } from "@growtube/shared/auth";
 import { z } from "zod";
 
 import { ENV } from "@/env";
@@ -123,7 +120,7 @@ async function getJson<S extends z.ZodType>(
 	} catch (error) {
 		if (isAbortError(error)) throw error;
 		throw new ApiError(
-			"Can't reach the open-vidiq server. Check your connection and try again.",
+			"Can't reach the GrowTube server. Check your connection and try again.",
 			0,
 			error,
 		);

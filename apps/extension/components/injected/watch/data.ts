@@ -1,13 +1,13 @@
 /** Data hooks for the watch page panel (one video at a time). */
-import type { VideoSnapshotInput } from "@open-vidiq/shared/api";
-import type { VideoStats } from "@open-vidiq/shared/api-extra";
+import type { VideoSnapshotInput } from "@growtube/shared/api";
+import type { VideoStats } from "@growtube/shared/api-extra";
 import {
 	computeEngagementRate,
 	computeOutlierScore,
 	computeVph,
 	hoursSince,
-} from "@open-vidiq/shared/metrics";
-import { computeSeoScore, type SeoResult } from "@open-vidiq/shared/seo";
+} from "@growtube/shared/metrics";
+import { computeSeoScore, type SeoResult } from "@growtube/shared/seo";
 import { useEffect, useMemo } from "react";
 
 import { server, yt } from "@/lib/client";

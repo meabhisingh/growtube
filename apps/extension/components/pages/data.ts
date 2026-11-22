@@ -3,18 +3,18 @@
  * `@/lib/client` (the background caches and rate-limits it), so calling the
  * same loader from two tools is cheap.
  */
-import { formatCompact } from "@open-vidiq/shared/format";
+import { formatCompact } from "@growtube/shared/format";
 import {
 	computeEngagementRate,
 	computeUploadsPerWeek,
 	median,
-} from "@open-vidiq/shared/metrics";
-import { computeSeoScore } from "@open-vidiq/shared/seo";
+} from "@growtube/shared/metrics";
+import { computeSeoScore } from "@growtube/shared/seo";
 import {
 	extractChannelRef,
 	extractVideoId,
 	isChannelId,
-} from "@open-vidiq/shared/youtube";
+} from "@growtube/shared/youtube";
 
 import type { CoachContext } from "@/lib/ai/types";
 import { BackgroundError, yt } from "@/lib/client";

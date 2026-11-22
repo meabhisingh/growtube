@@ -1,5 +1,5 @@
 /** Options page sections: My channel, features, appearance, data, about. */
-import { Button } from "@open-vidiq/ui/components/button";
+import { Button } from "@growtube/ui/components/button";
 import {
 	Crown,
 	Database,
@@ -81,7 +81,7 @@ export function ChannelSection() {
 			description="Used for Daily Ideas, Channel Audit, and to give the AI coach context about you. Public data only: no Google sign-in."
 		>
 			{mine ? (
-				<div className="bg-surface-2 flex items-center gap-3 p-2.5">
+				<div className="bg-surface-2 flex items-center gap-3 rounded-lg p-2.5">
 					<Avatar src={info.data?.avatarUrl} size={40} />
 					<div className="flex min-w-0 flex-1 flex-col">
 						<span className="truncate text-xs font-medium">{mine.title}</span>
@@ -139,7 +139,7 @@ export function FeaturesSection() {
 			id="features"
 			title="Features on YouTube"
 			icon={SlidersHorizontal}
-			description="Turn the parts open-vidiq adds to YouTube on or off. Changes apply right away."
+			description="Turn the parts GrowTube adds to YouTube on or off. Changes apply right away."
 		>
 			<div className="flex flex-col divide-y">
 				{FEATURE_INFO.map((f) => (
@@ -187,7 +187,7 @@ export function AppearanceSection() {
 			id="appearance"
 			title="Appearance"
 			icon={Palette}
-			description="Theme of the toolkit, popup and this page. What open-vidiq adds to YouTube follows YouTube's own theme."
+			description="Theme of the toolkit, popup and this page. What GrowTube adds to YouTube follows YouTube's own theme."
 		>
 			<Segmented<UiTheme>
 				value={theme}
@@ -209,7 +209,7 @@ export function AppearanceSection() {
 async function exportData() {
 	const out: Record<string, unknown> = {
 		exportedAt: new Date().toISOString(),
-		app: "open-vidiq",
+		app: "growtube",
 	};
 	for (const [key, item] of Object.entries(SETTINGS_ITEMS)) {
 		const value = await item.getValue();
@@ -224,7 +224,7 @@ async function exportData() {
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement("a");
 	a.href = url;
-	a.download = `open-vidiq-data-${new Date().toISOString().slice(0, 10)}.json`;
+	a.download = `growtube-data-${new Date().toISOString().slice(0, 10)}.json`;
 	a.click();
 	setTimeout(() => URL.revokeObjectURL(url), 5_000);
 }
@@ -299,7 +299,7 @@ export function DataSection() {
 			id="data"
 			title="Your data"
 			icon={Database}
-			description="Settings, AI key, chats, ideas and competitors live in this browser only. Your account lives on the open-vidiq server (see Account)."
+			description="Settings, AI key, chats, ideas and competitors live in this browser only. Your account lives on the GrowTube server (see Account)."
 		>
 			<div className="flex flex-wrap gap-2">
 				<Button
@@ -330,7 +330,7 @@ export function DataSection() {
 									onClick={() => void run("reset")}
 									disabled={busy !== null}
 								>
-									<Trash2 /> Yes, delete all my open-vidiq data
+									<Trash2 /> Yes, delete all my GrowTube data
 								</Button>
 								<Button
 									size="sm"
@@ -345,7 +345,7 @@ export function DataSection() {
 						This deletes your AI settings and key, conversations, saved ideas,
 						competitors, my channel, feature settings and cache, revokes the
 						site access you granted and signs you out. It can't be undone. Your
-						open-vidiq account itself stays: delete it under Account.
+						GrowTube account itself stays: delete it under Account.
 					</Notice>
 				) : (
 					<Button
@@ -369,16 +369,16 @@ export function AboutSection() {
 	const version = browser.runtime.getManifest().version;
 	const health = useBackground("api.health", {}, []);
 	return (
-		<Section id="about" title="About open-vidiq" icon={Info}>
+		<Section id="about" title="About GrowTube" icon={Info}>
 			<div className="flex flex-col gap-2 text-xs leading-relaxed">
 				<p className="flex items-start gap-2">
 					<Heart className="text-brand mt-0.5 size-4 shrink-0" aria-hidden />
 					<span>
-						open-vidiq is a free, open-source YouTube growth toolkit. Every
-						feature is included and unlimited: no plans, no credits, no
-						paywalls. It needs a free account. You bring your own AI provider
-						(or a free local model), and your settings, AI key and chats stay in
-						your browser.
+						GrowTube is a free YouTube growth toolkit, with its source code on
+						GitHub. Every feature is included and unlimited: no plans, no
+						credits, no paywalls. It needs a free account. You bring your own AI
+						provider (or a free local model), and your settings, AI key and
+						chats stay in your browser.
 					</span>
 				</p>
 				<p className="text-muted-foreground">
@@ -388,13 +388,13 @@ export function AboutSection() {
 						: ""}
 				</p>
 			</div>
-			<div className="bg-surface-2 flex flex-col gap-1.5 p-3 text-xs">
+			<div className="bg-surface-2 flex flex-col gap-1.5 rounded-lg p-3 text-xs">
 				<span className="font-medium">Tip: free local AI with Ollama</span>
 				<p className="text-muted-foreground leading-relaxed">
 					Ollama only accepts requests from origins it trusts. Start it with the
 					extension allowed, then pick "Ollama (local)" above:
 				</p>
-				<code className="bg-background block overflow-x-auto px-2 py-1.5 font-mono text-[11px]">
+				<code className="bg-background ring-foreground/6 block overflow-x-auto rounded-lg px-2.5 py-1.5 font-mono text-[11px] ring-1">
 					OLLAMA_ORIGINS=chrome-extension://* ollama serve
 				</code>
 				<p className="text-muted-foreground leading-relaxed">

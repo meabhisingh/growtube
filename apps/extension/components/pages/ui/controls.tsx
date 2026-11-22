@@ -1,12 +1,12 @@
 /** Form controls shared by the extension pages. */
-import { Button } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import { Button } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@open-vidiq/ui/components/tooltip";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/tooltip";
+import { cn } from "@growtube/ui/lib/utils";
 import { Info, LoaderCircle, type LucideIcon, Search } from "lucide-react";
 import {
 	type ComponentProps,
@@ -45,7 +45,7 @@ export function Segmented<T extends string>({
 		<fieldset
 			aria-label={ariaLabel}
 			className={cn(
-				"bg-muted inline-flex min-w-0 shrink-0 items-center gap-0.5 p-0.5",
+				"bg-muted/70 ring-foreground/5 inline-flex min-w-0 shrink-0 items-center gap-0.5 rounded-xl p-[3px] ring-1 ring-inset",
 				className,
 			)}
 		>
@@ -60,11 +60,11 @@ export function Segmented<T extends string>({
 						title={o.title}
 						onClick={() => onChange(o.value)}
 						className={cn(
-							"focus-visible:ring-ring inline-flex items-center justify-center gap-1 px-2 text-xs font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-1",
-							size === "xs" ? "h-6" : "h-7",
+							"focus-visible:ring-ring/50 inline-flex items-center justify-center gap-1 rounded-lg text-xs font-medium whitespace-nowrap transition duration-150 ease-out outline-none focus-visible:ring-2 motion-safe:active:scale-[0.97]",
+							size === "xs" ? "h-6 px-2" : "h-7 px-2.5",
 							active
-								? "bg-background text-foreground dark:bg-accent shadow-xs"
-								: "text-muted-foreground hover:text-foreground",
+								? "bg-background text-foreground ring-foreground/5 dark:bg-accent dark:ring-foreground/10 shadow-sm ring-1"
+								: "text-muted-foreground hover:text-foreground hover:bg-foreground/5",
 						)}
 					>
 						{Icon ? <Icon className="size-3.5" aria-hidden /> : null}
@@ -105,14 +105,14 @@ export function Switch({
 			disabled={disabled}
 			onClick={() => onCheckedChange(!checked)}
 			className={cn(
-				"focus-visible:ring-ring/60 relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50",
+				"focus-visible:ring-ring/50 relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors duration-200 outline-none focus-visible:ring-3 disabled:cursor-not-allowed disabled:opacity-50",
 				checked ? "bg-brand" : "bg-input dark:bg-input",
 				className,
 			)}
 		>
 			<span
 				className={cn(
-					"inline-block size-4 rounded-full bg-white shadow-sm transition-transform",
+					"inline-block size-4 rounded-full bg-white shadow-sm transition-transform duration-200 ease-out",
 					checked ? "translate-x-4.5" : "translate-x-0.5",
 				)}
 			/>
@@ -178,7 +178,7 @@ export function NativeSelect({
 	return (
 		<select
 			className={cn(
-				"border-input bg-background focus-visible:border-ring focus-visible:ring-ring/50 dark:bg-input/30 [&>option]:bg-popover [&>option]:text-popover-foreground h-8 min-w-0 border px-2 text-xs outline-none focus-visible:ring-1 disabled:opacity-50",
+				"border-input bg-background focus-visible:border-ring focus-visible:ring-ring/50 dark:bg-input/30 [&>option]:bg-popover [&>option]:text-popover-foreground h-8 min-w-0 rounded-xl border px-2.5 text-xs transition-[color,box-shadow,border-color] duration-150 outline-none focus-visible:ring-3 disabled:opacity-50",
 				className,
 			)}
 			{...props}
@@ -250,7 +250,7 @@ export function InfoTip({
 						type="button"
 						aria-label={label}
 						className={cn(
-							"text-muted-foreground hover:text-foreground focus-visible:text-foreground inline-flex size-4 shrink-0 items-center justify-center outline-none",
+							"text-muted-foreground hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 inline-flex size-4 shrink-0 items-center justify-center rounded-full transition-colors duration-150 outline-none focus-visible:ring-2",
 							className,
 						)}
 					/>

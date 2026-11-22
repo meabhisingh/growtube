@@ -1,10 +1,13 @@
-import { cn } from "@open-vidiq/ui/lib/utils";
+import { cn } from "@growtube/ui/lib/utils";
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="skeleton"
-			className={cn("bg-muted animate-pulse rounded-none", className)}
+			className={cn(
+				"bg-muted animate-pulse rounded-lg motion-reduce:animate-none",
+				className,
+			)}
 			{...props}
 		/>
 	);

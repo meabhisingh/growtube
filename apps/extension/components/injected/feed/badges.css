@@ -8,6 +8,8 @@
 	min-width: 0;
 	margin: 4px 0 2px;
 	contain: content;
+	/* rounded-md: reads as a soft tag next to YouTube's ~12px thumbnails. */
+	--ovq-radius-sm: 8px;
 	--ovq-b-bg: rgba(0, 0, 0, 0.05);
 	--ovq-b-fg: #3f3f3f;
 	--ovq-b-muted: #737373;
@@ -53,11 +55,17 @@
 }
 
 .pill {
-	display: inline-flex;
-	align-items: center;
+	/* Block (still a flex item of .row) so long text ends in an ellipsis
+	   inside narrow cards instead of being clipped flat by `contain`. */
+	display: block;
+	box-sizing: border-box;
+	min-width: 0;
+	max-width: 100%;
 	height: 18px;
 	padding: 0 6px;
-	border-radius: 9px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-radius: var(--ovq-radius-sm);
 	background: var(--ovq-b-bg);
 	color: var(--ovq-b-fg);
 	white-space: nowrap;

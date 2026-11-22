@@ -12,13 +12,13 @@ import {
 	formatDuration,
 	formatOutlier,
 	formatPercent,
-} from "@open-vidiq/shared/format";
+} from "@growtube/shared/format";
 import {
 	computeEngagementRate,
 	computeOutlierScore,
 	computeVph,
 	outlierTier,
-} from "@open-vidiq/shared/metrics";
+} from "@growtube/shared/metrics";
 import { ChevronDown, Keyboard, Minus, Redo2, Undo2 } from "lucide-react";
 import {
 	type PointerEvent as ReactPointerEvent,
@@ -325,15 +325,15 @@ function ShortsControls({
 				className={className}
 				style={{ display: "none" }}
 				role="toolbar"
-				aria-label="open-vidiq Shorts controls"
+				aria-label="GrowTube Shorts controls"
 			>
 				{collapsed ? (
 					<button
 						type="button"
 						className="ovq-icon-btn"
 						onClick={() => setPrefs({ shortsCollapsed: false })}
-						aria-label="Show open-vidiq Shorts controls"
-						title="open-vidiq Shorts controls"
+						aria-label="Show GrowTube Shorts controls"
+						title="GrowTube Shorts controls"
 					>
 						<Logo size={22} />
 					</button>

@@ -4,18 +4,18 @@ import {
 	formatCompact,
 	formatNumber,
 	isChannelId,
-} from "@open-vidiq/shared";
-import { isYouTubeImageUrl } from "@open-vidiq/shared/images";
-import { buttonVariants } from "@open-vidiq/ui/components/button";
+} from "@growtube/shared";
+import { isYouTubeImageUrl } from "@growtube/shared/images";
+import { buttonVariants } from "@growtube/ui/components/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@open-vidiq/ui/components/card";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/card";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	createFileRoute,
 	Link,
@@ -62,7 +62,7 @@ type ChannelSearch = z.output<typeof channelSearchSchema>;
 export const Route = createFileRoute("/_auth/channel/$channelId")({
 	validateSearch: channelSearchSchema,
 	search: { middlewares: [stripSearchParams(searchDefaults)] },
-	head: () => ({ meta: [{ title: "Channel stats · open-vidiq" }] }),
+	head: () => ({ meta: [{ title: "Channel stats · GrowTube" }] }),
 	component: ChannelPage,
 });
 
@@ -203,7 +203,7 @@ function ChannelStats({ channelId }: { channelId: string }) {
 			{notTracked ? (
 				<EmptyState
 					icon={History}
-					title="open-vidiq hasn't tracked this channel yet"
+					title="GrowTube hasn't tracked this channel yet"
 					description="Channel history is built from public numbers that extension users see on YouTube, one point per day. Visit the channel with the extension installed to start tracking it."
 				>
 					<a
@@ -299,7 +299,7 @@ function ChannelOverview({
 
 	let chartBody: ReactNode;
 	if (loading) {
-		chartBody = <Skeleton className="h-[260px] w-full" />;
+		chartBody = <Skeleton className="h-[260px] w-full rounded-lg" />;
 	} else if (visible.length === 0) {
 		chartBody = (
 			<EmptyState
@@ -482,61 +482,66 @@ function DailyTable({ data }: { data: ChannelHistoryResponse }) {
 					from the previous tracked day.
 				</CardDescription>
 			</CardHeader>
-			<CardContent className="overflow-x-auto">
-				<table className="w-full min-w-[560px] text-left text-xs">
-					<thead className="text-muted-foreground">
-						<tr className="border-b">
-							<th scope="col" className="py-2 pr-4 font-medium">
-								Date (UTC)
-							</th>
-							<th scope="col" className="py-2 pr-4 text-right font-medium">
-								Subscribers
-							</th>
-							<th scope="col" className="py-2 pr-4 text-right font-medium">
-								Change
-							</th>
-							<th scope="col" className="py-2 pr-4 text-right font-medium">
-								Total views
-							</th>
-							<th scope="col" className="py-2 pr-4 text-right font-medium">
-								Change
-							</th>
-							<th scope="col" className="py-2 text-right font-medium">
-								Videos
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{rows.map((row) => (
-							<tr key={row.day} className="border-b last:border-0">
-								<th scope="row" className="py-2 pr-4 font-normal">
-									{dayFormat.format(dayToMs(row.day))}
+			<CardContent>
+				<div className="border-border/80 overflow-x-auto rounded-lg border">
+					<table className="w-full min-w-[560px] text-left text-xs">
+						<thead className="bg-muted/40 text-muted-foreground">
+							<tr className="border-b">
+								<th scope="col" className="px-3 py-2 font-medium">
+									Date (UTC)
 								</th>
-								<td
-									className="py-2 pr-4 text-right tabular-nums"
-									title={formatNumber(row.subscribers)}
-								>
-									{formatCompact(row.subscribers, 2)}
-								</td>
-								<td className="py-2 pr-4 text-right">
-									<Delta value={row.subsDelta} />
-								</td>
-								<td
-									className="py-2 pr-4 text-right tabular-nums"
-									title={formatNumber(row.totalViews)}
-								>
-									{formatCompact(row.totalViews, 2)}
-								</td>
-								<td className="py-2 pr-4 text-right">
-									<Delta value={row.viewsDelta} />
-								</td>
-								<td className="py-2 text-right tabular-nums">
-									{formatNumber(row.videoCount)}
-								</td>
+								<th scope="col" className="px-3 py-2 text-right font-medium">
+									Subscribers
+								</th>
+								<th scope="col" className="px-3 py-2 text-right font-medium">
+									Change
+								</th>
+								<th scope="col" className="px-3 py-2 text-right font-medium">
+									Total views
+								</th>
+								<th scope="col" className="px-3 py-2 text-right font-medium">
+									Change
+								</th>
+								<th scope="col" className="px-3 py-2 text-right font-medium">
+									Videos
+								</th>
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{rows.map((row) => (
+								<tr
+									key={row.day}
+									className="hover:bg-muted/30 border-b transition-colors last:border-0"
+								>
+									<th scope="row" className="px-3 py-2 font-normal">
+										{dayFormat.format(dayToMs(row.day))}
+									</th>
+									<td
+										className="px-3 py-2 text-right tabular-nums"
+										title={formatNumber(row.subscribers)}
+									>
+										{formatCompact(row.subscribers, 2)}
+									</td>
+									<td className="px-3 py-2 text-right">
+										<Delta value={row.subsDelta} />
+									</td>
+									<td
+										className="px-3 py-2 text-right tabular-nums"
+										title={formatNumber(row.totalViews)}
+									>
+										{formatCompact(row.totalViews, 2)}
+									</td>
+									<td className="px-3 py-2 text-right">
+										<Delta value={row.viewsDelta} />
+									</td>
+									<td className="px-3 py-2 text-right tabular-nums">
+										{formatNumber(row.videoCount)}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
 			</CardContent>
 		</Card>
 	);

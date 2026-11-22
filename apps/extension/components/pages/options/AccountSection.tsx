@@ -2,8 +2,8 @@
  * Options → Account. Signed out: sign in / create account. Signed in: who,
  * sign out, a link to the web app's MCP page for API keys, and account deletion.
  */
-import { Button, buttonVariants } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
+import { Button, buttonVariants } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
 import {
 	ExternalLink,
 	KeyRound,
@@ -51,8 +51,8 @@ export function AccountSection() {
 			icon={UserRound}
 			description={
 				user
-					? "You're signed in. Every open-vidiq feature is free and unlimited."
-					: "open-vidiq needs a free account: sign in or create one to use the toolkit, the YouTube and Studio panels and the server data. No plans, no credits, no limits."
+					? "You're signed in. Every GrowTube feature is free and unlimited."
+					: "GrowTube needs a free account: sign in or create one to use the toolkit, the YouTube and Studio panels and the server data. No plans, no credits, no limits."
 			}
 		>
 			{loading ? (
@@ -93,8 +93,8 @@ function SignedIn({ user }: { user: SignedInUser }) {
 
 	return (
 		<div className="flex flex-col gap-3">
-			<div className="bg-surface-2 flex flex-wrap items-center gap-3 p-2.5">
-				<div className="bg-brand-soft text-brand flex size-9 shrink-0 items-center justify-center text-sm font-semibold uppercase">
+			<div className="bg-surface-2 flex flex-wrap items-center gap-3 rounded-lg p-2.5">
+				<div className="bg-brand-soft text-brand flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold uppercase">
 					{(user.name || user.email).slice(0, 1)}
 				</div>
 				<div className="flex min-w-0 flex-1 flex-col">
@@ -124,7 +124,7 @@ function SignedIn({ user }: { user: SignedInUser }) {
 						aria-hidden
 					/>
 					<span className="text-muted-foreground flex-1">
-						API keys for MCP clients (AI assistants that use open-vidiq's data)
+						API keys for MCP clients (AI assistants that use GrowTube's data)
 						are created on the web app's MCP page.
 					</span>
 					<a
@@ -191,7 +191,7 @@ function DeleteAccount({ user }: { user: SignedInUser }) {
 			{open ? (
 				<Notice
 					tone="error"
-					title="Delete your open-vidiq account?"
+					title="Delete your GrowTube account?"
 					actions={
 						<>
 							<Button

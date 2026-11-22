@@ -1,9 +1,9 @@
-import { and, count, describeError, eq, pgErrorCode } from "@open-vidiq/db";
-import { apikey, user } from "@open-vidiq/db/schema/auth";
+import { and, count, describeError, eq, pgErrorCode } from "@growtube/db";
+import { apikey, user } from "@growtube/db/schema/auth";
 import {
 	AUTH_TOKEN_RESPONSE_HEADER,
 	MCP_API_KEY_HEADER,
-} from "@open-vidiq/shared/auth";
+} from "@growtube/shared/auth";
 import { Hono, type MiddlewareHandler } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import { cors } from "hono/cors";
@@ -70,7 +70,8 @@ app.use(requestLogger);
 // permissions for the server, so CORS doesn't apply to them; they send
 // `Authorization: Bearer <token>` with credentials "omit".
 const webAppCors = cors({
-	origin: ENV.CORS_ORIGIN,
+	// Exact-match origin: a trailing slash in CORS_ORIGIN would never match.
+	origin: ENV.CORS_ORIGIN.trim().replace(/\/+$/, ""),
 	allowMethods: ["GET", "POST", "OPTIONS"],
 	allowHeaders: ["Content-Type", "Authorization"],
 	// Not set-auth-token: the web app uses the httpOnly cookie, and exposing

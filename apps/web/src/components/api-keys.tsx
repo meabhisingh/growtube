@@ -1,16 +1,16 @@
-import { formatRelative } from "@open-vidiq/shared";
-import { Button } from "@open-vidiq/ui/components/button";
+import { formatRelative } from "@growtube/shared";
+import { Button } from "@growtube/ui/components/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@open-vidiq/ui/components/card";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Label } from "@open-vidiq/ui/components/label";
-import { Skeleton } from "@open-vidiq/ui/components/skeleton";
-import { cn } from "@open-vidiq/ui/lib/utils";
+} from "@growtube/ui/components/card";
+import { Input } from "@growtube/ui/components/input";
+import { Label } from "@growtube/ui/components/label";
+import { Skeleton } from "@growtube/ui/components/skeleton";
+import { cn } from "@growtube/ui/lib/utils";
 import {
 	KeyRound,
 	LoaderCircle,
@@ -77,10 +77,20 @@ function formatDate(value: Date | string | null): string {
 	return t ? dateFormat.format(t) : "—";
 }
 
-/** "ovq_aB…" style hint: the stored first characters, or the prefix alone. */
+/** "gt_aB…" style hint: the stored first characters, or the prefix alone. */
 function keyHint(key: ApiKeyRow): string {
 	const visible = key.start ?? key.prefix;
 	return visible ? `${visible}…` : "••••••";
+}
+
+/**
+ * Prefix of keys made before the GrowTube rename. They still verify (see
+ * `LEGACY_API_KEY_PREFIXES` in `@growtube/auth`, which is server-only).
+ */
+const LEGACY_KEY_PREFIX = "ovq_";
+
+function isLegacyKey(key: ApiKeyRow): boolean {
+	return (key.start ?? key.prefix ?? "").startsWith(LEGACY_KEY_PREFIX);
 }
 
 interface ApiKeysCardProps {
@@ -134,8 +144,8 @@ export function ApiKeysCard({ userId, onCreated }: ApiKeysCardProps) {
 
 				{keys.isPending ? (
 					<div className="flex flex-col gap-2" aria-busy="true">
-						<Skeleton className="h-12 w-full" />
-						<Skeleton className="h-12 w-full" />
+						<Skeleton className="h-12 w-full rounded-lg" />
+						<Skeleton className="h-12 w-full rounded-lg" />
 					</div>
 				) : keys.error && !keys.data ? (
 					<ErrorState
@@ -151,13 +161,23 @@ export function ApiKeysCard({ userId, onCreated }: ApiKeysCardProps) {
 						description="Create a key above, then paste it into your MCP client's config."
 					/>
 				) : (
-					<KeyList
-						rows={rows}
-						onRevoked={(id) => {
-							setRevoked((prev) => new Set(prev).add(id));
-							keys.refetch();
-						}}
-					/>
+					<>
+						<KeyList
+							rows={rows}
+							onRevoked={(id) => {
+								setRevoked((prev) => new Set(prev).add(id));
+								keys.refetch();
+							}}
+						/>
+						{rows.some(isLegacyKey) && (
+							<p className="text-muted-foreground text-xs">
+								Keys starting with{" "}
+								<code className="font-mono">{LEGACY_KEY_PREFIX}</code> were
+								created before the rename to GrowTube and still work. New keys
+								start with <code className="font-mono">gt_</code>.
+							</p>
+						)}
+					</>
 				)}
 			</CardContent>
 		</Card>
@@ -253,7 +273,7 @@ function NewKeyNotice({
 	return (
 		<div
 			role="status"
-			className="flex flex-col gap-3 border border-amber-500/40 bg-amber-500/10 p-3 text-xs"
+			className="flex flex-col gap-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs"
 		>
 			<div className="flex gap-2">
 				<TriangleAlert
@@ -265,7 +285,7 @@ function NewKeyNotice({
 						Copy your new key “{name}” now. It's shown only once.
 					</span>
 					<span className="text-muted-foreground">
-						open-vidiq stores only a hash of it, so nobody can show it to you
+						GrowTube stores only a hash of it, so nobody can show it to you
 						again. Treat it like a password: anyone with it can use your access.
 						If you lose it, revoke it and create a new one.
 					</span>
@@ -289,23 +309,23 @@ function KeyList({
 	onRevoked: (id: string) => void;
 }) {
 	return (
-		<div className="overflow-x-auto">
+		<div className="border-border/80 overflow-x-auto rounded-lg border">
 			<table className="w-full min-w-[520px] text-left text-xs">
-				<thead className="text-muted-foreground">
+				<thead className="bg-muted/40 text-muted-foreground">
 					<tr className="border-b">
-						<th scope="col" className="py-2 pr-4 font-medium">
+						<th scope="col" className="px-3 py-2 font-medium">
 							Name
 						</th>
-						<th scope="col" className="py-2 pr-4 font-medium">
+						<th scope="col" className="px-3 py-2 font-medium">
 							Key
 						</th>
-						<th scope="col" className="py-2 pr-4 font-medium">
+						<th scope="col" className="px-3 py-2 font-medium">
 							Created
 						</th>
-						<th scope="col" className="py-2 pr-4 font-medium">
+						<th scope="col" className="px-3 py-2 font-medium">
 							Last used
 						</th>
-						<th scope="col" className="py-2 text-right font-medium">
+						<th scope="col" className="px-3 py-2 text-right font-medium">
 							<span className="sr-only">Actions</span>
 						</th>
 					</tr>
@@ -345,34 +365,34 @@ function KeyRowView({
 	}
 
 	return (
-		<tr className="border-b last:border-0">
-			<th scope="row" className="py-2.5 pr-4 font-medium">
+		<tr className="hover:bg-muted/30 border-b transition-colors last:border-0">
+			<th scope="row" className="px-3 py-2.5 font-medium">
 				<span className="flex items-center gap-2">
 					<span className="max-w-48 truncate" title={name}>
 						{name}
 					</span>
 					{(!row.enabled || expired) && (
-						<span className="bg-muted text-muted-foreground px-1.5 py-0.5 text-[10px] font-normal">
+						<span className="bg-muted text-muted-foreground rounded-md px-1.5 py-0.5 text-[10px] font-normal">
 							{expired ? "Expired" : "Disabled"}
 						</span>
 					)}
 				</span>
 			</th>
-			<td className="py-2.5 pr-4">
+			<td className="px-3 py-2.5">
 				<code className="text-muted-foreground font-mono">{keyHint(row)}</code>
 			</td>
-			<td className="py-2.5 pr-4" title={new Date(row.createdAt).toString()}>
+			<td className="px-3 py-2.5" title={new Date(row.createdAt).toString()}>
 				{formatDate(row.createdAt)}
 			</td>
 			<td
-				className="text-muted-foreground py-2.5 pr-4"
+				className="text-muted-foreground px-3 py-2.5"
 				title={
 					row.lastRequest ? new Date(row.lastRequest).toString() : undefined
 				}
 			>
 				{row.lastRequest ? formatRelative(row.lastRequest) : "Not used yet"}
 			</td>
-			<td className="py-2.5 text-right whitespace-nowrap">
+			<td className="py-2 pr-2 pl-3 text-right whitespace-nowrap">
 				{confirming ? (
 					<span className="inline-flex items-center gap-1">
 						<Button

@@ -10,8 +10,8 @@ import {
 	type SQL,
 	sql,
 	videos,
-} from "@open-vidiq/db";
-import type { TrendingQuery, TrendingResponse } from "@open-vidiq/shared";
+} from "@growtube/db";
+import type { TrendingQuery, TrendingResponse } from "@growtube/shared";
 
 import { type Cached, cachedJson, cacheKeys } from "../lib/cache";
 import { opaqueId } from "../lib/hash";

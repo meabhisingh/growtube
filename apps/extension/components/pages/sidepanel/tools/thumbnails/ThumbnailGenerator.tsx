@@ -3,9 +3,9 @@
  * images via the user's provider (ai.generateImage). Images stay in memory;
  * download or send them to the preview.
  */
-import { Button, buttonVariants } from "@open-vidiq/ui/components/button";
-import { Input } from "@open-vidiq/ui/components/input";
-import { Textarea } from "@open-vidiq/ui/components/textarea";
+import { Button, buttonVariants } from "@growtube/ui/components/button";
+import { Input } from "@growtube/ui/components/input";
+import { Textarea } from "@growtube/ui/components/textarea";
 import {
 	Download,
 	ExternalLink,
@@ -251,13 +251,13 @@ export function ThumbnailGenerator({
 								<img
 									src={src}
 									alt={`Generated thumbnail ${i + 1}`}
-									className="ring-foreground/10 w-full ring-1"
+									className="ring-foreground/10 w-full rounded-lg ring-1"
 								/>
 								<figcaption className="flex flex-wrap gap-1.5">
 									{src.startsWith("data:") ? (
 										<a
 											href={src}
-											download={`open-vidiq-thumbnail-${i + 1}.${imageExtension(src)}`}
+											download={`growtube-thumbnail-${i + 1}.${imageExtension(src)}`}
 											className={buttonVariants({
 												variant: "outline",
 												size: "xs",
@@ -299,7 +299,7 @@ function ConceptCard({
 	onUse: () => void;
 }) {
 	return (
-		<div className="bg-surface-2 flex flex-col gap-1.5 p-2.5 text-xs">
+		<div className="bg-surface-2 flex flex-col gap-1.5 rounded-lg p-2.5 text-xs">
 			<div className="flex items-start gap-2">
 				<div className="flex min-w-0 flex-1 flex-col gap-1">
 					{concept.headline ? (
@@ -324,7 +324,7 @@ function ConceptCard({
 					{concept.colors.slice(0, 6).map((c) => (
 						<span
 							key={c}
-							className="ring-foreground/15 h-3 w-6 ring-1"
+							className="ring-foreground/15 h-3 w-6 rounded-full ring-1"
 							style={{ background: c }}
 							title={c}
 						/>
