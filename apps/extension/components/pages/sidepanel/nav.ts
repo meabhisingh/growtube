@@ -5,12 +5,13 @@
  * Tool ids accepted in `CurrentContext.tool` (from content scripts via
  * `ext.openSidePanel({ tool, prefill, videoId, channelId, coach, autoSubmit })`):
  *   coach, keywords, trending, competitors, ideas, thumbnails, optimize,
- *   clips, channel  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips)
+ *   clips, channel, planner  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips)
  */
 import {
 	ChartColumn,
 	Gauge,
 	Image,
+	KanbanSquare,
 	Lightbulb,
 	type LucideIcon,
 	MessagesSquare,
@@ -34,7 +35,8 @@ export type ToolId =
 	| "thumbnails"
 	| "optimize"
 	| "clips"
-	| "channel";
+	| "channel"
+	| "planner";
 
 export type ToolDef = {
 	id: ToolId;
@@ -98,6 +100,13 @@ export const TOOLS: readonly ToolDef[] = [
 		icon: ChartColumn,
 		description: "Stats, posting times, outliers and an AI audit.",
 	},
+	{
+		id: "planner",
+		label: "Planner",
+		icon: KanbanSquare,
+		description:
+			"Plan videos from idea to published: a board and a calendar. Stays in this browser.",
+	},
 ];
 
 export const TOOL_ALIASES: Record<string, ToolId> = {
@@ -121,6 +130,11 @@ export const TOOL_ALIASES: Record<string, ToolId> = {
 	shorts: "clips",
 	audit: "channel",
 	"channel-audit": "channel",
+	plan: "planner",
+	calendar: "planner",
+	"content-planner": "planner",
+	"content-calendar": "planner",
+	board: "planner",
 };
 
 export function resolveTool(tool: string | null | undefined): ToolId | null {

@@ -33,6 +33,7 @@ lib/
   messaging.ts          protocol types, sendToBackground, background router
   background-handlers.ts  background implementation of every message (background only)
   settings.ts           WXT storage items (user settings)
+  planner.ts            Content planner: addPlannerIdea, export/import (any context)
   context.ts            "current context" for the side panel (storage.session)
   hooks.ts              useStorageItem, useBackground, useYouTubeDarkTheme
   cache.ts              TTL cache + in-flight dedupe (memory + chrome.storage.local)
@@ -354,6 +355,8 @@ All hooks work inside shadow roots and extension pages.
 | `shortsDefaultSpeed` | `number`                                                                                                 | `1`                                                                            |
 | `aiConversations`    | `AiConversation[] { id, title, createdAt, updatedAt, messages: UiChatMessage[], context? }`              | `[]`                                                                           |
 | `savedIdeas`         | `SavedIdea[] { id, title, description?, source, createdAt, videoId?, channelId?, tags?, done? }`         | `[]`                                                                           |
+| `plannerIdeas`       | `PlannerIdea[]` (type in settings.ts; write via `@/lib/planner`, max 500)                                | `[]`                                                                           |
+| `earningsNiches`     | `Record<channelId, NicheId>` earnings niche picks                                                        | `{}`                                                                           |
 | `onboardingDone`     | `boolean`                                                                                                | `false` (background opens `options.html#account` on install while false)       |
 
 Account state is not a setting: `authUser` lives in `@/lib/auth` (see §0) and is not part of

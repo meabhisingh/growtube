@@ -23,8 +23,36 @@ import { Section } from "../../../ui/layout";
 import { VideoRow } from "../../../ui/video";
 import { type ToolProps, usePanel } from "../../nav";
 import { ToolScroll } from "../../shared";
+import { SaveToPlannerButton } from "../planner/SaveToPlannerButton";
 
 type TrendWindow = TrendingQuery["window"];
+
+/** A planner card inspired by a trending / outlier video. */
+function trendPlannerIdea(
+	v: {
+		videoId: string;
+		title: string;
+		channelTitle?: string | null;
+		isShort?: boolean;
+	},
+	outlier?: number | null,
+) {
+	return {
+		title: `My take: ${v.title}`.slice(0, 200),
+		notes: [
+			`Inspired by "${v.title}"${v.channelTitle ? ` (${v.channelTitle})` : ""}`,
+			outlier != null
+				? `${outlier.toFixed(1)}x its channel's usual views`
+				: null,
+			`https://www.youtube.com/watch?v=${v.videoId}`,
+		]
+			.filter(Boolean)
+			.join("\n"),
+		source: "trends" as const,
+		sourceRef: v.videoId,
+		tags: [v.isShort ? "short" : "long-form"],
+	};
+}
 type Kind = TrendingQuery["type"];
 
 export function TrendsTool({ active }: ToolProps) {
@@ -150,6 +178,16 @@ function TrendingSection({ active }: { active: boolean }) {
 								publishedAt: v.publishedAt,
 								isShort: v.isShort ?? false,
 							}}
+							actions={
+								<SaveToPlannerButton
+									idea={trendPlannerIdea({
+										videoId: v.videoId,
+										title: v.title ?? "Untitled video",
+										channelTitle: v.channelTitle,
+										isShort: v.isShort ?? false,
+									})}
+								/>
+							}
 							badges={
 								<>
 									<VphBadge vph={v.vph} />
@@ -253,6 +291,11 @@ function CompetitorOutliersSection({ active }: { active: boolean }) {
 								<VideoRow
 									key={v.videoId}
 									video={{ ...v, channelTitle: v.channelTitle }}
+									actions={
+										<SaveToPlannerButton
+											idea={trendPlannerIdea(v, v.outlier)}
+										/>
+									}
 									badges={
 										<>
 											<OutlierBadge score={v.outlier} />

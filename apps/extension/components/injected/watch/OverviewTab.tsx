@@ -1,6 +1,7 @@
 /**
  * Overview tab: channel card + history, controversial keywords (free),
- * SEO score, channel/video tags (with search ranks) and channel stats.
+ * SEO score, estimated earnings, channel/video tags (with search ranks) and
+ * channel stats.
  */
 import {
 	CONTROVERSIAL_CATEGORY_LABELS,
@@ -44,6 +45,7 @@ import {
 	Spinner,
 } from "../common/ui";
 import type { WatchData } from "./data";
+import { EarningsCard } from "./EarningsCard";
 
 export type TagRanks = Record<string, number | null>;
 
@@ -74,6 +76,7 @@ export function OverviewTab({
 			<ChannelCard w={w} />
 			<ControversialCard details={d} />
 			{w.metrics && <SeoCard seo={w.metrics.seo} />}
+			<EarningsCard details={d} typicalViews={w.metrics?.baseline ?? null} />
 			<ChannelTagsCard w={w} />
 			<VideoTagsCard details={d} onTagRanks={onTagRanks} />
 			<ChannelStatsCard w={w} />
