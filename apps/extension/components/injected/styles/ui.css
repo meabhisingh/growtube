@@ -1245,3 +1245,18 @@
 		transform: none;
 	}
 }
+
+/* Watch panel: large thumbnail with download (watch/ThumbnailCard.tsx) */
+.ovq-thumb-large {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 8px;
+	background: var(--ovq-pill);
+}
+.ovq-thumb-actions {
+	display: flex;
+	gap: 8px;
+	margin-top: 8px;
+}

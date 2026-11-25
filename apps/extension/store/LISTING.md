@@ -47,49 +47,51 @@ match it, then rebuild the ZIP. The store summary always shows the manifest's te
 
 ### Detailed description
 
+The first submission was rejected on 2026-11-23 (Yellow Argon, keyword spam) for listing AI provider names. This version names no providers, uses no content word more than 5 times, and matches the privacy policy.
+
 This is plain text: the store shows no Markdown. Paste everything inside the block.
 
 ```text
-GrowTube is a free toolkit for YouTube creators. It puts the numbers and research tools you need to grow a channel right where you work: on YouTube, in YouTube Studio and in Chrome's side panel. There are no plans, credits or daily caps.
 
-ON YOUTUBE
-• Watch-page panel: views per hour (VPH), an outlier score that compares the video with the channel's typical upload, a view-history chart (last 24 hours, first 7 or 28 days, all time), an SEO score, video and channel tags with their YouTube search rank, channel stats, and an AI Coach tab.
-• Badges on video cards (home, search, subscriptions, channel pages): views per hour, outlier score and channel size at a glance.
-• Shorts controls: playback speed, 5-second skips, a seek bar, auto-scroll and quick stats for the Short you're watching.
+GrowTube is a free toolkit that helps YouTube creators research, optimize and grow their channel. It adds video and channel stats as you browse and watch, an SEO panel in Studio, and research tools in Chrome's side panel. There are no paid plans, credits or daily caps.
 
-IN YOUTUBE STUDIO
-• While you edit a video: a live SEO score and checklist for your title, description and tags, the search rank of each tag, and AI suggestions.
+WHILE YOU WATCH
+• A panel next to each video with views per hour, an outlier score (how it compares with the creator's usual uploads), a view-history chart, an SEO score, video and channel tags with the search rank of the top tags, and an AI Coach tab.
+• Badges on video cards in home, search, subscriptions and channel pages: views per hour, outlier score and subscriber count at a glance.
+• Shorts review controls for studying what works: playback speed, 5-second skips, a seek bar, auto-scroll and quick numbers.
 
-IN THE SIDE PANEL (9 TOOLS)
-• AI Coach: chat about any video or channel.
-• Keyword Research: find keywords with demand and weak competition, with volume and competition scores.
-• Trends: what's taking off right now, plus your competitors' outliers.
-• Competitors: track the channels you compete with.
-• Daily Ideas: fresh video ideas based on what works for you.
-• Thumbnails: research, preview and generate thumbnails.
-• Optimize: titles, description and tags with a live SEO score.
-• Clip Finder: find Short-worthy moments in any video.
-• Channel Audit: stats, best posting times, outliers and an AI audit.
+WHILE YOU EDIT IN STUDIO
+• A live SEO score and checklist for your title, description and tags, the search rank of each tag, and suggestions.
 
-BRING YOUR OWN AI
-AI features use your own OpenAI-compatible provider and API key (for example OpenAI, OpenRouter, Groq, Together AI, DeepSeek, Mistral or Google Gemini), or a free local model through Ollama or LM Studio. Requests go straight from your browser to the provider you pick, and your key is stored only in your browser. Everything else works without AI.
+IN THE SIDE PANEL
+• AI Coach: ask questions about any upload or creator.
+• Keyword Research: find search terms with demand and weak competition.
+• Trends: see what's taking off in the stats users share, and your competitors' outliers.
+• Competitors: follow the creators you compete with.
+• Daily Ideas: fresh ideas based on what works for you.
+• Thumbnails: research and preview thumbnails, and generate new ones with a service that makes images.
+• Optimize: improve titles, descriptions and tags with a live score.
+• Clip Finder: find moments worth turning into Shorts.
+• Channel Audit: best posting times, outliers and an AI review.
 
-FREE ACCOUNT REQUIRED
-You need a free GrowTube account (name, email and password) to use the extension. The account powers view history, Trends and the shared stats, and keeps the free server fair for everyone.
+USE YOUR OWN AI
+Coach, ideas, clips, thumbnail generation and the writing suggestions work with any service that offers an OpenAI-compatible API, using your own key, or with a model running on your own computer. Requests, with the details, transcript or Studio text they need, go straight from your browser to the service you choose, under its own privacy policy. Every other feature works without AI.
+
+SIGN-IN
+You need a free account (name, email and password) to use any feature. It powers view history and Trends, and keeps the server fair for everyone.
 
 PRIVACY
-• GrowTube reads YouTube anonymously. It never uses your Google account or YouTube cookies.
-• Stats lookups: to show their stats, GrowTube sends the IDs of the public YouTube videos and channels you view, and your Trends searches, to the GrowTube server. Lookups are not stored with your account.
-• Share public stats (optional, off until you turn it on): also uploads the public numbers of those videos and channels (title, channel name, view, like and comment counts, channel avatar, country, keywords) to power view history and Trends for everyone. They are stored without your account ID. Nothing is sent from unlisted or private videos, YouTube Studio, or your history, library and playlist pages.
-• The sign-in form explains this before anything is sent, and the switch is in the popup and in Settings.
-• Your AI key and AI chats stay in your browser and go only to the AI provider you choose.
-• You can delete your account at any time in Settings → Account.
+• Requests to YouTube never use your Google sign-in or cookies. In Studio, the title, description and tags you are editing are scored on your computer.
+• To show these numbers, the IDs of the public videos and channels you open or see in lists, the channels you add as competitors, and your Trends searches are sent to our server with your login. The server does not store these lookups with your account.
+• "Share public stats" is optional and off until you turn it on. It also uploads public details of those videos and channels (such as titles, handles, dates, durations, view, like, comment and subscriber counts, avatars, country and keywords; the privacy policy lists every field), stored without your account ID. Unlisted and private videos are never uploaded, and nothing from Studio or your history, library and playlist pages is sent to our server.
+• Our server stores your name, email, a hash of your password and your login sessions.
+• Nothing is looked up or uploaded until you sign in, and the sign-in form explains all of this first. The sharing switch is on that form, in the popup and in Settings.
+• Your provider key and coach chats stay in your browser.
+• You can delete your account at any time in Settings → Account. Shared stats were never linked to it, so they stay.
 Privacy policy: https://growtube.meabhisingh25.workers.dev/privacy
+Source code: https://github.com/meabhisingh/growtube
 
-SOURCE CODE
-The source code is on GitHub: https://github.com/meabhisingh/growtube
-
-GrowTube is an independent project. It is not affiliated with, endorsed by or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.
+GrowTube is an independent project. It is not affiliated with or endorsed by YouTube or Google.
 ```
 
 Every claim in this text maps to the code:

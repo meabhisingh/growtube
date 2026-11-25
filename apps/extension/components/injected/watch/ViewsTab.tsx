@@ -7,18 +7,17 @@ import {
 	formatPercent,
 } from "@growtube/shared/format";
 import { outlierTier } from "@growtube/shared/metrics";
-import { thumbnailUrl } from "@growtube/shared/youtube";
-import { Images } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { AreaChart, type ChartPoint } from "@/components/common/AreaChart";
-import { ext, server } from "@/lib/client";
+import { server } from "@/lib/client";
 import type { VideoDetails } from "@/lib/youtube/types";
 import { isPublicVideo } from "@/lib/youtube/visibility";
 
-import { errorMessage, isServerUnavailable, useAsync } from "../common/async";
+import { isServerUnavailable, useAsync } from "../common/async";
 import { Card, ErrorNote, Note, Segmented, Skeleton, Stat } from "../common/ui";
 import type { WatchData } from "./data";
+import { ThumbnailCard } from "./ThumbnailCard";
 
 const RANGES: readonly { id: HistoryRange; label: string }[] = [
 	{ id: "24h", label: "24 hours" },
@@ -228,56 +227,7 @@ export function ViewsTab({ w }: { w: WatchData }) {
 				)}
 			</Card>
 
-			{d && <VideoFooter details={d} />}
+			{d && <ThumbnailCard details={d} />}
 		</div>
-	);
-}
-
-function VideoFooter({ details }: { details: VideoDetails }) {
-	const [error, setError] = useState<string | null>(null);
-	const openThumbnails = () => {
-		setError(null);
-		// Must run in the click handler: opening the side panel needs the gesture.
-		ext
-			.openSidePanel({
-				videoId: details.videoId,
-				channelId: details.channelId || undefined,
-				tool: "thumbnails",
-				prefill: details.title,
-			})
-			.catch((e: unknown) => setError(errorMessage(e)));
-	};
-	return (
-		<>
-			<div className="ovq-footer-video">
-				<img
-					src={thumbnailUrl(details.videoId, "mqdefault")}
-					alt=""
-					loading="lazy"
-					width={96}
-					height={54}
-				/>
-				<div className="ovq-footer-text">
-					<div className="ovq-clamp-2" title={details.title}>
-						{details.title}
-					</div>
-					<div className="ovq-small ovq-muted">
-						Updated{" "}
-						{new Date(details.fetchedAt).toLocaleString(undefined, {
-							dateStyle: "medium",
-							timeStyle: "short",
-						})}
-					</div>
-					<button
-						type="button"
-						className="ovq-link-btn"
-						onClick={openThumbnails}
-					>
-						<Images size={14} aria-hidden="true" /> See similar thumbnails
-					</button>
-				</div>
-			</div>
-			{error && <Note tone="error">{error}</Note>}
-		</>
 	);
 }

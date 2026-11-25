@@ -23,6 +23,7 @@
 			"!**/.expo",
 			"!**/.wrangler",
 			"!**/.alchemy",
+			"!!**/.claude/worktrees",
 			"!**/.svelte-kit",
 			"!**/wrangler.jsonc",
 			"!**/.source",
