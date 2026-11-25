@@ -34,6 +34,7 @@ import type {
 } from "./ai/types";
 import type { SignedInUser } from "./auth";
 import type { CurrentContext } from "./context";
+import type { FeedPreviewCard, FeedPreviewResult } from "./feed-preview";
 import { keepAliveWhile } from "./keepalive";
 import type {
 	CaptionTrack,
@@ -269,6 +270,15 @@ export interface Protocol {
 	"context.get": { req: Empty; res: CurrentContext | null };
 	"options.open": { req: { hash?: string }; res: { ok: true } };
 	"cache.clear": { req: { prefix?: string }; res: { removed: number } };
+	/**
+	 * Live feed preview (extension pages only): forwards `card` to the tab's
+	 * content script, which inserts a fake video card into the home grid or
+	 * search results; `card: null` removes it. Never uploads anything.
+	 */
+	"tab.feedPreview": {
+		req: { tabId: number; card: FeedPreviewCard | null };
+		res: FeedPreviewResult;
+	};
 	/** Tab id of the sender (content scripts can't know it otherwise). */
 	"tab.self": {
 		req: Empty;

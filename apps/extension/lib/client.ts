@@ -26,6 +26,7 @@ import type {
 	ReasoningEffortSetting,
 } from "./ai/types";
 import type { CurrentContext } from "./context";
+import type { FeedPreviewCard } from "./feed-preview";
 import { sendToBackground } from "./messaging";
 import type {
 	CaptionTrack,
@@ -199,4 +200,7 @@ export const ext = {
 	openOptions: (hash?: string) => sendToBackground("options.open", { hash }),
 	clearCache: (prefix?: string) => sendToBackground("cache.clear", { prefix }),
 	tabSelf: () => sendToBackground("tab.self", {}),
+	/** Extension pages: show (`card`) or remove (`null`) the live feed preview in a YouTube tab. */
+	feedPreview: (tabId: number, card: FeedPreviewCard | null) =>
+		sendToBackground("tab.feedPreview", { tabId, card }),
 };

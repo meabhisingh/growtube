@@ -1,0 +1,352 @@
+/* Live feed preview card (own shadow root, a sibling of YouTube's cells) and
+ * its floating "Remove preview" bar. Mirrors the 2026 lockup / search row
+ * metrics; colors follow YouTube's own --yt-spec-* tokens, with fallbacks for
+ * both themes (the host gets a `dark` attribute while <html dark>). */
+:host {
+	display: block;
+	box-sizing: border-box;
+	min-width: 0;
+	container-type: inline-size;
+	font-family: "Roboto", "Arial", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	--t1: var(--yt-spec-text-primary, #0f0f0f);
+	--t2: var(--yt-spec-text-secondary, #606060);
+	--ph: var(--yt-spec-badge-chip-background, rgba(0, 0, 0, 0.05));
+	--avatar-bg: #5f6368;
+}
+
+:host([dark]) {
+	--t1: var(--yt-spec-text-primary, #f1f1f1);
+	--t2: var(--yt-spec-text-secondary, #aaaaaa);
+	--ph: var(--yt-spec-badge-chip-background, rgba(255, 255, 255, 0.1));
+	--avatar-bg: #717171;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+.card {
+	display: flex;
+	min-width: 0;
+	cursor: default;
+	color: var(--t1);
+}
+
+.thumb {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	border-radius: 12px;
+	background: var(--ph);
+}
+
+.thumb img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.time {
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	padding: 1px 4px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.tag {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 2px 7px 2px 6px;
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.62);
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0.2px;
+	pointer-events: none;
+}
+
+.tag::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #ff4e45;
+}
+
+.avatar {
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 50%;
+	background: var(--avatar-bg);
+	color: #ffffff;
+	font-weight: 500;
+}
+
+.avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.title {
+	display: -webkit-box;
+	margin: 0;
+	overflow: hidden;
+	color: var(--t1);
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	text-overflow: ellipsis;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.meta,
+.channel,
+.desc {
+	color: var(--t2);
+}
+
+.line {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* ---- Home grid cell (yt-lockup-view-model) ---- */
+.card.home {
+	flex-direction: column;
+}
+
+.home .details {
+	display: flex;
+	gap: 12px;
+	margin-top: 12px;
+	min-width: 0;
+}
+
+.home .avatar {
+	width: 36px;
+	height: 36px;
+	font-size: 16px;
+}
+
+.home .text {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+	padding-right: 24px;
+}
+
+.home .title {
+	max-height: 44px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 22px;
+}
+
+.home .meta {
+	margin-top: 4px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/* ---- Search result row (ytd-video-renderer) ---- */
+.card.search {
+	flex-direction: row;
+	gap: 16px;
+}
+
+.search .thumb {
+	flex: none;
+	width: var(--ovq-thumb-w, 360px);
+	min-width: 240px;
+	max-width: 500px;
+}
+
+.search .text {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.search .title {
+	max-height: 52px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 26px;
+}
+
+.search .meta {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.search .channel {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+	padding: 12px 0;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.search .channel .avatar {
+	width: 24px;
+	height: 24px;
+	font-size: 11px;
+}
+
+.search .desc {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+/* Narrow windows: YouTube stacks the thumbnail above the text. */
+.card.search.stacked {
+	flex-direction: column;
+	gap: 12px;
+}
+
+.search.stacked .thumb {
+	width: 100%;
+	min-width: 0;
+	max-width: none;
+}
+
+@container (max-width: 520px) {
+	.card.search {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.search .thumb {
+		width: 100%;
+		min-width: 0;
+		max-width: none;
+	}
+
+	.search .title {
+		font-size: 16px;
+		line-height: 22px;
+		max-height: 44px;
+	}
+}
+
+/* ---- Floating control (appended to <body>) ---- */
+.bar {
+	position: fixed;
+	bottom: 24px;
+	left: 50%;
+	z-index: 2300;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	max-width: calc(100vw - 32px);
+	padding: 8px 8px 8px 14px;
+	border-radius: 14px;
+	background: #0f0f0f;
+	box-shadow:
+		0 12px 32px -8px rgba(0, 0, 0, 0.35),
+		0 2px 6px rgba(0, 0, 0, 0.15);
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 18px;
+	transform: translateX(-50%);
+}
+
+:host([dark]) .bar {
+	background: #f1f1f1;
+	color: #0f0f0f;
+}
+
+.bar .label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 500;
+}
+
+.bar .label::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #ff4e45;
+}
+
+.bar button {
+	height: 30px;
+	padding: 0 12px;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.14);
+	color: inherit;
+	font: inherit;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.bar button:hover {
+	background: rgba(255, 255, 255, 0.24);
+}
+
+.bar button.primary {
+	background: #ffffff;
+	color: #0f0f0f;
+}
+
+.bar button.primary:hover {
+	background: #e5e5e5;
+}
+
+:host([dark]) .bar button {
+	background: rgba(0, 0, 0, 0.08);
+}
+
+:host([dark]) .bar button:hover {
+	background: rgba(0, 0, 0, 0.14);
+}
+
+:host([dark]) .bar button.primary {
+	background: #0f0f0f;
+	color: #ffffff;
+}
+
+:host([dark]) .bar button.primary:hover {
+	background: #272727;
+}
+
+.bar button:focus-visible {
+	outline: 2px solid #3ea6ff;
+	outline-offset: 2px;
+}
