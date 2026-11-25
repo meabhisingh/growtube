@@ -64,6 +64,28 @@ Channel-name spans have no `aria-label`. Live cards say "1.5K watching". Premier
 
 Each row is an `<ovq-feed-badges>` element with its own shadow root. While YouTube is dark, the host carries a `dark` attribute (`html[dark]` is observed).
 
+## Live feed preview (Thumbnails tool)
+
+The side panel's "Preview on YouTube" sends a fake card (`tab.feedPreview`) that
+`components/injected/preview/feed-preview.ts` inserts as a **sibling** of YouTube's
+cells; nothing of YouTube's is modified.
+
+- **Home:** `ytd-browse[page-subtype="home"]:not([hidden]) ytd-rich-grid-renderer > #contents`,
+  before the 3rd visible, non-ad `ytd-rich-item-renderer` that links to a video. The host
+  copies the 2nd cell's computed width and margins (ResizeObserver), so it follows
+  `--ytd-rich-grid-items-per-row` at every width.
+- **Search:** the first visible `ytd-search ytd-item-section-renderer > #contents` with two
+  or more `ytd-video-renderer` / `yt-lockup-view-model` rows; placed before the 3rd. The
+  2nd row's `ytd-thumbnail` / `a#thumbnail` width is mirrored (`--ovq-thumb-w`); when that
+  thumbnail is as wide as the row (narrow window) the card stacks too, and a container
+  query stacks it below 520 px.
+- Hosts: `<ovq-feed-preview>` (card) and `<ovq-feed-preview-bar>` (fixed "Remove preview"
+  bar on `<body>`), both with a shadow root and a `dark` attribute while `html[dark]`.
+  Colors use `--yt-spec-text-primary` / `--yt-spec-text-secondary`.
+- A 1 s check re-inserts the card if YouTube re-renders the list (at most 30 times) and
+  removes it when the URL changes; navigation, sign-out, the bar's button and an
+  extension reload also remove it.
+
 ## Watch page panel
 
 - `ytd-watch-flexy` (not `[hidden]`) is the watch page container. It stays the same element across watch → watch navigations.

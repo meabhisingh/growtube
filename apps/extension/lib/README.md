@@ -262,6 +262,7 @@ Streaming chat uses a Port, see [§5 AI](#5-ai).
 | `ext.openOptions(hash?)`                               | Opens the options page (optionally `options.html#ai`).                                                                                         |
 | `ext.clearCache(prefix?)`                              | Clears the YouTube/server cache. Prefixes: `video:`, `channel:`, `chvids-page:`, `baseline:`, `search:`, `suggest:`, `transcript:`, `handle:`. |
 | `ext.tabSelf()`                                        | `{ tabId, windowId }` of the calling content script.                                                                                           |
+| `ext.feedPreview(tabId, card \| null)`                 | Extension pages: live thumbnail preview in that YouTube tab (`null` removes it), see `@/lib/feed-preview`.                                     |
 
 From an **extension page** (popup/options) open the side panel with
 `openSidePanelFromPage(context?, { closePopup? })` from `@/lib/sidepanel` (in the click

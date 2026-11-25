@@ -35,6 +35,13 @@ import {
 import { cacheClear } from "./cache";
 import { runCompetitorAlerts } from "./competitor-alerts";
 import { type CurrentContext, currentContext } from "./context";
+import {
+	FEED_PREVIEW_PAGE_TYPES,
+	type FeedPreviewCard,
+	type FeedPreviewResult,
+	type FeedPreviewTabMessage,
+	sanitizeFeedPreviewCard,
+} from "./feed-preview";
 import { createLimiter } from "./limiter";
 import type {
 	AiStatus,
@@ -45,6 +52,7 @@ import type {
 import { hasOriginPermission, originOf } from "./permissions";
 import { checkRankTracks } from "./rank-tracker";
 import * as youtube from "./youtube";
+import { detectPageType } from "./youtube/page-type";
 import type { VideoDetails } from "./youtube/types";
 import {
 	isPublicVideo,
@@ -112,6 +120,56 @@ async function openOptions(hash?: string) {
 	} else {
 		await browser.runtime.openOptionsPage();
 	}
+}
+
+function badRequest(message: string): Error {
+	return Object.assign(new Error(message), { code: "BAD_REQUEST" });
+}
+
+/**
+ * Forwards the live feed preview card to a youtube.com tab's content script
+ * (top frame only). The tab URL is readable without the "tabs" permission
+ * only for youtube.com tabs (host permission), which is all we accept.
+ */
+async function forwardFeedPreview(
+	tabId: number,
+	card: FeedPreviewCard | null,
+): Promise<FeedPreviewResult> {
+	if (!Number.isInteger(tabId) || tabId < 0)
+		throw badRequest("No tab to preview in.");
+	let url: string | undefined;
+	try {
+		url = (await browser.tabs.get(tabId)).url;
+	} catch {
+		return { status: "not-youtube", pageType: null };
+	}
+	let host = "";
+	try {
+		host = url ? new URL(url).hostname : "";
+	} catch {}
+	if (host !== "www.youtube.com")
+		return { status: "not-youtube", pageType: null };
+	const pageType = detectPageType(url ?? "");
+	const clean = card ? sanitizeFeedPreviewCard(card) : null;
+	if (card && !clean)
+		throw badRequest(
+			"This image can't be previewed. Try a JPEG or PNG under 3 MB.",
+		);
+	if (clean && !FEED_PREVIEW_PAGE_TYPES.has(pageType))
+		return { status: "unsupported-page", pageType };
+	const message: FeedPreviewTabMessage = clean
+		? { __ovqTab: 1, type: "feedPreview.show", card: clean }
+		: { __ovqTab: 1, type: "feedPreview.remove" };
+	try {
+		const res = (await browser.tabs.sendMessage(tabId, message, {
+			frameId: 0,
+		})) as Partial<FeedPreviewResult> | undefined;
+		if (res && typeof res.status === "string")
+			return { status: res.status, pageType: res.pageType ?? pageType };
+	} catch {
+		// No content script in that tab (still loading, or opened before install).
+	}
+	return { status: clean ? "no-content-script" : "removed", pageType };
 }
 
 async function aiStatus(): Promise<AiStatus> {
@@ -366,6 +424,10 @@ const raw: Handlers = {
 		return { ok: true as const };
 	},
 	"cache.clear": async ({ prefix }) => ({ removed: await cacheClear(prefix) }),
+	"tab.feedPreview": async ({ tabId, card }, ctx) => {
+		assertExtensionPage(ctx);
+		return forwardFeedPreview(tabId, card ?? null);
+	},
 	"tab.self": (_payload, ctx) => ({
 		tabId: ctx.tabId,
 		windowId: ctx.sender.tab?.windowId ?? null,

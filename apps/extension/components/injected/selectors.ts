@@ -58,6 +58,29 @@ export const AD_CONTAINER =
 export const FEED_BADGES_TAG = "ovq-feed-badges";
 
 // ---------------------------------------------------------------------------
+// Live feed preview (fake card from the Thumbnails tool)
+// ---------------------------------------------------------------------------
+
+/** Home grid: the cells' container (`ytd-browse` pages stay in the DOM, hidden). */
+export const HOME_GRID_CONTENTS =
+	'ytd-browse[page-subtype="home"]:not([hidden]) ytd-rich-grid-renderer > #contents';
+/** One home grid cell (holds a lockup / ytd-rich-grid-media). */
+export const HOME_GRID_ITEM = "ytd-rich-item-renderer";
+/** Search results: each section's list of results. */
+export const SEARCH_SECTION_CONTENTS =
+	"ytd-search:not([hidden]) ytd-item-section-renderer > #contents";
+/** Search result rows we place the fake card between. */
+export const SEARCH_RESULT_ITEMS = [
+	"ytd-video-renderer",
+	"yt-lockup-view-model",
+];
+/** A search row's thumbnail (its width is mirrored). */
+export const SEARCH_RESULT_THUMB = "ytd-thumbnail, a#thumbnail";
+/** Our fake card (sibling of YouTube's cells) and its floating control. */
+export const FEED_PREVIEW_TAG = "ovq-feed-preview";
+export const FEED_PREVIEW_BAR_TAG = "ovq-feed-preview-bar";
+
+// ---------------------------------------------------------------------------
 // Watch page
 // ---------------------------------------------------------------------------
 

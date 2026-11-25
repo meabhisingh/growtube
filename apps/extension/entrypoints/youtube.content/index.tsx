@@ -9,16 +9,27 @@
  */
 import "@/components/injected/styles/ui.css";
 
+import { browser } from "wxt/browser";
+
 import { defineContentScript } from "#imports";
 
 import { createFeedBadges } from "@/components/injected/feed/controller";
+import {
+	createFeedPreview,
+	removeFeedPreviewLeftovers,
+} from "@/components/injected/preview/feed-preview";
 import {
 	FEED_BADGES_TAG,
 	SHORTS_CONTROLS_TAG,
 	WATCH_PANEL_TAG,
 } from "@/components/injected/selectors";
 import { authUser, type SignedInUser } from "@/lib/auth";
+import type {
+	FeedPreviewResult,
+	FeedPreviewTabMessage,
+} from "@/lib/feed-preview";
 import { DEFAULT_FEATURES, type FeatureFlags, features } from "@/lib/settings";
+import { detectPageType } from "@/lib/youtube/page-type";
 
 import type { Feature } from "./feature";
 import { createPageHub } from "./page";
@@ -41,10 +52,37 @@ export default defineContentScript({
 		)) {
 			el.remove();
 		}
+		removeFeedPreviewLeftovers();
 
 		const hub = createPageHub(ctx);
 		const feed = createFeedBadges(ctx);
-		const offNav = hub.subscribe(() => feed.refresh());
+		// Live thumbnail preview from the side panel (forwarded by the background).
+		const preview = createFeedPreview(ctx);
+		const offNav = hub.subscribe((page) => {
+			feed.refresh();
+			preview.onNavigate(page.url);
+		});
+		const onTabMessage = (
+			message: unknown,
+			sender: { id?: string },
+			sendResponse: (response: FeedPreviewResult) => void,
+		) => {
+			const m = message as FeedPreviewTabMessage | null;
+			if (m?.__ovqTab !== 1 || sender.id !== browser.runtime.id) return false;
+			if (m.type === "feedPreview.remove" || !signedIn) {
+				sendResponse(preview.remove());
+				return false;
+			}
+			if (m.type !== "feedPreview.show") return false;
+			preview.show(m.card).then(sendResponse, () =>
+				sendResponse({
+					status: "no-grid",
+					pageType: detectPageType(location.href),
+				}),
+			);
+			return true; // async response
+		};
+		browser.runtime.onMessage.addListener(onTabMessage);
 		const toggles: Record<
 			"feedBadges" | "watchPanel" | "shortsControls",
 			Feature
@@ -91,6 +129,7 @@ export default defineContentScript({
 		// Sign-in / sign-out anywhere switches everything live (no reload).
 		const unwatchAuth = authUser.watch((next) => {
 			signedIn = !!next;
+			if (!signedIn) preview.remove();
 			apply();
 		});
 
@@ -98,6 +137,8 @@ export default defineContentScript({
 			unwatchFlags();
 			unwatchAuth();
 			offNav();
+			browser.runtime.onMessage.removeListener(onTabMessage);
+			preview.remove();
 			for (const feature of Object.values(toggles)) feature.stop();
 		});
 	},
