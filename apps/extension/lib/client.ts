@@ -188,6 +188,18 @@ export const account = {
 		sendToBackground("auth.deleteAccount", { password }),
 };
 
+/**
+ * Local background jobs (competitor alerts, rank tracking). Results are
+ * written to chrome.storage.local (`competitorAlertLog`, `rankTracks`);
+ * watch those items for the data.
+ */
+export const jobs = {
+	/** Runs the competitor outlier check now (needs alerts turned on). */
+	checkAlerts: () => sendToBackground("alerts.checkNow", {}),
+	/** Re-checks these tracked ranks now, or all of them without `ids`. */
+	checkRanks: (ids?: string[]) => sendToBackground("ranks.check", { ids }),
+};
+
 /** Extension UI plumbing. */
 export const ext = {
 	/** Opens the side panel on the sender tab, optionally on a tool/prompt. Call from a click handler. */

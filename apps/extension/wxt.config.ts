@@ -72,6 +72,9 @@ export default defineConfig({
 				// No "tabs": the code reads tab url/title only for YouTube tabs,
 				// which the youtube.com host permission already exposes.
 				"alarms",
+				// Competitor outlier alerts (off until the user turns them on).
+				// Chrome shows no install warning for it.
+				"notifications",
 				// Lets the background rewrite Origin/Referer on its own InnerTube
 				// requests (YouTube rejects chrome-extension:// origins). No extra
 				// install warning beyond the host permissions below.

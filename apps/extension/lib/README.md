@@ -343,18 +343,21 @@ All hooks work inside shadow roots and extension pages.
 
 ### `@/lib/settings` (WXT storage items, `chrome.storage.local`)
 
-| Item                 | Type                                                                                                     | Default                                                                        |
-| -------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `aiProvider`         | `AiProviderSettings { presetId, baseURL, apiKey, model, imageModel, temperature, reasoningEffort }` (v2) | OpenAI preset (`gpt-6-luna`, `gpt-image-2.6-sunburst`), empty key, effort `""` |
-| `serverUrl`          | `string`                                                                                                 | `WXT_SERVER_URL` or `http://localhost:3000`                                    |
-| `crowdsourceStats`   | `boolean` (opt-in: the sign-in form, popup or Settings turns it on)                                      | `false`                                                                        |
-| `myChannel`          | `{ channelId, handle, title } \| null`                                                                   | `null`                                                                         |
-| `competitors`        | `{ channelId, handle, title, avatarUrl }[]`                                                              | `[]`                                                                           |
-| `features`           | `{ feedBadges, watchPanel, shortsControls, studioOptimizer }`                                            | all `true`                                                                     |
-| `shortsDefaultSpeed` | `number`                                                                                                 | `1`                                                                            |
-| `aiConversations`    | `AiConversation[] { id, title, createdAt, updatedAt, messages: UiChatMessage[], context? }`              | `[]`                                                                           |
-| `savedIdeas`         | `SavedIdea[] { id, title, description?, source, createdAt, videoId?, channelId?, tags?, done? }`         | `[]`                                                                           |
-| `onboardingDone`     | `boolean`                                                                                                | `false` (background opens `options.html#account` on install while false)       |
+| Item                                          | Type                                                                                                                    | Default                                                                        |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `aiProvider`                                  | `AiProviderSettings { presetId, baseURL, apiKey, model, imageModel, temperature, reasoningEffort }` (v2)                | OpenAI preset (`gpt-6-luna`, `gpt-image-2.6-sunburst`), empty key, effort `""` |
+| `serverUrl`                                   | `string`                                                                                                                | `WXT_SERVER_URL` or `http://localhost:3000`                                    |
+| `crowdsourceStats`                            | `boolean` (opt-in: the sign-in form, popup or Settings turns it on)                                                     | `false`                                                                        |
+| `myChannel`                                   | `{ channelId, handle, title } \| null`                                                                                  | `null`                                                                         |
+| `competitors`                                 | `{ channelId, handle, title, avatarUrl }[]`                                                                             | `[]`                                                                           |
+| `features`                                    | `{ feedBadges, watchPanel, shortsControls, studioOptimizer }`                                                           | all `true`                                                                     |
+| `shortsDefaultSpeed`                          | `number`                                                                                                                | `1`                                                                            |
+| `aiConversations`                             | `AiConversation[] { id, title, createdAt, updatedAt, messages: UiChatMessage[], context? }`                             | `[]`                                                                           |
+| `savedIdeas`                                  | `SavedIdea[] { id, title, description?, source, createdAt, videoId?, channelId?, tags?, done? }`                        | `[]`                                                                           |
+| `onboardingDone`                              | `boolean`                                                                                                               | `false` (background opens `options.html#account` on install while false)       |
+| `competitorAlertSettings`                     | `{ enabled, threshold: 2\|3\|5, minAgeHours, silent, quietHours, quietStart, quietEnd }` (read via `withAlertDefaults`) | off, 3×, 6 h, silent, no quiet hours (22–8)                                    |
+| `competitorAlertLog` / `competitorAlertState` | recent `CompetitorAlert[]` / `{ seen, lastRunAt, lastError, cursor }` (§6b)                                             | `[]` / empty                                                                   |
+| `rankTracks`                                  | `RankTrack[]` (§6b)                                                                                                     | `[]`                                                                           |
 
 Account state is not a setting: `authUser` lives in `@/lib/auth` (see §0) and is not part of
 `SETTINGS_ITEMS` or the export.
@@ -740,6 +743,36 @@ dedupe; on loader failure returns an expired value up to 3 days old), `cacheGet`
 
 `@/lib/limiter`: `createLimiter(n)`, `withRetry(fn, { retries, baseDelayMs, maxDelayMs, signal, shouldRetry })`,
 `HttpError`, `sleep`, `parseRetryAfter`.
+
+---
+
+## 6b. Background jobs (local only)
+
+Both call `lib/youtube` directly (so nothing is crowdsourced), write only to
+`chrome.storage.local`, do nothing while signed out (`hasSession()`, checked before each
+lookup) and run one lookup at a time with a pause between, through the shared cache/limiter.
+
+- **Competitor outlier alerts** (`lib/competitor-alerts.ts`): alarm `ovq:competitor-alerts`
+  every 60 min, plus the one-shot `ovq:competitor-alerts-startup` 2 min after browser
+  startup (scheduled runs < 20 min apart are skipped). Off by default
+  (`competitorAlertSettings.enabled`). Per run: up to 30 competitors (round-robin
+  `cursor`), their 15 newest long-form uploads; uploads from the last 7 days whose rounded
+  views are near the threshold get an exact `basic` player lookup; an alert fires when
+  views ÷ `getChannelBaseline(…, "long")` ≥ `threshold` (2/3/5) and the video is at least
+  `minAgeHours` old. Each video alerts once (`competitorAlertState.seen`, 30-day TTL).
+  Alerts go to `competitorAlertLog` (newest 50) and, outside quiet hours, to a Chrome
+  notification (top 3 per run, `silent` option); clicking it opens the video
+  (notification id `ovq-alert:<videoId>`). Permission: `notifications`.
+- **Rank tracking** (`lib/rank-tracker.ts`): `rankTracks` holds up to 25
+  `{ videoId, query, history: { t, rank|null }[] }` pairs (top 100, 180 days kept, a check
+  within an hour of the last replaces it). Alarm `ovq:rank-tracker` fires hourly and
+  checks the pairs whose last attempt is ≥ 22 h old (3 h after an error). Runs are
+  serialized.
+
+UI: `jobs.checkAlerts()` (`alerts.checkNow`) and `jobs.checkRanks(ids?)` (`ranks.check`,
+all pairs without `ids`) from `@/lib/client`; read results with `useStorageItem`.
+Side panel: Competitors → Outlier alerts; Rank Tracker tool (`ranks`, intent
+`{ videoId?, prefill: term, autoSubmit? }`). Options: `#alerts`.
 
 ---
 

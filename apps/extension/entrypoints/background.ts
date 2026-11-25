@@ -26,7 +26,20 @@ import {
 } from "@/lib/auth-session";
 import { handlers } from "@/lib/background-handlers";
 import { cacheClear } from "@/lib/cache";
+import {
+	COMPETITOR_ALERTS_ALARM,
+	COMPETITOR_ALERTS_MINUTES,
+	COMPETITOR_ALERTS_STARTUP_ALARM,
+	COMPETITOR_ALERTS_STARTUP_DELAY_MINUTES,
+	registerAlertNotifications,
+	runCompetitorAlerts,
+} from "@/lib/competitor-alerts";
 import { registerBackgroundRouter } from "@/lib/messaging";
+import {
+	checkRankTracks,
+	RANK_TRACKER_ALARM,
+	RANK_TRACKER_MINUTES,
+} from "@/lib/rank-tracker";
 import { onboardingDone, serverUrl } from "@/lib/settings";
 
 function ensureAlarm(name: string, periodInMinutes: number) {
@@ -51,10 +64,28 @@ export default defineBackground(() => {
 	ensureAlarm(INGEST_ALARM, 1);
 	// The session is checked when the browser starts and about every 12 h.
 	ensureAlarm(AUTH_REFRESH_ALARM, AUTH_REFRESH_MINUTES);
+	// Local background jobs (both do nothing while signed out or unused):
+	// competitor outlier alerts hourly, rank re-checks once a day per pair
+	// (the hourly alarm only checks the pairs that are due).
+	ensureAlarm(COMPETITOR_ALERTS_ALARM, COMPETITOR_ALERTS_MINUTES);
+	ensureAlarm(RANK_TRACKER_ALARM, RANK_TRACKER_MINUTES);
+	registerAlertNotifications();
+	browser.runtime.onStartup.addListener(() => {
+		void browser.alarms.create(COMPETITOR_ALERTS_STARTUP_ALARM, {
+			delayInMinutes: COMPETITOR_ALERTS_STARTUP_DELAY_MINUTES,
+		});
+	});
 	browser.alarms.onAlarm.addListener((alarm) => {
 		if (alarm.name === INGEST_ALARM) void flushIngestQueue();
 		if (alarm.name === AUTH_REFRESH_ALARM)
 			void refreshSession().catch(() => null);
+		if (
+			alarm.name === COMPETITOR_ALERTS_ALARM ||
+			alarm.name === COMPETITOR_ALERTS_STARTUP_ALARM
+		)
+			void runCompetitorAlerts().catch(() => null);
+		if (alarm.name === RANK_TRACKER_ALARM)
+			void checkRankTracks("due").catch(() => null);
 	});
 	void refreshSessionIfStale().finally(() => void flushIngestQueue());
 

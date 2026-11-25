@@ -33,8 +33,10 @@ import type {
 	ReasoningEffortSetting,
 } from "./ai/types";
 import type { SignedInUser } from "./auth";
+import type { AlertRunResult } from "./competitor-alerts";
 import type { CurrentContext } from "./context";
 import { keepAliveWhile } from "./keepalive";
+import type { RankCheckResult } from "./rank-tracker";
 import type {
 	CaptionTrack,
 	ChannelBaseline,
@@ -255,6 +257,15 @@ export interface Protocol {
 		};
 		res: GenerateImageResult;
 	};
+
+	// ---- Background jobs (local only: results go to chrome.storage.local) ----
+	/** Runs the competitor outlier alert check now (lib/competitor-alerts). */
+	"alerts.checkNow": { req: Empty; res: AlertRunResult };
+	/**
+	 * Re-checks tracked search ranks now (lib/rank-tracker): the given track
+	 * ids, or every tracked pair when `ids` is omitted.
+	 */
+	"ranks.check": { req: { ids?: string[] }; res: RankCheckResult };
 
 	// ---- Extension ----
 	/** Opens the side panel for the sender's tab (call from a click handler). */

@@ -5,13 +5,14 @@
  * Tool ids accepted in `CurrentContext.tool` (from content scripts via
  * `ext.openSidePanel({ tool, prefill, videoId, channelId, coach, autoSubmit })`):
  *   coach, keywords, trending, competitors, ideas, thumbnails, optimize,
- *   clips, channel  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips)
+ *   clips, channel, ranks  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips)
  */
 import {
 	ChartColumn,
 	Gauge,
 	Image,
 	Lightbulb,
+	ListOrdered,
 	type LucideIcon,
 	MessagesSquare,
 	Scissors,
@@ -34,7 +35,8 @@ export type ToolId =
 	| "thumbnails"
 	| "optimize"
 	| "clips"
-	| "channel";
+	| "channel"
+	| "ranks";
 
 export type ToolDef = {
 	id: ToolId;
@@ -98,6 +100,13 @@ export const TOOLS: readonly ToolDef[] = [
 		icon: ChartColumn,
 		description: "Stats, posting times, outliers and an AI audit.",
 	},
+	{
+		id: "ranks",
+		label: "Rank Tracker",
+		icon: ListOrdered,
+		description:
+			"Track where your videos rank in YouTube search for the terms you choose. Re-checked daily.",
+	},
 ];
 
 export const TOOL_ALIASES: Record<string, ToolId> = {
@@ -121,6 +130,9 @@ export const TOOL_ALIASES: Record<string, ToolId> = {
 	shorts: "clips",
 	audit: "channel",
 	"channel-audit": "channel",
+	rank: "ranks",
+	rankings: "ranks",
+	"rank-tracker": "ranks",
 };
 
 export function resolveTool(tool: string | null | undefined): ToolId | null {
