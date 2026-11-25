@@ -5,7 +5,8 @@
  * Tool ids accepted in `CurrentContext.tool` (from content scripts via
  * `ext.openSidePanel({ tool, prefill, videoId, channelId, coach, autoSubmit })`):
  *   coach, keywords, trending, competitors, ideas, thumbnails, optimize,
- *   clips, channel  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips)
+ *   clips, script, channel  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips;
+ *   aliases in TOOL_ALIAS_VIEWS also pick a sub-view: "chapters" -> script, view "chapters")
  */
 import {
 	ChartColumn,
@@ -15,6 +16,7 @@ import {
 	type LucideIcon,
 	MessagesSquare,
 	Scissors,
+	ScrollText,
 	Search,
 	TrendingUp,
 	Users,
@@ -34,6 +36,7 @@ export type ToolId =
 	| "thumbnails"
 	| "optimize"
 	| "clips"
+	| "script"
 	| "channel";
 
 export type ToolDef = {
@@ -93,6 +96,13 @@ export const TOOLS: readonly ToolDef[] = [
 		description: "Find Short-worthy moments in any video.",
 	},
 	{
+		id: "script",
+		label: "Script",
+		icon: ScrollText,
+		description:
+			"Score your hook, outline a script, and turn a transcript into chapters and a description.",
+	},
+	{
 		id: "channel",
 		label: "Channel Audit",
 		icon: ChartColumn,
@@ -119,9 +129,27 @@ export const TOOL_ALIASES: Record<string, ToolId> = {
 	clip: "clips",
 	transcript: "clips",
 	shorts: "clips",
+	scripts: "script",
+	hook: "script",
+	outline: "script",
+	chapters: "script",
 	audit: "channel",
 	"channel-audit": "channel",
 };
+
+/** Aliases that also open a sub-view of their tool (`ToolIntent.view`). */
+export const TOOL_ALIAS_VIEWS: Record<string, string> = {
+	hook: "hook",
+	outline: "outline",
+	chapters: "chapters",
+};
+
+/** Sub-view implied by a tool alias ("chapters" -> "chapters"), if any. */
+export function resolveToolView(
+	tool: string | null | undefined,
+): string | undefined {
+	return tool ? TOOL_ALIAS_VIEWS[tool.toLowerCase()] : undefined;
+}
 
 export function resolveTool(tool: string | null | undefined): ToolId | null {
 	if (!tool) return null;
