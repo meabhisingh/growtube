@@ -5,7 +5,7 @@
  */
 import { storage } from "#imports";
 
-export type WatchPanelTab = "views" | "overview" | "coach";
+export type WatchPanelTab = "views" | "overview" | "coach" | "comments";
 
 export type InjectedPrefs = {
 	/** Watch panel body hidden (header stays visible) */

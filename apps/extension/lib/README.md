@@ -166,6 +166,7 @@ Every function returns a Promise and throws `BackgroundError` (`.message` is use
 | `yt.findVideoRanks(videoId, queries[], depth = 40)`                                                                                                 | `Record<query, number \| null>`     | via search  |
 | `yt.getSearchSuggestions(query, { hl?, gl? })`                                                                                                      | `string[]`                          | 1 day       |
 | `yt.getTranscript(videoId, { lang?, extraTracks? })`                                                                                                | `Transcript \| null`                | 1 day       |
+| `yt.getComments(videoId, { sort?: "top"\|"newest", limit? = 120 (max 200), force? })` — never sent to the GrowTube server                           | `VideoComments`                     | 15 min, mem |
 
 ```ts
 const video = await yt.getVideoDetails("dQw4w9WgXcQ");

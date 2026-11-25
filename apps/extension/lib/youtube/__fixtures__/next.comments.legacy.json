@@ -1,0 +1,100 @@
+{
+	"onResponseReceivedEndpoints": [
+		{
+			"reloadContinuationItemsCommand": {
+				"targetId": "comments-section",
+				"continuationItems": [
+					{
+						"commentsHeaderRenderer": {
+							"countText": {
+								"runs": [{ "text": "1,234" }, { "text": " Comments" }]
+							},
+							"sortMenu": {
+								"sortFilterSubMenuRenderer": {
+									"subMenuItems": [
+										{
+											"title": "Top comments",
+											"selected": true,
+											"serviceEndpoint": {
+												"continuationCommand": { "token": "TOP_TOKEN" }
+											}
+										},
+										{
+											"title": "Newest first",
+											"selected": false,
+											"serviceEndpoint": {
+												"continuationCommand": { "token": "NEWEST_TOKEN" }
+											}
+										}
+									]
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"reloadContinuationItemsCommand": {
+				"targetId": "comments-section",
+				"continuationItems": [
+					{
+						"commentThreadRenderer": {
+							"comment": {
+								"commentRenderer": {
+									"commentId": "UgxL1",
+									"authorText": { "simpleText": "@legacyfan" },
+									"authorEndpoint": {
+										"browseEndpoint": { "browseId": "UClegacy" }
+									},
+									"contentText": {
+										"runs": [
+											{ "text": "Great video, " },
+											{ "text": "the audio was a bit quiet though." }
+										]
+									},
+									"publishedTimeText": { "runs": [{ "text": "3 weeks ago" }] },
+									"voteCount": {
+										"accessibility": {
+											"accessibilityData": { "label": "5,321 likes" }
+										},
+										"simpleText": "5.3K"
+									},
+									"replyCount": 12,
+									"authorIsChannelOwner": false,
+									"pinnedCommentBadge": { "pinnedCommentBadgeRenderer": {} },
+									"actionButtons": {
+										"commentActionButtonsRenderer": {
+											"creatorHeart": {
+												"creatorHeartRenderer": { "isHearted": true }
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"commentThreadRenderer": {
+							"comment": {
+								"commentRenderer": {
+									"commentId": "UgxL2",
+									"authorText": { "simpleText": "@quiet" },
+									"contentText": { "runs": [{ "text": "First" }] },
+									"publishedTimeText": { "runs": [{ "text": "1 hour ago" }] }
+								}
+							}
+						}
+					},
+					{
+						"continuationItemRenderer": {
+							"continuationEndpoint": {
+								"continuationCommand": { "token": "LEGACY_NEXT" }
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

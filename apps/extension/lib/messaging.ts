@@ -45,10 +45,12 @@ import type {
 	ChannelTab,
 	ChannelVideo,
 	ChannelVideosPage,
+	CommentSort,
 	SearchResponse,
 	SearchSort,
 	SearchType,
 	Transcript,
+	VideoComments,
 	VideoDetails,
 	VideoDetailsLevel,
 } from "./youtube/types";
@@ -168,6 +170,16 @@ export interface Protocol {
 	"yt.getTranscript": {
 		req: { videoId: string; lang?: string; extraTracks?: CaptionTrack[] };
 		res: Transcript | null;
+	};
+	/** Top-level comments (never sent to the GrowTube server). limit <= 200. */
+	"yt.getComments": {
+		req: {
+			videoId: string;
+			sort?: CommentSort;
+			limit?: number;
+			force?: boolean;
+		};
+		res: VideoComments;
 	};
 	/** Content scripts forward the page's public ytcfg (client version, gl). */
 	"yt.setConfig": {
