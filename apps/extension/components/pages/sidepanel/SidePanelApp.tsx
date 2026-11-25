@@ -44,6 +44,7 @@ import { CompetitorsTool } from "./tools/competitors/CompetitorsTool";
 import { IdeasTool } from "./tools/ideas/IdeasTool";
 import { KeywordsTool } from "./tools/keywords/KeywordsTool";
 import { OptimizeTool } from "./tools/optimize/OptimizeTool";
+import { PlannerTool } from "./tools/planner/PlannerTool";
 import { RankTrackerTool } from "./tools/ranks/RankTrackerTool";
 import { ScriptTool } from "./tools/script/ScriptTool";
 import { ThumbnailsTool } from "./tools/thumbnails/ThumbnailsTool";
@@ -67,6 +68,7 @@ const RENDER: Record<
 	script: (p) => <ScriptTool {...p} />,
 	channel: (p) => <AuditTool {...p} />,
 	ranks: (p) => <RankTrackerTool {...p} />,
+	planner: (p) => <PlannerTool {...p} />,
 };
 
 async function contextBelongsHere(ctx: CurrentContext): Promise<boolean> {

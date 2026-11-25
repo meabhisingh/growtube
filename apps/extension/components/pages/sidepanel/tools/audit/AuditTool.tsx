@@ -1,7 +1,8 @@
 /**
  * Channel Audit: stats, average views, upload cadence, best posting slots,
  * top outliers, underperformers, SEO scores of the latest uploads and an AI
- * audit (channelAudit generator). Defaults to My channel.
+ * audit (channelAudit generator), plus rough earnings & sponsorship estimates
+ * (EarningsSection). Defaults to My channel.
  */
 import {
 	formatCompact,
@@ -77,6 +78,7 @@ import {
 import { type ToolProps, usePanel } from "../../nav";
 import { AiSetupNotice, ToolScroll } from "../../shared";
 import { resolveTabChannel } from "../competitors/CompetitorsTool";
+import { EarningsSection } from "./EarningsSection";
 
 type AuditOutput = GeneratorOutput<"channelAudit">;
 
@@ -396,6 +398,12 @@ function AuditReport({
 					</div>
 				) : null}
 			</Section>
+
+			<EarningsSection
+				channelId={c.channelId}
+				videos={data.videos}
+				typicalViews={data.medianViews}
+			/>
 
 			<Section
 				title="Best time to post"

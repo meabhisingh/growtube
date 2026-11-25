@@ -32,6 +32,7 @@ import { VideoRow } from "../../../ui/video";
 import { createQueue, vphOf } from "../../../utils";
 import { usePanel } from "../../nav";
 import { AiSetupNotice } from "../../shared";
+import { SaveToPlannerButton } from "../planner/SaveToPlannerButton";
 import { FORMULA_HELP, type KeywordMetrics, topResults } from "./scoring";
 import {
 	channelSubsCache,
@@ -126,6 +127,13 @@ export function KeywordDetail({
 					{row.keyword}
 				</h2>
 				<CopyButton text={row.keyword} title="Copy keyword" size={12} />
+				<SaveToPlannerButton
+					idea={{
+						title: `Video about "${row.keyword}"`,
+						source: "keywords",
+						targetKeyword: row.keyword,
+					}}
+				/>
 			</div>
 
 			{entry?.status === "error" ? (
@@ -266,7 +274,11 @@ export function KeywordDetail({
 					) : insights.loading && !insights.data ? (
 						<LoadingBlock label="Thinking about this keyword…" />
 					) : insights.data ? (
-						<Insights data={insights.data} onResearch={onResearch} />
+						<Insights
+							data={insights.data}
+							keyword={row.keyword}
+							onResearch={onResearch}
+						/>
 					) : null}
 				</Section>
 			) : null}
@@ -340,9 +352,11 @@ type InsightsData = GeneratorOutput<"keywordInsights">;
 
 function Insights({
 	data,
+	keyword,
 	onResearch,
 }: {
 	data: InsightsData;
+	keyword: string;
 	onResearch: (keyword: string) => void;
 }) {
 	return (
@@ -376,6 +390,14 @@ function Insights({
 							<li key={t} className="flex items-start gap-1.5">
 								<span className="min-w-0 flex-1 leading-relaxed">{t}</span>
 								<CopyButton text={t} size={11} style={{ padding: 3 }} />
+								<SaveToPlannerButton
+									idea={{
+										title: t,
+										notes: `Title angle for the keyword "${keyword}".\n${data.summary}`,
+										source: "keywords",
+										targetKeyword: keyword,
+									}}
+								/>
 							</li>
 						))}
 					</ul>

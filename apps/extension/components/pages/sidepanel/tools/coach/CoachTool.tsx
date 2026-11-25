@@ -45,6 +45,7 @@ import { Notice, Spinner } from "../../../ui/feedback";
 import { describeError, segmentsToText } from "../../../utils";
 import type { ToolProps } from "../../nav";
 import { AiSetupNotice } from "../../shared";
+import { SaveToPlannerButton } from "../planner/SaveToPlannerButton";
 import { ConversationList } from "./ConversationList";
 import {
 	type CoachContextState,
@@ -540,6 +541,26 @@ const SETUP_CODES = new Set([
 	"OLLAMA_ORIGIN",
 ]);
 
+/** Clean one line of Markdown down to plain text. */
+function plainLine(line: string): string {
+	return line
+		.replace(/^\s{0,3}(#{1,6}\s+|>\s*|[-*+]\s+|\d+[.)]\s+)/, "")
+		.replace(/[*_`~]+/g, "")
+		.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
+/** Planner card title for a coach answer: its first heading, else its first line. */
+function plannerTitleFrom(content: string): string {
+	const lines = content.split("\n").filter((l) => l.trim());
+	const heading = lines.find((l) => /^\s{0,3}#{1,6}\s/.test(l));
+	const first = plainLine(heading ?? lines[0] ?? "");
+	const title =
+		first.length > 120 ? `${first.slice(0, 117).trimEnd()}…` : first;
+	return title || "Idea from the AI Coach";
+}
+
 function ChatMessage({
 	message,
 	streaming,
@@ -629,6 +650,13 @@ function ChatMessage({
 							title="Copy answer"
 							size={12}
 							style={{ padding: 4, border: "none" }}
+						/>
+						<SaveToPlannerButton
+							idea={{
+								title: plannerTitleFrom(message.content),
+								notes: message.content,
+								source: "coach",
+							}}
 						/>
 						{canRegenerate && !message.error ? (
 							<IconButton

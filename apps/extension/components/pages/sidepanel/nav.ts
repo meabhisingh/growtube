@@ -5,13 +5,14 @@
  * Tool ids accepted in `CurrentContext.tool` (from content scripts via
  * `ext.openSidePanel({ tool, prefill, videoId, channelId, coach, autoSubmit })`):
  *   coach, keywords, trending, competitors, ideas, thumbnails, optimize,
- *   clips, script, channel, ranks  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips;
+ *   clips, script, channel, ranks, planner  (+ aliases in TOOL_ALIASES, e.g. "transcript" -> clips;
  *   aliases in TOOL_ALIAS_VIEWS also pick a sub-view: "chapters" -> script, view "chapters")
  */
 import {
 	ChartColumn,
 	Gauge,
 	Image,
+	KanbanSquare,
 	Lightbulb,
 	ListOrdered,
 	type LucideIcon,
@@ -39,7 +40,8 @@ export type ToolId =
 	| "clips"
 	| "script"
 	| "channel"
-	| "ranks";
+	| "ranks"
+	| "planner";
 
 export type ToolDef = {
 	id: ToolId;
@@ -117,6 +119,13 @@ export const TOOLS: readonly ToolDef[] = [
 		description:
 			"Track where your videos rank in YouTube search for the terms you choose. Re-checked daily.",
 	},
+	{
+		id: "planner",
+		label: "Planner",
+		icon: KanbanSquare,
+		description:
+			"Plan videos from idea to published: a board and a calendar. Stays in this browser.",
+	},
 ];
 
 export const TOOL_ALIASES: Record<string, ToolId> = {
@@ -147,6 +156,11 @@ export const TOOL_ALIASES: Record<string, ToolId> = {
 	rank: "ranks",
 	rankings: "ranks",
 	"rank-tracker": "ranks",
+	plan: "planner",
+	calendar: "planner",
+	"content-planner": "planner",
+	"content-calendar": "planner",
+	board: "planner",
 };
 
 /** Aliases that also open a sub-view of their tool (`ToolIntent.view`). */

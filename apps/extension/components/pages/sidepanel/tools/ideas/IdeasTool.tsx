@@ -67,6 +67,7 @@ import { toast } from "../../../ui/toast";
 import { createQueue, normalizeKey } from "../../../utils";
 import { type ToolProps, usePanel } from "../../nav";
 import { AiSetupNotice, ToolScroll } from "../../shared";
+import { SaveToPlannerButton } from "../planner/SaveToPlannerButton";
 
 const conceptQueue = createQueue(2);
 
@@ -485,6 +486,16 @@ function IdeaCard({
 				>
 					<MessagesSquare /> Plan with coach
 				</Button>
+				<SaveToPlannerButton
+					variant="button"
+					idea={{
+						title: idea.title,
+						notes: ideaDescription(idea, concept),
+						source: "daily-ideas",
+						targetKeyword: idea.keywords[0] ?? null,
+						tags: [idea.format === "short" ? "short" : "long-form"],
+					}}
+				/>
 			</div>
 		</article>
 	);

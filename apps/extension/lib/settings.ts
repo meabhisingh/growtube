@@ -393,6 +393,64 @@ export const competitorAlertState = storage.defineItem<CompetitorAlertState>(
 	},
 );
 
+export type PlannerStage =
+	| "idea"
+	| "scripting"
+	| "filming"
+	| "editing"
+	| "published";
+
+/** Where a planner card came from ("comments" = Comment insights). */
+export type PlannerSource =
+	| "manual"
+	| "daily-ideas"
+	| "trends"
+	| "keywords"
+	| "coach"
+	| "comments";
+
+export type PlannerColor =
+	| "neutral"
+	| "brand"
+	| "sky"
+	| "violet"
+	| "emerald"
+	| "amber"
+	| "red";
+
+/**
+ * A Content planner card. Stays in chrome.storage.local only (never sent to
+ * the GrowTube server). Helpers: `@/lib/planner` (use `addPlannerIdea`).
+ */
+export type PlannerIdea = {
+	id: string;
+	title: string;
+	notes: string;
+	source: PlannerSource;
+	stage: PlannerStage;
+	targetKeyword: string | null;
+	/** Target publish date, "YYYY-MM-DD" (local calendar day) */
+	targetDate: string | null;
+	tags: string[];
+	color: PlannerColor;
+	/** ISO timestamps */
+	createdAt: string;
+	updatedAt: string;
+	/** The published video, once linked */
+	videoId: string | null;
+	/** Optional origin reference (e.g. the trending video id it came from) */
+	sourceRef: string | null;
+};
+
+/** Content planner cards (capped at PLANNER_MAX_IDEAS in `@/lib/planner`). */
+export const plannerIdeas = storage.defineItem<PlannerIdea[]>(
+	"local:plannerIdeas",
+	{
+		fallback: [],
+		version: 1,
+	},
+);
+
 // ---------------------------------------------------------------------------
 // Search rank tracking (checks run by lib/rank-tracker.ts)
 // ---------------------------------------------------------------------------
@@ -431,6 +489,19 @@ export const rankTracks = storage.defineItem<RankTrack[]>("local:rankTracks", {
 	version: 1,
 });
 
+/**
+ * Niche picked for earnings estimates, per channel id (a NicheId from
+ * `@growtube/shared/earnings`). Channels without an entry use a guess from
+ * the video category.
+ */
+export const earningsNiches = storage.defineItem<Record<string, string>>(
+	"local:earningsNiches",
+	{
+		fallback: {},
+		version: 1,
+	},
+);
+
 /** Set once the onboarding (options page) has been shown. */
 export const onboardingDone = storage.defineItem<boolean>(
 	"local:onboardingDone",
@@ -451,6 +522,8 @@ export const SETTINGS_ITEMS = {
 	shortsDefaultSpeed,
 	aiConversations,
 	savedIdeas,
+	plannerIdeas,
+	earningsNiches,
 	onboardingDone,
 	competitorAlertSettings,
 	competitorAlertLog,

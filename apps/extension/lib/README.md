@@ -33,6 +33,7 @@ lib/
   messaging.ts          protocol types, sendToBackground, background router
   background-handlers.ts  background implementation of every message (background only)
   settings.ts           WXT storage items (user settings)
+  planner.ts            Content planner: addPlannerIdea, export/import (any context)
   context.ts            "current context" for the side panel (storage.session)
   hooks.ts              useStorageItem, useBackground, useYouTubeDarkTheme
   cache.ts              TTL cache + in-flight dedupe (memory + chrome.storage.local)
@@ -355,6 +356,8 @@ All hooks work inside shadow roots and extension pages.
 | `shortsDefaultSpeed`                          | `number`                                                                                                                | `1`                                                                            |
 | `aiConversations`                             | `AiConversation[] { id, title, createdAt, updatedAt, messages: UiChatMessage[], context? }`                             | `[]`                                                                           |
 | `savedIdeas`                                  | `SavedIdea[] { id, title, description?, source, createdAt, videoId?, channelId?, tags?, done? }`                        | `[]`                                                                           |
+| `plannerIdeas` | `PlannerIdea[]` (type in settings.ts; write via `@/lib/planner`, max 500) | `[]` |
+| `earningsNiches` | `Record<channelId, NicheId>` earnings niche picks | `{}` |
 | `onboardingDone`                              | `boolean`                                                                                                               | `false` (background opens `options.html#account` on install while false)       |
 | `competitorAlertSettings`                     | `{ enabled, threshold: 2\|3\|5, minAgeHours, silent, quietHours, quietStart, quietEnd }` (read via `withAlertDefaults`) | off, 3×, 6 h, silent, no quiet hours (22–8)                                    |
 | `competitorAlertLog` / `competitorAlertState` | recent `CompetitorAlert[]` / `{ seen, lastRunAt, lastError, cursor }` (§6b)                                             | `[]` / empty                                                                   |
