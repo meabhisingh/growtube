@@ -10,6 +10,7 @@
 import { formatCompact, formatOutlier } from "@growtube/shared/format";
 import { z } from "zod";
 
+import { formatTimestamp, validateChapters } from "./chapters";
 import { clipText as clip, fitTagsTo500, renderContext } from "./coach";
 import { commentInsightsGenerator } from "./comment-insights";
 import type { ChatMessage, CoachContext } from "./types";
@@ -47,6 +48,11 @@ export function toSeconds(value: unknown): number {
 }
 
 const seconds = z.union([z.number(), z.string()]).transform(toSeconds);
+
+/** 0–100, rounded and clamped (models sometimes answer 105 or -3). */
+const score100 = z.coerce
+	.number()
+	.transform((n) => Math.round(Math.min(100, Math.max(0, n))));
 
 type VideoInput = CoachContext["video"];
 type ChannelInput = CoachContext["channel"];
@@ -434,6 +440,212 @@ export const GENERATORS = {
 	}),
 
 	commentInsights: defineGenerator(commentInsightsGenerator),
+	// --- Script tool (hook score, outline, chapters & description) ---------
+
+	hookScore: defineGenerator({
+		schema: z.object({
+			score: score100.describe("Overall hook strength 0-100"),
+			subscores: z.object({
+				curiosity: score100.describe(
+					"Opens a question the viewer needs answered",
+				),
+				clarity: score100.describe("Instantly clear what the video is about"),
+				payoff: score100.describe("Promises a concrete, believable payoff"),
+				pacing: score100.describe("No wasted words, gets to the point fast"),
+				titleMatch: score100
+					.nullable()
+					.describe("Delivers on the title's promise; null when no title"),
+			}),
+			verdict: z.string().describe("One or two sentences, the overall read"),
+			works: z.array(z.string()).default([]),
+			fixes: z.array(z.string()).default([]),
+			rewrites: z
+				.array(
+					z.object({
+						style: z
+							.string()
+							.describe(
+								"Short label, e.g. Cold open, Bold claim, Question, Story, Stakes",
+							),
+						opening: z
+							.string()
+							.describe(
+								"The rewritten first 15-30 seconds, ready to read aloud",
+							),
+						why: z.string().describe("One sentence on why it's stronger"),
+					}),
+				)
+				.default([]),
+		}),
+		temperature: 0.6,
+		build: (input: {
+			script: string;
+			title?: string;
+			referenceHook?: string;
+			referenceTitle?: string;
+		}) => [
+			{ role: "system", content: SYSTEM_EXPERT },
+			{
+				role: "user",
+				content: [
+					"Score the hook (the first 30-60 seconds) of this YouTube video script. Be honest and specific: quote the exact words that work or hurt.",
+					input.title
+						? `Planned title: ${clip(input.title, 200)}`
+						: "No title given: set subscores.titleMatch to null.",
+					input.referenceHook
+						? `For reference, the opening of a video the creator admires${input.referenceTitle ? ` ("${clip(input.referenceTitle, 150)}")` : ""}. Learn from its techniques, don't copy its content:\n${clip(input.referenceHook, 2_000)}`
+						: "",
+					`Script (the opening matters most):\n${clip(input.script, 6_000)}`,
+					"Scores 0-100 (50 = an average YouTube hook, 80+ = top creators). 2-5 items each for works and fixes. Then exactly 3 rewritten openings in clearly different styles, keeping the creator's topic, facts and voice; no clickbait the video can't pay off.",
+				]
+					.filter(Boolean)
+					.join("\n\n"),
+			},
+		],
+		postProcess: (out, input) => ({
+			...out,
+			subscores: {
+				...out.subscores,
+				titleMatch: input.title?.trim() ? out.subscores.titleMatch : null,
+			},
+			works: out.works.filter((s) => s.trim()).slice(0, 6),
+			fixes: out.fixes.filter((s) => s.trim()).slice(0, 6),
+			rewrites: out.rewrites.filter((r) => r.opening.trim()).slice(0, 3),
+		}),
+	}),
+
+	scriptOutline: defineGenerator({
+		schema: z.object({
+			workingTitle: z.string(),
+			hook: z.string().describe("The opening lines, word for word"),
+			introPromise: z
+				.string()
+				.describe("What the viewer gets by watching to the end"),
+			sections: z
+				.array(
+					z.object({
+						title: z.string(),
+						minutes: z.coerce.number().nullable().default(null),
+						beats: z.array(z.string()).default([]),
+						retention: z
+							.array(
+								z.object({
+									type: z
+										.string()
+										.describe(
+											"e.g. Open loop, Pattern interrupt, Payoff, Re-hook, B-roll",
+										),
+									detail: z.string(),
+								}),
+							)
+							.default([]),
+					}),
+				)
+				.min(1),
+			ctas: z
+				.array(
+					z.object({
+						placement: z
+							.string()
+							.describe('Where, e.g. "After section 2 (~4:30)"'),
+						text: z.string(),
+					}),
+				)
+				.default([]),
+			chapterTitles: z.array(z.string()).default([]),
+			outro: z.string().default(""),
+		}),
+		temperature: 0.7,
+		build: (input: {
+			topic: string;
+			targetMinutes?: number;
+			audience?: string;
+			referenceHook?: string;
+			referenceTitle?: string;
+		}) => [
+			{ role: "system", content: SYSTEM_EXPERT },
+			{
+				role: "user",
+				content: [
+					`Write a retention-focused outline for a YouTube video about: ${clip(input.topic, 500)}`,
+					input.targetMinutes
+						? `Target length: about ${input.targetMinutes} minutes (section minutes should add up to it).`
+						: "",
+					input.audience ? `Audience: ${clip(input.audience, 300)}` : "",
+					input.referenceHook
+						? `Opening of a video the creator admires${input.referenceTitle ? ` ("${clip(input.referenceTitle, 150)}")` : ""}, for style only:\n${clip(input.referenceHook, 2_000)}`
+						: "",
+					"Include: a word-for-word hook (under 30 seconds spoken), the intro promise, 3-8 sections with concrete beats and retention devices (open loops that pay off later, pattern interrupts, re-hooks before likely drop-off points), where to place CTAs (subscribe / related video / link; never in the first 30 seconds), an outro that points to the next video, and YouTube chapter titles (short, keyword-friendly, one per section plus an intro).",
+				]
+					.filter(Boolean)
+					.join("\n\n"),
+			},
+		],
+	}),
+
+	videoChapters: defineGenerator({
+		schema: z.object({
+			chapters: z
+				.array(
+					z.object({
+						time: z
+							.union([z.string(), z.number()])
+							.transform(String)
+							.describe('"m:ss" or "h:mm:ss"'),
+						title: z.string(),
+					}),
+				)
+				.default([]),
+			description: z.string(),
+			hashtags: z.array(z.string()).default([]),
+			pinnedComment: z.string(),
+		}),
+		temperature: 0.5,
+		build: (input: {
+			/** "m:ss text" lines (see compactTranscript in ./chapters) */
+			transcript: string;
+			durationSec?: number | null;
+			title?: string;
+			keywords?: string[];
+			currentDescription?: string;
+			/** Lines were shortened to fit the budget */
+			truncated?: boolean;
+		}) => [
+			{ role: "system", content: SYSTEM_EXPERT },
+			{
+				role: "user",
+				content: [
+					`Create YouTube chapters, an SEO description and a pinned comment for${input.title ? ` the video "${clip(input.title, 200)}"` : " this video"}.`,
+					input.durationSec
+						? `Video length: ${formatTimestamp(input.durationSec)} (no timestamp may be at or after it).`
+						: "",
+					input.keywords?.length
+						? `Keywords (use the main one naturally in the first sentence): ${input.keywords.slice(0, 15).join(", ")}`
+						: "",
+					input.currentDescription
+						? `Current description (keep its important links and credits):\n${clip(input.currentDescription, 2_500)}`
+						: "",
+					'Chapters: the first must be "0:00", at least 3 (usually 5-12 for a long video), each at least 10 seconds after the previous one, placed where the topic actually changes in the transcript. Titles under 50 characters, descriptive and searchable (not "Part 2").',
+					"Description: the first 2 lines show above the fold and in search, so they must hook and contain the main keyword. Then a short summary of what viewers learn, then links/CTA. 120-300 words. Do NOT put the chapter list in the description (it is added separately). No keyword stuffing.",
+					'Hashtags: 3-5 relevant ones (with #). Pinned comment: 1-3 short sentences that invite replies (a specific question) or point to a resource; no generic "like and subscribe".',
+					`Transcript ("m:ss text" lines${input.truncated ? "; long lines were shortened to fit, timestamps are exact" : ""}):\n${clip(input.transcript, 30_000)}`,
+				]
+					.filter(Boolean)
+					.join("\n\n"),
+			},
+		],
+		postProcess: (out, input) => ({
+			...out,
+			// Never trust model timestamps: fixed, or all dropped if they can't be valid.
+			chapters: validateChapters(out.chapters, input.durationSec).chapters,
+			description: out.description.trim(),
+			pinnedComment: out.pinnedComment.trim(),
+			hashtags: out.hashtags
+				.map((h) => (h.startsWith("#") ? h : `#${h}`).replace(/\s+/g, ""))
+				.filter((h) => h.length > 1)
+				.slice(0, 8),
+		}),
+	}),
 } as const;
 
 export type GeneratorKind = keyof typeof GENERATORS;

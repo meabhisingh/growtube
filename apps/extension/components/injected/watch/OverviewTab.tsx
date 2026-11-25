@@ -22,18 +22,25 @@ import {
 	type PostingSlot,
 } from "@growtube/shared/metrics";
 import type { SeoResult } from "@growtube/shared/seo";
-import { Check, ChevronDown, ChevronUp, Download, X } from "lucide-react";
+import {
+	Check,
+	ChevronDown,
+	ChevronUp,
+	Download,
+	ListOrdered,
+	X,
+} from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { AreaChart } from "@/components/common/AreaChart";
 import { CopyButton } from "@/components/common/CopyButton";
 import { tagsLength } from "@/lib/ai/coach";
-import { server, yt } from "@/lib/client";
+import { ext, server, yt } from "@/lib/client";
 import { transcriptToText } from "@/lib/youtube/transcript";
 import type { ChannelInfo, VideoDetails } from "@/lib/youtube/types";
 import { isPublicVideo } from "@/lib/youtube/visibility";
 
-import { isServerUnavailable, useAsync } from "../common/async";
+import { errorMessage, isServerUnavailable, useAsync } from "../common/async";
 import { downloadText, slugify } from "../common/download";
 import {
 	Card,
@@ -74,6 +81,7 @@ export function OverviewTab({
 			<ChannelCard w={w} />
 			<ControversialCard details={d} />
 			{w.metrics && <SeoCard seo={w.metrics.seo} />}
+			<ChaptersCard details={d} />
 			<ChannelTagsCard w={w} />
 			<VideoTagsCard details={d} onTagRanks={onTagRanks} />
 			<ChannelStatsCard w={w} />
@@ -418,6 +426,38 @@ function SeoCard({ seo }: { seo: SeoResult }) {
 					))}
 				</ul>
 			)}
+		</Card>
+	);
+}
+
+// ---------------------------------------------------------------------------
+// Chapters & description (opens the side panel's Script tool)
+// ---------------------------------------------------------------------------
+
+function ChaptersCard({ details }: { details: VideoDetails }) {
+	const [error, setError] = useState<string | null>(null);
+	const open = () => {
+		setError(null);
+		// Must run in the click handler: opening the side panel needs the gesture.
+		ext
+			.openSidePanel({
+				videoId: details.videoId,
+				channelId: details.channelId || undefined,
+				// Alias of the Script tool that opens its "Chapters & description" mode.
+				tool: "chapters",
+			})
+			.catch((e: unknown) => setError(errorMessage(e)));
+	};
+	return (
+		<Card title="Chapters & description">
+			<div className="ovq-small ovq-muted" style={{ marginBottom: 8 }}>
+				Draft YouTube chapters, an SEO description and a pinned comment from
+				this video's captions, with your own AI provider.
+			</div>
+			<button type="button" className="ovq-btn small primary" onClick={open}>
+				<ListOrdered size={13} aria-hidden="true" /> Generate in side panel
+			</button>
+			{error && <Note tone="error">{error}</Note>}
 		</Card>
 	);
 }

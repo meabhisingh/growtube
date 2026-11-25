@@ -31,6 +31,7 @@ import {
 	type IntentInput,
 	PanelContext,
 	resolveTool,
+	resolveToolView,
 	TOOLS,
 	type ToolId,
 	type ToolIntent,
@@ -44,6 +45,7 @@ import { IdeasTool } from "./tools/ideas/IdeasTool";
 import { KeywordsTool } from "./tools/keywords/KeywordsTool";
 import { OptimizeTool } from "./tools/optimize/OptimizeTool";
 import { RankTrackerTool } from "./tools/ranks/RankTrackerTool";
+import { ScriptTool } from "./tools/script/ScriptTool";
 import { ThumbnailsTool } from "./tools/thumbnails/ThumbnailsTool";
 import { TrendsTool } from "./tools/trends/TrendsTool";
 
@@ -62,6 +64,7 @@ const RENDER: Record<
 	thumbnails: (p) => <ThumbnailsTool {...p} />,
 	optimize: (p) => <OptimizeTool {...p} />,
 	clips: (p) => <ClipsTool {...p} />,
+	script: (p) => <ScriptTool {...p} />,
 	channel: (p) => <AuditTool {...p} />,
 	ranks: (p) => <RankTrackerTool {...p} />,
 };
@@ -97,6 +100,7 @@ function intentFromContext(ctx: CurrentContext): {
 			videoId: ctx.videoId,
 			channelId: ctx.channelId,
 			coach: ctx.coach,
+			view: resolveToolView(ctx.tool),
 		},
 	};
 }
