@@ -1,6 +1,6 @@
 /**
- * The watch page panel: collapsible card with Views / Overview / AI Coach
- * tabs. Signed out it is only a compact "Sign in" card (no data is loaded).
+ * The watch page panel: collapsible card with Views / Overview / AI Coach /
+ * Comments tabs. Signed out it is only a compact "Sign in" card (no data is loaded).
  */
 import { formatCompact, formatOutlier } from "@growtube/shared/format";
 import { outlierTier } from "@growtube/shared/metrics";
@@ -22,6 +22,7 @@ import {
 import { type Store, useStore } from "../common/store";
 import { type TabDef, Tabs } from "../common/ui";
 import { CoachTab } from "./CoachTab";
+import { CommentsTab } from "./CommentsTab";
 import { useWatchData } from "./data";
 import { OverviewTab, type TagRanks } from "./OverviewTab";
 import { ViewsTab } from "./ViewsTab";
@@ -35,6 +36,7 @@ const TABS: readonly TabDef<WatchPanelTab>[] = [
 	{ id: "views", label: "Views" },
 	{ id: "overview", label: "Overview" },
 	{ id: "coach", label: "AI Coach" },
+	{ id: "comments", label: "Comments" },
 ];
 
 export function WatchPanelApp({ store }: { store: Store<WatchPanelState> }) {
@@ -193,6 +195,7 @@ function VideoPanel({
 										<OverviewTab w={w} onTagRanks={setTagRanks} />
 									)}
 									{t.id === "coach" && <CoachTab w={w} tagRanks={tagRanks} />}
+									{t.id === "comments" && <CommentsTab w={w} />}
 								</div>
 							) : null,
 						)}

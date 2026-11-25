@@ -16,6 +16,11 @@ export {
 	resolveHandle,
 } from "./channel";
 export {
+	getVideoComments,
+	MAX_COMMENTS,
+	parseCommentsPage,
+} from "./comments";
+export {
 	DEFAULT_YT_CONFIG,
 	getInnertubeConfig,
 	innertube,

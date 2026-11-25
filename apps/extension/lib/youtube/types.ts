@@ -181,6 +181,43 @@ export type Transcript = {
 	segments: TranscriptSegment[];
 };
 
+export type CommentSort = "top" | "newest";
+
+/** One top-level comment (replies are not loaded). */
+export type VideoComment = {
+	id: string;
+	/** Display name, usually "@handle" */
+	author: string;
+	authorChannelId: string | null;
+	/** Written by the video's channel */
+	isCreator: boolean;
+	text: string;
+	/** Rounded for large counts ("1.2K" -> 1200) */
+	likes: number;
+	replies: number;
+	/** "2 years ago", "3 days ago (edited)" */
+	publishedText: string | null;
+	isPinned: boolean;
+	/** Hearted by the creator */
+	isHearted: boolean;
+};
+
+export type VideoComments = {
+	videoId: string;
+	sort: CommentSort;
+	/** Total comment count from the comments header, when known */
+	total: number | null;
+	totalExact: boolean;
+	/** Comments are turned off (or not offered) for this video */
+	disabled: boolean;
+	/** Live right now (live chat instead of comments) */
+	isLive: boolean;
+	comments: VideoComment[];
+	/** More comments exist than were loaded */
+	hasMore: boolean;
+	fetchedAt: string;
+};
+
 /** InnerTube configuration (ytcfg) as seen by the extension. */
 export type YtConfig = {
 	apiKey: string | null;

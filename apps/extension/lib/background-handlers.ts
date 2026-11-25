@@ -254,6 +254,8 @@ const raw: Handlers = {
 		youtube.getSearchSuggestions(query, { hl, gl }),
 	"yt.getTranscript": ({ videoId, lang, extraTracks }) =>
 		youtube.getTranscript(videoId, { lang, extraTracks }),
+	"yt.getComments": ({ videoId, sort, limit, force }) =>
+		youtube.getVideoComments(videoId, { sort, limit, force }),
 	"yt.setConfig": ({ clientName, clientVersion, apiKey, gl }) => {
 		youtube.setInnertubeConfig({
 			clientName: clientName === "WEB" ? "WEB" : undefined,

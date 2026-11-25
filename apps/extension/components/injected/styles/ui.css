@@ -1223,6 +1223,212 @@
 	color: var(--ovq-muted);
 }
 
+/* ---------------------------------------------------------- Comments tab */
+
+.ovq-comments-tab {
+	display: grid;
+	gap: 10px;
+}
+
+.ovq-comments-tab .ovq-card + .ovq-card {
+	margin-top: 0;
+}
+
+.ovq-comments-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.ovq-comments-head .ovq-stat-label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.ovq-comments-head-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-left: auto;
+}
+
+.ovq-comment-list {
+	display: grid;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ovq-comment {
+	padding: 8px 10px;
+	border-radius: var(--ovq-radius-inner);
+	background: var(--ovq-bg);
+	min-width: 0;
+}
+
+.ovq-comment-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.ovq-comment-meta .ovq-pill {
+	height: 18px;
+	padding: 0 6px;
+	font-size: 11px;
+}
+
+.ovq-comment-author {
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.ovq-comment-author.creator {
+	padding: 0 6px;
+	border-radius: var(--ovq-radius-pill);
+	background: var(--ovq-pill);
+}
+
+.ovq-comment-text {
+	margin-top: 4px;
+	font-size: 13px;
+	line-height: 18px;
+	white-space: pre-line;
+	overflow-wrap: anywhere;
+}
+
+.ovq-comment-text.clamped {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.ovq-comment-stats {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 4px;
+	font-size: 12px;
+}
+
+.ovq-comment-stats > span {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.ovq-comment-stats .ovq-link-btn {
+	font-size: 12px;
+}
+
+.ovq-insights-body {
+	display: grid;
+	gap: 12px;
+}
+
+.ovq-insights-summary {
+	margin: 0;
+	font-size: 13px;
+	line-height: 19px;
+}
+
+.ovq-sentiment {
+	display: flex;
+	height: 8px;
+	border-radius: var(--ovq-radius-pill);
+	background: var(--ovq-pill);
+	overflow: hidden;
+}
+
+.ovq-sentiment > span {
+	display: block;
+	height: 100%;
+}
+
+.ovq-sentiment .pos,
+.ovq-sentiment-legend .pos {
+	background: var(--ovq-good);
+}
+
+.ovq-sentiment .neu,
+.ovq-sentiment-legend .neu {
+	background: var(--ovq-faint);
+}
+
+.ovq-sentiment .neg,
+.ovq-sentiment-legend .neg {
+	background: var(--ovq-danger);
+}
+
+.ovq-sentiment-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 12px;
+	margin-top: 6px;
+	color: var(--ovq-muted);
+}
+
+.ovq-sentiment-legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.ovq-sentiment-legend i {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: var(--ovq-radius-pill);
+}
+
+.ovq-insight-heading {
+	margin: 0 0 6px;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.ovq-insight-list {
+	display: grid;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ovq-insight {
+	display: grid;
+	gap: 4px;
+	padding: 8px 10px;
+	border-radius: var(--ovq-radius-inner);
+	background: var(--ovq-bg);
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.ovq-insight-title {
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.ovq-insights-foot {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 10px;
+}
+
+.ovq-insights-foot .ovq-link-btn {
+	font-size: 12px;
+}
+
 /* ---------------------------------------------------------- Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

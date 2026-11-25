@@ -11,6 +11,7 @@ import { formatCompact, formatOutlier } from "@growtube/shared/format";
 import { z } from "zod";
 
 import { clipText as clip, fitTagsTo500, renderContext } from "./coach";
+import { commentInsightsGenerator } from "./comment-insights";
 import type { ChatMessage, CoachContext } from "./types";
 
 export * from "./coach";
@@ -431,6 +432,8 @@ export const GENERATORS = {
 		],
 		postProcess: (out) => ({ ...out, score: Math.round(out.score) }),
 	}),
+
+	commentInsights: defineGenerator(commentInsightsGenerator),
 } as const;
 
 export type GeneratorKind = keyof typeof GENERATORS;

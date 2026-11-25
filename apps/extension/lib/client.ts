@@ -31,6 +31,7 @@ import type {
 	CaptionTrack,
 	ChannelRef,
 	ChannelTab,
+	CommentSort,
 	SearchSort,
 	SearchType,
 	VideoDetailsLevel,
@@ -108,6 +109,14 @@ export const yt = {
 		videoId: string,
 		opts: { lang?: string; extraTracks?: CaptionTrack[] } = {},
 	) => sendToBackground("yt.getTranscript", { videoId, ...opts }),
+	/**
+	 * Top-level comments (default 120, max 200), memory-cached 15 min in the
+	 * background. Comment text never reaches the GrowTube server.
+	 */
+	getComments: (
+		videoId: string,
+		opts: { sort?: CommentSort; limit?: number; force?: boolean } = {},
+	) => sendToBackground("yt.getComments", { videoId, ...opts }),
 };
 
 /** GrowTube server (crowdsourced history, trending). */
