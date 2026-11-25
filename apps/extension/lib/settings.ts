@@ -280,6 +280,157 @@ export const savedIdeas = storage.defineItem<SavedIdea[]>("local:savedIdeas", {
 	version: 1,
 });
 
+// ---------------------------------------------------------------------------
+// Competitor outlier alerts (run by lib/competitor-alerts.ts)
+// ---------------------------------------------------------------------------
+
+export type AlertThreshold = 2 | 3 | 5;
+export const ALERT_THRESHOLDS: readonly AlertThreshold[] = [2, 3, 5];
+
+export type CompetitorAlertSettings = {
+	/** Off until the user turns it on (Competitors tool or Settings). */
+	enabled: boolean;
+	/** Alert when a new upload reaches this many times the channel's usual views. */
+	threshold: AlertThreshold;
+	/** Ignore uploads younger than this (early numbers are noisy). */
+	minAgeHours: number;
+	/** Show notifications without a sound. */
+	silent: boolean;
+	/** Between quietStart and quietEnd (local hours) alerts go to the list only. */
+	quietHours: boolean;
+	quietStart: number;
+	quietEnd: number;
+};
+
+export const DEFAULT_ALERT_SETTINGS: CompetitorAlertSettings = {
+	enabled: false,
+	threshold: 3,
+	minAgeHours: 6,
+	silent: true,
+	quietHours: false,
+	quietStart: 22,
+	quietEnd: 8,
+};
+
+/** Fills missing/invalid fields (older or imported values). */
+export function withAlertDefaults(value: unknown): CompetitorAlertSettings {
+	const v = (value && typeof value === "object" ? value : {}) as Partial<
+		Record<keyof CompetitorAlertSettings, unknown>
+	>;
+	const d = DEFAULT_ALERT_SETTINGS;
+	const hour = (x: unknown, fallback: number) =>
+		typeof x === "number" && Number.isInteger(x) && x >= 0 && x < 24
+			? x
+			: fallback;
+	const bool = (x: unknown, fallback: boolean) =>
+		typeof x === "boolean" ? x : fallback;
+	return {
+		enabled: bool(v.enabled, d.enabled),
+		threshold: ALERT_THRESHOLDS.includes(v.threshold as AlertThreshold)
+			? (v.threshold as AlertThreshold)
+			: d.threshold,
+		minAgeHours:
+			typeof v.minAgeHours === "number" &&
+			v.minAgeHours >= 1 &&
+			v.minAgeHours <= 72
+				? v.minAgeHours
+				: d.minAgeHours,
+		silent: bool(v.silent, d.silent),
+		quietHours: bool(v.quietHours, d.quietHours),
+		quietStart: hour(v.quietStart, d.quietStart),
+		quietEnd: hour(v.quietEnd, d.quietEnd),
+	};
+}
+
+export const competitorAlertSettings =
+	storage.defineItem<CompetitorAlertSettings>("local:competitorAlertSettings", {
+		fallback: DEFAULT_ALERT_SETTINGS,
+		version: 1,
+	});
+
+export type CompetitorAlert = {
+	videoId: string;
+	title: string;
+	channelId: string;
+	channelTitle: string;
+	channelHandle: string | null;
+	thumbnail: string | null;
+	views: number;
+	/** Outlier score (views ÷ the channel's baseline) when the alert fired */
+	outlier: number;
+	vph: number | null;
+	ageHours: number;
+	publishedAt: string | null;
+	/** ms epoch */
+	at: number;
+	/** A Chrome notification was shown (false: quiet hours / per-run cap) */
+	notified: boolean;
+};
+
+export const MAX_ALERT_LOG = 50;
+
+/** Recent alerts, newest first (in-app list in the Competitors tool). */
+export const competitorAlertLog = storage.defineItem<CompetitorAlert[]>(
+	"local:competitorAlertLog",
+	{ fallback: [], version: 1 },
+);
+
+/** Run bookkeeping of the alert job (background writes it). */
+export type CompetitorAlertState = {
+	/** Videos already alerted: id -> ms epoch, pruned after a TTL */
+	seen: Record<string, number>;
+	lastRunAt: number | null;
+	lastError: string | null;
+	/** Round-robin start when there are more competitors than one run checks */
+	cursor: number;
+};
+
+export const competitorAlertState = storage.defineItem<CompetitorAlertState>(
+	"local:competitorAlertState",
+	{
+		fallback: { seen: {}, lastRunAt: null, lastError: null, cursor: 0 },
+		version: 1,
+	},
+);
+
+// ---------------------------------------------------------------------------
+// Search rank tracking (checks run by lib/rank-tracker.ts)
+// ---------------------------------------------------------------------------
+
+export type RankPoint = {
+	/** ISO time of the check */
+	t: string;
+	/** 1-based position; null = not in the top RANK_DEPTH */
+	rank: number | null;
+};
+
+export type RankTrack = {
+	id: string;
+	videoId: string;
+	query: string;
+	title: string;
+	channelTitle: string | null;
+	thumbnail: string | null;
+	createdAt: number;
+	/** Oldest first, at most RANK_HISTORY_DAYS old */
+	history: RankPoint[];
+	/** Last successful check (ms epoch) */
+	lastCheckedAt: number | null;
+	/** Last attempt, successful or not (ms epoch) */
+	lastAttemptAt?: number | null;
+	lastError: string | null;
+};
+
+export const MAX_RANK_TRACKS = 25;
+export const RANK_DEPTH = 100;
+export const RANK_HISTORY_DAYS = 180;
+
+/** Tracked (video, search term) pairs with their rank history. */
+export const rankTracks = storage.defineItem<RankTrack[]>("local:rankTracks", {
+	fallback: [],
+	version: 1,
+});
+
 /** Set once the onboarding (options page) has been shown. */
 export const onboardingDone = storage.defineItem<boolean>(
 	"local:onboardingDone",
@@ -301,6 +452,10 @@ export const SETTINGS_ITEMS = {
 	aiConversations,
 	savedIdeas,
 	onboardingDone,
+	competitorAlertSettings,
+	competitorAlertLog,
+	competitorAlertState,
+	rankTracks,
 } as const;
 
 /** Small random id for conversations, ideas, messages. */

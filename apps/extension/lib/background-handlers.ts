@@ -33,6 +33,7 @@ import {
 	signUp,
 } from "./auth-session";
 import { cacheClear } from "./cache";
+import { runCompetitorAlerts } from "./competitor-alerts";
 import { type CurrentContext, currentContext } from "./context";
 import { createLimiter } from "./limiter";
 import type {
@@ -42,6 +43,7 @@ import type {
 	MessageType,
 } from "./messaging";
 import { hasOriginPermission, originOf } from "./permissions";
+import { checkRankTracks } from "./rank-tracker";
 import * as youtube from "./youtube";
 import type { VideoDetails } from "./youtube/types";
 import {
@@ -308,6 +310,11 @@ const raw: Handlers = {
 	"ai.test": () => testProvider(),
 	"ai.generateImage": ({ prompt, size, quality, model, n }) =>
 		generateImage(prompt, { size, quality, model, n }),
+
+	// ---- Background jobs ----
+	"alerts.checkNow": () => runCompetitorAlerts({ manual: true }),
+	"ranks.check": ({ ids }) =>
+		checkRankTracks(Array.isArray(ids) ? ids.slice(0, 100) : "all"),
 
 	// ---- Extension ----
 	"sidepanel.open": async ({ context }, ctx) => {

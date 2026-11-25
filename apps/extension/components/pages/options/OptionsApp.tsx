@@ -1,7 +1,7 @@
 /**
  * Options page (opens in a tab): account, AI provider, server & privacy, my
  * channel, features, appearance, data and about. Deep links:
- * options.html#account, #ai, #server, #channel, #features, #appearance,
+ * options.html#account, #ai, #server, #channel, #alerts, #features, #appearance,
  * #data, #about. Signed out, only Account, Server & privacy (the server URL
  * must be settable before signing in) and Your data (erasing what this
  * browser keeps is a privacy control, e.g. after deleting the account) are
@@ -11,6 +11,7 @@ import { Button } from "@growtube/ui/components/button";
 import { TooltipProvider } from "@growtube/ui/components/tooltip";
 import { cn } from "@growtube/ui/lib/utils";
 import {
+	BellRing,
 	Crown,
 	Database,
 	Info,
@@ -35,6 +36,7 @@ import { LoadingBlock, Notice } from "../ui/feedback";
 import { Toasts } from "../ui/toast";
 import { AccountSection } from "./AccountSection";
 import { AiSection } from "./AiSection";
+import { AlertsSection } from "./AlertsSection";
 import {
 	AboutSection,
 	AppearanceSection,
@@ -49,6 +51,7 @@ const NAV = [
 	{ id: "ai", label: "AI provider", icon: Sparkles, open: false },
 	{ id: "server", label: "Server & privacy", icon: Server, open: true },
 	{ id: "channel", label: "My channel", icon: Crown, open: false },
+	{ id: "alerts", label: "Competitor alerts", icon: BellRing, open: false },
 	{ id: "features", label: "Features", icon: SlidersHorizontal, open: false },
 	{ id: "appearance", label: "Appearance", icon: Palette, open: false },
 	{ id: "data", label: "Your data", icon: Database, open: true },
@@ -200,6 +203,7 @@ export function OptionsApp() {
 								<AiSection />
 								<ServerSection />
 								<ChannelSection />
+								<AlertsSection />
 								<FeaturesSection />
 								<AppearanceSection />
 								<DataSection />

@@ -12,6 +12,7 @@ import { channelUrl } from "@growtube/shared/youtube";
 import { Button } from "@growtube/ui/components/button";
 import { cn } from "@growtube/ui/lib/utils";
 import {
+	BellRing,
 	ChevronDown,
 	Crown,
 	ExternalLink,
@@ -31,6 +32,7 @@ import { type Competitor, competitors, myChannel } from "@/lib/settings";
 import type { ChannelInfo } from "@/lib/youtube/types";
 import { isPublicVideo } from "@/lib/youtube/visibility";
 
+import { CompetitorAlertsPanel } from "../../../alerts";
 import {
 	channelSummary,
 	loadChannelOverview,
@@ -145,6 +147,10 @@ export function CompetitorsTool({ intent }: ToolProps) {
 					</Button>
 				) : null}
 				{add.error ? <ErrorNotice error={add.error} /> : null}
+			</Section>
+
+			<Section title="Outlier alerts" icon={BellRing}>
+				<CompetitorAlertsPanel />
 			</Section>
 
 			{list.length === 0 ? (
