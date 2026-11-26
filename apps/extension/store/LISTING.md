@@ -29,21 +29,16 @@ recommendation.
 ### Summary (short description)
 
 The dashboard takes this from the manifest `description`: plain text, at most 132 characters.
-The current text is 94 characters:
+Since 1.0.1 the text is (100 characters):
 
 ```text
-Free YouTube creator toolkit: VPH, outliers, SEO, keyword research and an AI coach. No limits.
+Free YouTube creator toolkit: views per hour, outlier scores, SEO, keyword research and an AI coach.
 ```
 
-Proposed (111 characters). It spells out "VPH", which new users don't know and don't search
-for:
-
-```text
-Free YouTube creator toolkit: views per hour, outlier scores, SEO, keyword research and an AI coach. No limits.
-```
-
-If you take the proposed text, change `description` in `apps/extension/wxt.config.ts` to
-match it, then rebuild the ZIP. The store summary always shows the manifest's text.
+1.0.0 said "VPH" and ended with "No limits.". "VPH" is spelled out because new users don't
+know it, and "No limits." was dropped as an unprovable claim. To change it, edit
+`description` in `apps/extension/wxt.config.ts` and rebuild the ZIP: the store summary
+always shows the manifest's text.
 
 ### Detailed description
 
@@ -413,7 +408,7 @@ Still open, by priority:
    `apps/web/src/routes/privacy.tsx` are `null` for now: while they are, the page leaves
    the name out and points contact requests to GitHub issues. Set `OPERATOR` (the developer
    name the dashboard shows) and `CONTACT_EMAIL` (the developer account's public contact
-   email), then redeploy with `pnpm run deploy --stage production`. Privacy, deletion and
+   email), then redeploy with `pnpm run deploy`. Privacy, deletion and
    children's-data requests shouldn't go only to public GitHub issues.
 2. **Push the repo and make it public (required while the listing links it).** The listing's
    GitHub link, the support URL and the policy's second contact point at

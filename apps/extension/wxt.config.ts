@@ -62,7 +62,7 @@ export default defineConfig({
 			name: "GrowTube",
 			short_name: "GrowTube",
 			description:
-				"Free YouTube creator toolkit: VPH, outliers, SEO, keyword research and an AI coach. No limits.",
+				"Free YouTube creator toolkit: views per hour, outlier scores, SEO, keyword research and an AI coach.",
 			// sidePanel.open() needs 116; MAIN-world content scripts need 111.
 			minimum_chrome_version: "116",
 			permissions: [
