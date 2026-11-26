@@ -258,11 +258,13 @@ hourly cron trigger included.
 4. **Deploy:**
 
    ```bash
-   pnpm run deploy --stage production
+   pnpm run deploy
    ```
 
-   Use `pnpm run deploy`, not `pnpm deploy` (a built-in pnpm command), and always the
-   same `--stage production`. It deploys two Workers and prints both URLs at the end:
+   Use `pnpm run deploy`, not `pnpm deploy` (a built-in pnpm command). The script always
+   deploys the `production` stage; a bare `alchemy deploy` would use a new stage named
+   after you and create a second set of Workers. It deploys two Workers and prints both
+   URLs at the end:
    - **`growtube-api`**, the server, at `https://growtube-api.<your-subdomain>.workers.dev`.
    - **`growtube`**, the website, at `https://growtube.<your-subdomain>.workers.dev`.
      Alchemy builds `apps/web` with `VITE_SERVER_URL` set to the deployed server's URL

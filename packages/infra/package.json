@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev:remote": "alchemy dev",
 		"check-types": "tsc --noEmit",
-		"deploy": "alchemy deploy",
+		"deploy": "alchemy deploy --stage production",
 		"destroy": "alchemy destroy"
 	},
 	"dependencies": {
